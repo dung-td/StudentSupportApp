@@ -14,7 +14,7 @@
 
 ## **AUTHORS** ##
 
- > Repository Representer: Tong Duc Dung () 
+ > Repository Representer: Tong Duc Dung 
  
  > Contribution:
 > - Tong Duc Dung: <Leader/ Dev>
