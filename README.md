@@ -1,1 +1,7 @@
 # StudentSupportApp
+
+##**DESCRITPTION**##
+
+##**FEATURES**##
+
+##**AUTHORS**##
