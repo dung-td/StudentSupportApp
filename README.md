@@ -8,7 +8,7 @@
 ## **FEATURES** ##
 
 > - Digital schedule and timetable.
-> - Keep up to date to the announcements, news, studying results, tuitions fees,... from school's websites.
+> - Keep up to date to the announcements, news, studying results, tuitions fees,... 
 > - Noting tool
 > - (updating)
 
