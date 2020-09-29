@@ -1,4 +1,4 @@
-﻿using Project;
+using Project;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,7 +83,7 @@ N'" + tbMidVa.Text + @"', N'" + tbPracVa.Text + @"', N'" + tbFinVa.Text + @"', N
 N'" + tbMidWei.Text + @"', N'" + tbPracWei.Text + @"', N'" + tbFinWei.Text + @"', N'" + aver + @"')";
 
 
-                //            sql = @"Insert Into TableScore(ID, SUBJECT, CREDIT, PROCESS, MID, PRACT, FINAL, W1, W2, W3, W4, AVER)
+                //sql = @"Insert Into TableScore(ID, SUBJECT, CREDIT, PROCESS, MID, PRACT, FINAL, W1, W2, W3, W4, AVER)
                 //VALUES (N'" + tbSubID.Text + @"', N'" + tbSubName.Text + @"', N'" + tbCredit.Text + @"', N'" + tbProVa.Text + @"', 
                 //N'" + tbMidVa.Text + @"', N'" + tbPracVa.Text + @"', N'" + tbFinVa.Text + @"', N'" + tbProWei.Text + @"', 
                 //N'" + tbMidWei.Text + @"', N'" + tbPracWei.Text + @"', N'" + tbFinWei.Text + @"', N'" + SCOREOFSUB.Average.ToString() + @"')";
@@ -97,37 +97,6 @@ N'" + tbMidWei.Text + @"', N'" + tbPracWei.Text + @"', N'" + tbFinWei.Text + @"'
                 MessageBox.Show(err.Message);
             }
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelWeight_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gbScoreTable_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             connect = new SqlConnection(link);
@@ -215,29 +184,11 @@ N'" + tbMidWei.Text + @"', N'" + tbPracWei.Text + @"', N'" + tbFinWei.Text + @"'
                 MessageBox.Show(err.Message);
             }
         }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-          
-        }
-
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-    
         public void GetInfo(List <string> l)
         {
             sInfo = new List<string>();
             sInfo = l;
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -260,10 +211,6 @@ N'" + tbMidWei.Text + @"', N'" + tbPracWei.Text + @"', N'" + tbFinWei.Text + @"'
                 MessageBox.Show(err.Message);
             }
         }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
+
