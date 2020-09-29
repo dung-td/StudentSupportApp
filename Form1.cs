@@ -271,11 +271,6 @@ N'" + tbMidWei.Text + @"', N'" + tbPracWei.Text + @"', N'" + tbFinWei.Text + @"'
             }
         }
 
-        public void ModifyScore()
-        {
-         
-        }
-
         private void label1_Click_1(object sender, EventArgs e)
         {
 
