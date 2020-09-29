@@ -221,12 +221,6 @@ N'" + tbMidWei.Text + @"', N'" + tbPracWei.Text + @"', N'" + tbFinWei.Text + @"'
           
         }
 
-     
-
-        public void AddScores(List <string> l)
-        {
-           
-        }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
@@ -242,10 +236,6 @@ N'" + tbMidWei.Text + @"', N'" + tbPracWei.Text + @"', N'" + tbFinWei.Text + @"'
         {
             sInfo = new List<string>();
             sInfo = l;
-        }
-       public void AddInfo()
-        {
-          
         }
 
         private void button2_Click(object sender, EventArgs e)
