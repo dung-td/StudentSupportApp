@@ -53,17 +53,5 @@ namespace Project
                 this.fWeight = value;
             }
         }
-
-        public void ImportValue()
-        {
-            
-        }
-
-        public void ImportWeight()
-        {
-            
-        }     
-
-
     }
 }
