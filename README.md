@@ -7,10 +7,12 @@
 
 ## **FEATURES** ##
 
-> - Digital schedule and timetable.
-> - Keep up to date to the announcements, news, studying results, tuitions fees,... 
-> - Noting tool
-> - (updating)
+> - Tab Scores: Easy to modify and control informaion later.
+> - Tab Schedules: Add once and have an apparent, minimal timetable, modify or create new as you want.
+> - Tab Notifications: Add your deadline dates and keep up to them.
+> - Tab Information: Show up your whole personal information to let you control it.
+> - Tab GeneralSettings: Make some changes to comfort yourself.
+> - Tab Home: Nearest deadline, today schedules, notes...
 
 ## **AUTHORS** ##
 
