@@ -1,4 +1,4 @@
-namespace StudentSupportApp
+namespace SSA
 {
     partial class LoginForm
     {
