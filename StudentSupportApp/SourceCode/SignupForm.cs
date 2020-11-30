@@ -1,64 +1,106 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using System.Windows.Forms;
 
-namespace SSA
+namespace StudentSupportApp
 {
-    public partial class SignupForm : Form
+    public partial class SignUp : Form
     {
         LoginForm parent;
-        public SignupForm()
-        {
-            InitializeComponent();
-        }
-        public SignupForm(LoginForm parent)
+        EmailVerify EmailVerify;
+        public SignUp(LoginForm parent)
         {
             this.parent = parent;
             InitializeComponent();
         }
-        private int CheckPassword()
-        {
-            if (tbxPassSU.Text.Length < 8) return 2;
-            if (tbxRePassSU.Text != tbxPassSU.Text) return 3;
-            return 1;
-        }
 
-        private void btnSignup_Click(object sender, EventArgs e)
-        {
-            if (CheckPassword() == 1)
-            {
-                USER user = new USER();
-                user.ID = tbxIDSU.Text;
-                MD5Encoder PasswordEncoder = new MD5Encoder();
-                user.Password = PasswordEncoder.FromString(tbxPassSU.Text);
-                user.AddUserToDatabase();
-                MessageBox.Show("Signed up successfully!", "StudentSupportApp");
-            }
-            else if (CheckPassword() == 2) lbShortPass.Visible = true;
-            else lbRepassWrong.Visible = true;
-        }
-
-        private void btnCancelSU_Click(object sender, EventArgs e)
+        private void bCancel_Click(object sender, EventArgs e)
         {
             this.parent.Show();
             this.Close();
         }
-
-        private void tbxPassSU_TextChanged(object sender, EventArgs e)
+        private int CheckPassword()
         {
-            lbShortPass.Visible = false;
-            lbRepassWrong.Visible = false;
+            if (tbxPass.Text.Length < 8) return 2;
+            if (tbxPass.Text != tbxConfirmPass.Text) return 3;
+            return 1;
+        }
+        private int CheckCode()
+        {
+            if (this.EmailVerify.GetCode != tbxCode.Text)
+                return 0;
+            else return 1;
+        }
+        private int CheckEmail()
+        {
+            if (!(tbxEmail.Text.Contains("@")))
+                return 0;
+            return 1;
+        }
+        private void bSignUp_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            if (CheckPassword() == 1 && CheckCode() == 1)
+            {
+                USER user = new USER();
+                user.ID = tbxID.Text;
+                MD5Encoder PasswordEncoder = new MD5Encoder();
+                user.Password = PasswordEncoder.FromString(tbxPass.Text);
+                user.Birthday = dateBirth.Value;
+                user.Email = tbxEmail.Text;
+                user.Name = tbxName.Text;
+                user.Class = tbxClass.Text;
+                user.Gender = tbxGender.Text;
+                this.EmailVerify = new EmailVerify(user.Email);
+                user.AddUserToDatabase();
+                MessageBox.Show("Signed up successfully!", "StudentSupportApp", buttons);
+                this.Close();
+                this.parent.Show();
+            }
+            else if (CheckCode() == 0)
+            {
+                MessageBox.Show("Invalid code! Please try agian!", "StudentSupportApp", buttons);
+                lbCodeSent.Hide();
+            }
+            else if (CheckPassword() == 2) lbShortPass.Visible = true;
+            else if (CheckPassword() == 3) lbConfirmWrong.Visible = true;
         }
 
-        private void tbxRePassSU_TextChanged(object sender, EventArgs e)
+        private void bSendCode_Click(object sender, EventArgs e)
         {
-            lbRepassWrong.Visible = false;
+            USER temp = new USER();
+            temp.Email = this.tbxEmail.Text;
+            if (CheckEmail() == 0)
+            {
+                lbValidEmail.Show();
+            }
+            else if (temp.CheckEmail() == 1)
+            {
+                this.EmailVerify = new EmailVerify(tbxEmail.Text);
+                this.EmailVerify.GetRandomCode();
+                this.EmailVerify.SendMail();
+                lbCodeSent.Show();
+            }
+            else
+            {
+                lbUsedMail.Show();
+            }
+        }
+
+        private void tbxPass_OnValueChanged(object sender, EventArgs e)
+        {
+            lbShortPass.Visible = false;
+            lbConfirmWrong.Visible = false;
+        }
+
+        private void tbxConfirmPass_OnValueChanged(object sender, EventArgs e)
+        {
+            lbConfirmWrong.Visible = false;
+        }
+
+        private void tbxEmail_OnValueChanged(object sender, EventArgs e)
+        {
+            lbUsedMail.Hide();
+            lbValidEmail.Hide();
         }
     }
 }
