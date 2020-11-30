@@ -1,14 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SSA
+namespace StudentSupportApp
 {
     public partial class LoginForm : Form
     {
@@ -17,42 +10,51 @@ namespace SSA
             InitializeComponent();
         }
 
-        private void btnSignup_Click(object sender, EventArgs e)
+        private void bExit_Click(object sender, EventArgs e)
         {
-            SignupForm signup = new SignupForm(this);
-            signup.Show();
-            this.Hide();
+            
+            Application.Exit();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void bLogin_Click(object sender, EventArgs e)
         {
             USER user = new USER();
             user.ID = tbxID.Text;
-            user.Password = tbxPassLogin.Text;
+            user.Password = tbxPass.Text;
             if (user.CheckLogin() == 1)
             {
-                MainForm SSA = new MainForm(this, user.ID);
-                SSA.Show();
+                MainForm mainForm = new MainForm(this, user.ID);
+                mainForm.Show();
                 this.Hide();
             }
             else if (user.CheckLogin() == 0)
             {
-                lbIDinvalid.Visible = true;
+                labelInvalid.Visible = true;
             }
-            else lbWrongPass.Visible = true;
-        }
+            else labelWrong.Visible = true;
 
-        private void btnExitApp_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
-
-        private void tbxPassLogin_KeyDown(object sender, KeyEventArgs e)
+        private void tbxPass_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnLogin_Click(sender, e);
+                bLogin_Click(sender, e);
             }
+        }
+        private void bSignUp_Click(object sender, EventArgs e)
+        {
+            SignUp signUp = new SignUp(this);
+            signUp.Show();
+            this.Hide();
+        }
+        private void tbxID_OnValueChanged(object sender, EventArgs e)
+        {
+            labelInvalid.Hide();
+        }
+        private void tbxPass_OnValueChanged(object sender, EventArgs e)
+        {
+            labelWrong.Hide();
+            tbxPass.isPassword = true;
         }
     }
 }
