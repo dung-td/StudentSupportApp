@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
+using System;
 
-namespace SSA
+namespace StudentSupportApp
 {
     class Deadlines
     {
         string sID;
-        string sTimeSubmit;
+        DateTime dtTimeSubmit;
         string sSubject;
         string sSubjectCode;
         string sDetails;
@@ -18,30 +13,41 @@ namespace SSA
         public Deadlines()
         {
             sID = "00000";
-            sTimeSubmit = DateTime.Today.ToString();
+            dtTimeSubmit = DateTime.Today;
             sSubject = "Nhap Mon Lap Trinh";
             sSubjectCode = "IT001.K15";
             sDetails = "Nop bai NMLT!";
             bStatus = "Da nop bai";
         }
-        public Deadlines(string[] args)
+        public Deadlines(string[] args, DateTime DT)
         {
             sID = args[0];
             sSubject = args[1];
             sSubjectCode = args[2];
             sDetails = args[3];
-            sTimeSubmit = args[4];
-            bStatus = args[5];
+            bStatus = args[4];
+            dtTimeSubmit = DT;
         }
-        public string TimeRemain
+        public string ID
         {
             get
             {
-                return sTimeSubmit;
+                return sID;
             }
             set
             {
-                this.sTimeSubmit = value;
+                this.sID = value;
+            }
+        }
+        public DateTime TimeSubmit
+        {
+            get
+            {
+                return dtTimeSubmit;
+            }
+            set
+            {
+                dtTimeSubmit = value;
             }
         }
         public string Subject
@@ -107,9 +113,9 @@ namespace SSA
             this.Status = DL.Status;
             DL.Status = temp;
 
-            temp = this.TimeRemain;
-            this.TimeRemain = DL.TimeRemain;
-            DL.TimeRemain = temp;
+            DateTime temp1 = this.dtTimeSubmit;
+            this.dtTimeSubmit = DL.dtTimeSubmit;
+            DL.dtTimeSubmit = temp1;
         }
     }
 }
