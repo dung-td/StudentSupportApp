@@ -1,26 +1,20 @@
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SSA
+namespace StudentSupportApp
 {
     public partial class MainForm : Form
     {
-        USER User;
+        Bunifu.Framework.UI.BunifuFlatButton temp = new Bunifu.Framework.UI.BunifuFlatButton();
         LoginForm parent;
         Connect Connection;
-        Deadlines[] ListDeadline = new Deadlines[1000];
+        USER User = new USER();
         ListSem data = new ListSem();
         public MainForm(LoginForm parent, string User)
         {
@@ -28,17 +22,274 @@ namespace SSA
             this.User.ID = User;
             this.parent = parent;
             this.Connection = new Connect();
+            InitializeComponent();
+            temp = this.btnHome;
             ListSem data = new ListSem();
             data.Read(this.User.ID);
-            InitializeComponent();
-            lAverAll.Text = "Average: " + data.Average.ToString();
-            lCreSum.Text = "Sum of Credits: " + data.SumOfCre.ToString();
+            AddItemToComboBoxSemester();
+            tbCredit.Enabled = tbSubID.Enabled = tbSubName.Enabled = tbProVa.Enabled = tbProWei.Enabled
+                = tbMidVa.Enabled = tbMidWei.Enabled = tbFinVa.Enabled = tbFinWei.Enabled = tbPracVa.Enabled = tbPracWei.Enabled= false;
+            bAddScore.Enabled = bModify.Enabled = bDel.Enabled = false;
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.parent.Show();
+            this.Close();
+        }
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void btnCollapse_Click(object sender, EventArgs e)
+        {
+            if (slidemenu.Width == 55)
+            {
+                slidemenu.Visible = false;
+                slidemenu.Width = 260;
+                PanelAnimatior.ShowSync(slidemenu);
+                //Dung
+                this.cardDeadline.Width -= 208;
+                this.cardStatus.Width -= 104;
+                this.cardInfo.Location = new Point(this.cardStatus.Location.X + 275, this.cardStatus.Location.Y);
+                this.cardInfo.Width -= 104;
+                this.btbDetails.Width -= 100;
+                this.btbSubject.Width -= 100;
+                this.bdateTime.Width -= 100;
+                this.btbStatus.Width -= 100;
+                this.dataDeadline.Width -= 208;
+                this.bEditSave.Location = new Point(this.bRefresh.Location.X + 400, this.bRefresh.Location.Y);
+                //Danh
+                this.bCardTimetable.Width -= 200;
+                this.dataGridViewTimetable.Width -= 200;
+                this.bunifuCardUserInfo.Width -= 200;
+                this.bunifuCardAcc.Width -= 200;
+                btnChangeInfo.Location = new Point(btnChangeInfo.Location.X - 210, btnChangeInfo.Location.Y);
+                btnSaveInfo.Location = new Point(btnSaveInfo.Location.X - 210, btnSaveInfo.Location.Y);
+                btnCancelInfo.Location = new Point(btnCancelInfo.Location.X - 210, btnCancelInfo.Location.Y);
+                btnChangeEmail.Location = new Point(btnChangeEmail.Location.X - 210, btnChangeEmail.Location.Y);
+                this.tbxNameInfo.Width -= 210;
+                this.tbxGenderInfo.Width -= 210;
+                this.tbxClassInfo.Width -= 210;
+                this.BirthDTPicker.Width -= 110;
+                this.tbxEmailInfo.Width -= 210;
+                BirthDTPicker.Location = new Point(BirthDTPicker.Location.X - 80, BirthDTPicker.Location.Y);
+
+                //Linh
+                // AddScore
+                this.cardAddScore.Width -= 220;
+                this.cardSBoard.Width-= 220;
+
+                lSem.Location = new Point(lSem.Location.X - 100, lSem.Location.Y);
+                lAddScore.Location = new Point(lAddScore.Location.X - 100, lAddScore.Location.Y);
+                bSem.Location = new Point(bSem.Location.X - 100, bSem.Location.Y);
+                cbSemester.Location = new Point(cbSemester.Location.X - 100, cbSemester.Location.Y);
+                tbSubID.Location = new Point(tbSubID.Location.X - 100, tbSubID.Location.Y);
+                tbSubName.Location = new Point(tbSubName.Location.X - 100, tbSubName.Location.Y);
+                tbCredit.Location = new Point(tbCredit.Location.X - 100, tbCredit.Location.Y);
+
+                lPro.Location = new Point(lPro.Location.X + 100, lPro.Location.Y);
+                lMid.Location = new Point(lMid.Location.X + 100, lMid.Location.Y);
+                lPrac.Location = new Point(lPrac.Location.X + 100, lPrac.Location.Y);
+                lFin.Location = new Point(lFin.Location.X + 100, lFin.Location.Y);
+
+                tbProVa.Location = new Point(tbProVa.Location.X + 100, tbProVa.Location.Y);
+                tbMidVa.Location = new Point(tbMidVa.Location.X + 100, tbMidVa.Location.Y);
+                tbPracVa.Location = new Point(tbPracVa.Location.X + 100, tbPracVa.Location.Y);
+                tbFinVa.Location = new Point(tbFinVa.Location.X + 100, tbFinVa.Location.Y);
+
+                tbProWei.Location = new Point(tbProWei.Location.X + 100, tbProWei.Location.Y);
+                tbMidWei.Location = new Point(tbMidWei.Location.X + 100, tbMidWei.Location.Y);
+                tbPracWei.Location = new Point(tbPracWei.Location.X + 100, tbPracWei.Location.Y);
+                tbFinWei.Location = new Point(tbFinWei.Location.X + 100, tbFinWei.Location.Y);
+
+                bAddScore.Location = new Point(bAddScore.Location.X + 100, bAddScore.Location.Y);
+                bModify.Location = new Point(bModify.Location.X + 100, bModify.Location.Y);
+                bDel.Location = new Point(bDel.Location.X + 100, bDel.Location.Y);
+
+                //ScoreBoard
+               
+                lSBoard.Location = new Point(lSBoard.Location.X - 100, lSBoard.Location.Y);
+                lAmountSub.Location = new Point(lAmountSub.Location.X - 100, lAmountSub.Location.Y);
+                lSumCre.Location = new Point(lSumCre.Location.X - 100, lSumCre.Location.Y);
+                l_Average.Location = new Point(l_Average.Location.X - 100, l_Average.Location.Y);
+                lvScoreBoard.Location = new Point(lvScoreBoard.Location.X - 50, lvScoreBoard.Location.Y);
+                lvScoreBoard.Width += 50;
+
+                //Setting
+                cardAcc.Width -= 50;
+                cardLang.Location = new Point(cardLang.Location.X - 75, cardLang.Location.Y);
+                cardLang.Width -= 50;
+                cardTheme.Location = new Point(cardTheme.Location.X - 150, cardTheme.Location.Y);
+                cardTheme.Width -= 50;
+                cardMore.Width -= 125;
+
+                bSetData.Location = new Point(bSetData.Location.X - 25, bSetData.Location.Y);
+                bChangePass.Location = new Point(bChangePass.Location.X - 25, bChangePass.Location.Y);
+                bDelAcc.Location = new Point(bDelAcc.Location.X - 25, bDelAcc.Location.Y);
+
+                bFeedSup.Location = new Point(bFeedSup.Location.X - 100, bFeedSup.Location.Y);
+                bShareApp.Location = new Point(bShareApp.Location.X - 100, bShareApp.Location.Y);
+                bAboutUs.Location = new Point(bAboutUs.Location.X - 100, bAboutUs.Location.Y);
+
+                bTheme1.Location = new Point(bTheme1.Location.X - 25, bTheme1.Location.Y);
+                bTheme2.Location = new Point(bTheme2.Location.X - 25, bTheme2.Location.Y);
+                bTheme3.Location = new Point(bTheme3.Location.X - 25, bTheme3.Location.Y);
+                bTheme4.Location = new Point(bTheme4.Location.X - 25, bTheme4.Location.Y);
+            }
+            else
+            {
+                // LogoAnimator.Hide(logo);
+                slidemenu.Visible = false;
+                slidemenu.Width = 55;
+                PanelAnimatior.ShowSync(slidemenu);
+                //Dung
+                this.cardDeadline.Width += 208;
+                this.cardStatus.Width += 104;
+                this.cardInfo.Location = new Point(this.cardStatus.Location.X + 375, this.cardStatus.Location.Y);
+                this.cardInfo.Width += 104;
+                this.btbDetails.Width += 100;
+                this.btbSubject.Width += 100;
+                this.bdateTime.Width += 100;
+                this.btbStatus.Width += 100;
+                this.dataDeadline.Width += 208;
+                this.bEditSave.Location = new Point(this.bRefresh.Location.X + 620, this.bRefresh.Location.Y);
+                //Danh
+                this.bCardTimetable.Width += 200;
+                this.dataGridViewTimetable.Width += 200;
+                this.bunifuCardUserInfo.Width += 200;
+                this.bunifuCardAcc.Width += 200;
+                btnChangeInfo.Location = new Point(btnChangeInfo.Location.X + 210, btnChangeInfo.Location.Y);
+                btnSaveInfo.Location = new Point(btnSaveInfo.Location.X + 210, btnSaveInfo.Location.Y);
+                btnCancelInfo.Location = new Point(btnCancelInfo.Location.X + 210, btnCancelInfo.Location.Y);
+                btnChangeEmail.Location = new Point(btnChangeEmail.Location.X + 210, btnChangeEmail.Location.Y);
+                this.tbxNameInfo.Width += 210;
+                this.tbxGenderInfo.Width += 210;
+                this.tbxClassInfo.Width += 210;
+                this.BirthDTPicker.Width += 110;
+                this.tbxEmailInfo.Width += 210;
+                BirthDTPicker.Location = new Point(BirthDTPicker.Location.X + 80, BirthDTPicker.Location.Y);
+
+                //Linh
+                this.cardAddScore.Width += 220;
+                this.cardSBoard.Width += 220;
+                //AddScore
+                lSem.Location = new Point(lSem.Location.X + 100, lSem.Location.Y);
+                lAddScore.Location = new Point(lAddScore.Location.X+100, lAddScore.Location.Y);
+                bSem.Location = new Point(bSem.Location.X + 100, bSem.Location.Y);
+                cbSemester.Location = new Point(cbSemester.Location.X + 100, cbSemester.Location.Y);
+                tbSubID.Location = new Point(tbSubID.Location.X+100, tbSubID.Location.Y);
+                tbSubName.Location = new Point(tbSubName.Location.X+100, tbSubName.Location.Y);
+                tbCredit.Location = new Point(tbCredit.Location.X+100, tbCredit.Location.Y);
+
+                lPro.Location = new Point(lPro.Location.X - 100, lPro.Location.Y);
+                lMid.Location = new Point(lMid.Location.X - 100, lMid.Location.Y);
+                lPrac.Location = new Point(lPrac.Location.X - 100, lPrac.Location.Y);
+                lFin.Location = new Point(lFin.Location.X - 100, lFin.Location.Y);
+
+                tbProVa.Location = new Point(tbProVa.Location.X - 100, tbProVa.Location.Y);
+                tbMidVa.Location = new Point(tbMidVa.Location.X - 100, tbMidVa.Location.Y);
+                tbPracVa.Location = new Point(tbPracVa.Location.X - 100, tbPracVa.Location.Y);
+                tbFinVa.Location = new Point(tbFinVa.Location.X - 100, tbFinVa.Location.Y);
+
+                tbProWei.Location = new Point(tbProWei.Location.X - 100, tbProWei.Location.Y);
+                tbMidWei.Location = new Point(tbMidWei.Location.X - 100, tbMidWei.Location.Y);
+                tbPracWei.Location = new Point(tbPracWei.Location.X - 100, tbPracWei.Location.Y);
+                tbFinWei.Location = new Point(tbFinWei.Location.X - 100, tbFinWei.Location.Y);
+
+                bAddScore.Location = new Point(bAddScore.Location.X - 100, bAddScore.Location.Y);
+                bModify.Location = new Point(bModify.Location.X - 100, bModify.Location.Y);
+                bDel.Location = new Point(bDel.Location.X - 100, bDel.Location.Y);
+
+                //ScoreBoard
+                
+                lSBoard.Location = new Point(lSBoard.Location.X + 100, lSBoard.Location.Y);
+                lAmountSub.Location = new Point(lAmountSub.Location.X + 100, lAmountSub.Location.Y);
+                lSumCre.Location = new Point(lSumCre.Location.X + 100, lSumCre.Location.Y);
+                l_Average.Location = new Point(l_Average.Location.X + 100, l_Average.Location.Y);
+                lvScoreBoard.Location = new Point(lvScoreBoard.Location.X + 50, lvScoreBoard.Location.Y);
+                lvScoreBoard.Width -= 50;
+
+                //Setting
+                cardAcc.Width += 50;
+                cardLang.Location = new Point(cardLang.Location.X + 75, cardLang.Location.Y);
+                cardLang.Width += 50;
+                cardTheme.Location = new Point(cardTheme.Location.X + 150, cardTheme.Location.Y);
+                cardTheme.Width += 50;
+                cardMore.Width += 125;
+
+                bSetData.Location = new Point(bSetData.Location.X + 25, bSetData.Location.Y);
+                bChangePass.Location = new Point(bChangePass.Location.X + 25, bChangePass.Location.Y);
+                bDelAcc.Location = new Point(bDelAcc.Location.X + 25, bDelAcc.Location.Y);
+
+                bFeedSup.Location = new Point(bFeedSup.Location.X + 100, bFeedSup.Location.Y);
+                bShareApp.Location = new Point(bShareApp.Location.X + 100, bShareApp.Location.Y);
+                bAboutUs.Location = new Point(bAboutUs.Location.X + 100, bAboutUs.Location.Y);
+
+                bTheme1.Location = new Point(bTheme1.Location.X + 25, bTheme1.Location.Y);
+                bTheme2.Location = new Point(bTheme2.Location.X + 25, bTheme2.Location.Y);
+                bTheme3.Location = new Point(bTheme3.Location.X + 25, bTheme3.Location.Y);
+                bTheme4.Location = new Point(bTheme4.Location.X + 25, bTheme4.Location.Y);
+
+            }
+        }
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            temp.Normalcolor = Color.FromArgb(26, 32, 40);
+            this.btnHome.Normalcolor = Color.CornflowerBlue;
+            panelHome.Dock = DockStyle.Fill;
+            panelHome.BringToFront();
+            temp = btnHome;
+        }
+        private void btnScore_Click(object sender, EventArgs e)
+        {
+            temp.Normalcolor = Color.FromArgb(26, 32, 40);
+            this.btnScore.Normalcolor = Color.CornflowerBlue;
+            panelScore.Dock = DockStyle.Fill;
+            panelScore.BringToFront();
+            temp = btnScore;
+        }
+        private void bNofitication_Click(object sender, EventArgs e)
+        {
+            temp.Normalcolor = Color.FromArgb(26, 32, 40);
+            this.btnNofitication.Normalcolor = Color.CornflowerBlue;
+            temp = btnNofitication;
+            this.panelNoti.Dock = DockStyle.Fill;
+            panelNoti.BringToFront();
+        }
+        private void btnTimeTable_Click(object sender, EventArgs e)
+        {
+            temp.Normalcolor = Color.FromArgb(26, 32, 40);
+            this.btnTimeTable.Normalcolor = Color.CornflowerBlue;
+            this.panelTimetable.Dock = DockStyle.Fill;
+            panelTimetable.BringToFront();
+            temp = btnTimeTable;
+        }
+
+        private void btnInformation_Click(object sender, EventArgs e)
+        {
+            temp.Normalcolor = Color.FromArgb(26, 32, 40);
+            this.btnInformation.Normalcolor = Color.CornflowerBlue;
+            this.panelInfo.Dock = DockStyle.Fill;
+            panelInfo.BringToFront();
+            temp = btnInformation;
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            temp.Normalcolor = Color.FromArgb(26, 32, 40);
+            this.btnSetting.Normalcolor = Color.CornflowerBlue;
+            this.panelSetting.Dock = DockStyle.Fill;
+            panelSetting.BringToFront();
+            temp = btnSetting;
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            lbHello.Text = "Hello, " + this.User.Name + "! Wish you a good day!";
+            //Linh
+            lAverAll.Text = "Average: " + data.Average.ToString();
+            lCreSum.Text = "Sum of Credits: " + data.SumOfCre.ToString();
 
-            // DUNG
+            //Dung
+            Deadlines[] ListDeadline = new Deadlines[1000];
             string sQuery = "SELECT * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "'";
             this.Connection.OpenConnection();
             SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
@@ -54,20 +305,20 @@ namespace SSA
                 args[3] = reader.GetString(3);
                 DateTime temp1 = reader.GetDateTime(4);
                 args[4] = reader.GetString(5);
-                this.ListDeadline[temp] = new Deadlines(args, temp1);
+                ListDeadline[temp] = new Deadlines(args, temp1);
                 temp++;
             }
             this.Connection.CloseConnection();
-            foreach (Deadlines DL in this.ListDeadline)
+            foreach (Deadlines DL in ListDeadline)
             {
                 if (DL == null)
                     break;
                 dataDeadline.Rows.Add(DL.ID, DL.SubjectCode, DL.Subject, DL.Details, DL.TimeSubmit, DL.Status);
             }
             NearestDeadline();
+            LoadToHomeDeadline();
 
-
-            // DANH
+            //Danh
             dataGridViewHomeTimeTB.Columns[1].HeaderText = DateTime.Today.DayOfWeek.ToString();
             string[] sRow = new string[] {"Lesson 1\n(7:30-8:15)", "Lesson 2\n(8:15-9:00)",
                 "Lesson 3\n(9:00 - 9:45)" , "Lesson 4\n(10:00-10:45)", "Lesson 5\n(10:45-11:30)",
@@ -84,111 +335,76 @@ namespace SSA
             LoadTimetableToHomeDGV(dataGridViewHomeTimeTB, sLesson);
 
             ReadSchedulesSemesterComboboxItems();
+            dataGridViewTimetable.CurrentCell.Selected = !dataGridViewTimetable.CurrentCell.Selected;
 
+            btnHome_Click(sender, e);
+            btnHome_Click(sender, e);
             LoadInformationTab();
-
-            // LINH
-            AddItemToComboBoxSemester();
-            tbCredit.Enabled = tbSubID.Enabled = tbSubName.Enabled = tbProVa.Enabled = tbProWei.Enabled
-                = tbMidVa.Enabled = tbMidWei.Enabled = tbFinVa.Enabled = tbFinWei.Enabled = false;
-            bAddScore.Enabled = bModify.Enabled = bDel.Enabled = false;
-            
         }
 
-        // NOTIFICATION TAB -- DUC DUNG //
-        private void bAdd_Click(object sender, EventArgs e)
+        private void panelScore_Paint(object sender, PaintEventArgs e)
         {
-            Add ADD = new Add(this);
-            ADD.addItem = new Add.AddItem(ReLoad);
-            ADD.Show();
-            this.Hide();
+
         }
-        private void ReLoad(string[] temp)
+        public void LoadTimetableToHomeDGV(DataGridView obj, List<string> Lesson)
         {
-            this.Connection.OpenConnection();
-            temp[0] = "1";
-            User.GetDeadlineID(ref temp[0]);
-            this.dataDeadline.Rows.Add(temp[0], temp[2], temp[1], temp[3], temp[4], temp[5]);
-            string Query = "INSERT INTO DEADLINE VALUES('" + temp[0] + "', '" + temp[1] + "', '" + temp[2] + "', '" + 
-                                                            temp[3] + "', '" + temp[4] + "', '" + temp[5] + "', '" + this.User.ID + "')";
-            SqlCommand command = this.Connection.CreateSQLCmd(Query);
-            command.ExecuteNonQuery();
-            this.Connection.CloseConnection();
-        }
-        private void bDelete_Click(object sender, EventArgs e)
-        {
-            MessageBoxButtons button = MessageBoxButtons.OK;
-            MessageBox.Show(" All selected items will be delete!", "WARNING!", button);
-            foreach (DataGridViewRow row in dataDeadline.SelectedRows)
+            int iLessonIndex = 0;
+            for (int i = 0; i < 10; i++)
             {
-                this.Connection.OpenConnection();
-                string Query = "DELETE FROM DEADLINE WHERE ID ='" + row.Cells[0].Value + "'";
-                SqlCommand command = this.Connection.CreateSQLCmd(Query);
-                command.ExecuteNonQuery();
-                this.Connection.CloseConnection();
-                dataDeadline.Rows.RemoveAt(row.Index);
+                obj.Rows[i].Cells[1].Value = Lesson[iLessonIndex];
+                iLessonIndex++;
             }
         }
-        private void bUpdate_Click(object sender, EventArgs e)
+        private void btnLogOut_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            this.parent.Show();
         }
-        private void bExport_Click(object sender, EventArgs e)
-        {
+    }
 
-        }
+}
+
+//Dung
+namespace StudentSupportApp
+{
+    public partial class MainForm
+    {
         private void bEdit_Click(object sender, EventArgs e)
         {
-            bAdd.Hide();
-            bDelete.Hide();
-            bEdit.Hide();
-            bExport.Hide();
-            bSave.Hide();
-            bExport.Hide();
-            bRefresh.Hide();
-            bSave2.Show();
-            bCancel.Show();
-            textBoxDetail.ReadOnly = false;
-            textBoxTimeRemain.ReadOnly = false;
-            textBoxStatus.ReadOnly = false;
+            this.bEditSave.Enabled = true;
         }
-        private void bSave2_Click(object sender, EventArgs e)
+        private void LoadToHomeDeadline()
         {
+            Deadlines[] temp = new Deadlines[5];
+            string Top5Deadlilne = "SELECT TOP (5) * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "' ORDER BY DEADLINE.DATESUBMIT ASC";
             try
             {
-                string Query = "UPDATE DEADLINE SET DETAIL='" + textBoxDetail.Text + "', DATESUBMIT='" + dateTimePickerTimeSubmit.Value.ToString() + "', STAT='" + textBoxStatus.Text
-                                                              + "' WHERE ID='" + ID.Text + "'";
-                Connection.OpenConnection();
-                SqlCommand command = Connection.CreateSQLCmd(Query);
-                command.ExecuteNonQuery();
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(Top5Deadlilne);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false)
+                    {
+                        break;
+                    }
+                    dataHomeDeadline.Rows.Add(reader.GetString(1), reader.GetDateTime(4).ToString(), false);
+                }
+                reader.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ket noi xay ra loi hoac doc du lieu bi loi");
+                MessageBox.Show(ex.Message);
             }
             finally
             {
-                MessageBoxButtons buttons = MessageBoxButtons.OK;
-                MessageBox.Show("SAVED!", "Notification", buttons);
-                bAdd.Show();
-                bDelete.Show();
-                bEdit.Show();
-                bExport.Show();
-                //bSave.Show();
-                bExport.Show();
-                bRefresh.Show();
-                bSave2.Hide();
-                bCancel.Hide();
-                textBoxDetail.ReadOnly = true;
-                textBoxSubject.ReadOnly = true;
-                textBoxTimeRemain.ReadOnly = true;
-                textBoxStatus.ReadOnly = true;
-                Connection.CloseConnection();
+                this.Connection.CloseConnection();
             }
         }
         private void bRefresh_Click(object sender, EventArgs e)
         {
-            while (dataDeadline.Rows.Count > 0)
+            Deadlines[] ListDeadline = new Deadlines[1000];
+            while (dataDeadline.Rows.Count > 1)
             {
                 dataDeadline.Rows.RemoveAt(0);
             }
@@ -207,32 +423,34 @@ namespace SSA
                 args[3] = reader.GetString(3);
                 DateTime temp1 = reader.GetDateTime(4);
                 args[4] = reader.GetString(5);
-                this.ListDeadline[temp] = new Deadlines(args, temp1);
+                ListDeadline[temp] = new Deadlines(args, temp1);
                 temp++;
             }
             this.Connection.CloseConnection();
-            foreach (Deadlines DL in this.ListDeadline)
+            foreach (Deadlines DL in ListDeadline)
             {
                 if (DL == null)
                     break;
                 dataDeadline.Rows.Add(DL.ID, DL.SubjectCode, DL.Subject, DL.Details, DL.TimeSubmit, DL.Status);
             }
         }
-        private void bSave_Click(object sender, EventArgs e)
+        private void bDelete_Click(object sender, EventArgs e)
         {
-            this.Connection.OpenConnection();
-            foreach (DataGridViewRow row in dataDeadline.Rows)
+            MessageBoxButtons button = MessageBoxButtons.OK;
+            MessageBox.Show(" All selected items will be delete!", "WARNING!", button);
+            foreach (DataGridViewRow row in dataDeadline.SelectedRows)
             {
                 try
                 {
-                    string Query = "INSERT INTO USERS VALUES('" + row.Cells[0] + "', '" + row.Cells[1] + "', '" + row.Cells[2] + "', '" +
-                                                                        row.Cells[3] + "', '" + row.Cells[4] + "')";
+                    this.Connection.OpenConnection();
+                    string Query = "DELETE FROM DEADLINE WHERE ID ='" + row.Cells[0].Value + "'";
                     SqlCommand command = this.Connection.CreateSQLCmd(Query);
+                    dataDeadline.Rows.RemoveAt(row.Index);
                     command.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error while connecting to Server");
+                    MessageBox.Show(ex.Message);
                 }
                 finally
                 {
@@ -240,316 +458,183 @@ namespace SSA
                 }
             }
         }
+        private void bAdd_Click(object sender, EventArgs e)
+        {
+            AddDeadline add = new AddDeadline(this);
+            add.addItem = new AddDeadline.AddItem(addDeadline);
+            this.Hide();
+            add.Show();
+        }
+        private void addDeadline(string[] temp)
+        {
+            try
+            {
+                this.Connection.OpenConnection();
+                temp[0] = "1";
+                User.GetDeadlineID(ref temp[0]);
+                this.dataDeadline.Rows.Add(temp[0], temp[2], temp[1], temp[3], temp[4], temp[5]);
+                string Query = "INSERT INTO DEADLINE VALUES('" + temp[0] + "', '" + temp[1] + "', '" + temp[2] + "', '" +
+                                                                temp[3] + "', '" + temp[4] + "', '" + temp[5] + "', '" + this.User.ID + "')";
+                SqlCommand command = this.Connection.CreateSQLCmd(Query);
+                command.ExecuteNonQuery();
+                MessageBox.Show(" ADDED SUCCESSFULLY!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
+        }
         private void dataDeadline_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataDeadline.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
                 dataDeadline.CurrentRow.Selected = true;
-                ID.Text = dataDeadline.Rows[e.RowIndex].Cells[0].Value.ToString();
-                textBoxSubject.Text = dataDeadline.Rows[e.RowIndex].Cells[2].Value.ToString();
-                textBoxDetail.Text = dataDeadline.Rows[e.RowIndex].Cells[3].Value.ToString();
-                textBoxTimeRemain.Text = dataDeadline.Rows[e.RowIndex].Cells[4].Value.ToString();
-                textBoxStatus.Text = dataDeadline.Rows[e.RowIndex].Cells[5].Value.ToString();
+                labelID.Text = dataDeadline.Rows[e.RowIndex].Cells[0].Value.ToString();
+                btbSubject.Text = dataDeadline.Rows[e.RowIndex].Cells[2].Value.ToString();
+                btbDetails.Text = dataDeadline.Rows[e.RowIndex].Cells[3].Value.ToString();
+                bdateTime.Text = dataDeadline.Rows[e.RowIndex].Cells[4].Value.ToString();
+                btbStatus.Text = dataDeadline.Rows[e.RowIndex].Cells[5].Value.ToString();
             }
         }
-        // TIMETABLE TAB -- CONG DANH //
-        private void cbxSem_SelectedIndexChanged(object sender, EventArgs e)
+        private void bEditSave_Click(object sender, EventArgs e)
         {
-            btnLoadTT.Enabled = true;
-            btnSetDefault.Enabled = true;
+            try
+            {
+                btbDetails.Enabled = false;
+                string Query = "UPDATE DEADLINE SET DETAIL='" + btbDetails.Text + "', DATESUBMIT='" + bdateTime.Value.ToString() + "', STAT='" + btbStatus.Text + "', SUB_NAME='" + btbSubject.Text
+                                                              + "' WHERE ID='" + labelID.Text + "'";
+                Connection.OpenConnection();
+                SqlCommand command = Connection.CreateSQLCmd(Query);
+                command.ExecuteNonQuery();
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBox.Show("SAVED!", "Notification", buttons);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ket noi xay ra loi hoac doc du lieu bi loi");
+            }
+            finally
+            {
+                Connection.CloseConnection();
+                bRefresh_Click(sender, e);    
+            }
         }
-        private void btnLoadTT_Click(object sender, EventArgs e)
+        private void NearestDeadline()
         {
-            Timetable UserSchedules = new Timetable(this.User.ID, cbxSem.Text);
-            UserSchedules.LoadUserTimetable();
-            UserSchedules.LoadTimetableToDGV(dataGridViewTimetable);
-            btnModify.Enabled = true;
-            btnExportTT.Enabled = true;
+            try
+            {
+                this.Connection.OpenConnection();
+                string Query = "SELECT COUNT(ID) FROM DEADLINE WHERE GETDATE() <= DATESUBMIT";
+                SqlCommand command = this.Connection.CreateSQLCmd(Query);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    this.labelNum.Text = reader.GetInt32(0).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
+            try
+            {
+                this.Connection.OpenConnection();
+                string Query = "SELECT TOP 1 DATESUBMIT FROM DEADLINE WHERE GETDATE() <= DATESUBMIT ORDER BY DATESUBMIT DESC";
+                SqlCommand command = this.Connection.CreateSQLCmd(Query);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    this.labelDate.Text = reader.GetDateTime(0).Date.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
+
         }
+    }
+}
+
+
+//Danh
+namespace StudentSupportApp
+{
+    public partial class MainForm
+    {
+        string Semester;
+
         private void btnCreNewLess_Click(object sender, EventArgs e)
         {
-            AddLessonForm AddLesson = new AddLessonForm(this, this.User.ID);
-            AddLesson.Show();
-            this.Hide();
-        }
-        private void btnModify_Click(object sender, EventArgs e)
-        {
-            ModLessonForm modifier = new ModLessonForm(this, this.User.ID, cbxSem.Text);
-            modifier.Show();
-            this.Hide();
-        }
-        private void btnSetDefault_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void LoadTodayTimetable(string today, ref List<string> Lesson)
-        {
-            Connect loadHomeTimetable = new Connect();
-            loadHomeTimetable.OpenConnection();
-
-            string sWeekDay = dataGridViewHomeTimeTB.Columns[1].HeaderText.ToString();
-            for (int i = 1; i <= 10; i++)
+            try
             {
-                string sLoadData = "select SUB_NAME from LESSON where ID_USER='" + this.User.ID
-                                    + "' AND DAYINWEEK='" + sWeekDay + "' AND SEM_NAME='HK1'"
-                                    + " AND TIMEORDER=" + i;
-                SqlCommand loadDay = loadHomeTimetable.CreateSQLCmd(sLoadData);
-                SqlDataReader reader = loadDay.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    if (reader.Read() == false)
-                    {
-                        break;
-                    }
-                    Lesson.Add(reader.GetString(0));
-                }
-                else Lesson.Add("");
-                reader.Close();
+                AddLessonForm AddLesson = new AddLessonForm(this, this.User.ID);
+                AddLesson.Show();
+                this.Hide();
             }
-            loadHomeTimetable.CloseConnection();
-        }
-
-        public void LoadTimetableToHomeDGV(DataGridView obj, List<string> Lesson)
-        {
-            int iLessonIndex = 0;
-            for (int i = 0; i < 10; i++)
+            catch (Exception a)
             {
-                obj.Rows[i].Cells[1].Value = Lesson[iLessonIndex];
-                iLessonIndex++;
+                MessageBox.Show(a.Message);
             }
         }
 
-	// SCORETAB -- KHANH LINH
-        public void ShowToListView(string semester)
+        private void ReadSchedulesSemesterComboboxItems()
         {
             try
             {
-                bDel.Enabled = false;
-                bModify.Enabled = false;
-                //lvScoreBoard.Clear();
-                data.SEMESTERS.Clear();
-                data.Read(this.User.ID);
-                data.GetSemester(data.FindSem(semester)).SCORETABLE.ShowToListView(lvScoreBoard);
+                cbxSem.Items.Clear();
+                List<string> sItem = new List<string>();
 
-                lAmountSub.Text = "Amount of subjects: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.Amount.ToString();
-                l_Average.Text = "Average: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.Average.ToString();
-                lSumCre.Text = "Sum of credits: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.SumOfCred.ToString();
+                Connection.OpenConnection();
+                SqlCommand command = Connection.CreateSQLCmd("select distinct SEM_NAME from LESSON where ID_USER='" + this.User.ID + "'");
+                SqlDataReader reader = command.ExecuteReader();
 
-                tbSubID.Text = tbSubName.Text = tbCredit.Text = tbProVa.Text = tbMidVa.Text = tbPracVa.Text = tbFinVa.Text
-               = tbProWei.Text = tbMidWei.Text = tbPracWei.Text = tbFinWei.Text = "";
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    sItem.Add(reader.GetString(0));
+                }
+                foreach (var sem in sItem)
+                    cbxSem.Items.Add(sem);
+
+                Connection.CloseConnection();
             }
-            catch (Exception err)
+            catch (Exception a)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show(a.Message);
             }
         }
-        private void bModify_Click(object sender, EventArgs e)
+
+        private void btnLoadTT_Click(object sender, EventArgs e)
         {
             try
             {
-                if (BlankData())
-                {
-                    MessageBox.Show("Blank data! \nMake sure that your SUBJECT ID, SUBJECT NAME and CREDIT not null. " +
-                        "\nIf your score is null, please enter '0' for VALUE and RATIO ", "Add", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    string message = "Are you sure that you would like to modify?";
-                    string caption = "Modify";
-                    var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (result == DialogResult.Yes)
-                    {
-                        Subject sub = new Subject(tbSubID.Text, tbSubName.Text, int.Parse(tbCredit.Text));
-                        CScore s1 = new CScore(float.Parse(tbProVa.Text), float.Parse(tbProWei.Text));
-                        CScore s2 = new CScore(float.Parse(tbMidVa.Text), float.Parse(tbMidWei.Text));
-                        CScore s3 = new CScore(float.Parse(tbPracVa.Text), float.Parse(tbPracWei.Text));
-                        CScore s4 = new CScore(float.Parse(tbFinVa.Text), float.Parse(tbFinWei.Text));
-
-                        ScoreOfSub scTmp = new ScoreOfSub(sub, s1, s2, s3, s4);
-                        MessageBox.Show("Done!", caption);
-
-                        lvScoreBoard.Items.Clear();
-                        scTmp.Modify(this.User.ID, cbSemester);
-
-                        ShowToListView(cbSemester.SelectedItem.ToString());
-                    }
-                    bAdd.Enabled = true;
-                    tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
-                }
+                Timetable UserSchedules = new Timetable(this.User.ID, cbxSem.Text);
+                UserSchedules.LoadUserTimetable();
+                UserSchedules.LoadTimetableToDGV(dataGridViewTimetable);
+                btnSetDefault.Visible = true;
+                btnModifyLess.Visible = true;
+                btnExportTT.Visible = true;
+                this.Semester = cbxSem.Text;
             }
-            catch (Exception err)
+            catch (Exception a)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show(a.Message);
             }
-        }
-
-        private bool BlankData()
-        {
-            if (tbSubID.Text == "" || tbSubName.Text == "" || tbCredit.Text == "" ||
-                tbProVa.Text == "" || tbProWei.Text == "" || tbMidVa.Text == "" || tbMidWei.Text == "" ||
-                tbPracVa.Text == "" || tbPracWei.Text == "" || tbFinVa.Text == "" || tbFinWei.Text == "")
-                return true;
-            return false;
-        }
-
-        private void bAddScore_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (BlankData())
-                {
-                    MessageBox.Show("Blank data! \nMake sure that your SUBJECT ID, SUBJECT NAME and CREDIT not null." +
-                        "\nIf your score is null, please enter '0' for VALUE and RATIO ", "Add", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    Subject sub = new Subject(tbSubID.Text, tbSubName.Text, int.Parse(tbCredit.Text));
-                    CScore s1 = new CScore(float.Parse(tbProVa.Text), float.Parse(tbProWei.Text));
-                    CScore s2 = new CScore(float.Parse(tbMidVa.Text), float.Parse(tbMidWei.Text));
-                    CScore s3 = new CScore(float.Parse(tbPracVa.Text), float.Parse(tbPracWei.Text));
-                    CScore s4 = new CScore(float.Parse(tbFinVa.Text), float.Parse(tbFinWei.Text));
-
-                    ScoreOfSub scTmp = new ScoreOfSub(sub, s1, s2, s3, s4);
-                    scTmp.Add(this.User.ID, cbSemester);
-                    MessageBox.Show("Done!", "ADD NEW SCORE");
-
-                    lvScoreBoard.Items.Clear();
-                    ShowToListView(cbSemester.SelectedItem.ToString());
-                }
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message);
-            }
-            
-        }
-        private void bDel_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string message = "Are you sure that you would like to delete?";
-                string caption = "Delete";
-                var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    Connection.OpenConnection();
-                    string sql = @"Delete FROM TableScore WHERE(SUB_ID= '" + tbSubID.Text + "')";
-
-                    SqlCommand command = Connection.CreateSQLCmd(sql);
-                    command.ExecuteNonQuery();
-                    Connection.CloseConnection();
-                    MessageBox.Show("Done!", caption);
-
-                    lvScoreBoard.Items.Clear();
-                    ShowToListView(cbSemester.SelectedItem.ToString());
-                }
-                bAdd.Enabled = true;
-                tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message);
-            }
-        }
-
-        private void bSem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            SemForm form = new SemForm(this, this.User.ID);
-            form.Show();
-        }
-
-        private void timerTimeRemain_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        public void AddItemToComboBoxSemester()
-        {
-            cbSemester.Items.Clear();
-            List<string> sItem = new List<string>();
-
-            Connection.OpenConnection();
-            SqlCommand command = Connection.CreateSQLCmd("select distinct SEM_NAME from SEMESTER");
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.HasRows)
-            {
-                if (reader.Read() == false) break;
-                sItem.Add(reader.GetString(0));
-            }
-            foreach (var sem in sItem)
-                cbSemester.Items.Add(sem);
-
-            lvScoreBoard.Items.Clear();
-            Connection.CloseConnection();
-
-            lAmountSub.Text = "Amount of subjects: ";
-            l_Average.Text = "Average: ";
-            lSumCre.Text = "Sum of credits:";
-        }
-
-        private void cbScore_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string sSemester = cbSemester.SelectedItem.ToString();
-            data.SEMESTERS.Clear();
-            data.Read(this.User.ID);
-            lvScoreBoard.Items.Clear();
-            ShowToListView(sSemester);
-
-            bAddScore.Enabled = bModify.Enabled = bDel.Enabled = true;
-            tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
-            tbMidVa.Enabled = tbMidWei.Enabled = true;
-            tbPracVa.Enabled = tbPracWei.Enabled = true;
-            tbProVa.Enabled = tbProWei.Enabled = true;
-            tbFinVa.Enabled = tbFinWei.Enabled = true;
-            data.SEMESTERS.Clear();
-        }
-
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.parent.Show();
-            this.Hide();
-        }
-
-        public void NearestDeadline()
-        {
-            Deadlines[] temp = new Deadlines[5];
-            string Top5Deadlilne = "SELECT TOP (5) * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "' ORDER BY DEADLINE.DATESUBMIT ASC";
-            this.Connection.OpenConnection();
-            SqlCommand command = this.Connection.CreateSQLCmd(Top5Deadlilne);
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.HasRows)
-            {
-                if (reader.Read() == false)
-                {
-                    break;
-                }
-                dataNearDead.Rows.Add(reader.GetString(1), reader.GetString(3), reader.GetDateTime(4).ToString(), reader.GetString(5));
-            }
-            reader.Close();
-            this.Connection.CloseConnection();
-        }
-
-        private void bCancel_Click(object sender, EventArgs e)
-        {
-            bAdd.Show();
-            bDelete.Show();
-            bEdit.Show();
-            bExport.Show();
-            bSave.Show();
-            bExport.Show();
-            bRefresh.Show();
-            bSave2.Hide();
-            bCancel.Hide();
-            textBoxDetail.ReadOnly = true;
-            textBoxSubject.ReadOnly = true;
-            textBoxTimeRemain.ReadOnly = true;
-            textBoxStatus.ReadOnly = true;
-            Connection.CloseConnection();
         }
 
         private void btnExportTT_Click(object sender, EventArgs e)
@@ -622,11 +707,391 @@ namespace SSA
             }
         }
 
+        private void btnModifyLess_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.dataGridViewTimetable.CurrentCell.Selected == true)
+                {
+                    int iSubID = this.dataGridViewTimetable.CurrentCell.Value.ToString().IndexOf("\n");
+                    int iCellValueLength = this.dataGridViewTimetable.CurrentCell.Value.ToString().Length;
+                    List<string> sLessonData = new List<string> { cbxSem.Text, this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].Name,
+                                                                  this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(0, iSubID),
+                                                                  this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(iSubID, iCellValueLength - iSubID),
+                                                                  (this.dataGridViewTimetable.CurrentCell.RowIndex + 1).ToString() };
+                    ModLessonForm modLessonForm = new ModLessonForm(this, sLessonData, this.User.ID);
+                    modLessonForm.Show();
+                    this.Hide();
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+        }
+
+        private void AddLessonTimeToDataGridView()
+        {
+            try
+            {
+                //dataGridViewHomeTimetable.Columns[1].HeaderText = DateTime.Today.DayOfWeek.ToString();
+                string[] sRow = new string[] {"Lesson 1\n(7:30-8:15)", "Lesson 2\n(8:15-9:00)",
+                "Lesson 3\n(9:00 - 9:45)" , "Lesson 4\n(10:00-10:45)", "Lesson 5\n(10:45-11:30)",
+                "Lesson 6\n(13:00-13:45)", "Lesson 7\n(13:45-14:30)", "Lesson 8\n(14:30-15:15)",
+                "Lesson 9\n(15:30-16:15)", "Lesson 10\n(16:15-17:00)"};
+                for (int i = 0; i < sRow.Length; i++)
+                {
+                    dataGridViewTimetable.Rows.Add(sRow[i]);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void cbxSem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnLoadTT.Visible = true;
+        }
+
+        private void MainForm_VisibleChanged(object sender, EventArgs e)
+        {
+            ReadSchedulesSemesterComboboxItems();
+            cbxSem.Text = this.Semester;
+        }
+
+        private void LoadInformationTab()
+        {
+            try
+            {
+                Connect Info = new Connect();
+                Info.OpenConnection();
+
+                List<string> sData = new List<string>();
+
+                SqlCommand command = Info.CreateSQLCmd("select * from USERS where ID_USER='" + this.User.ID + "'");
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    sData.Add(reader.GetString(0));
+                    sData.Add(reader.GetString(1));
+                    sData.Add(reader.GetDateTime(2).ToString().Substring(0, 10));
+                    sData.Add(reader.GetString(3));
+                    sData.Add(reader.GetString(4));
+                    sData.Add(reader.GetString(5));
+                    sData.Add(reader.GetString(6));
+                }
+                Info.CloseConnection();
+
+                ShowUserInformation(sData);
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+        }
+
+        private void ShowUserInformation(List<string> data)
+        {
+            lbAccID.Text = data[0];
+            tbxEmailInfo.Text = data[1];
+            lbBirthdayInfo.Text = data[2];
+
+            tbxNameInfo.Text = data[4];
+            tbxClassInfo.Text = data[5];
+            tbxGenderInfo.Text = data[6];
+        }
+
+        private void btnChangeInfo_Click(object sender, EventArgs e)
+        {
+            tbxNameInfo.Enabled = !tbxNameInfo.Enabled;
+            tbxClassInfo.Enabled = !tbxClassInfo.Enabled;
+            tbxGenderInfo.Enabled = !tbxGenderInfo.Enabled;
+            BirthDTPicker.Enabled = !BirthDTPicker.Enabled;
+
+            btnCancelInfo.Visible = !btnCancelInfo.Visible;
+            btnSaveInfo.Visible = !btnSaveInfo.Visible;
+        }
+
+        private void btnSaveInfo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tbxNameInfo.Text == "" && tbxGenderInfo.Text == "" && tbxClassInfo.Text == "")
+                {
+                    const string message = "Your information is now empty? Are you sure to continue?";
+                    const string caption = "Change Information";
+                    var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        string[] sInfo = new string[] { tbxNameInfo.Text, BirthDTPicker.Value.ToString(),
+                                                            tbxGenderInfo.Text, tbxClassInfo.Text };
+                        if (this.User.UpdateUserInfo(this.User.ID, sInfo) == 1)
+                        {
+                            MessageBox.Show("Changed your information successfully!", "Change Information");
+                        }
+                        else MessageBox.Show("Failed to change your information! Try again.", "Change Information");
+                    }
+                }
+                else
+                {
+                    string[] sInfo = new string[] { tbxNameInfo.Text, BirthDTPicker.Value.ToString(),
+                                                            tbxGenderInfo.Text, tbxClassInfo.Text };
+                    if (this.User.UpdateUserInfo(this.User.ID, sInfo) == 1)
+                    {
+                        MessageBox.Show("Changed your information successfully!", "Change Information");
+                    }
+                    else MessageBox.Show("Failed to change your information! Try again.", "Change Information");
+                }
+
+                btnChangeInfo_Click(sender, e);
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+        }
+
+        private void btnCancelInfo_Click(object sender, EventArgs e)
+        {
+            const string message = "Your changes will not be saved? Are you sure to continue?";
+            const string caption = "Cancel Changing Information";
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                LoadInformationTab();
+                btnChangeInfo_Click(sender, e);
+            }
+        }
+
+        private void tbxNameInfo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Char.IsLetter(e.KeyChar) == false && (e.KeyChar != (char)Keys.Space) && e.KeyChar != (char)Keys.Back))
+                e.Handled = true;
+            if (e.KeyChar == (char)Keys.Enter)
+                BirthDTPicker.Focus();
+        }
+
+        private void tbxGenderInfo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Char.IsLetter(e.KeyChar) == false && (e.KeyChar != (char)Keys.Space) && e.KeyChar != (char)Keys.Back))
+                e.Handled = true;
+            if (e.KeyChar == (char)Keys.Enter)
+                tbxClassInfo.Focus();
+        }
+    }
+}
+
+//Linh
+namespace StudentSupportApp
+{
+    public partial class MainForm
+    {
+        public void ShowToListView(string semester)
+        {
+            try
+            {
+                bDel.Enabled = false;
+                bModify.Enabled = false;
+                //lvScoreBoard.Clear();
+                data.SEMESTERS.Clear();
+                data.Read(this.User.ID);
+                data.GetSemester(data.FindSem(semester)).SCORETABLE.ShowToListView(lvScoreBoard);
+
+                lAmountSub.Text = "Amount of subjects: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.Amount.ToString();
+                l_Average.Text = "Average: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.Average.ToString();
+                lSumCre.Text = "Sum of credits: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.SumOfCred.ToString();
+
+                tbSubID.Text = tbSubName.Text = tbCredit.Text = tbProVa.Text = tbMidVa.Text = tbPracVa.Text = tbFinVa.Text
+               = tbProWei.Text = tbMidWei.Text = tbPracWei.Text = tbFinWei.Text = "";
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void ResetTextbox()
+        {
+            this.tbCredit.Text = "Credit";
+            this.tbSubID.Text = "Subject ID";
+            this.tbSubName.Text = "Subject Name";
+
+            tbProVa.Text = tbMidVa.Text = tbPracVa.Text = tbFinVa.Text = "Value";
+            tbProWei.Text = tbMidWei.Text = tbPracWei.Text = tbFinWei.Text = "Ratio";
+        }
+        private void cbSemester_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sSemester = cbSemester.SelectedItem.ToString();
+            data.SEMESTERS.Clear();
+            data.Read(this.User.ID);
+            lvScoreBoard.Items.Clear();
+            ShowToListView(sSemester);
+
+            bAddScore.Enabled = bModify.Enabled = bDel.Enabled = true;
+            tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
+            tbMidVa.Enabled = tbMidWei.Enabled = true;
+            tbPracVa.Enabled = tbPracWei.Enabled = true;
+            tbProVa.Enabled = tbProWei.Enabled = true;
+            tbFinVa.Enabled = tbFinWei.Enabled = true;
+
+            bModify.Enabled = bDel.Enabled = false;
+            data.SEMESTERS.Clear();
+
+            //ResetTextbox();
+        }
+
+        private void bModify_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (BlankData())
+                {
+                    MessageBox.Show("Blank data! \nMake sure that your SUBJECT ID, SUBJECT NAME and CREDIT not null. " +
+                        "\nIf your score is null, please enter '0' for VALUE and RATIO ", "Add", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    string message = "Are you sure that you would like to modify?";
+                    string caption = "Modify";
+                    var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        Subject sub = new Subject(tbSubID.Text, tbSubName.Text, int.Parse(tbCredit.Text));
+                        CScore s1 = new CScore(float.Parse(tbProVa.Text), float.Parse(tbProWei.Text));
+                        CScore s2 = new CScore(float.Parse(tbMidVa.Text), float.Parse(tbMidWei.Text));
+                        CScore s3 = new CScore(float.Parse(tbPracVa.Text), float.Parse(tbPracWei.Text));
+                        CScore s4 = new CScore(float.Parse(tbFinVa.Text), float.Parse(tbFinWei.Text));
+
+                        ScoreOfSub scTmp = new ScoreOfSub(sub, s1, s2, s3, s4);
+                        MessageBox.Show("Done!", caption);
+
+                        lvScoreBoard.Items.Clear();
+                        scTmp.Modify(this.User.ID, cbSemester);
+
+                        ShowToListView(cbSemester.SelectedItem.ToString());
+                    }
+                    bAddScore.Enabled = true;
+                    tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private bool BlankData()
+        {
+            if (tbSubID.Text == "" || tbSubName.Text == "" || tbCredit.Text == "" ||
+                tbProVa.Text == "" || tbProWei.Text == "" || tbMidVa.Text == "" || tbMidWei.Text == "" ||
+                tbPracVa.Text == "" || tbPracWei.Text == "" || tbFinVa.Text == "" || tbFinWei.Text == "")
+                return true;
+            return false;
+        }
+
+        private void bAddScore_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (BlankData())
+                {
+                    MessageBox.Show("Blank data! \nMake sure that your SUBJECT ID, SUBJECT NAME and CREDIT not null." +
+                        "\nIf your score is null, please enter '0' for VALUE and RATIO ", "Add", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Subject sub = new Subject(tbSubID.Text, tbSubName.Text, int.Parse(tbCredit.Text));
+                    CScore s1 = new CScore(float.Parse(tbProVa.Text), float.Parse(tbProWei.Text));
+                    CScore s2 = new CScore(float.Parse(tbMidVa.Text), float.Parse(tbMidWei.Text));
+                    CScore s3 = new CScore(float.Parse(tbPracVa.Text), float.Parse(tbPracWei.Text));
+                    CScore s4 = new CScore(float.Parse(tbFinVa.Text), float.Parse(tbFinWei.Text));
+
+                    ScoreOfSub scTmp = new ScoreOfSub(sub, s1, s2, s3, s4);
+                    scTmp.Add(this.User.ID, cbSemester);
+                    MessageBox.Show("Done!", "ADD NEW SCORE");
+
+                    lvScoreBoard.Items.Clear();
+                    ShowToListView(cbSemester.SelectedItem.ToString());
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void bDel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string message = "Are you sure that you would like to delete?";
+                string caption = "Delete";
+                var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    Connection.OpenConnection();
+                    string sql = @"Delete FROM TableScore WHERE(SUB_ID= '" + tbSubID.Text + "')";
+                    sql += @"Delete From Subjects where(SUB_ID= '" + tbSubID.Text + "' and ID ='" + this.User.ID + "')";
+                    SqlCommand command = Connection.CreateSQLCmd(sql);
+                    command.ExecuteNonQuery();
+                    Connection.CloseConnection();
+                    MessageBox.Show("Done!", caption);
+
+                    lvScoreBoard.Items.Clear();
+                    ShowToListView(cbSemester.SelectedItem.ToString());
+                }
+                bAddScore.Enabled = true;
+                tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void bSem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SemForm form = new SemForm(this, this.User.ID);
+            form.Show();
+        }
+
+        public void AddItemToComboBoxSemester()
+        {
+            cbSemester.Items.Clear();
+            List<string> sItem = new List<string>();
+
+            Connection.OpenConnection();
+            SqlCommand command = Connection.CreateSQLCmd("select distinct SEM_NAME from SEMESTER where ID = '"+this.User.ID+"'");
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.HasRows)
+            {
+                if (reader.Read() == false) break;
+                sItem.Add(reader.GetString(0));
+            }
+            foreach (var sem in sItem)
+                cbSemester.Items.Add(sem);
+
+            lvScoreBoard.Items.Clear();
+            Connection.CloseConnection();
+
+            lAmountSub.Text = "Amount of subjects: ";
+            l_Average.Text = "Average: ";
+            lSumCre.Text = "Sum of credits:";
+        }
+
         private void lvScoreBoard_Click(object sender, EventArgs e)
         {
             try
             {
-                bAdd.Enabled = false;
+                bAddScore.Enabled = true;
                 bDel.Enabled = true;
                 bModify.Enabled = true;
 
@@ -662,7 +1127,7 @@ namespace SSA
 
         private void tbCredit_KeyDown(object sender, KeyEventArgs e)
         {
-            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode ==Keys.Delete || e.KeyCode==Keys.Tab))
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab))
             {
                 MessageBox.Show("Enter a number");
             }
@@ -749,62 +1214,79 @@ namespace SSA
                 MessageBox.Show("Use ',' to enter float value");
         }
 
-        private void ReadSchedulesSemesterComboboxItems()
+        private void bSetData_Click(object sender, EventArgs e)
         {
-            cbxSem.Items.Clear();
-            List<string> sItem = new List<string>();
-
-            Connection.OpenConnection();
-            SqlCommand command = Connection.CreateSQLCmd("select distinct SEM_NAME from LESSON where ID_USER='" + this.User.ID + "'");
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.HasRows)
+            var result = MessageBox.Show("Do you want to reset your data? Your data will be deleted!", "Set default", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            try
             {
-                if (reader.Read() == false) break;
-                sItem.Add(reader.GetString(0));
+                if (result == DialogResult.Yes)
+                {
+                    User.SetDataDefault();
+                    MessageBox.Show("Done!", "Set default", MessageBoxButtons.OK);
+                }
             }
-            foreach (var sem in sItem)
-                cbxSem.Items.Add(sem);
-
-            Connection.CloseConnection();
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            finally
+            {
+                this.Close();
+            }
         }
 
-        private void LoadInformationTab()
+        private void bChangePass_Click(object sender, EventArgs e)
         {
-           
-            Connect Info = new Connect();
-            Info.OpenConnection();
-
-            List<string> sData = new List<string>();
-
-            SqlCommand command = Info.CreateSQLCmd("select * from USERS where ID_USER='" + this.User.ID + "'");
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.HasRows)
-            {
-                if (reader.Read() == false) break;
-                sData.Add(reader.GetString(0));
-                sData.Add(reader.GetString(1));
-                sData.Add(reader.GetDateTime(2).ToString().Substring(0, 9));
-                sData.Add(reader.GetString(3));
-                sData.Add(reader.GetString(4));
-                sData.Add(reader.GetString(5));
-                sData.Add(reader.GetString(6));
-            }
-            Info.CloseConnection();
-
-            ShowUserInformation(sData);
+            this.Hide();
+            ChangePass form = new ChangePass(this, this.User.ID, this.User.Password);
+            form.Show();
         }
 
-        private void ShowUserInformation(List<string> data)
+        private void bDelAcc_Click(object sender, EventArgs e)
         {
-            lbID.Text = data[0];
-            lbEmail.Text = data[1];
-            lbBirthday.Text = data[2];
+            var result = MessageBox.Show("Do you want to remove your account? All your data will be deleted!", "Delete your account", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            try
+            {
+                if (result == DialogResult.OK)
+                {
+                    User.DeleteUser();
+                    MessageBox.Show("Done!", "Delete your account", MessageBoxButtons.OK);
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            finally
+            {
+                this.Close();
+            }
+        }
+        public void LoadTodayTimetable(string today, ref List<string> Lesson)
+        {
+            Connect loadHomeTimetable = new Connect();
+            loadHomeTimetable.OpenConnection();
 
-            lbName.Text = data[4];
-            lbClass.Text = data[5];
-            lbGender.Text = data[6];
+            string sWeekDay = dataGridViewHomeTimeTB.Columns[1].HeaderText.ToString();
+            for (int i = 1; i <= 10; i++)
+            {
+                string sLoadData = "select SUB_NAME from LESSON where ID_USER='" + this.User.ID
+                                    + "' AND DAYINWEEK='" + sWeekDay + "' AND SEM_NAME='HK1 2020'"
+                                    + " AND TIMEORDER=" + i;
+                SqlCommand loadDay = loadHomeTimetable.CreateSQLCmd(sLoadData);
+                SqlDataReader reader = loadDay.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    if (reader.Read() == false)
+                    {
+                        break;
+                    }
+                    Lesson.Add(reader.GetString(0));
+                }
+                else Lesson.Add("");
+                reader.Close();
+            }
+            loadHomeTimetable.CloseConnection();
         }
     }
 }
