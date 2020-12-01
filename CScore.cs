@@ -49,14 +49,5 @@
             }
         }
 
-        public void Read()
-        {
-
-        }
-
-        public void Write()
-        {
-
-        }
     }
 }
