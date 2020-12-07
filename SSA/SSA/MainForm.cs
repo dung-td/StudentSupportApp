@@ -15,6 +15,7 @@ namespace StudentSupportApp
         LoginForm parent;
         Connect Connection;
         USER User = new USER();
+        ListSem data = new ListSem();
         public MainForm(LoginForm parent, string User)
         {
             this.User = new USER(User);
@@ -984,6 +985,431 @@ namespace StudentSupportApp
             this.Hide();
         }
 
+        public void LoadTodayTimetable(string today, ref List<string> Lesson)
+        {
+            Connect loadHomeTimetable = new Connect();
+            try
+            {
+                loadHomeTimetable.OpenConnection();
+
+                string sWeekDay = dataGridViewHomeTimeTB.Columns[1].HeaderText.ToString();
+                for (int i = 1; i <= 10; i++)
+                {
+                    string sLoadData = "select SUB_NAME from LESSON where ID_USER='" + this.User.ID
+                                        + "' AND DAYINWEEK='" + sWeekDay + "' AND SEM_NAME='" + Properties.Settings.Default.Text + "'"
+                                        + " AND TIMEORDER=" + i;
+                    SqlCommand loadDay = loadHomeTimetable.CreateSQLCmd(sLoadData);
+                    SqlDataReader reader = loadDay.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        if (reader.Read() == false)
+                        {
+                            break;
+                        }
+                        Lesson.Add(reader.GetString(0));
+                    }
+                    else Lesson.Add("");
+                    reader.Close();
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+            finally
+            {
+                loadHomeTimetable.CloseConnection();
+            }
+        }
+    }
+}
+
+
+//Linh
+namespace StudentSupportApp
+{
+    public partial class MainForm
+    {
+        public void ShowToListView(string semester)
+        {
+            try
+            {
+                bDel.Visible = false;
+                bModify.Visible = false;
+                //lvScoreBoard.Clear();
+                data.SEMESTERS.Clear();
+                data.Read(this.User.ID);
+                data.GetSemester(data.FindSem(semester)).SCORETABLE.ShowToListView(lvScoreBoard);
+
+                lAmountSub.Text = "Amount of subjects: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.Amount.ToString();
+                l_Average.Text = "Average: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.Average.ToString();
+                lSumCre.Text = "Sum of credits: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.SumOfCred.ToString();
+
+                tbSubID.Text = tbSubName.Text = tbCredit.Text = tbProVa.Text = tbMidVa.Text = tbPracVa.Text = tbFinVa.Text
+               = tbProWei.Text = tbMidWei.Text = tbPracWei.Text = tbFinWei.Text = "";
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void ResetTextbox()
+        {
+            this.tbCredit.Text = "Credit";
+            this.tbSubID.Text = "Subject ID";
+            this.tbSubName.Text = "Subject Name";
+
+            tbProVa.Text = tbMidVa.Text = tbPracVa.Text = tbFinVa.Text = "Value";
+            tbProWei.Text = tbMidWei.Text = tbPracWei.Text = tbFinWei.Text = "Ratio";
+        }
+        private void cbSemester_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sSemester = cbSemester.SelectedItem.ToString();
+            data.SEMESTERS.Clear();
+            data.Read(this.User.ID);
+            lvScoreBoard.Items.Clear();
+            ShowToListView(sSemester);
+
+            bAddScore.Visible = bModify.Visible = bDel.Visible = true;
+            tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
+            tbMidVa.Enabled = tbMidWei.Enabled = true;
+            tbPracVa.Enabled = tbPracWei.Enabled = true;
+            tbProVa.Enabled = tbProWei.Enabled = true;
+            tbFinVa.Enabled = tbFinWei.Enabled = true;
+
+            bModify.Visible = bDel.Visible = false;
+            data.SEMESTERS.Clear();
+
+            //ResetTextbox();
+        }
+
+        private void bModify_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (BlankData())
+                {
+                    MessageBox.Show("Blank data! \nMake sure that your SUBJECT ID, SUBJECT NAME and CREDIT not null. " +
+                        "\nIf your score is null, please enter '0' for VALUE and RATIO ", "Add", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    string message = "Are you sure that you would like to modify?";
+                    string caption = "Modify";
+                    var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        Subject sub = new Subject(tbSubID.Text, tbSubName.Text, int.Parse(tbCredit.Text));
+                        CScore s1 = new CScore(float.Parse(tbProVa.Text), float.Parse(tbProWei.Text));
+                        CScore s2 = new CScore(float.Parse(tbMidVa.Text), float.Parse(tbMidWei.Text));
+                        CScore s3 = new CScore(float.Parse(tbPracVa.Text), float.Parse(tbPracWei.Text));
+                        CScore s4 = new CScore(float.Parse(tbFinVa.Text), float.Parse(tbFinWei.Text));
+
+                        ScoreOfSub scTmp = new ScoreOfSub(sub, s1, s2, s3, s4);
+                        MessageBox.Show("Done!", caption);
+
+                        lvScoreBoard.Items.Clear();
+                        scTmp.Modify(this.User.ID, cbSemester);
+
+                        ShowToListView(cbSemester.SelectedItem.ToString());
+                    }
+                    bAddScore.Visible = true;
+                    tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private bool BlankData()
+        {
+            if (tbSubID.Text == "" || tbSubName.Text == "" || tbCredit.Text == "" ||
+                tbProVa.Text == "" || tbProWei.Text == "" || tbMidVa.Text == "" || tbMidWei.Text == "" ||
+                tbPracVa.Text == "" || tbPracWei.Text == "" || tbFinVa.Text == "" || tbFinWei.Text == "")
+                return true;
+            return false;
+        }
+
+        private void bAddScore_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (BlankData())
+                {
+                    MessageBox.Show("Blank data! \nMake sure that your SUBJECT ID, SUBJECT NAME and CREDIT not null." +
+                        "\nIf your score is null, please enter '0' for VALUE and RATIO ", "Add", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Subject sub = new Subject(tbSubID.Text, tbSubName.Text, int.Parse(tbCredit.Text));
+                    CScore s1 = new CScore(float.Parse(tbProVa.Text), float.Parse(tbProWei.Text));
+                    CScore s2 = new CScore(float.Parse(tbMidVa.Text), float.Parse(tbMidWei.Text));
+                    CScore s3 = new CScore(float.Parse(tbPracVa.Text), float.Parse(tbPracWei.Text));
+                    CScore s4 = new CScore(float.Parse(tbFinVa.Text), float.Parse(tbFinWei.Text));
+
+                    ScoreOfSub scTmp = new ScoreOfSub(sub, s1, s2, s3, s4);
+                    scTmp.Add(this.User.ID, cbSemester);
+                    MessageBox.Show("Done!", "ADD NEW SCORE");
+
+                    lvScoreBoard.Items.Clear();
+                    ShowToListView(cbSemester.SelectedItem.ToString());
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void bDel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string message = "Are you sure that you would like to delete?";
+                string caption = "Delete";
+                var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    Connection.OpenConnection();
+                    string sql = @"Delete FROM TableScore WHERE(SUB_ID= '" + tbSubID.Text + "')";
+                    sql += @"Delete From Subjects where(SUB_ID= '" + tbSubID.Text + "' and ID ='" + this.User.ID + "')";
+                    SqlCommand command = Connection.CreateSQLCmd(sql);
+                    command.ExecuteNonQuery();
+                    Connection.CloseConnection();
+                    MessageBox.Show("Done!", caption);
+
+                    lvScoreBoard.Items.Clear();
+                    ShowToListView(cbSemester.SelectedItem.ToString());
+                }
+                bAddScore.Enabled = true;
+                tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void bSem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SemForm form = new SemForm(this, this.User.ID);
+            form.Show();
+        }
+
+        public void AddItemToComboBoxSemester()
+        {
+            try
+            {
+                cbSemester.Items.Clear();
+                List<string> sItem = new List<string>();
+
+                Connection.OpenConnection();
+                SqlCommand command = Connection.CreateSQLCmd("select distinct SEM_NAME from SEMESTER where ID = '" + this.User.ID + "'");
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    sItem.Add(reader.GetString(0));
+                }
+                foreach (var sem in sItem)
+                    cbSemester.Items.Add(sem);
+
+                lvScoreBoard.Items.Clear();
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+            finally
+            {
+                Connection.CloseConnection();
+            }
+
+            lAmountSub.Text = "Amount of subjects: ";
+            l_Average.Text = "Average: ";
+            lSumCre.Text = "Sum of credits:";
+        }
+
+        private void lvScoreBoard_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bAddScore.Visible = true;
+                bDel.Visible = true;
+                bModify.Visible = true;
+
+                tbSubID.Text = lvScoreBoard.SelectedItems[0].SubItems[0].Text;
+                tbSubName.Text = lvScoreBoard.SelectedItems[0].SubItems[1].Text;
+                tbCredit.Text = lvScoreBoard.SelectedItems[0].SubItems[2].Text;
+
+                for (int i = 3; i < 12; i++)
+                    if (lvScoreBoard.SelectedItems[0].SubItems[i].Text == "")
+                        lvScoreBoard.SelectedItems[0].SubItems[i].Text = "0";
+
+                tbProVa.Text = lvScoreBoard.SelectedItems[0].SubItems[3].Text;
+                tbMidVa.Text = lvScoreBoard.SelectedItems[0].SubItems[4].Text;
+                tbPracVa.Text = lvScoreBoard.SelectedItems[0].SubItems[5].Text;
+                tbFinVa.Text = lvScoreBoard.SelectedItems[0].SubItems[6].Text;
+
+                tbProWei.Text = lvScoreBoard.SelectedItems[0].SubItems[8].Text;
+                tbMidWei.Text = lvScoreBoard.SelectedItems[0].SubItems[9].Text;
+                tbPracWei.Text = lvScoreBoard.SelectedItems[0].SubItems[10].Text;
+                tbFinWei.Text = lvScoreBoard.SelectedItems[0].SubItems[11].Text;
+
+                for (int i = 7; i < 12; i++)
+                    if (lvScoreBoard.SelectedItems[0].SubItems[i].Text == "0")
+                        lvScoreBoard.SelectedItems[0].SubItems[i - 5].Text = "";
+
+                tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = false;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        private void tbCredit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab))
+            {
+                MessageBox.Show("Enter a number");
+            }
+        }
+
+        private void tbProVa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
+            {
+                MessageBox.Show("Enter a number");
+            }
+            if (e.KeyCode == Keys.OemPeriod)
+                MessageBox.Show("Use ',' to enter float value");
+
+        }
+
+        private void tbProWei_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
+            {
+                MessageBox.Show("Enter a number");
+            }
+            if (e.KeyCode == Keys.OemPeriod)
+                MessageBox.Show("Use ',' to enter float value");
+        }
+
+        private void tbMidVa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
+            {
+                MessageBox.Show("Enter a number");
+            }
+            if (e.KeyCode == Keys.OemPeriod)
+                MessageBox.Show("Use ',' to enter float value");
+        }
+
+        private void tbMidWei_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
+            {
+                MessageBox.Show("Enter a number");
+            }
+            if (e.KeyCode == Keys.OemPeriod)
+                MessageBox.Show("Use ',' to enter float value");
+        }
+
+        private void tbPracVa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
+            {
+                MessageBox.Show("Enter a number");
+            }
+            if (e.KeyCode == Keys.OemPeriod)
+                MessageBox.Show("Use ',' to enter float value");
+        }
+
+        private void tbPracWei_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
+            {
+                MessageBox.Show("Enter a number");
+            }
+            if (e.KeyCode == Keys.OemPeriod)
+                MessageBox.Show("Use ',' to enter float value");
+        }
+
+        private void tbFinVa_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
+            {
+                MessageBox.Show("Enter a number");
+            }
+            if (e.KeyCode == Keys.OemPeriod)
+                MessageBox.Show("Use ',' to enter float value");
+        }
+
+        private void tbFinWei_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
+            {
+                MessageBox.Show("Enter a number");
+            }
+            if (e.KeyCode == Keys.OemPeriod)
+                MessageBox.Show("Use ',' to enter float value");
+        }
+
+        private void bSetData_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Do you want to reset your data? Your data will be deleted!", "Set default", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            try
+            {
+                if (result == DialogResult.Yes)
+                {
+                    User.SetDataDefault();
+                    MessageBox.Show("Done!", "Set default", MessageBoxButtons.OK);
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+
+        }
+
+        private void bChangePass_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ChangePass form = new ChangePass(this, this.User.ID, this.User.Password);
+            form.Show();
+        }
+
+        private void bDelAcc_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Do you want to remove your account? All your data will be deleted!", "Delete your account", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            try
+            {
+                if (result == DialogResult.OK)
+                {
+                    this.Close();
+                    User.DeleteUser();
+                    MessageBox.Show("Done!", "Delete your account", MessageBoxButtons.OK);
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            finally
+            {
+                Application.Exit();
+            }
+        }
         public void LoadTodayTimetable(string today, ref List<string> Lesson)
         {
             Connect loadHomeTimetable = new Connect();
