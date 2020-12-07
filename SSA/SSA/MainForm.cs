@@ -1410,41 +1410,5 @@ namespace StudentSupportApp
                 Application.Exit();
             }
         }
-        public void LoadTodayTimetable(string today, ref List<string> Lesson)
-        {
-            Connect loadHomeTimetable = new Connect();
-            try
-            {
-                loadHomeTimetable.OpenConnection();
-
-                string sWeekDay = dataGridViewHomeTimeTB.Columns[1].HeaderText.ToString();
-                for (int i = 1; i <= 10; i++)
-                {
-                    string sLoadData = "select SUB_NAME from LESSON where ID_USER='" + this.User.ID
-                                        + "' AND DAYINWEEK='" + sWeekDay + "' AND SEM_NAME='" + Properties.Settings.Default.Text + "'"
-                                        + " AND TIMEORDER=" + i;
-                    SqlCommand loadDay = loadHomeTimetable.CreateSQLCmd(sLoadData);
-                    SqlDataReader reader = loadDay.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        if (reader.Read() == false)
-                        {
-                            break;
-                        }
-                        Lesson.Add(reader.GetString(0));
-                    }
-                    else Lesson.Add("");
-                    reader.Close();
-                }
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show(a.Message);
-            }
-            finally
-            {
-                loadHomeTimetable.CloseConnection();
-            }
-        }
     }
 }
