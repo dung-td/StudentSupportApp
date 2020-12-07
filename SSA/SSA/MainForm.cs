@@ -391,6 +391,32 @@ namespace StudentSupportApp
             NearestDeadline();
             LoadToHomeDeadline();
             NotifiDeadline();
+
+            //Danh
+            this.lbHello.Text += " " + this.User.Name + "! Have a nice day!";
+            dataGridViewHomeTimeTB.Columns[1].HeaderText = DateTime.Today.DayOfWeek.ToString();
+            string[] sRow = new string[] {"Lesson 1\n(7:30-8:15)", "Lesson 2\n(8:15-9:00)",
+                "Lesson 3\n(9:00 - 9:45)" , "Lesson 4\n(10:00-10:45)", "Lesson 5\n(10:45-11:30)",
+                "Lesson 6\n(13:00-13:45)", "Lesson 7\n(13:45-14:30)", "Lesson 8\n(14:30-15:15)",
+                "Lesson 9\n(15:30-16:15)", "Lesson 10\n(16:15-17:00)"};
+            for (int i = 0; i < sRow.Length; i++)
+            {
+                dataGridViewTimetable.Rows.Add(sRow[i]);
+                dataGridViewHomeTimeTB.Rows.Add(sRow[i]);
+            }
+
+            List<string> sLesson = new List<string> { };
+            LoadTodayTimetable(dataGridViewHomeTimeTB.Columns[1].HeaderText.ToString(), ref sLesson);
+            if (cbxSem.Items.IndexOf(Properties.Settings.Default.Text) >= 0)
+            {
+                LoadTimetableToHomeDGV(dataGridViewHomeTimeTB, sLesson);
+            }
+
+            ReadSchedulesSemesterComboboxItems();
+            dataGridViewTimetable.CurrentCell.Selected = !dataGridViewTimetable.CurrentCell.Selected;
+
+            btnHome_Click(sender, e);
+            LoadInformationTab();
         }
 
         private void panelScore_Paint(object sender, PaintEventArgs e)
@@ -631,3 +657,368 @@ namespace StudentSupportApp
     }
 }
 
+//Danh
+namespace StudentSupportApp
+{
+    public partial class MainForm
+    {
+        string Semester;
+
+        private void btnCreNewLess_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddLessonForm AddLesson = new AddLessonForm(this, this.User.ID);
+                AddLesson.Show();
+                this.Hide();
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+        }
+
+        private void ReadSchedulesSemesterComboboxItems()
+        {
+            try
+            {
+                cbxSem.Items.Clear();
+                List<string> sItem = new List<string>();
+
+                Connection.OpenConnection();
+                SqlCommand command = Connection.CreateSQLCmd("select distinct SEM_NAME from LESSON where ID_USER='" + this.User.ID + "'");
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    sItem.Add(reader.GetString(0));
+                }
+                foreach (var sem in sItem)
+                    cbxSem.Items.Add(sem);
+
+                Connection.CloseConnection();
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+        }
+
+        private void btnLoadTT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Timetable UserSchedules = new Timetable(this.User.ID, cbxSem.Text);
+                UserSchedules.LoadUserTimetable();
+                UserSchedules.LoadTimetableToDGV(dataGridViewTimetable);
+                btnSetDefault.Visible = true;
+                btnModifyLess.Visible = true;
+                btnExportTT.Visible = true;
+                this.Semester = cbxSem.Text;
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+        }
+
+        private void btnExportTT_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTimetable.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PDF (*.pdf)|*.pdf";
+                sfd.FileName = "Timetable.pdf";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            PdfPTable pdfTable = new PdfPTable(dataGridViewTimetable.Columns.Count);
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 100;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_MIDDLE;
+
+                            foreach (DataGridViewColumn column in dataGridViewTimetable.Columns)
+                            {
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                pdfTable.AddCell(cell);
+                            }
+
+                            foreach (DataGridViewRow row in dataGridViewTimetable.Rows)
+                            {
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    pdfTable.AddCell(cell.Value.ToString());
+                                }
+                            }
+
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            {
+                                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                PdfWriter.GetInstance(pdfDoc, stream);
+                                pdfDoc.Open();
+                                pdfDoc.Add(pdfTable);
+                                pdfDoc.Close();
+                                stream.Close();
+                            }
+
+                            MessageBox.Show("Data exported successfully!!!", "Export Timetable");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error :" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Record To Export!!!", "Info");
+            }
+        }
+
+        private void btnModifyLess_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.dataGridViewTimetable.CurrentCell.Selected == true)
+                {
+                    int iSubID = this.dataGridViewTimetable.CurrentCell.Value.ToString().IndexOf("\n");
+                    int iCellValueLength = this.dataGridViewTimetable.CurrentCell.Value.ToString().Length;
+                    List<string> sLessonData = new List<string> { cbxSem.Text, this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].Name,
+                                                                  this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(0, iSubID),
+                                                                  this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(iSubID, iCellValueLength - iSubID),
+                                                                  (this.dataGridViewTimetable.CurrentCell.RowIndex + 1).ToString() };
+                    ModLessonForm modLessonForm = new ModLessonForm(this, sLessonData, this.User.ID);
+                    modLessonForm.Show();
+                    this.Hide();
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+        }
+
+        private void AddLessonTimeToDataGridView()
+        {
+            try
+            {
+                //dataGridViewHomeTimetable.Columns[1].HeaderText = DateTime.Today.DayOfWeek.ToString();
+                string[] sRow = new string[] {"Lesson 1\n(7:30-8:15)", "Lesson 2\n(8:15-9:00)",
+                "Lesson 3\n(9:00 - 9:45)" , "Lesson 4\n(10:00-10:45)", "Lesson 5\n(10:45-11:30)",
+                "Lesson 6\n(13:00-13:45)", "Lesson 7\n(13:45-14:30)", "Lesson 8\n(14:30-15:15)",
+                "Lesson 9\n(15:30-16:15)", "Lesson 10\n(16:15-17:00)"};
+                for (int i = 0; i < sRow.Length; i++)
+                {
+                    dataGridViewTimetable.Rows.Add(sRow[i]);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void cbxSem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnLoadTT.Visible = true;
+        }
+
+        private void MainForm_VisibleChanged(object sender, EventArgs e)
+        {
+            ReadSchedulesSemesterComboboxItems();
+            cbxSem.Text = this.Semester;
+            LoadInformationTab();
+        }
+
+        private void btnSetDefault_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Text = cbxSem.Text;
+            Properties.Settings.Default.Save();
+            MessageBox.Show("Saved!", "Set Default Semester");
+        }
+
+        private void LoadInformationTab()
+        {
+            try
+            {
+                Connect Info = new Connect();
+                Info.OpenConnection();
+
+                List<string> sData = new List<string>();
+
+                SqlCommand command = Info.CreateSQLCmd("select * from USERS where ID_USER='" + this.User.ID + "'");
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    sData.Add(reader.GetString(0));
+                    sData.Add(reader.GetString(1));
+                    sData.Add(reader.GetDateTime(2).ToString().Substring(0, 10));
+                    sData.Add(reader.GetString(3));
+                    sData.Add(reader.GetString(4));
+                    sData.Add(reader.GetString(5));
+                    sData.Add(reader.GetString(6));
+                }
+                Info.CloseConnection();
+
+                ShowUserInformation(sData);
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+        }
+
+        private void ShowUserInformation(List<string> data)
+        {
+            lbAccID.Text = data[0];
+            tbxEmailInfo.Text = data[1];
+            lbBirthdayInfo.Text = data[2];
+
+            tbxNameInfo.Text = data[4];
+            tbxClassInfo.Text = data[5];
+            tbxGenderInfo.Text = data[6];
+        }
+
+        private void btnChangeInfo_Click(object sender, EventArgs e)
+        {
+            tbxNameInfo.Enabled = !tbxNameInfo.Enabled;
+            tbxClassInfo.Enabled = !tbxClassInfo.Enabled;
+            tbxGenderInfo.Enabled = !tbxGenderInfo.Enabled;
+            BirthDTPicker.Enabled = !BirthDTPicker.Enabled;
+
+            btnCancelInfo.Visible = !btnCancelInfo.Visible;
+            btnSaveInfo.Visible = !btnSaveInfo.Visible;
+        }
+
+        private void btnSaveInfo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tbxNameInfo.Text == "" && tbxGenderInfo.Text == "" && tbxClassInfo.Text == "")
+                {
+                    const string message = "Your information is now empty? Are you sure to continue?";
+                    const string caption = "Change Information";
+                    var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        string[] sInfo = new string[] { tbxNameInfo.Text, BirthDTPicker.Value.ToString(),
+                                                            tbxGenderInfo.Text, tbxClassInfo.Text };
+                        if (this.User.UpdateUserInfo(this.User.ID, sInfo) == 1)
+                        {
+                            MessageBox.Show("Changed your information successfully!", "Change Information");
+                        }
+                        else MessageBox.Show("Failed to change your information! Try again.", "Change Information");
+                    }
+                }
+                else
+                {
+                    string[] sInfo = new string[] { tbxNameInfo.Text, BirthDTPicker.Value.ToString(),
+                                                            tbxGenderInfo.Text, tbxClassInfo.Text };
+                    if (this.User.UpdateUserInfo(this.User.ID, sInfo) == 1)
+                    {
+                        MessageBox.Show("Changed your information successfully!", "Change Information");
+                    }
+                    else MessageBox.Show("Failed to change your information! Try again.", "Change Information");
+                }
+
+                btnChangeInfo_Click(sender, e);
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+        }
+
+        private void btnCancelInfo_Click(object sender, EventArgs e)
+        {
+            const string message = "Your changes will not be saved? Are you sure to continue?";
+            const string caption = "Cancel Changing Information";
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                LoadInformationTab();
+                btnChangeInfo_Click(sender, e);
+            }
+        }
+
+        private void tbxNameInfo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Char.IsLetter(e.KeyChar) == false && (e.KeyChar != (char)Keys.Space) && e.KeyChar != (char)Keys.Back))
+                e.Handled = true;
+            if (e.KeyChar == (char)Keys.Enter)
+                BirthDTPicker.Focus();
+        }
+
+        private void tbxGenderInfo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Char.IsLetter(e.KeyChar) == false && (e.KeyChar != (char)Keys.Space) && e.KeyChar != (char)Keys.Back))
+                e.Handled = true;
+            if (e.KeyChar == (char)Keys.Enter)
+                tbxClassInfo.Focus();
+        }
+
+        private void btnChangeEmail_Click(object sender, EventArgs e)
+        {
+            ChangeEmailForm changeMail = new ChangeEmailForm(this, this.User.ID);
+            changeMail.Show();
+            this.Hide();
+        }
+
+        public void LoadTodayTimetable(string today, ref List<string> Lesson)
+        {
+            Connect loadHomeTimetable = new Connect();
+            try
+            {
+                loadHomeTimetable.OpenConnection();
+
+                string sWeekDay = dataGridViewHomeTimeTB.Columns[1].HeaderText.ToString();
+                for (int i = 1; i <= 10; i++)
+                {
+                    string sLoadData = "select SUB_NAME from LESSON where ID_USER='" + this.User.ID
+                                        + "' AND DAYINWEEK='" + sWeekDay + "' AND SEM_NAME='" + Properties.Settings.Default.Text + "'"
+                                        + " AND TIMEORDER=" + i;
+                    SqlCommand loadDay = loadHomeTimetable.CreateSQLCmd(sLoadData);
+                    SqlDataReader reader = loadDay.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        if (reader.Read() == false)
+                        {
+                            break;
+                        }
+                        Lesson.Add(reader.GetString(0));
+                    }
+                    else Lesson.Add("");
+                    reader.Close();
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+            finally
+            {
+                loadHomeTimetable.CloseConnection();
+            }
+        }
+    }
+}
