@@ -133,8 +133,7 @@ namespace StudentSupportApp
 
                 //Setting
                 cardAcc.Width -= 50;
-                cardLang.Location = new Point(cardLang.Location.X - 75, cardLang.Location.Y);
-                cardLang.Width -= 50;
+               
                 cardTheme.Location = new Point(cardTheme.Location.X - 150, cardTheme.Location.Y);
                 cardTheme.Width -= 50;
                 cardMore.Width -= 125;
@@ -244,8 +243,7 @@ namespace StudentSupportApp
 
                 //Setting
                 cardAcc.Width += 50;
-                cardLang.Location = new Point(cardLang.Location.X + 75, cardLang.Location.Y);
-                cardLang.Width += 50;
+                
                 cardTheme.Location = new Point(cardTheme.Location.X + 150, cardTheme.Location.Y);
                 cardTheme.Width += 50;
                 cardMore.Width += 125;
@@ -310,8 +308,8 @@ namespace StudentSupportApp
             panelHome.BringToFront();
             temp = btnHome;
 
-            lAverAll.Text = "Average: " + data.Average.ToString();
-            lCreSum.Text = "Credit: " + data.SumOfCre.ToString();
+            lAverAll.Text = "Điểm trung bình: " + data.Average.ToString();
+            lCreSum.Text = "Tín chỉ tích luỹ: " + data.SumOfCre.ToString();
         }
         private void btnScore_Click(object sender, EventArgs e)
         {
@@ -1041,9 +1039,9 @@ namespace StudentSupportApp
                 data.Read(this.User.ID);
                 data.GetSemester(data.FindSem(semester)).SCORETABLE.ShowToListView(lvScoreBoard);
 
-                lAmountSub.Text = "Amount of subjects: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.Amount.ToString();
-                l_Average.Text = "Average: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.Average.ToString();
-                lSumCre.Text = "Sum of credits: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.SumOfCred.ToString();
+                lAmountSub.Text = "Số lượng môn học: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.Amount.ToString();
+                l_Average.Text = "Điểm trung bình: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.Average.ToString();
+                lSumCre.Text = "Tổng tín chỉ: " + data.GetSemester(data.FindSem(semester)).SCORETABLE.SumOfCred.ToString();
 
                 tbSubID.Text = tbSubName.Text = tbCredit.Text = tbProVa.Text = tbMidVa.Text = tbPracVa.Text = tbFinVa.Text
                = tbProWei.Text = tbMidWei.Text = tbPracWei.Text = tbFinWei.Text = "";
@@ -1056,12 +1054,12 @@ namespace StudentSupportApp
 
         private void ResetTextbox()
         {
-            this.tbCredit.Text = "Credit";
-            this.tbSubID.Text = "Subject ID";
-            this.tbSubName.Text = "Subject Name";
+            this.tbCredit.Text = "Số tín chỉ";
+            this.tbSubID.Text = "ID môn học";
+            this.tbSubName.Text = "Tên môn học";
 
-            tbProVa.Text = tbMidVa.Text = tbPracVa.Text = tbFinVa.Text = "Value";
-            tbProWei.Text = tbMidWei.Text = tbPracWei.Text = tbFinWei.Text = "Ratio";
+            tbProVa.Text = tbMidVa.Text = tbPracVa.Text = tbFinVa.Text = "Điểm";
+            tbProWei.Text = tbMidWei.Text = tbPracWei.Text = tbFinWei.Text = "Tỉ lệ";
         }
         private void cbSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1090,13 +1088,13 @@ namespace StudentSupportApp
             {
                 if (BlankData())
                 {
-                    MessageBox.Show("Blank data! \nMake sure that your SUBJECT ID, SUBJECT NAME and CREDIT not null. " +
-                        "\nIf your score is null, please enter '0' for VALUE and RATIO ", "Add", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Dữ liệu trống! \nChắc chắn rằng ID MÔN HỌC, TÊN MÔN HỌC và SỐ TÍN CHỈ không được bỏ trống. " +
+                        "\nNếu có cột điểm trống, hãy điền '0' cho ĐIỂM và TỈ LỆ", "CHỈNH SỬA ĐIỂM", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    string message = "Are you sure that you would like to modify?";
-                    string caption = "Modify";
+                    string message = "Bạn có muốn chỉnh sửa?";
+                    string caption = "Chỉnh sửa";
                     var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (result == DialogResult.Yes)
@@ -1108,7 +1106,7 @@ namespace StudentSupportApp
                         CScore s4 = new CScore(float.Parse(tbFinVa.Text), float.Parse(tbFinWei.Text));
 
                         ScoreOfSub scTmp = new ScoreOfSub(sub, s1, s2, s3, s4);
-                        MessageBox.Show("Done!", caption);
+                        MessageBox.Show("Đã chỉnh sửa!", caption);
 
                         lvScoreBoard.Items.Clear();
                         scTmp.Modify(this.User.ID, cbSemester);
@@ -1140,8 +1138,8 @@ namespace StudentSupportApp
             {
                 if (BlankData())
                 {
-                    MessageBox.Show("Blank data! \nMake sure that your SUBJECT ID, SUBJECT NAME and CREDIT not null." +
-                        "\nIf your score is null, please enter '0' for VALUE and RATIO ", "Add", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Dữ liệu trống! \nChắc chắn rằng ID MÔN HỌC, TÊN MÔN HỌC và SỐ TÍN CHỈ không được bỏ trống. " +
+                        "\nNếu có cột điểm trống, hãy điền '0' cho ĐIỂM và TỈ LỆ", "THÊM ĐIỂM", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -1153,7 +1151,7 @@ namespace StudentSupportApp
 
                     ScoreOfSub scTmp = new ScoreOfSub(sub, s1, s2, s3, s4);
                     scTmp.Add(this.User.ID, cbSemester);
-                    MessageBox.Show("Done!", "ADD NEW SCORE");
+                    MessageBox.Show("Đã thêm!", "THÊM ĐIỂM SỐ");
 
                     lvScoreBoard.Items.Clear();
                     ShowToListView(cbSemester.SelectedItem.ToString());
@@ -1169,8 +1167,8 @@ namespace StudentSupportApp
         {
             try
             {
-                string message = "Are you sure that you would like to delete?";
-                string caption = "Delete";
+                string message = "Bạn có muốn xoá?";
+                string caption = "XOÁ";
                 var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
@@ -1181,7 +1179,7 @@ namespace StudentSupportApp
                     SqlCommand command = Connection.CreateSQLCmd(sql);
                     command.ExecuteNonQuery();
                     Connection.CloseConnection();
-                    MessageBox.Show("Done!", caption);
+                    MessageBox.Show("Đã xoá!", caption);
 
                     lvScoreBoard.Items.Clear();
                     ShowToListView(cbSemester.SelectedItem.ToString());
@@ -1232,9 +1230,9 @@ namespace StudentSupportApp
                 Connection.CloseConnection();
             }
 
-            lAmountSub.Text = "Amount of subjects: ";
-            l_Average.Text = "Average: ";
-            lSumCre.Text = "Sum of credits:";
+            lAmountSub.Text = "Số môn học: ";
+            l_Average.Text = "Điểm trung bình: ";
+            lSumCre.Text = "Số tín chỉ:";
         }
 
         private void lvScoreBoard_Click(object sender, EventArgs e)
@@ -1279,7 +1277,7 @@ namespace StudentSupportApp
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab))
             {
-                MessageBox.Show("Enter a number");
+                MessageBox.Show("Hãy nhập số");
             }
         }
 
@@ -1287,10 +1285,10 @@ namespace StudentSupportApp
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
             {
-                MessageBox.Show("Enter a number");
+                MessageBox.Show("Hãy nhập số");
             }
             if (e.KeyCode == Keys.OemPeriod)
-                MessageBox.Show("Use ',' to enter float value");
+                MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
 
         }
 
@@ -1298,81 +1296,88 @@ namespace StudentSupportApp
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
             {
-                MessageBox.Show("Enter a number");
+                MessageBox.Show("Hãy nhập số");
             }
             if (e.KeyCode == Keys.OemPeriod)
-                MessageBox.Show("Use ',' to enter float value");
+                MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
+
         }
 
         private void tbMidVa_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
             {
-                MessageBox.Show("Enter a number");
+                MessageBox.Show("Hãy nhập số");
             }
             if (e.KeyCode == Keys.OemPeriod)
-                MessageBox.Show("Use ',' to enter float value");
+                MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
+
         }
 
         private void tbMidWei_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
             {
-                MessageBox.Show("Enter a number");
+                MessageBox.Show("Hãy nhập số");
             }
             if (e.KeyCode == Keys.OemPeriod)
-                MessageBox.Show("Use ',' to enter float value");
+                MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
+
         }
 
         private void tbPracVa_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
             {
-                MessageBox.Show("Enter a number");
+                MessageBox.Show("Hãy nhập số");
             }
             if (e.KeyCode == Keys.OemPeriod)
-                MessageBox.Show("Use ',' to enter float value");
+                MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
+
         }
 
         private void tbPracWei_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
             {
-                MessageBox.Show("Enter a number");
+                MessageBox.Show("Hãy nhập số");
             }
             if (e.KeyCode == Keys.OemPeriod)
-                MessageBox.Show("Use ',' to enter float value");
+                MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
+
         }
 
         private void tbFinVa_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
             {
-                MessageBox.Show("Enter a number");
+                MessageBox.Show("Hãy nhập số");
             }
             if (e.KeyCode == Keys.OemPeriod)
-                MessageBox.Show("Use ',' to enter float value");
+                MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
+
         }
 
         private void tbFinWei_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
             {
-                MessageBox.Show("Enter a number");
+                MessageBox.Show("Hãy nhập số");
             }
             if (e.KeyCode == Keys.OemPeriod)
-                MessageBox.Show("Use ',' to enter float value");
+                MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
+
         }
 
         private void bSetData_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Do you want to reset your data? Your data will be deleted!", "Set default", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show("Bạn có muốn cài đặt về mặc định? Dữ liệu của bạn sẽ bị xoá!", "CÀI ĐẶT MẶC ĐỊNH", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             try
             {
                 if (result == DialogResult.Yes)
                 {
                     User.SetDataDefault();
-                    MessageBox.Show("Done!", "Set default", MessageBoxButtons.OK);
+                    MessageBox.Show("Đã xong!", "CÀI ĐẶT MẶC ĐỊNH", MessageBoxButtons.OK);
                 }
             }
             catch (Exception err)
@@ -1391,14 +1396,14 @@ namespace StudentSupportApp
 
         private void bDelAcc_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Do you want to remove your account? All your data will be deleted!", "Delete your account", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            var result = MessageBox.Show("Bạn có muốn xoá tài khoản này? Tất cả dữ liệu của bạn sẽ bị xoá!", "XOÁ TÀI KHOẢN", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             try
             {
                 if (result == DialogResult.OK)
                 {
                     this.Close();
                     User.DeleteUser();
-                    MessageBox.Show("Done!", "Delete your account", MessageBoxButtons.OK);
+                    MessageBox.Show("Đã xong!", "XOÁ TÀI KHOẢN", MessageBoxButtons.OK);
                 }
             }
             catch (Exception err)

@@ -41,11 +41,11 @@ namespace StudentSupportApp
             this.lSum = new System.Windows.Forms.Label();
             this.bAdd = new Bunifu.Framework.UI.BunifuThinButton2();
             this.dtgvSem = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bExit = new Bunifu.Framework.UI.BunifuThinButton2();
             this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.bExit = new Bunifu.Framework.UI.BunifuThinButton2();
             this.SemFormPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSem)).BeginInit();
             this.SuspendLayout();
@@ -63,10 +63,9 @@ namespace StudentSupportApp
             this.SemFormPanel.Controls.Add(this.bMod);
             this.SemFormPanel.Controls.Add(this.lSum);
             this.SemFormPanel.Controls.Add(this.bAdd);
-            this.SemFormPanel.Location = new System.Drawing.Point(0, -11);
-            this.SemFormPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SemFormPanel.Location = new System.Drawing.Point(0, -7);
             this.SemFormPanel.Name = "SemFormPanel";
-            this.SemFormPanel.Size = new System.Drawing.Size(222, 608);
+            this.SemFormPanel.Size = new System.Drawing.Size(148, 395);
             this.SemFormPanel.TabIndex = 41;
             // 
             // bDel
@@ -78,7 +77,7 @@ namespace StudentSupportApp
             this.bDel.ActiveLineColor = System.Drawing.Color.Empty;
             this.bDel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bDel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bDel.BackgroundImage")));
-            this.bDel.ButtonText = "Delete";
+            this.bDel.ButtonText = "Xoá";
             this.bDel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bDel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bDel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
@@ -87,10 +86,10 @@ namespace StudentSupportApp
             this.bDel.IdleFillColor = System.Drawing.Color.White;
             this.bDel.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bDel.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bDel.Location = new System.Drawing.Point(21, 442);
-            this.bDel.Margin = new System.Windows.Forms.Padding(8);
+            this.bDel.Location = new System.Drawing.Point(14, 287);
+            this.bDel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bDel.Name = "bDel";
-            this.bDel.Size = new System.Drawing.Size(189, 95);
+            this.bDel.Size = new System.Drawing.Size(126, 62);
             this.bDel.TabIndex = 40;
             this.bDel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bDel.Click += new System.EventHandler(this.bDel_Click);
@@ -101,12 +100,11 @@ namespace StudentSupportApp
             this.lAver.BackColor = System.Drawing.Color.Transparent;
             this.lAver.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lAver.ForeColor = System.Drawing.Color.White;
-            this.lAver.Location = new System.Drawing.Point(16, 148);
-            this.lAver.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lAver.Location = new System.Drawing.Point(11, 96);
             this.lAver.Name = "lAver";
-            this.lAver.Size = new System.Drawing.Size(158, 37);
+            this.lAver.Size = new System.Drawing.Size(120, 46);
             this.lAver.TabIndex = 29;
-            this.lAver.Text = "Average: ";
+            this.lAver.Text = "Điểm \r\ntrung bình: ";
             // 
             // bMod
             // 
@@ -117,7 +115,7 @@ namespace StudentSupportApp
             this.bMod.ActiveLineColor = System.Drawing.Color.Empty;
             this.bMod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bMod.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bMod.BackgroundImage")));
-            this.bMod.ButtonText = "Modify";
+            this.bMod.ButtonText = "Sửa";
             this.bMod.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bMod.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bMod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
@@ -126,10 +124,10 @@ namespace StudentSupportApp
             this.bMod.IdleFillColor = System.Drawing.Color.White;
             this.bMod.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bMod.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bMod.Location = new System.Drawing.Point(21, 331);
-            this.bMod.Margin = new System.Windows.Forms.Padding(8);
+            this.bMod.Location = new System.Drawing.Point(14, 215);
+            this.bMod.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bMod.Name = "bMod";
-            this.bMod.Size = new System.Drawing.Size(189, 95);
+            this.bMod.Size = new System.Drawing.Size(126, 62);
             this.bMod.TabIndex = 39;
             this.bMod.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bMod.Click += new System.EventHandler(this.bMod_Click);
@@ -140,12 +138,11 @@ namespace StudentSupportApp
             this.lSum.BackColor = System.Drawing.Color.Transparent;
             this.lSum.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lSum.ForeColor = System.Drawing.Color.White;
-            this.lSum.Location = new System.Drawing.Point(16, 91);
-            this.lSum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lSum.Location = new System.Drawing.Point(11, 59);
             this.lSum.Name = "lSum";
-            this.lSum.Size = new System.Drawing.Size(127, 37);
+            this.lSum.Size = new System.Drawing.Size(99, 23);
             this.lSum.TabIndex = 30;
-            this.lSum.Text = "Credits:";
+            this.lSum.Text = "Số tín chỉ:";
             // 
             // bAdd
             // 
@@ -156,7 +153,7 @@ namespace StudentSupportApp
             this.bAdd.ActiveLineColor = System.Drawing.Color.Empty;
             this.bAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bAdd.BackgroundImage")));
-            this.bAdd.ButtonText = "Add";
+            this.bAdd.ButtonText = "Thêm";
             this.bAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bAdd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
@@ -165,10 +162,10 @@ namespace StudentSupportApp
             this.bAdd.IdleFillColor = System.Drawing.Color.White;
             this.bAdd.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bAdd.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bAdd.Location = new System.Drawing.Point(21, 220);
-            this.bAdd.Margin = new System.Windows.Forms.Padding(8);
+            this.bAdd.Location = new System.Drawing.Point(14, 143);
+            this.bAdd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bAdd.Name = "bAdd";
-            this.bAdd.Size = new System.Drawing.Size(189, 95);
+            this.bAdd.Size = new System.Drawing.Size(126, 62);
             this.bAdd.TabIndex = 38;
             this.bAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
@@ -198,35 +195,13 @@ namespace StudentSupportApp
             this.dtgvSem.EnableHeadersVisualStyles = false;
             this.dtgvSem.HeaderBgColor = System.Drawing.Color.SeaShell;
             this.dtgvSem.HeaderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.dtgvSem.Location = new System.Drawing.Point(310, 63);
-            this.dtgvSem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtgvSem.Location = new System.Drawing.Point(207, 41);
             this.dtgvSem.Name = "dtgvSem";
             this.dtgvSem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtgvSem.RowHeadersWidth = 62;
-            this.dtgvSem.Size = new System.Drawing.Size(663, 422);
+            this.dtgvSem.Size = new System.Drawing.Size(442, 274);
             this.dtgvSem.TabIndex = 40;
             this.dtgvSem.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgvSem_RowHeaderMouseClick);
-            // 
-            // NAME
-            // 
-            this.NAME.HeaderText = "NAME";
-            this.NAME.MinimumWidth = 8;
-            this.NAME.Name = "NAME";
-            this.NAME.Width = 300;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "CREDITS";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "AVERAGE";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
             // 
             // label2
             // 
@@ -234,12 +209,11 @@ namespace StudentSupportApp
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(446, 9);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(297, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(438, 43);
+            this.label2.Size = new System.Drawing.Size(290, 28);
             this.label2.TabIndex = 39;
-            this.label2.Text = "SEMESTER INFORMATION";
+            this.label2.Text = "THÔNG TIN CÁC HỌC KÌ";
             // 
             // bExit
             // 
@@ -250,7 +224,7 @@ namespace StudentSupportApp
             this.bExit.ActiveLineColor = System.Drawing.Color.Empty;
             this.bExit.BackColor = System.Drawing.SystemColors.Control;
             this.bExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bExit.BackgroundImage")));
-            this.bExit.ButtonText = "Exit";
+            this.bExit.ButtonText = "Thoát";
             this.bExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bExit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
@@ -259,24 +233,46 @@ namespace StudentSupportApp
             this.bExit.IdleFillColor = System.Drawing.Color.Transparent;
             this.bExit.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bExit.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bExit.Location = new System.Drawing.Point(879, 497);
-            this.bExit.Margin = new System.Windows.Forms.Padding(8);
+            this.bExit.Location = new System.Drawing.Point(586, 323);
+            this.bExit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(148, 77);
+            this.bExit.Size = new System.Drawing.Size(99, 50);
             this.bExit.TabIndex = 42;
             this.bExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
             // 
+            // NAME
+            // 
+            this.NAME.HeaderText = "TÊN HỌC KÌ";
+            this.NAME.MinimumWidth = 8;
+            this.NAME.Name = "NAME";
+            this.NAME.Width = 300;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "SỐ TÍN CHỈ";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "ĐIỂM TRUNG BÌNH";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 150;
+            // 
             // SemForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 586);
+            this.ClientSize = new System.Drawing.Size(703, 381);
             this.Controls.Add(this.bExit);
             this.Controls.Add(this.SemFormPanel);
             this.Controls.Add(this.dtgvSem);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SemForm";
             this.Text = "SemForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SemForm_FormClosed);
@@ -299,9 +295,9 @@ namespace StudentSupportApp
         private System.Windows.Forms.Label lSum;
         private Bunifu.Framework.UI.BunifuThinButton2 bAdd;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dtgvSem;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.Label label2;
     }
 }
