@@ -8,11 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 
 namespace StudentSupportApp
 {
     public partial class ChangePass : Form
     {
+        [DllImport("user32")]
+        private static extern bool ReleaseCapture();
+
+        [DllImport("user32")]
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wp, int lp);
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, 161, 2, 0);
+            }
+        }
         string sUserPass, sID;
         Connect Connection = new Connect();
         MainForm parent;
@@ -161,6 +176,11 @@ namespace StudentSupportApp
         {
             tbNewPass2.Text = "";
             tbNewPass2.isPassword = true;
+        }
+
+        private void ChangePass_MouseMove(object sender, MouseEventArgs e)
+        {
+            OnMouseDown(e);
         }
 
         public void ChangePassword()

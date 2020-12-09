@@ -67,6 +67,26 @@ namespace StudentSupportApp
                 MessageBox.Show(ex.ToString());
             }
         }
+        public void SendFeedBack(string args)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress("ssa.nonreply@gmail.com");
+                mail.To.Add(this.Email);
+                mail.Subject = "Student Support App OTP";
+                mail.Body = args;
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("ssa.nonreply@gmail.com", "Dung0478");
+                SmtpServer.EnableSsl = true;
+                SmtpServer.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
         public void GetRandomCode()
         {
             Random rand = new Random();

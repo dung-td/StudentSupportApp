@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
-using System.Security.Cryptography;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace StudentSupportApp
 {
@@ -15,7 +15,16 @@ namespace StudentSupportApp
         }
         public void OpenConnection()
         {
-            Connection.Open();
+            try
+            {
+                Connection.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
         }
         public SqlCommand CreateSQLCmd(string args)
         {
@@ -25,19 +34,16 @@ namespace StudentSupportApp
         }
         public void CloseConnection()
         {
-            Connection.Close();
-        }
-    }
-    class MD5Encoder
-    {
-        public string FromString(string Message)
-        {
-            MD5 MyMD5 = MD5.Create();
-            byte[] HashCode = MyMD5.ComputeHash(Encoding.Unicode.GetBytes(Message));
-            StringBuilder SB = new StringBuilder();
-            for (int i = 0; i < HashCode.Length; i++)
-                SB.Append(HashCode[i].ToString("X2"));
-            return SB.ToString();
+            try
+            {
+                Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
         }
     }
 }
