@@ -84,8 +84,6 @@ namespace StudentSupportApp
             if (e.KeyCode == Keys.Enter)
                 btnAddAL_Click(sender, e);
         }
-
-       
     }
 }
 

@@ -34,7 +34,7 @@ namespace StudentSupportApp
         {
             if (tbNewPass1.Text == "" || tbNewPass2.Text == "" || tbOldPass.Text == "")
             {
-                MessageBox.Show("Blank data!", "Change your password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Dữ liệu trống!", "ĐỔI MẬT KHẨU", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return true;
             }
             return false;
@@ -128,7 +128,7 @@ namespace StudentSupportApp
         {
             if (tbOldPass.Text == "")
             {
-                tbOldPass.Text = "Your old password";
+                tbOldPass.Text = "Mật khẩu cũ";
                 tbOldPass.isPassword = false;
             }
         }
@@ -137,7 +137,7 @@ namespace StudentSupportApp
         {
             if (tbNewPass1.Text == "")
             {
-                tbNewPass1.Text = "Your old password";
+                tbNewPass1.Text = "Mật khẩu cũ";
                 tbNewPass1.isPassword = false;
             }
         }
@@ -152,7 +152,7 @@ namespace StudentSupportApp
         {
             if (tbNewPass2.Text == "")
             {
-                tbNewPass2.Text = "Confirm your new password";
+                tbNewPass2.Text = "Xác nhận mật khẩu mới";
                 tbNewPass2.isPassword = false;
             }
         }
@@ -183,7 +183,7 @@ namespace StudentSupportApp
 
             finally
             {
-                MessageBox.Show("Done!", "Change your password", MessageBoxButtons.OK);
+                MessageBox.Show("Đã xong!", "ĐỔI MẬT KHẨU", MessageBoxButtons.OK);
             }
 
         }

@@ -61,12 +61,12 @@ namespace StudentSupportApp
             this.lbLogin.BackColor = System.Drawing.Color.Transparent;
             this.lbLogin.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLogin.ForeColor = System.Drawing.Color.White;
-            this.lbLogin.Location = new System.Drawing.Point(-6, 64);
+            this.lbLogin.Location = new System.Drawing.Point(9, 64);
             this.lbLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbLogin.Name = "lbLogin";
-            this.lbLogin.Size = new System.Drawing.Size(122, 90);
+            this.lbLogin.Size = new System.Drawing.Size(91, 90);
             this.lbLogin.TabIndex = 21;
-            this.lbLogin.Text = "Add\r\nNew\r\nSemester";
+            this.lbLogin.Text = "Thêm\r\nHọc kì \r\nMới\r\n";
             this.lbLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbAddNew
@@ -82,7 +82,7 @@ namespace StudentSupportApp
             this.tbAddNew.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbAddNew.LineThickness = 3;
             this.tbAddNew.Location = new System.Drawing.Point(123, 77);
-            this.tbAddNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbAddNew.Margin = new System.Windows.Forms.Padding(4);
             this.tbAddNew.Name = "tbAddNew";
             this.tbAddNew.Size = new System.Drawing.Size(306, 47);
             this.tbAddNew.TabIndex = 69;
@@ -114,7 +114,7 @@ namespace StudentSupportApp
             this.bExit.IconZoom = 90D;
             this.bExit.IsTab = false;
             this.bExit.Location = new System.Drawing.Point(304, 140);
-            this.bExit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bExit.Margin = new System.Windows.Forms.Padding(5);
             this.bExit.Name = "bExit";
             this.bExit.Normalcolor = System.Drawing.Color.Transparent;
             this.bExit.OnHovercolor = System.Drawing.Color.WhiteSmoke;
@@ -153,7 +153,7 @@ namespace StudentSupportApp
             this.bOK.IconZoom = 90D;
             this.bOK.IsTab = false;
             this.bOK.Location = new System.Drawing.Point(219, 140);
-            this.bOK.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bOK.Margin = new System.Windows.Forms.Padding(5);
             this.bOK.Name = "bOK";
             this.bOK.Normalcolor = System.Drawing.Color.Transparent;
             this.bOK.OnHovercolor = System.Drawing.Color.WhiteSmoke;
@@ -172,11 +172,11 @@ namespace StudentSupportApp
             this.lDiaSem.BackColor = System.Drawing.Color.Transparent;
             this.lDiaSem.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lDiaSem.ForeColor = System.Drawing.Color.Black;
-            this.lDiaSem.Location = new System.Drawing.Point(137, 43);
+            this.lDiaSem.Location = new System.Drawing.Point(174, 41);
             this.lDiaSem.Name = "lDiaSem";
-            this.lDiaSem.Size = new System.Drawing.Size(289, 23);
+            this.lDiaSem.Size = new System.Drawing.Size(203, 23);
             this.lDiaSem.TabIndex = 66;
-            this.lDiaSem.Text = "Add name of new semester:";
+            this.lDiaSem.Text = "Thêm tên học kì mới:";
             // 
             // DiaSem
             // 
@@ -189,7 +189,7 @@ namespace StudentSupportApp
             this.Controls.Add(this.bOK);
             this.Controls.Add(this.lDiaSem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DiaSem";
             this.Text = "DiaSem";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DiaSem_FormClosed);

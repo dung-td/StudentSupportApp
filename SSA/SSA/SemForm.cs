@@ -25,8 +25,8 @@ namespace StudentSupportApp
 
             data.Read(UserID);
             data.ShowSemToGridView(dtgvSem);
-            lSum.Text = "Credits: " + data.SumOfCre.ToString();
-            lAver.Text = "Average: " + data.Average.ToString();
+            lSum.Text = "Số tín chỉ: " + data.SumOfCre.ToString();
+            lAver.Text = "Điểm trung bình: " + data.Average.ToString();
 
             bMod.Visible = bDel.Visible = false;
             data.SEMESTERS.Clear();
@@ -109,7 +109,7 @@ namespace StudentSupportApp
         private void bAdd_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DiaSem dia = new DiaSem(this, "Add the name of the semester: ");
+            DiaSem dia = new DiaSem(this, "Nhập tên học kì mới: ");
             dia.getData = new DiaSem.GetData(GetValue);
             dia.Show();
 
@@ -118,7 +118,7 @@ namespace StudentSupportApp
         private void bMod_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DiaSem dia = new DiaSem(this, "Enter new name of the semester: ");
+            DiaSem dia = new DiaSem(this, "Chỉnh sửa tên học kì: ");
             dia.getData = new DiaSem.GetData(Modify);
             dia.Show();
         }
