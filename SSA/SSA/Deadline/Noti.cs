@@ -18,14 +18,13 @@ namespace StudentSupportApp
             this.Opacity = 0.0;
             this.StartPosition = FormStartPosition.Manual;
             InitializeComponent();
-
         }
         public enum enumAction
         {
             wait, start, close
         }
         private Notifi.enumAction action;
-
+        #region EventHanlder
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             timer1.Interval = 1;
@@ -66,13 +65,11 @@ namespace StudentSupportApp
                     break;
             }
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             timer1.Interval = 1;
             action = enumAction.close;
         }
-
         public void showAlert(string msg)
         {
             this.StartPosition = FormStartPosition.Manual;
@@ -98,5 +95,6 @@ namespace StudentSupportApp
             timer1.Interval = 1;
             timer1.Start();
         }
+        #endregion
     }
 }

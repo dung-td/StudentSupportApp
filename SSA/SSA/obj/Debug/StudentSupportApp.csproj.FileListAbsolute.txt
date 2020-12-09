@@ -22,3 +22,4 @@ C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSu
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.csproj.CopyComplete
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\SSA.exe
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\SSA.pdb
+C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.ReportError.resources

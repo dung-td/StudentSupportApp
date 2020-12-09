@@ -1,20 +1,34 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace StudentSupportApp
 {
     public partial class LoginForm : Form
     {
+        [DllImport("user32")]
+        private static extern bool ReleaseCapture();
+
+        [DllImport("user32")]
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wp, int lp);
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, 161, 2, 0);
+            }
+        }
         public LoginForm()
         {
             InitializeComponent();
         }
-
+        #region EventHandler
         private void bExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void bLogin_Click(object sender, EventArgs e)
         {
             USER user = new USER();
@@ -33,7 +47,6 @@ namespace StudentSupportApp
             else labelWrong.Visible = true;
 
         }
-
         private void tbxPass_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -41,39 +54,36 @@ namespace StudentSupportApp
                 bLogin_Click(sender, e);
             }
         }
-
         private void bSignUp_Click(object sender, EventArgs e)
         {
             SignUp signUp = new SignUp(this);
             signUp.Show();
             this.Hide();
         }
-
         private void tbxID_OnValueChanged(object sender, EventArgs e)
         {
             labelInvalid.Hide();
         }
-
         private void tbxPass_OnValueChanged(object sender, EventArgs e)
         {
             labelWrong.Hide();
         }
-
         private void tbxPass_Enter(object sender, EventArgs e)
         {
             tbxPass.isPassword = true;
         }
-
         private void LoginForm_Load(object sender, EventArgs e)
         {
             this.tbxPass.Text = "";
         }
-
         private void LoginForm_VisibleChanged(object sender, EventArgs e)
         {
             this.tbxPass.Text = "";
         }
-
-       
+        private void LoginForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            OnMouseDown(e);
+        }
+        #endregion
     }
 }

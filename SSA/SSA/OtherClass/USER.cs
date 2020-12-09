@@ -209,7 +209,10 @@ namespace StudentSupportApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ket noi xay ra loi hoac doc du lieu bi loi");
+                Form temp = new Form();
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(temp, ex);
+                rp.Show();
             }
             finally
             {

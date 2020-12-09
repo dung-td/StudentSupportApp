@@ -15,6 +15,7 @@ namespace StudentSupportApp
             this.parent = parent;
             InitializeComponent();
         }
+        #region EventHandler
         private void tbCancel_Click(object sender, EventArgs e)
         {
             this.parent.Show();
@@ -27,7 +28,6 @@ namespace StudentSupportApp
             else
                 btbHour.LineFocusedColor = Color.Blue;
         }
-
         private void btbMinute_OnValueChanged(object sender, EventArgs e)
         {
             if (!btbMinute.Text.All(char.IsDigit))
@@ -35,7 +35,6 @@ namespace StudentSupportApp
             else
                 btbMinute.LineFocusedColor = Color.Blue;
         }
-
         private void btbSubID_OnValueChanged(object sender, EventArgs e)
         {
             if (!btbSubID.Text.All(char.IsLetterOrDigit))
@@ -43,7 +42,6 @@ namespace StudentSupportApp
             else
                 btbSubID.LineFocusedColor = Color.Blue;
         }
-
         private void TurnTime(ref int h, ref int m)
         {
             if (h < 0 || h > 12 || m < 0 || m > 59)
@@ -56,7 +54,6 @@ namespace StudentSupportApp
                     h += 12;
             }
         }
-
         private void tbAdd_Click(object sender, EventArgs e)
         {
             try
@@ -80,10 +77,14 @@ namespace StudentSupportApp
                     this.parent.Show();
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
             }
         }
+        #endregion
     }
 }

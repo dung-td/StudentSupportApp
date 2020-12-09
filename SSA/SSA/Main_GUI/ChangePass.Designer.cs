@@ -61,8 +61,9 @@ namespace StudentSupportApp
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel1.Controls.Add(this.lbChangePass);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(167, 364);
+            this.panel1.Size = new System.Drawing.Size(250, 560);
             this.panel1.TabIndex = 64;
             // 
             // lbChangePass
@@ -71,10 +72,9 @@ namespace StudentSupportApp
             this.lbChangePass.BackColor = System.Drawing.Color.Transparent;
             this.lbChangePass.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbChangePass.ForeColor = System.Drawing.Color.White;
-            this.lbChangePass.Location = new System.Drawing.Point(5, 136);
-            this.lbChangePass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbChangePass.Location = new System.Drawing.Point(8, 209);
             this.lbChangePass.Name = "lbChangePass";
-            this.lbChangePass.Size = new System.Drawing.Size(152, 78);
+            this.lbChangePass.Size = new System.Drawing.Size(234, 116);
             this.lbChangePass.TabIndex = 19;
             this.lbChangePass.Text = "Đổi\r\nMật khẩu\r\n";
             this.lbChangePass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -97,10 +97,10 @@ namespace StudentSupportApp
             this.bExit.IdleFillColor = System.Drawing.Color.White;
             this.bExit.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bExit.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bExit.Location = new System.Drawing.Point(447, 302);
-            this.bExit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bExit.Location = new System.Drawing.Point(670, 465);
+            this.bExit.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(104, 44);
+            this.bExit.Size = new System.Drawing.Size(156, 68);
             this.bExit.TabIndex = 69;
             this.bExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
@@ -123,10 +123,10 @@ namespace StudentSupportApp
             this.bChange.IdleFillColor = System.Drawing.Color.White;
             this.bChange.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bChange.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bChange.Location = new System.Drawing.Point(307, 301);
-            this.bChange.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bChange.Location = new System.Drawing.Point(460, 463);
+            this.bChange.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.bChange.Name = "bChange";
-            this.bChange.Size = new System.Drawing.Size(104, 45);
+            this.bChange.Size = new System.Drawing.Size(156, 69);
             this.bChange.TabIndex = 68;
             this.bChange.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bChange.Click += new System.EventHandler(this.bChange_Click);
@@ -137,10 +137,9 @@ namespace StudentSupportApp
             this.lWrong.BackColor = System.Drawing.Color.Transparent;
             this.lWrong.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lWrong.ForeColor = System.Drawing.Color.Red;
-            this.lWrong.Location = new System.Drawing.Point(187, 76);
-            this.lWrong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lWrong.Location = new System.Drawing.Point(280, 117);
             this.lWrong.Name = "lWrong";
-            this.lWrong.Size = new System.Drawing.Size(220, 17);
+            this.lWrong.Size = new System.Drawing.Size(315, 21);
             this.lWrong.TabIndex = 72;
             this.lWrong.Text = "Mật khẩu cũ không đúng. Hãy thử lại!";
             this.lWrong.Visible = false;
@@ -151,10 +150,9 @@ namespace StudentSupportApp
             this.lConfirmWrong.BackColor = System.Drawing.Color.Transparent;
             this.lConfirmWrong.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lConfirmWrong.ForeColor = System.Drawing.Color.Red;
-            this.lConfirmWrong.Location = new System.Drawing.Point(187, 281);
-            this.lConfirmWrong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lConfirmWrong.Location = new System.Drawing.Point(280, 432);
             this.lConfirmWrong.Name = "lConfirmWrong";
-            this.lConfirmWrong.Size = new System.Drawing.Size(258, 17);
+            this.lConfirmWrong.Size = new System.Drawing.Size(379, 21);
             this.lConfirmWrong.TabIndex = 71;
             this.lConfirmWrong.Text = "Mật khẩu này không trùng khớp. Hãy thử lại!";
             this.lConfirmWrong.Visible = false;
@@ -165,10 +163,9 @@ namespace StudentSupportApp
             this.lShortPass.BackColor = System.Drawing.Color.Transparent;
             this.lShortPass.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lShortPass.ForeColor = System.Drawing.Color.Red;
-            this.lShortPass.Location = new System.Drawing.Point(187, 173);
-            this.lShortPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lShortPass.Location = new System.Drawing.Point(280, 266);
             this.lShortPass.Name = "lShortPass";
-            this.lShortPass.Size = new System.Drawing.Size(275, 17);
+            this.lShortPass.Size = new System.Drawing.Size(385, 21);
             this.lShortPass.TabIndex = 70;
             this.lShortPass.Text = "Mật khẩu cần phải từ 8 kí tự trở lên. Hãy thử lại!";
             this.lShortPass.Visible = false;
@@ -185,10 +182,10 @@ namespace StudentSupportApp
             this.tbNewPass2.LineIdleColor = System.Drawing.Color.Gray;
             this.tbNewPass2.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbNewPass2.LineThickness = 3;
-            this.tbNewPass2.Location = new System.Drawing.Point(190, 216);
-            this.tbNewPass2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNewPass2.Location = new System.Drawing.Point(285, 332);
+            this.tbNewPass2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbNewPass2.Name = "tbNewPass2";
-            this.tbNewPass2.Size = new System.Drawing.Size(370, 44);
+            this.tbNewPass2.Size = new System.Drawing.Size(555, 68);
             this.tbNewPass2.TabIndex = 67;
             this.tbNewPass2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbNewPass2.OnValueChanged += new System.EventHandler(this.tbNewPass2_OnValueChanged);
@@ -207,10 +204,10 @@ namespace StudentSupportApp
             this.tbNewPass1.LineIdleColor = System.Drawing.Color.Gray;
             this.tbNewPass1.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbNewPass1.LineThickness = 3;
-            this.tbNewPass1.Location = new System.Drawing.Point(190, 105);
-            this.tbNewPass1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNewPass1.Location = new System.Drawing.Point(285, 162);
+            this.tbNewPass1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbNewPass1.Name = "tbNewPass1";
-            this.tbNewPass1.Size = new System.Drawing.Size(370, 44);
+            this.tbNewPass1.Size = new System.Drawing.Size(555, 68);
             this.tbNewPass1.TabIndex = 66;
             this.tbNewPass1.Text = "Mật khẩu mới";
             this.tbNewPass1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -230,10 +227,10 @@ namespace StudentSupportApp
             this.tbOldPass.LineIdleColor = System.Drawing.Color.Gray;
             this.tbOldPass.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbOldPass.LineThickness = 3;
-            this.tbOldPass.Location = new System.Drawing.Point(190, 13);
-            this.tbOldPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbOldPass.Location = new System.Drawing.Point(285, 20);
+            this.tbOldPass.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbOldPass.Name = "tbOldPass";
-            this.tbOldPass.Size = new System.Drawing.Size(370, 44);
+            this.tbOldPass.Size = new System.Drawing.Size(555, 68);
             this.tbOldPass.TabIndex = 65;
             this.tbOldPass.Text = "Mật khẩu cũ";
             this.tbOldPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -243,9 +240,9 @@ namespace StudentSupportApp
             // 
             // ChangePass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 364);
+            this.ClientSize = new System.Drawing.Size(890, 560);
             this.Controls.Add(this.bExit);
             this.Controls.Add(this.bChange);
             this.Controls.Add(this.lWrong);
@@ -256,9 +253,11 @@ namespace StudentSupportApp
             this.Controls.Add(this.tbOldPass);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ChangePass";
             this.Text = "ChangePass";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ChangePass_FormClosed);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChangePass_MouseMove);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

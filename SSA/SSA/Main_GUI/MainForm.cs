@@ -6,11 +6,25 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Runtime.InteropServices; 
 
 namespace StudentSupportApp
 {
     public partial class MainForm : Form
     {
+        [DllImport("user32")]
+        private static extern bool ReleaseCapture();
+        [DllImport("user32")]
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wp, int lp);
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, 161, 2, 0);
+            }
+        }
         Bunifu.Framework.UI.BunifuFlatButton temp = new Bunifu.Framework.UI.BunifuFlatButton();
         LoginForm parent;
         Connect Connection;
@@ -263,43 +277,6 @@ namespace StudentSupportApp
 
             }
         }
-
-        public void Alert(string msg)
-        {
-            Notifi notifi = new Notifi();
-            notifi.showAlert(msg);
-        }
-
-        private void NotifiDeadline()
-        {
-            Deadlines[] ListDeadline = new Deadlines[1000];
-            string sQuery = "SELECT * FROM DEADLINE WHERE YEAR(DATESUBMIT) = YEAR(GETDATE()) AND MONTH(DATESUBMIT) = MONTH(GETDATE()) AND DAY(DATESUBMIT) = DAY(GETDATE()) AND ID_USER = '" + this.User.ID + "'";
-            this.Connection.OpenConnection();
-            SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
-            SqlDataReader reader = command.ExecuteReader();
-            int temp = 0;
-            string[] args = new string[5];
-            while (reader.HasRows)
-            {
-                if (reader.Read() == false) break;
-                args[0] = reader.GetString(0);
-                args[1] = reader.GetString(1);
-                args[2] = reader.GetString(2);
-                args[3] = reader.GetString(3);
-                DateTime temp1 = reader.GetDateTime(4);
-                args[4] = reader.GetString(5);
-                ListDeadline[temp] = new Deadlines(args, temp1);
-                temp++;
-            }
-            this.Connection.CloseConnection();
-            foreach (Deadlines DL in ListDeadline)
-            {
-                if (DL == null)
-                    break;
-                this.Alert(DL.SubjectCode + " | " + DL.Details + " | Today: " + DL.TimeSubmit.TimeOfDay);
-            }
-        }
-
         private void btnHome_Click(object sender, EventArgs e)
         {
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
@@ -340,7 +317,6 @@ namespace StudentSupportApp
                 cbxSem.SelectedItem = cbxSem.Items[cbxSem.Items.IndexOf(Properties.Settings.Default.Text)];
             }
         }
-
         private void btnInformation_Click(object sender, EventArgs e)
         {
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
@@ -349,7 +325,6 @@ namespace StudentSupportApp
             panelInfo.BringToFront();
             temp = btnInformation;
         }
-
         private void btnSetting_Click(object sender, EventArgs e)
         {
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
@@ -360,67 +335,45 @@ namespace StudentSupportApp
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //Dung
-            Deadlines[] ListDeadline = new Deadlines[1000];
-            string sQuery = "SELECT * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "'";
-            this.Connection.OpenConnection();
-            SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
-            SqlDataReader reader = command.ExecuteReader();
-            int temp = 0;
-            string[] args = new string[5];
-            while (reader.HasRows)
+            try
             {
-                if (reader.Read() == false) break;
-                args[0] = reader.GetString(0);
-                args[1] = reader.GetString(1);
-                args[2] = reader.GetString(2);
-                args[3] = reader.GetString(3);
-                DateTime temp1 = reader.GetDateTime(4);
-                args[4] = reader.GetString(5);
-                ListDeadline[temp] = new Deadlines(args, temp1);
-                temp++;
-            }
-            this.Connection.CloseConnection();
-            foreach (Deadlines DL in ListDeadline)
-            {
-                if (DL == null)
-                    break;
-                dataDeadline.Rows.Add(DL.ID, DL.SubjectCode, DL.Subject, DL.Details, DL.TimeSubmit, DL.Status);
-            }
-            NearestDeadline();
-            LoadToHomeDeadline();
-            NotifiDeadline();
+                //Dung
+                GetDeadline();
+                NearestDeadline();
+                LoadToHomeDeadline();
+                NotifiDeadline();
 
-            //Danh
-            this.lbHello.Text += " " + this.User.Name + "! Have a nice day!";
-            dataGridViewHomeTimeTB.Columns[1].HeaderText = DateTime.Today.DayOfWeek.ToString();
-            string[] sRow = new string[] {"Lesson 1\n(7:30-8:15)", "Lesson 2\n(8:15-9:00)",
+                //Danh
+                this.lbHello.Text += " " + this.User.Name + "! Have a nice day!";
+                dataGridViewHomeTimeTB.Columns[1].HeaderText = DateTime.Today.DayOfWeek.ToString();
+                string[] sRow = new string[] {"Lesson 1\n(7:30-8:15)", "Lesson 2\n(8:15-9:00)",
                 "Lesson 3\n(9:00 - 9:45)" , "Lesson 4\n(10:00-10:45)", "Lesson 5\n(10:45-11:30)",
                 "Lesson 6\n(13:00-13:45)", "Lesson 7\n(13:45-14:30)", "Lesson 8\n(14:30-15:15)",
                 "Lesson 9\n(15:30-16:15)", "Lesson 10\n(16:15-17:00)"};
-            for (int i = 0; i < sRow.Length; i++)
-            {
-                dataGridViewTimetable.Rows.Add(sRow[i]);
-                dataGridViewHomeTimeTB.Rows.Add(sRow[i]);
+                for (int i = 0; i < sRow.Length; i++)
+                {
+                    dataGridViewTimetable.Rows.Add(sRow[i]);
+                    dataGridViewHomeTimeTB.Rows.Add(sRow[i]);
+                }
+
+                List<string> sLesson = new List<string> { };
+                LoadTodayTimetable(dataGridViewHomeTimeTB.Columns[1].HeaderText.ToString(), ref sLesson);
+                if (cbxSem.Items.IndexOf(Properties.Settings.Default.Text) >= 0)
+                {
+                    LoadTimetableToHomeDGV(dataGridViewHomeTimeTB, sLesson);
+                }
+                ReadSchedulesSemesterComboboxItems();
+                dataGridViewTimetable.CurrentCell.Selected = !dataGridViewTimetable.CurrentCell.Selected;
+                btnHome_Click(sender, e);
+                LoadInformationTab();
             }
-
-            List<string> sLesson = new List<string> { };
-            LoadTodayTimetable(dataGridViewHomeTimeTB.Columns[1].HeaderText.ToString(), ref sLesson);
-            if (cbxSem.Items.IndexOf(Properties.Settings.Default.Text) >= 0)
+            catch (Exception ex)
             {
-                LoadTimetableToHomeDGV(dataGridViewHomeTimeTB, sLesson);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
             }
-
-            ReadSchedulesSemesterComboboxItems();
-            dataGridViewTimetable.CurrentCell.Selected = !dataGridViewTimetable.CurrentCell.Selected;
-
-            btnHome_Click(sender, e);
-            LoadInformationTab();
-        }
-
-        private void panelScore_Paint(object sender, PaintEventArgs e)
-        {
-
         }
         public void LoadTimetableToHomeDGV(DataGridView obj, List<string> Lesson)
         {
@@ -436,15 +389,70 @@ namespace StudentSupportApp
             this.Hide();
             this.parent.Show();
         }
+        private void header_MouseMove(object sender, MouseEventArgs e)
+        {
+            OnMouseDown(e);
+        }
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
-
 }
 
 //Dung
+#region Notification 
 namespace StudentSupportApp
 {
     public partial class MainForm
     {
+        public void Alert(string msg)
+        {
+            Notifi notifi = new Notifi();
+            notifi.showAlert(msg);
+        }
+        private void NotifiDeadline()
+        {
+            try
+            {
+                Deadlines[] ListDeadline = new Deadlines[1000];
+                string sQuery = "SELECT * FROM DEADLINE WHERE YEAR(DATESUBMIT) = YEAR(GETDATE()) AND MONTH(DATESUBMIT) = MONTH(GETDATE()) AND DAY(DATESUBMIT) = DAY(GETDATE()) AND ID_USER = '" + this.User.ID + "'";
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
+                SqlDataReader reader = command.ExecuteReader();
+                int temp = 0;
+                string[] args = new string[5];
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    args[0] = reader.GetString(0);
+                    args[1] = reader.GetString(1);
+                    args[2] = reader.GetString(2);
+                    args[3] = reader.GetString(3);
+                    DateTime temp1 = reader.GetDateTime(4);
+                    args[4] = reader.GetString(5);
+                    ListDeadline[temp] = new Deadlines(args, temp1);
+                    temp++;
+                }
+                foreach (Deadlines DL in ListDeadline)
+                {
+                    if (DL == null)
+                        break;
+                    this.Alert(DL.SubjectCode + " | " + DL.Details + " | Today: " + DL.TimeSubmit.TimeOfDay);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
+        }
         private void bEdit_Click(object sender, EventArgs e)
         {
             this.bEditSave.Visible = true;
@@ -473,7 +481,10 @@ namespace StudentSupportApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
             }
             finally
             {
@@ -483,35 +494,49 @@ namespace StudentSupportApp
         private void bRefresh_Click(object sender, EventArgs e)
         {
             Deadlines[] ListDeadline = new Deadlines[1000];
-            while (dataDeadline.Rows.Count > 1)
+            try
             {
-                dataDeadline.Rows.RemoveAt(0);
+                while (dataDeadline.Rows.Count > 1)
+                {
+                    dataDeadline.Rows.RemoveAt(0);
+                }
+                string sQuery = "SELECT * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "'";
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
+                SqlDataReader reader = command.ExecuteReader();
+                int temp = 0;
+                string[] args = new string[5];
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    args[0] = reader.GetString(0);
+                    args[1] = reader.GetString(1);
+                    args[2] = reader.GetString(2);
+                    args[3] = reader.GetString(3);
+                    DateTime temp1 = reader.GetDateTime(4);
+                    args[4] = reader.GetString(5);
+                    ListDeadline[temp] = new Deadlines(args, temp1);
+                    temp++;
+                }
+                foreach (Deadlines DL in ListDeadline)
+                {
+                    if (DL == null)
+                        break;
+                    dataDeadline.Rows.Add(DL.ID, DL.SubjectCode, DL.Subject, DL.Details, DL.TimeSubmit, DL.Status);
+                }
             }
-            string sQuery = "SELECT * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "'";
-            this.Connection.OpenConnection();
-            SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
-            SqlDataReader reader = command.ExecuteReader();
-            int temp = 0;
-            string[] args = new string[5];
-            while (reader.HasRows)
+            catch (Exception ex)
             {
-                if (reader.Read() == false) break;
-                args[0] = reader.GetString(0);
-                args[1] = reader.GetString(1);
-                args[2] = reader.GetString(2);
-                args[3] = reader.GetString(3);
-                DateTime temp1 = reader.GetDateTime(4);
-                args[4] = reader.GetString(5);
-                ListDeadline[temp] = new Deadlines(args, temp1);
-                temp++;
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
             }
-            this.Connection.CloseConnection();
-            foreach (Deadlines DL in ListDeadline)
+            finally
             {
-                if (DL == null)
-                    break;
-                dataDeadline.Rows.Add(DL.ID, DL.SubjectCode, DL.Subject, DL.Details, DL.TimeSubmit, DL.Status);
+                this.Connection.CloseConnection();
             }
+
         }
         private void bDelete_Click(object sender, EventArgs e)
         {
@@ -530,7 +555,10 @@ namespace StudentSupportApp
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                    ReportError rp = new ReportError(this, ex);
+                    rp.Show();
+                    this.Hide();
                 }
                 finally
                 {
@@ -562,7 +590,10 @@ namespace StudentSupportApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
             }
             finally
             {
@@ -571,14 +602,24 @@ namespace StudentSupportApp
         }
         private void dataDeadline_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataDeadline.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                dataDeadline.CurrentRow.Selected = true;
-                labelID.Text = dataDeadline.Rows[e.RowIndex].Cells[0].Value.ToString();
-                btbSubject.Text = dataDeadline.Rows[e.RowIndex].Cells[2].Value.ToString();
-                btbDetails.Text = dataDeadline.Rows[e.RowIndex].Cells[3].Value.ToString();
-                bdateTime.Value = DateTime.Parse(dataDeadline.Rows[e.RowIndex].Cells[4].Value.ToString());
-                btbStatus.Text = dataDeadline.Rows[e.RowIndex].Cells[5].Value.ToString();
+                if (dataDeadline.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    dataDeadline.CurrentRow.Selected = true;
+                    labelID.Text = dataDeadline.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    btbSubject.Text = dataDeadline.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    btbDetails.Text = dataDeadline.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    bdateTime.Value = DateTime.Parse(dataDeadline.Rows[e.RowIndex].Cells[4].Value.ToString());
+                    btbStatus.Text = dataDeadline.Rows[e.RowIndex].Cells[5].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
             }
         }
         private void bEditSave_Click(object sender, EventArgs e)
@@ -597,9 +638,12 @@ namespace StudentSupportApp
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 MessageBox.Show("SAVED!", "Notification", buttons);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ket noi xay ra loi hoac doc du lieu bi loi");
+            catch(Exception ex)
+{
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
             }
             finally
             {
@@ -607,7 +651,6 @@ namespace StudentSupportApp
                 bRefresh_Click(sender, e);    
             }
         }
-
         private void NearestDeadline()
         {
             try
@@ -624,7 +667,10 @@ namespace StudentSupportApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
             }
             finally
             {
@@ -645,24 +691,69 @@ namespace StudentSupportApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
             }
             finally
             {
                 this.Connection.CloseConnection();
             }
-
+        }
+        private void GetDeadline()
+        {
+            try
+            {
+                Deadlines[] ListDeadline = new Deadlines[1000];
+                string sQuery = "SELECT * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "'";
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
+                SqlDataReader reader = command.ExecuteReader();
+                int temp = 0;
+                string[] args = new string[5];
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    args[0] = reader.GetInt32(0).ToString();
+                    args[1] = reader.GetString(1);
+                    args[2] = reader.GetString(2);
+                    args[3] = reader.GetString(3);
+                    DateTime temp1 = reader.GetDateTime(4);
+                    args[4] = reader.GetString(5);
+                    ListDeadline[temp] = new Deadlines(args, temp1);
+                    temp++;
+                }
+                foreach (Deadlines DL in ListDeadline)
+                {
+                    if (DL == null)
+                        break;
+                    dataDeadline.Rows.Add(DL.ID, DL.SubjectCode, DL.Subject, DL.Details, DL.TimeSubmit, DL.Status);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
         }
     }
 }
+#endregion
 
 //Danh
+#region TimeTable
 namespace StudentSupportApp
 {
     public partial class MainForm
     {
         string Semester;
-
         private void btnCreNewLess_Click(object sender, EventArgs e)
         {
             try
@@ -676,7 +767,6 @@ namespace StudentSupportApp
                 MessageBox.Show(a.Message);
             }
         }
-
         private void ReadSchedulesSemesterComboboxItems()
         {
             try
@@ -703,7 +793,6 @@ namespace StudentSupportApp
                 MessageBox.Show(a.Message);
             }
         }
-
         private void btnLoadTT_Click(object sender, EventArgs e)
         {
             try
@@ -721,7 +810,6 @@ namespace StudentSupportApp
                 MessageBox.Show(a.Message);
             }
         }
-
         private void btnExportTT_Click(object sender, EventArgs e)
         {
             if (dataGridViewTimetable.Rows.Count > 0)
@@ -791,7 +879,6 @@ namespace StudentSupportApp
                 MessageBox.Show("No Record To Export!!!", "Info");
             }
         }
-
         private void btnModifyLess_Click(object sender, EventArgs e)
         {
             try
@@ -814,7 +901,6 @@ namespace StudentSupportApp
                 MessageBox.Show(a.Message);
             }
         }
-
         private void AddLessonTimeToDataGridView()
         {
             try
@@ -834,26 +920,22 @@ namespace StudentSupportApp
                 MessageBox.Show(e.Message);
             }
         }
-
         private void cbxSem_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnLoadTT.Visible = true;
         }
-
-        private void MainForm_VisibleChanged(object sender, EventArgs e)
-        {
-            ReadSchedulesSemesterComboboxItems();
-            cbxSem.Text = this.Semester;
-            LoadInformationTab();
-        }
-
+        //private void MainForm_VisibleChanged(object sender, EventArgs e)
+        //{
+        //    ReadSchedulesSemesterComboboxItems();
+        //    cbxSem.Text = this.Semester;
+        //    LoadInformationTab();
+        //}
         private void btnSetDefault_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Text = cbxSem.Text;
             Properties.Settings.Default.Save();
             MessageBox.Show("Saved!", "Set Default Semester");
         }
-
         private void LoadInformationTab()
         {
             try
@@ -886,7 +968,6 @@ namespace StudentSupportApp
                 MessageBox.Show(a.Message);
             }
         }
-
         private void ShowUserInformation(List<string> data)
         {
             lbAccID.Text = data[0];
@@ -897,7 +978,6 @@ namespace StudentSupportApp
             tbxClassInfo.Text = data[5];
             tbxGenderInfo.Text = data[6];
         }
-
         private void btnChangeInfo_Click(object sender, EventArgs e)
         {
             tbxNameInfo.Enabled = !tbxNameInfo.Enabled;
@@ -908,7 +988,6 @@ namespace StudentSupportApp
             btnCancelInfo.Visible = !btnCancelInfo.Visible;
             btnSaveInfo.Visible = !btnSaveInfo.Visible;
         }
-
         private void btnSaveInfo_Click(object sender, EventArgs e)
         {
             try
@@ -947,7 +1026,6 @@ namespace StudentSupportApp
                 MessageBox.Show(a.Message);
             }
         }
-
         private void btnCancelInfo_Click(object sender, EventArgs e)
         {
             const string message = "Your changes will not be saved? Are you sure to continue?";
@@ -959,7 +1037,6 @@ namespace StudentSupportApp
                 btnChangeInfo_Click(sender, e);
             }
         }
-
         private void tbxNameInfo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((Char.IsLetter(e.KeyChar) == false && (e.KeyChar != (char)Keys.Space) && e.KeyChar != (char)Keys.Back))
@@ -967,7 +1044,6 @@ namespace StudentSupportApp
             if (e.KeyChar == (char)Keys.Enter)
                 BirthDTPicker.Focus();
         }
-
         private void tbxGenderInfo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((Char.IsLetter(e.KeyChar) == false && (e.KeyChar != (char)Keys.Space) && e.KeyChar != (char)Keys.Back))
@@ -975,14 +1051,12 @@ namespace StudentSupportApp
             if (e.KeyChar == (char)Keys.Enter)
                 tbxClassInfo.Focus();
         }
-
         private void btnChangeEmail_Click(object sender, EventArgs e)
         {
             ChangeEmailForm changeMail = new ChangeEmailForm(this, this.User.ID);
             changeMail.Show();
             this.Hide();
         }
-
         public void LoadTodayTimetable(string today, ref List<string> Lesson)
         {
             Connect loadHomeTimetable = new Connect();
@@ -1021,9 +1095,10 @@ namespace StudentSupportApp
         }
     }
 }
-
+#endregion
 
 //Linh
+#region Score
 namespace StudentSupportApp
 {
     public partial class MainForm
@@ -1051,7 +1126,6 @@ namespace StudentSupportApp
                 MessageBox.Show(err.Message);
             }
         }
-
         private void ResetTextbox()
         {
             this.tbCredit.Text = "Số tín chỉ";
@@ -1081,7 +1155,6 @@ namespace StudentSupportApp
 
             //ResetTextbox();
         }
-
         private void bModify_Click(object sender, EventArgs e)
         {
             try
@@ -1122,7 +1195,6 @@ namespace StudentSupportApp
                 MessageBox.Show(err.Message);
             }
         }
-
         private bool BlankData()
         {
             if (tbSubID.Text == "" || tbSubName.Text == "" || tbCredit.Text == "" ||
@@ -1131,7 +1203,6 @@ namespace StudentSupportApp
                 return true;
             return false;
         }
-
         private void bAddScore_Click(object sender, EventArgs e)
         {
             try
@@ -1162,7 +1233,6 @@ namespace StudentSupportApp
                 MessageBox.Show(err.Message);
             }
         }
-
         private void bDel_Click(object sender, EventArgs e)
         {
             try
@@ -1192,14 +1262,12 @@ namespace StudentSupportApp
                 MessageBox.Show(err.Message);
             }
         }
-
         private void bSem_Click(object sender, EventArgs e)
         {
             this.Hide();
             SemForm form = new SemForm(this, this.User.ID);
             form.Show();
         }
-
         public void AddItemToComboBoxSemester()
         {
             try
@@ -1234,7 +1302,6 @@ namespace StudentSupportApp
             l_Average.Text = "Điểm trung bình: ";
             lSumCre.Text = "Số tín chỉ:";
         }
-
         private void lvScoreBoard_Click(object sender, EventArgs e)
         {
             try
@@ -1272,7 +1339,6 @@ namespace StudentSupportApp
                 MessageBox.Show(err.Message);
             }
         }
-
         private void tbCredit_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab))
@@ -1280,7 +1346,6 @@ namespace StudentSupportApp
                 MessageBox.Show("Hãy nhập số");
             }
         }
-
         private void tbProVa_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
@@ -1291,7 +1356,6 @@ namespace StudentSupportApp
                 MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
 
         }
-
         private void tbProWei_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
@@ -1302,7 +1366,6 @@ namespace StudentSupportApp
                 MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
 
         }
-
         private void tbMidVa_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
@@ -1313,7 +1376,6 @@ namespace StudentSupportApp
                 MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
 
         }
-
         private void tbMidWei_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
@@ -1324,7 +1386,6 @@ namespace StudentSupportApp
                 MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
 
         }
-
         private void tbPracVa_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
@@ -1335,7 +1396,6 @@ namespace StudentSupportApp
                 MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
 
         }
-
         private void tbPracWei_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
@@ -1346,7 +1406,6 @@ namespace StudentSupportApp
                 MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
 
         }
-
         private void tbFinVa_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
@@ -1357,7 +1416,6 @@ namespace StudentSupportApp
                 MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
 
         }
-
         private void tbFinWei_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 || e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Tab || e.KeyCode == Keys.Oemcomma || e.KeyCode == Keys.OemPeriod))
@@ -1368,7 +1426,6 @@ namespace StudentSupportApp
                 MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
 
         }
-
         private void bSetData_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Bạn có muốn cài đặt về mặc định? Dữ liệu của bạn sẽ bị xoá!", "CÀI ĐẶT MẶC ĐỊNH", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -1386,14 +1443,12 @@ namespace StudentSupportApp
             }
 
         }
-
         private void bChangePass_Click(object sender, EventArgs e)
         {
             this.Hide();
             ChangePass form = new ChangePass(this, this.User.ID, this.User.Password);
             form.Show();
         }
-
         private void bDelAcc_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Bạn có muốn xoá tài khoản này? Tất cả dữ liệu của bạn sẽ bị xoá!", "XOÁ TÀI KHOẢN", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -1417,3 +1472,4 @@ namespace StudentSupportApp
         }
     }
 }
+#endregion
