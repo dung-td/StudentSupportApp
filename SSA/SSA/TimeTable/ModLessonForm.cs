@@ -38,9 +38,9 @@ namespace StudentSupportApp
                     this.sOldInfo[5] = this.sUserID;
                 }
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại", "Cảnh Báo");
             }
         }
 
@@ -59,17 +59,17 @@ namespace StudentSupportApp
                     Timetable lesson = new Timetable();
                     string[] sData = new string[] { cbxDIWML.Text, cbxTimeOrderM.Text, tbxSubIDML.Text.Remove(0, 1), tbxSubNaML.Text, tbxSemNaML.Text, this.sUserID };
                     if (lesson.UpdateLessonInfo(sOldInfo, sData) == 1)
-                        MessageBox.Show("Sucessfully modified!", "Modify Lesson Information");
-                    else MessageBox.Show("Failed to modify lesson. Check your data.", "Modify Lesson");
+                        MessageBox.Show("Chỉnh sửa thành công!", "Chỉnh sửa thông tin tiết học");
+                    else MessageBox.Show("Chỉnh sửa tiết học thất bại. Vui lòng kiểm tra lại dữ liệu.", "Chỉnh sửa thông tin tiết học");
                 }
                 else
                 {
-                    MessageBox.Show("Failed to modify lesson. Check your data.", "Modify Lesson");
+                    MessageBox.Show("Chỉnh sửa tiết học thất bại. Vui lòng kiểm tra lại dữ liệu.", "Chỉnh sửa thông tin tiết học");
                 }
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!", "Cảnh Báo");
             }
         }
 

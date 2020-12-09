@@ -59,9 +59,21 @@ namespace StudentSupportApp
                     }
                 }
             }
-            catch (Exception a)
+            catch (InvalidCastException)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi với việc đổi kiểu dữ liệu. Vui lòng thử lại!");
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác trên cơ sở dữ liệu. Vui lòng thử lại!");
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!");
+            }
+            catch (System.IO.IOException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác nhập/xuất dữ liệu. Vui lòng thử lại!");
             }
         }
 
@@ -79,9 +91,13 @@ namespace StudentSupportApp
                     }
                 }
             }
-            catch (Exception a)
+            catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi với giá trị khả thi của dữ liệu. Vui lòng thử lại!");
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!", "Cảnh Báo");
             }
         }
 
@@ -102,12 +118,26 @@ namespace StudentSupportApp
                 SqlCommand AddCommand1 = AddLesson.CreateSQLCmd(sAddData);
                 AddCommand1.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (InvalidCastException)
             {
-                MessageBox.Show("Problem with connecting to server or with data adding.");
-                return 0;
+                MessageBox.Show("Xảy ra lỗi với việc đổi kiểu dữ liệu. Vui lòng thử lại!");
             }
-            AddLesson.CloseConnection();
+            catch (SqlException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác trên cơ sở dữ liệu. Vui lòng thử lại!");
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!");
+            }
+            catch (System.IO.IOException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác nhập/xuất dữ liệu. Vui lòng thử lại!");
+            }
+            finally
+            {
+                AddLesson.CloseConnection();
+            }
             return 1;
         }
 
@@ -128,20 +158,34 @@ namespace StudentSupportApp
                 SqlCommand UpdateCommand = ModLesson.CreateSQLCmd(sUpdateData);
                 UpdateCommand.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (InvalidCastException)
             {
-                MessageBox.Show("Problem with connecting to server or with data updating.");
-                return 0;
+                MessageBox.Show("Xảy ra lỗi với việc đổi kiểu dữ liệu. Vui lòng thử lại!");
             }
-            ModLesson.CloseConnection();
+            catch (SqlException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác trên cơ sở dữ liệu. Vui lòng thử lại!");
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!");
+            }
+            catch (System.IO.IOException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác nhập/xuất dữ liệu. Vui lòng thử lại!");
+            }
+            finally
+            {
+                ModLesson.CloseConnection();
+            }
             return 1;
         }
 
         public int CheckExistSemester(string input)
         {
+            Connect Check = new Connect();
             try
             {
-                Connect Check = new Connect();
                 Check.OpenConnection();
 
                 SqlCommand command = Check.CreateSQLCmd("select distinct SEM_NAME from SEMESTER where ID='" + this.user.ID + "'");
@@ -154,9 +198,25 @@ namespace StudentSupportApp
                 }
                 return 0;
             }
-            catch (Exception a)
+            catch (InvalidCastException)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi với việc đổi kiểu dữ liệu. Vui lòng thử lại!");
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác trên cơ sở dữ liệu. Vui lòng thử lại!");
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!");
+            }
+            catch (System.IO.IOException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác nhập/xuất dữ liệu. Vui lòng thử lại!");
+            }
+            finally
+            {
+                Check.CloseConnection();
             }
             return 0;
         }

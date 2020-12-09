@@ -49,9 +49,21 @@ namespace StudentSupportApp
                     }
                 }
             }
-            catch (Exception a)
+            catch (InvalidCastException)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi với việc đổi kiểu dữ liệu. Vui lòng thử lại!");
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác trên cơ sở dữ liệu. Vui lòng thử lại!");
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!");
+            }
+            catch (System.IO.IOException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác nhập/xuất dữ liệu. Vui lòng thử lại!");
             }
             finally
             {
@@ -87,21 +99,28 @@ namespace StudentSupportApp
 
         private void btnSendCodeCE_Click(object sender, EventArgs e)
         {
-            USER temp = new USER();
-            temp.Email = this.tbxNewEmail.Text;
+            try
+            {
+                USER temp = new USER();
+                temp.Email = this.tbxNewEmail.Text;
 
-            if (CheckEmail() == 0)
-            {
-                lbInvalidEmailAddr.Visible = true;
+                if (CheckEmail() == 0)
+                {
+                    lbInvalidEmailAddr.Visible = true;
+                }
+                else if (temp.CheckEmail() == 1)
+                {
+                    this.emailVerify = new EmailVerify(tbxNewEmail.Text);
+                    this.emailVerify.GetRandomCode();
+                    this.emailVerify.SendMail();
+                    lbSentCode.Show();
+                }
+                else lbUsedEmail.Visible = true;
             }
-            else if (temp.CheckEmail() == 1)
+            catch (Exception)
             {
-                this.emailVerify = new EmailVerify(tbxNewEmail.Text);
-                this.emailVerify.GetRandomCode();
-                this.emailVerify.SendMail();
-                lbSentCode.Show();
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!", "Cảnh Báo");
             }
-            else lbUsedEmail.Visible = true;
         }
 
         private void tbxNewEmail_OnValueChanged(object sender, EventArgs e)
@@ -119,7 +138,7 @@ namespace StudentSupportApp
             {
                 if (tbxCurPass.Text == "" | tbxChangeMailVC.Text == "" | tbxNewEmail.Text == "")
                 {
-                    MessageBox.Show("Don't leave your data blank! Please try again!", "Change Email");
+                    MessageBox.Show("Hãy điền đầy đủ thông tin! Vui lòng thử lại!", "Đổi Email");
                 }
                 else
                 {
@@ -133,11 +152,23 @@ namespace StudentSupportApp
                             SqlCommand command = Connection.CreateSQLCmd(sql);
                             command.ExecuteNonQuery();
 
-                            MessageBox.Show("Changed new email succesfully!", "Change Email");
+                            MessageBox.Show("Đổi email thành công!", "Đổi Email");
                         }
-                        catch (Exception a)
+                        catch (InvalidCastException)
                         {
-                            MessageBox.Show(a.Message);
+                            MessageBox.Show("Xảy ra lỗi với việc đổi kiểu dữ liệu. Vui lòng thử lại!");
+                        }
+                        catch (SqlException)
+                        {
+                            MessageBox.Show("Xảy ra lỗi với thao tác trên cơ sở dữ liệu. Vui lòng thử lại!");
+                        }
+                        catch (InvalidOperationException)
+                        {
+                            MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!");
+                        }
+                        catch (System.IO.IOException)
+                        {
+                            MessageBox.Show("Xảy ra lỗi với thao tác nhập/xuất dữ liệu. Vui lòng thử lại!");
                         }
                         finally
                         {
@@ -159,9 +190,9 @@ namespace StudentSupportApp
                     }
                 }
             }
-            catch (Exception s)
+            catch (Exception)
             {
-                MessageBox.Show(s.Message);
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!", "Cảnh Báo");
             }
         }
 

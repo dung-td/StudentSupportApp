@@ -339,6 +339,8 @@ namespace StudentSupportApp
             {
                 cbxSem.SelectedItem = cbxSem.Items[cbxSem.Items.IndexOf(Properties.Settings.Default.Text)];
             }
+
+            btnLoadTT_Click(sender, e);
         }
 
         private void btnInformation_Click(object sender, EventArgs e)
@@ -392,12 +394,12 @@ namespace StudentSupportApp
             NotifiDeadline();
 
             //Danh
-            this.lbHello.Text += " " + this.User.Name + "! Have a nice day!";
+            this.lbHello.Text += " " + this.User.Name + "! Chúc một ngày tốt lành!";
             dataGridViewHomeTimeTB.Columns[1].HeaderText = DateTime.Today.DayOfWeek.ToString();
-            string[] sRow = new string[] {"Lesson 1\n(7:30-8:15)", "Lesson 2\n(8:15-9:00)",
-                "Lesson 3\n(9:00 - 9:45)" , "Lesson 4\n(10:00-10:45)", "Lesson 5\n(10:45-11:30)",
-                "Lesson 6\n(13:00-13:45)", "Lesson 7\n(13:45-14:30)", "Lesson 8\n(14:30-15:15)",
-                "Lesson 9\n(15:30-16:15)", "Lesson 10\n(16:15-17:00)"};
+            string[] sRow = new string[] {"Tiết 1\n(7:30-8:15)", "Tiết 2\n(8:15-9:00)",
+                "Tiết 3\n(9:00 - 9:45)" , "Tiết 4\n(10:00-10:45)", "Tiết 5\n(10:45-11:30)",
+                "Tiết 6\n(13:00-13:45)", "Tiết 7\n(13:45-14:30)", "Tiết 8\n(14:30-15:15)",
+                "Tiết 9\n(15:30-16:15)", "Tiết 10\n(16:15-17:00)"};
             for (int i = 0; i < sRow.Length; i++)
             {
                 dataGridViewTimetable.Rows.Add(sRow[i]);
@@ -424,11 +426,22 @@ namespace StudentSupportApp
         }
         public void LoadTimetableToHomeDGV(DataGridView obj, List<string> Lesson)
         {
-            int iLessonIndex = 0;
-            for (int i = 0; i < 10; i++)
+            try
             {
-                obj.Rows[i].Cells[1].Value = Lesson[iLessonIndex];
-                iLessonIndex++;
+                int iLessonIndex = 0;
+                for (int i = 0; i < 10; i++)
+                {
+                    obj.Rows[i].Cells[1].Value = Lesson[iLessonIndex];
+                    iLessonIndex++;
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Xảy ra lỗi với giá trị khả thi của dữ liệu. Vui lòng thử lại!");
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!");
             }
         }
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -671,9 +684,9 @@ namespace StudentSupportApp
                 AddLesson.Show();
                 this.Hide();
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!", "Cảnh Báo");
             }
         }
 
@@ -695,12 +708,26 @@ namespace StudentSupportApp
                 }
                 foreach (var sem in sItem)
                     cbxSem.Items.Add(sem);
-
-                Connection.CloseConnection();
             }
-            catch (Exception a)
+            catch (InvalidCastException)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi với việc đổi kiểu dữ liệu. Vui lòng thử lại!");
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác trên cơ sở dữ liệu. Vui lòng thử lại!");
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!");
+            }
+            catch (System.IO.IOException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác nhập/xuất dữ liệu. Vui lòng thử lại!");
+            }
+            finally
+            {
+                Connection.CloseConnection();
             }
         }
 
@@ -716,9 +743,9 @@ namespace StudentSupportApp
                 btnExportTT.Visible = true;
                 this.Semester = cbxSem.Text;
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!", "Cảnh Báo");
             }
         }
 
@@ -738,11 +765,24 @@ namespace StudentSupportApp
                         {
                             File.Delete(sfd.FileName);
                         }
-                        catch (IOException ex)
+                        catch (IOException)
                         {
                             fileError = true;
-                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                            MessageBox.Show("Xảy ra lỗi với thao tác truy cập/truy xuất dữ liệu. Vui lòng thử lại!");
                         }
+                        catch (ArgumentException)
+                        {
+                            MessageBox.Show("Xảy ra lỗi với việc xóa file. Vui lòng thử lại!", "Cảnh Báo");
+                        }
+                        catch (NotSupportedException)
+                        {
+                            MessageBox.Show("Xảy ra lỗi với việc xóa file. Vui lòng thử lại!", "Cảnh Báo");
+                        }
+                        catch (UnauthorizedAccessException)
+                        {
+                            MessageBox.Show("Xảy ra lỗi với việc truy cập file. Vui lòng thử lại!", "Cảnh Báo");
+                        }
+
                     }
                     if (!fileError)
                     {
@@ -777,18 +817,18 @@ namespace StudentSupportApp
                                 stream.Close();
                             }
 
-                            MessageBox.Show("Data exported successfully!!!", "Export Timetable");
+                            MessageBox.Show("Xuất file PDF thành công!", "Xuất TKB");
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
-                            MessageBox.Show("Error :" + ex.Message);
+                            MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!", "Cảnh Báo");
                         }
                     }
                 }
             }
             else
             {
-                MessageBox.Show("No Record To Export!!!", "Info");
+                MessageBox.Show("Dữ liệu để xuất trống!", "Thông Báo");
             }
         }
 
@@ -809,9 +849,13 @@ namespace StudentSupportApp
                     this.Hide();
                 }
             }
-            catch (Exception a)
+            catch (InvalidOperationException)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!", "Cảnh Báo");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Xảy ra lỗi với giá trị khả thi của dữ liệu. Vui lòng thử lại!");
             }
         }
 
@@ -820,18 +864,22 @@ namespace StudentSupportApp
             try
             {
                 //dataGridViewHomeTimetable.Columns[1].HeaderText = DateTime.Today.DayOfWeek.ToString();
-                string[] sRow = new string[] {"Lesson 1\n(7:30-8:15)", "Lesson 2\n(8:15-9:00)",
-                "Lesson 3\n(9:00 - 9:45)" , "Lesson 4\n(10:00-10:45)", "Lesson 5\n(10:45-11:30)",
-                "Lesson 6\n(13:00-13:45)", "Lesson 7\n(13:45-14:30)", "Lesson 8\n(14:30-15:15)",
-                "Lesson 9\n(15:30-16:15)", "Lesson 10\n(16:15-17:00)"};
+                string[] sRow = new string[] {"Tiết 1\n(7:30-8:15)", "Tiết 2\n(8:15-9:00)",
+                "Tiết 3\n(9:00 - 9:45)" , "Tiết 4\n(10:00-10:45)", "Tiết 5\n(10:45-11:30)",
+                "Tiết 6\n(13:00-13:45)", "Tiết 7\n(13:45-14:30)", "Tiết 8\n(14:30-15:15)",
+                "Tiết 9\n(15:30-16:15)", "Tiết 10\n(16:15-17:00)"};
                 for (int i = 0; i < sRow.Length; i++)
                 {
                     dataGridViewTimetable.Rows.Add(sRow[i]);
                 }
             }
-            catch (Exception e)
+            catch (ArgumentNullException)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Xảy ra lỗi với thao tác truy/xuất dữ liệu.");
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!");
             }
         }
 
@@ -851,7 +899,7 @@ namespace StudentSupportApp
         {
             Properties.Settings.Default.Text = cbxSem.Text;
             Properties.Settings.Default.Save();
-            MessageBox.Show("Saved!", "Set Default Semester");
+            MessageBox.Show("Đã lưu!", "Đặt học kỳ làm mặc định");
         }
 
         private void LoadInformationTab()
@@ -881,9 +929,21 @@ namespace StudentSupportApp
 
                 ShowUserInformation(sData);
             }
-            catch (Exception a)
+            catch (InvalidCastException)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi với việc đổi kiểu dữ liệu. Vui lòng thử lại!");
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác trên cơ sở dữ liệu. Vui lòng thử lại!");
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!");
+            }
+            catch (System.IO.IOException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác nhập/xuất dữ liệu. Vui lòng thử lại!");
             }
         }
 
@@ -915,8 +975,8 @@ namespace StudentSupportApp
             {
                 if (tbxNameInfo.Text == "" && tbxGenderInfo.Text == "" && tbxClassInfo.Text == "")
                 {
-                    const string message = "Your information is now empty? Are you sure to continue?";
-                    const string caption = "Change Information";
+                    const string message = "Thông tin của bạn đang trống. Bạn chắc chắc muốn tiếp tục?";
+                    const string caption = "Chỉnh sửa thông tin";
                     var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
@@ -924,9 +984,9 @@ namespace StudentSupportApp
                                                             tbxGenderInfo.Text, tbxClassInfo.Text };
                         if (this.User.UpdateUserInfo(this.User.ID, sInfo) == 1)
                         {
-                            MessageBox.Show("Changed your information successfully!", "Change Information");
+                            MessageBox.Show("Chỉnh sửa thông tin thành công!", "Chỉnh sửa thông tin");
                         }
-                        else MessageBox.Show("Failed to change your information! Try again.", "Change Information");
+                        else MessageBox.Show("Chỉnh sửa thông tin thất bại. Vui lòng thử lại", "Chỉnh sửa thông tin");
                     }
                 }
                 else
@@ -935,23 +995,23 @@ namespace StudentSupportApp
                                                             tbxGenderInfo.Text, tbxClassInfo.Text };
                     if (this.User.UpdateUserInfo(this.User.ID, sInfo) == 1)
                     {
-                        MessageBox.Show("Changed your information successfully!", "Change Information");
+                        MessageBox.Show("Chỉnh sửa thông tin thành công!", "Chỉnh sửa thông tin");
                     }
-                    else MessageBox.Show("Failed to change your information! Try again.", "Change Information");
+                    else MessageBox.Show("Chỉnh sửa thông tin thất bại. Vui lòng thử lại", "Chỉnh sửa thông tin");
                 }
 
                 btnChangeInfo_Click(sender, e);
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!", "Cảnh Báo");
             }
         }
 
         private void btnCancelInfo_Click(object sender, EventArgs e)
         {
-            const string message = "Your changes will not be saved? Are you sure to continue?";
-            const string caption = "Cancel Changing Information";
+            const string message = "Những thay đổi của bạn sẽ không được lưu lại. Bạn chắc chắn muốn tiếp tục?";
+            const string caption = "Hủy bỏ thay đổi thông tin";
             var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -1010,9 +1070,21 @@ namespace StudentSupportApp
                     reader.Close();
                 }
             }
-            catch (Exception a)
+            catch (InvalidCastException)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi với việc đổi kiểu dữ liệu. Vui lòng thử lại!");
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác trên cơ sở dữ liệu. Vui lòng thử lại!");
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!");
+            }
+            catch (System.IO.IOException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác nhập/xuất dữ liệu. Vui lòng thử lại!");
             }
             finally
             {

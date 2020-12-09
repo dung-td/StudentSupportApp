@@ -29,17 +29,17 @@ namespace StudentSupportApp
                     Timetable lesson = new Timetable();
                     string[] sData = new string[] { cbxDIWAL.Text, cbxTimeOrder.Text, tbxSubIDAL.Text, tbxSubNaAL.Text, tbxSemNaAL.Text, this.sUserID };
                     if (lesson.AddLessonToDatabase(sData) == 1)
-                        MessageBox.Show("Succeeded in adding new lesson!", "Add Lesson");
-                    else MessageBox.Show("Failed to add new lesson. Check your data.", "Add Lesson");
+                        MessageBox.Show("Thêm tiết học thành công!", "Thêm tiết học mới");
+                    else MessageBox.Show("Thêm tiết học thất bại. Vui lòng kiểm tra lại dữ liệu.", "Thêm tiết học mới");
                 }
                 else
                 {
-                    MessageBox.Show("Failed to add new lesson. Check your data.", "Add Lesson");
+                    MessageBox.Show("Thêm tiết học thất bại. Vui lòng kiểm tra lại dữ liệu.", "Thêm tiết học mới");
                 }
             }
-            catch (Exception a)
+            catch (Exception)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!");
             }
         }
 
@@ -84,7 +84,6 @@ namespace StudentSupportApp
             if (e.KeyCode == Keys.Enter)
                 btnAddAL_Click(sender, e);
         }
-
        
     }
 }

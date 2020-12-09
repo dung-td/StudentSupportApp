@@ -186,9 +186,21 @@ namespace StudentSupportApp
                 UpdateInfo.CloseConnection();
                 return 1;
             }
-            catch (Exception a)
+            catch (InvalidCastException)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Xảy ra lỗi với việc đổi kiểu dữ liệu. Vui lòng thử lại!");
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác trên cơ sở dữ liệu. Vui lòng thử lại!");
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại!");
+            }
+            catch (System.IO.IOException)
+            {
+                MessageBox.Show("Xảy ra lỗi với thao tác nhập/xuất dữ liệu. Vui lòng thử lại!");
             }
             finally
             {
