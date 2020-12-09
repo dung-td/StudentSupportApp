@@ -63,109 +63,112 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddDeadline.cs">
+    <Compile Include="Deadline\AddDeadline.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddDeadline.Designer.cs">
+    <Compile Include="Deadline\AddDeadline.Designer.cs">
       <DependentUpon>AddDeadline.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddLessonForm.cs">
+    <Compile Include="OtherClass\Connect.cs" />
+    <Compile Include="OtherClass\EmailVerify.cs" />
+    <Compile Include="OtherClass\USER.cs" />
+    <Compile Include="TimeTable\AddLessonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddLessonForm.Designer.cs">
+    <Compile Include="TimeTable\AddLessonForm.Designer.cs">
       <DependentUpon>AddLessonForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChangeEmailForm.cs">
+    <Compile Include="MainForm\ChangeEmailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChangeEmailForm.Designer.cs">
+    <Compile Include="MainForm\ChangeEmailForm.Designer.cs">
       <DependentUpon>ChangeEmailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChangePass.cs">
+    <Compile Include="MainForm\ChangePass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChangePass.Designer.cs">
+    <Compile Include="MainForm\ChangePass.Designer.cs">
       <DependentUpon>ChangePass.cs</DependentUpon>
     </Compile>
-    <Compile Include="CScore.cs" />
-    <Compile Include="Deadline.cs" />
-    <Compile Include="DiaSem.cs">
+    <Compile Include="Score\CScore.cs" />
+    <Compile Include="Deadline\Deadline.cs" />
+    <Compile Include="Score\DiaSem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DiaSem.Designer.cs">
+    <Compile Include="Score\DiaSem.Designer.cs">
       <DependentUpon>DiaSem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListSem.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Score\ListSem.cs" />
+    <Compile Include="MainForm\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="MainForm\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="MainForm\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="MainForm\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModLessonForm.cs">
+    <Compile Include="TimeTable\ModLessonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModLessonForm.Designer.cs">
+    <Compile Include="TimeTable\ModLessonForm.Designer.cs">
       <DependentUpon>ModLessonForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Noti.cs">
+    <Compile Include="Deadline\Noti.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Noti.Designer.cs">
+    <Compile Include="Deadline\Noti.Designer.cs">
       <DependentUpon>Noti.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScoreOfSub.cs" />
-    <Compile Include="ScoreTable.cs" />
-    <Compile Include="Semester.cs" />
-    <Compile Include="SemForm.cs">
+    <Compile Include="Score\ScoreOfSub.cs" />
+    <Compile Include="Score\ScoreTable.cs" />
+    <Compile Include="Score\Semester.cs" />
+    <Compile Include="Score\SemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SemForm.Designer.cs">
+    <Compile Include="Score\SemForm.Designer.cs">
       <DependentUpon>SemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs" />
-    <Compile Include="SignUp.cs">
+    <Compile Include="OtherClass\Settings.cs" />
+    <Compile Include="MainForm\SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignUp.Designer.cs">
+    <Compile Include="MainForm\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Subject.cs" />
-    <Compile Include="Timetable.cs" />
-    <EmbeddedResource Include="AddDeadline.resx">
+    <Compile Include="Score\Subject.cs" />
+    <Compile Include="TimeTable\Timetable.cs" />
+    <EmbeddedResource Include="Deadline\AddDeadline.resx">
       <DependentUpon>AddDeadline.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddLessonForm.resx">
+    <EmbeddedResource Include="TimeTable\AddLessonForm.resx">
       <DependentUpon>AddLessonForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangeEmailForm.resx">
+    <EmbeddedResource Include="MainForm\ChangeEmailForm.resx">
       <DependentUpon>ChangeEmailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangePass.resx">
+    <EmbeddedResource Include="MainForm\ChangePass.resx">
       <DependentUpon>ChangePass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DiaSem.resx">
+    <EmbeddedResource Include="Score\DiaSem.resx">
       <DependentUpon>DiaSem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="MainForm\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="MainForm\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModLessonForm.resx">
+    <EmbeddedResource Include="TimeTable\ModLessonForm.resx">
       <DependentUpon>ModLessonForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Noti.resx">
+    <EmbeddedResource Include="Deadline\Noti.resx">
       <DependentUpon>Noti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -178,10 +181,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SemForm.resx">
+    <EmbeddedResource Include="Score\SemForm.resx">
       <DependentUpon>SemForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignUp.resx">
+    <EmbeddedResource Include="MainForm\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
