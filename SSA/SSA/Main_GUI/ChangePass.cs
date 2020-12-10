@@ -43,6 +43,7 @@ namespace StudentSupportApp
             this.parent = form;
             this.sUserPass = pass;
             this.sID = id;
+            SetColor(Properties.Settings.Default.Color);
         }
 
         bool BlankData()
@@ -206,6 +207,16 @@ namespace StudentSupportApp
                 MessageBox.Show("Đã xong!", "ĐỔI MẬT KHẨU", MessageBoxButtons.OK);
             }
 
+        }
+
+        void SetColor(Color x)
+        {
+            panel1.BackColor =
+                tbOldPass.LineFocusedColor = tbOldPass.LineMouseHoverColor =
+                tbNewPass1.LineMouseHoverColor = tbNewPass1.LineFocusedColor =
+                tbNewPass2.LineFocusedColor = tbNewPass2.LineMouseHoverColor =
+                bChange.ActiveFillColor = bChange.ForeColor = bChange.IdleLineColor = bChange.IdleForecolor =
+                 bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleLineColor = bExit.IdleForecolor = x;
         }
     }
 }

@@ -30,6 +30,7 @@ namespace StudentSupportApp
         Connect Connection;
         USER User = new USER();
         ListSem data = new ListSem();
+        Color theme = new Color();
         public MainForm(LoginForm parent, string User)
         {
             this.User = new USER(User);
@@ -37,12 +38,18 @@ namespace StudentSupportApp
             this.parent = parent;
             this.Connection = new Connect();
             InitializeComponent();
+            
             temp = this.btnHome;
             data.Read(this.User.ID);
 
             tbCredit.Enabled = tbSubID.Enabled = tbSubName.Enabled = tbProVa.Enabled = tbProWei.Enabled
                 = tbMidVa.Enabled = tbMidWei.Enabled = tbFinVa.Enabled = tbFinWei.Enabled = tbPracVa.Enabled = tbPracWei.Enabled= false;
             bAddScore.Visible = bModify.Visible = bDel.Visible = false;
+
+            
+
+            this.theme = Properties.Settings.Default.Color;
+            SetColorAll(this.theme);
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -407,6 +414,8 @@ namespace StudentSupportApp
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+       
     }
 }
 
@@ -725,7 +734,7 @@ namespace StudentSupportApp
                 while (reader.HasRows)
                 {
                     if (reader.Read() == false) break;
-                    args[0] = reader.GetInt32(0).ToString();
+                    args[0] = reader.GetString(0);
                     args[1] = reader.GetString(1);
                     args[2] = reader.GetString(2);
                     args[3] = reader.GetString(3);
@@ -1149,11 +1158,12 @@ namespace StudentSupportApp
 #endregion
 
 //Linh
-#region Score
+
 namespace StudentSupportApp
 {
     public partial class MainForm
     {
+        #region Score
         public void ShowToListView(string semester)
         {
             try
@@ -1521,6 +1531,177 @@ namespace StudentSupportApp
                 Application.Exit();
             }
         }
+        #endregion
+
+        #region Themes
+        void SetColorTabHome(Color x)
+        {
+            lbHello.ForeColor =
+            lbTodayTT.ForeColor =
+            lbNearDeadline.ForeColor =
+            lbAvgScore.ForeColor =
+            dataGridViewHomeTimeTB.HeaderBgColor = 
+            dataHomeDeadline.HeaderBgColor = 
+            bunifuCardTodayTT.color = bunifuCards4.color = 
+            bunifuCards5.color = x;
+        }
+
+        void SetColorTabScore(Color x)
+        {
+            lAddScore.ForeColor =
+                lSBoard.ForeColor =
+                cardAddScore.color = cardSBoard.color = x;
+
+            tbCredit.LineFocusedColor = tbCredit.LineMouseHoverColor =
+                tbSubID.LineMouseHoverColor = tbSubID.LineFocusedColor =
+                tbSubName.LineFocusedColor = tbSubName.LineMouseHoverColor =
+
+            tbProVa.LineMouseHoverColor = tbProVa.LineFocusedColor =
+            tbProWei.LineMouseHoverColor = tbProWei.LineFocusedColor =
+            tbPracVa.LineMouseHoverColor = tbPracVa.LineFocusedColor =
+            tbPracWei.LineFocusedColor = tbPracWei.LineMouseHoverColor =
+            tbMidVa.LineMouseHoverColor = tbMidVa.LineFocusedColor =
+            tbMidWei.LineMouseHoverColor = tbMidWei.LineFocusedColor =
+            tbFinVa.LineMouseHoverColor = tbFinVa.LineFocusedColor =
+            tbFinWei.LineFocusedColor = tbFinWei.LineMouseHoverColor =
+            x;
+
+        }
+
+        void SetColorTabNoti(Color x)
+        {
+            bunifuCustomLabel1.ForeColor =
+                labelNum.ForeColor =
+                bunifuSeparator2.ForeColor = bunifuSeparator2.LineColor =
+                labelDate.ForeColor =
+                cardStatus.color =
+
+            cardInfo.color = 
+            bunifuCustomLabel4.ForeColor =
+            bdateTime.ForeColor = bdateTime.BackColor =
+            btbSubject.LineMouseHoverColor = btbSubject.LineFocusedColor =
+            btbStatus.LineMouseHoverColor = btbStatus.LineFocusedColor =
+            btbDetails.LineMouseHoverColor = btbDetails.LineFocusedColor =
+
+            cardDeadline.color =
+            labelDeadline.ForeColor =
+            dataDeadline.HeaderBgColor = x;
+        }
+
+        void SetColorTabTimeTable(Color x)
+        {
+            bCardTimeline.color =
+                lbTimeline.ForeColor =
+                btnLoadTT.ActiveFillColor = btnLoadTT.ActiveLineColor = btnLoadTT.IdleLineColor = btnLoadTT.IdleForecolor =
+                btnSetDefault.ActiveFillColor = btnSetDefault.ActiveLineColor = btnSetDefault.IdleLineColor = btnSetDefault.IdleForecolor =
+
+            bCardFunc.color =
+            lbFunc.ForeColor =
+            btnCreNewLess.ActiveFillColor = btnCreNewLess.ActiveLineColor = btnCreNewLess.IdleLineColor = btnCreNewLess.IdleForecolor =
+            btnModifyLess.ActiveFillColor = btnModifyLess.ActiveLineColor = btnModifyLess.IdleLineColor = btnModifyLess.IdleForecolor =
+            btnExportTT.ActiveFillColor = btnExportTT.ActiveLineColor = btnExportTT.IdleLineColor = btnExportTT.IdleForecolor =
+
+            bCardTimetable.color = lbTimetable.ForeColor = x; 
+        }
+
+        void SetColorTabInfo(Color x)
+        {
+            bunifuCardUserInfo.color = lbUserInfo.ForeColor = BirthDTPicker.BackColor =
+                 btnChangeInfo.ActiveFillColor = btnChangeInfo.ActiveLineColor = btnChangeInfo.IdleLineColor = btnChangeInfo.IdleForecolor =
+                  btnSaveInfo.ActiveFillColor = btnSaveInfo.ActiveLineColor = btnSaveInfo.IdleLineColor = btnSaveInfo.IdleForecolor =
+                   btnCancelInfo.ActiveFillColor = btnCancelInfo.ActiveLineColor = btnCancelInfo.IdleLineColor = btnCancelInfo.IdleForecolor =
+
+                   bunifuCardAcc.color = lbAccount.ForeColor =
+                    btnChangeEmail.ActiveFillColor = btnChangeEmail.ActiveLineColor = btnChangeEmail.IdleLineColor = btnChangeEmail.IdleForecolor =
+
+                    tbxClassInfo.LineFocusedColor =tbxClassInfo.LineMouseHoverColor =
+                     tbxEmailInfo.LineFocusedColor = tbxEmailInfo.LineMouseHoverColor =
+                      tbxGenderInfo.LineFocusedColor = tbxGenderInfo.LineMouseHoverColor =
+                       tbxNameInfo.LineFocusedColor = tbxNameInfo.LineMouseHoverColor =
+                    x;
+        }
+
+        void SetColorTabSetting(Color x)
+        {
+            cardAcc.color = lAccHead.BackColor =
+                 bSetData.Textcolor= bChangePass.Textcolor = bDelAcc.Textcolor =
+
+                cardTheme.color = lThemeHead.BackColor = bSetTheme.Textcolor =
+
+                cardMore.color = lMoreHead.BackColor = 
+                bFeedSup.Textcolor = bShareApp.Textcolor = bAboutUs.Textcolor = x;
+        }
+
+        void SetColorGUI(Color x)
+        {
+            header.BackColor =
+                pLogo.BackColor =
+
+            btnHome.BackColor = btnHome.Activecolor = btnHome.Normalcolor = btnHome.OnHovercolor = btnHome.OnHoverTextColor = x;
+            //btnScore.BackColor = btnScore.Activecolor = btnScore.Normalcolor = 
+            btnScore.OnHovercolor = btnScore.OnHoverTextColor =
+            //btnNofitication.BackColor = btnNofitication.Activecolor = btnNofitication.Normalcolor = 
+            btnNofitication.OnHovercolor = btnNofitication.OnHoverTextColor =
+            //btnInformation.BackColor = btnInformation.Activecolor = btnInformation.Normalcolor = 
+            btnInformation.OnHovercolor = btnInformation.OnHoverTextColor =
+            //btnTimeTable.BackColor = btnTimeTable.Activecolor = btnTimeTable.Normalcolor = 
+            btnTimeTable.OnHovercolor = btnTimeTable.OnHoverTextColor =
+            //btnSetting.BackColor = btnSetting.Activecolor = btnSetting.Normalcolor = 
+            btnSetting.OnHovercolor = btnSetting.OnHoverTextColor =
+            //btnLogOut.BackColor = btnLogOut.Activecolor = btnLogOut.Normalcolor = 
+            btnLogOut.OnHovercolor = btnLogOut.OnHoverTextColor = x;
+        }
+
+        public void SetColorAll(Color x)
+        {
+            SetColorTabHome(x);
+            SetColorTabScore(x);
+            SetColorTabNoti(x);
+            SetColorTabInfo(x);
+            SetColorTabSetting(x);
+            SetColorTabTimeTable(x);
+            SetColorGUI(x);
+        }
+
+        private void bTheme1_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Color = Color.LightPink;
+            Properties.Settings.Default.Save();
+            MessageBox.Show("Ứng dụng sẽ khởi động lại để thay đổi được áp dụng!");
+            this.Close();
+            this.parent.Show();
+        }
+
+        private void bTheme2_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Color = Color.Black;
+            Properties.Settings.Default.Save();
+            MessageBox.Show("Ứng dụng sẽ khởi động lại để thay đổi được áp dụng!");
+            this.Close();
+            this.parent.Show();
+        }
+
+        private void bTheme3_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Color = Color.Blue;
+            Properties.Settings.Default.Save();
+            MessageBox.Show("Ứng dụng sẽ khởi động lại để thay đổi được áp dụng!");
+            this.Close();
+            this.parent.Show();
+        }
+
+        private void bTheme4_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Color = Color.Brown;
+            Properties.Settings.Default.Save();
+            MessageBox.Show("Ứng dụng sẽ khởi động lại để thay đổi được áp dụng!");
+            this.Close();
+            this.parent.Show();
+        }
+        #endregion
     }
 }
-#endregion
+
+
+
+

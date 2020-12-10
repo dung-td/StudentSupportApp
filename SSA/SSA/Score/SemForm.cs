@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace StudentSupportApp
 {
@@ -10,6 +11,7 @@ namespace StudentSupportApp
         Connect CONNECT;
         MainForm parent;
         string UserID;
+        
 
         public SemForm()
         {
@@ -21,15 +23,18 @@ namespace StudentSupportApp
             CONNECT = new Connect();
             this.UserID = id;
             this.parent = p;
+            
             InitializeComponent();
 
             data.Read(UserID);
             data.ShowSemToGridView(dtgvSem);
             lSum.Text = "Số tín chỉ: " + data.SumOfCre.ToString();
-            lAver.Text = "Điểm trung bình: " + data.Average.ToString();
+            lAver.Text = "Điểm TB: " + data.Average.ToString();
 
             bMod.Visible = bDel.Visible = false;
             data.SEMESTERS.Clear();
+
+            SetColor(Properties.Settings.Default.Color);
         }
 
         public void GetValue(string value)
@@ -131,6 +136,17 @@ namespace StudentSupportApp
         private void dtgvSem_RowHeaderMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
         {
             bDel.Visible = bMod.Visible = true;
+        }
+
+        void SetColor(Color x)
+        {
+            dtgvSem.HeaderForeColor =
+                SemFormPanel.BackColor =
+            bAdd.BackColor = bAdd.ActiveForecolor= bAdd.ForeColor = bAdd.IdleForecolor = bAdd.IdleLineColor =
+            bMod.BackColor = bMod.ActiveFillColor = bMod.ForeColor = bMod.IdleForecolor = bMod.IdleLineColor =
+            bDel.BackColor = bDel.ActiveFillColor = bDel.ForeColor = bDel.IdleForecolor = bDel.IdleLineColor =
+            bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleForecolor = bExit.IdleLineColor =
+            x;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Drawing;
 
 namespace StudentSupportApp
 {
@@ -26,6 +27,7 @@ namespace StudentSupportApp
         {
             this.parent = parent;
             InitializeComponent();
+            SetColor(Properties.Settings.Default.Color);
         }
         #region EventHandler
         private void bCancel_Click(object sender, EventArgs e)
@@ -118,6 +120,28 @@ namespace StudentSupportApp
         private void SignUp_MouseMove(object sender, MouseEventArgs e)
         {
             OnMouseDown(e);
+        }
+
+        void SetColor(Color x)
+        {
+            bunifuGradientPanel1.BackColor = bunifuGradientPanel1.GradientTopLeft = bunifuGradientPanel1.GradientTopRight =
+                bunifuGradientPanel1.GradientBottomLeft = bunifuGradientPanel1.GradientBottomRight =
+                bunifuCustomLabel1.ForeColor = bunifuSeparator2.ForeColor = lbBirthSU.ForeColor = lbPassSU.ForeColor = lbRePassSU.ForeColor =
+                lbEmailSU.ForeColor = lbVerify.ForeColor = lbCodeSent.ForeColor = lnAddtitional.ForeColor = lbNameSU.ForeColor = lbBirthSU.ForeColor = lbGenderSU.ForeColor =
+              lbClassSU.ForeColor = dateBirth.BackColor =
+
+              bSendCode.ActiveFillColor = bSendCode.ForeColor = bSendCode.IdleLineColor = bSendCode.IdleForecolor =
+              bCancel.ActiveFillColor = bCancel.ForeColor = bCancel.IdleLineColor = bCancel.IdleForecolor =
+              bSignUp.ActiveFillColor = bSignUp.ForeColor = bSignUp.IdleLineColor = bSignUp.IdleForecolor =
+
+              tbxPass.LineFocusedColor = tbxPass.LineMouseHoverColor =
+              tbxConfirmPass.LineFocusedColor = tbxConfirmPass.LineMouseHoverColor =
+              tbxEmail.LineFocusedColor = tbxEmail.LineMouseHoverColor =
+              tbxCode.LineFocusedColor = tbxCode.LineMouseHoverColor =
+              tbxName.LineFocusedColor = tbxName.LineMouseHoverColor =
+              tbxGender.LineFocusedColor = tbxGender.LineMouseHoverColor =
+              tbxClass.LineFocusedColor = tbxClass.LineMouseHoverColor = x;
+
         }
         #endregion
     }

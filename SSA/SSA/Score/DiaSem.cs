@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace StudentSupportApp
 {
@@ -9,6 +10,7 @@ namespace StudentSupportApp
 
         public delegate void GetData(string s);
         public GetData getData;
+       
 
         public DiaSem()
         {
@@ -17,9 +19,11 @@ namespace StudentSupportApp
 
         public DiaSem(SemForm p, string lable)
         {
+           
             this.parent = p;
             InitializeComponent();
             lDiaSem.Text = lable;
+            SetColor(Properties.Settings.Default.Color);
         }
 
         private void bOK_Click(object sender, EventArgs e)
@@ -30,11 +34,11 @@ namespace StudentSupportApp
                 bOK.Enabled = false;
                 this.Close();
                 this.parent.Show();
-                MessageBox.Show("Done!");
+                MessageBox.Show("Đã xong!");
             }
             else
             {
-                MessageBox.Show("Textbox was blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Dữ liệu trống", "LỖI", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -49,6 +53,12 @@ namespace StudentSupportApp
         private void DiaSem_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.parent.Show();
+        }
+
+        void SetColor(Color x)
+        {
+            panel1.BackColor = x;
+            tbAddNew.LineFocusedColor = tbAddNew.LineMouseHoverColor = x;
         }
     }
 }

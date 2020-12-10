@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace StudentSupportApp
 {
@@ -18,6 +19,7 @@ namespace StudentSupportApp
             this.parent = parent;
             this.sUserID = ID;
             InitializeComponent();
+            SetColor(Properties.Settings.Default.Color);
         }
 
         #region EventHandler
@@ -88,6 +90,19 @@ namespace StudentSupportApp
                 btnAddAL_Click(sender, e);
         }
         #endregion
+
+        void SetColor(Color x)
+        {
+            GradientPanelAddLesson.BackColor = GradientPanelAddLesson.GradientTopLeft = GradientPanelAddLesson.GradientTopRight
+                = GradientPanelAddLesson.GradientBottomLeft = GradientPanelAddLesson.GradientBottomRight =
+                tbxSemNaAL.LineFocusedColor = tbxSemNaAL.LineMouseHoverColor =
+                tbxSubNaAL.LineFocusedColor = tbxSubNaAL.LineMouseHoverColor =
+                tbxSubIDAL.LineFocusedColor = tbxSubIDAL.LineMouseHoverColor =
+
+                  btnAddAL.ActiveFillColor = btnAddAL.ForeColor = btnAddAL.IdleLineColor = btnAddAL.IdleForecolor =
+                    btnExitAL.ActiveFillColor = btnExitAL.ForeColor = btnExitAL.IdleLineColor = btnExitAL.IdleForecolor = x;
+        }
+       
     }
 }
 
