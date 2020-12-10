@@ -126,6 +126,7 @@ namespace StudentSupportApp
         public int UpdateLessonInfo(string[] oldInfo, string[] newInfo)
         {
             Connect ModLesson = new Connect();
+
             try
             {
                 ModLesson.OpenConnection();
@@ -139,6 +140,7 @@ namespace StudentSupportApp
 
                 SqlCommand UpdateCommand = ModLesson.CreateSQLCmd(sUpdateData);
                 UpdateCommand.ExecuteNonQuery();
+                return 1;
             }
             catch (Exception ex)
             {
@@ -150,7 +152,7 @@ namespace StudentSupportApp
             {
                 ModLesson.CloseConnection();
             }
-            return 1;
+            return 0;
         }
 
         public int CheckExistSemester(string input)

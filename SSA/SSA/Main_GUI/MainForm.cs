@@ -354,7 +354,7 @@ namespace StudentSupportApp
 
                 //Danh
                 this.lbHello.Text += " " + this.User.Name + "! Chúc một ngày tốt lành!";
-                dataGridViewHomeTimeTB.Columns[1].HeaderText = DateTime.Today.DayOfWeek.ToString();
+                dataGridViewHomeTimeTB.Columns[1].HeaderText = SwitchTodayToVNese(DateTime.Today.DayOfWeek.ToString());
                 string[] sRow = new string[] {"Tiết 1\n(7:30-8:15)", "Tiết 2\n(8:15-9:00)",
                 "Tiết 3\n(9:00 - 9:45)" , "Tiết 4\n(10:00-10:45)", "Tiết 5\n(10:45-11:30)",
                 "Tiết 6\n(13:00-13:45)", "Tiết 7\n(13:45-14:30)", "Tiết 8\n(14:30-15:15)",
@@ -773,6 +773,23 @@ namespace StudentSupportApp
     public partial class MainForm
     {
         string Semester;
+
+        private string SwitchTodayToVNese(string today)
+        {
+            if (today == "Monday")
+                return "Thứ hai";
+            else if (today == "Tuesday")
+                return "Thứ ba";
+            else if (today == "Wednesday")
+                return "Thứ tư";
+            else if (today == "Thursday")
+                return "Thứ năm";
+            else if (today == "Friday")
+                return "Thứ sáu";
+            else if (today == "Saturday")
+                return "Thứ bảy";
+            else return "Chủ nhật";
+        }
 
         private void btnCreNewLess_Click(object sender, EventArgs e)
         {

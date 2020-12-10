@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace StudentSupportApp
@@ -25,19 +26,21 @@ namespace StudentSupportApp
         #region EventHandler
         private void btnAddAL_Click(object sender, EventArgs e)
         {
+            List<string> sDayInWeek = new List<string> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+
             try
             {
                 if (cbxDIWAL.Text != "" && cbxTimeOrder.Text != "" && tbxSemNaAL.Text != "" && tbxSubIDAL.Text != "" && tbxSubNaAL.Text != "")
                 {
                     Timetable lesson = new Timetable();
-                    string[] sData = new string[] { cbxDIWAL.Text, cbxTimeOrder.Text, tbxSubIDAL.Text, tbxSubNaAL.Text, tbxSemNaAL.Text, this.sUserID };
+                    string[] sData = new string[] { sDayInWeek[cbxDIWAL.SelectedIndex], cbxTimeOrder.Text, tbxSubIDAL.Text, tbxSubNaAL.Text, tbxSemNaAL.Text, this.sUserID };
                     if (lesson.AddLessonToDatabase(sData) == 1)
                         MessageBox.Show("Thêm tiết học mới thành công!", "Thêm tiết học mới");
                     else MessageBox.Show("Thêm tiết học thất bại. Vui lòng kiểm tra và thử lại!", "Thêm tiết học mới");
                 }
-                else
+                else if (cbxDIWAL.Text == "" || cbxTimeOrder.Text == "" || tbxSemNaAL.Text == "" || tbxSubIDAL.Text == "" || tbxSubNaAL.Text == "")
                 {
-                    MessageBox.Show("Thêm tiết học thất bại. Vui lòng kiểm tra và thử lại!", "Thêm tiết học mới");
+                    MessageBox.Show("Hãy điền đầy đủ thông tin và thử lại!", "Thêm tiết học mới");
                 }
             }
             catch (Exception ex)

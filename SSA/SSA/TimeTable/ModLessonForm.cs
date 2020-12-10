@@ -58,19 +58,21 @@ namespace StudentSupportApp
 
         private void btnSaveML_Click(object sender, EventArgs e)
         {
+            List<string> sDayInWeek = new List<string> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+
             try
             {
                 if (cbxDIWML.Text != "" && cbxTimeOrderM.Text != "" && tbxSemNaML.Text != "" && tbxSubIDML.Text != "" && tbxSubNaML.Text != "")
                 {
                     Timetable lesson = new Timetable();
-                    string[] sData = new string[] { cbxDIWML.Text, cbxTimeOrderM.Text, tbxSubIDML.Text.Remove(0, 1), tbxSubNaML.Text, tbxSemNaML.Text, this.sUserID };
+                    string[] sData = new string[] { sDayInWeek[cbxDIWML.SelectedIndex], cbxTimeOrderM.Text, tbxSubIDML.Text.Remove(0, 1), tbxSubNaML.Text, tbxSemNaML.Text, this.sUserID };
                     if (lesson.UpdateLessonInfo(sOldInfo, sData) == 1)
                         MessageBox.Show("Chỉnh sửa thành công!", "Chỉnh sửa thông tin tiết học");
                     else MessageBox.Show("Chỉnh sửa thất bại. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin tiết học");
                 }
-                else
+                else if (cbxDIWML.Text == "" || cbxTimeOrderM.Text == "" || tbxSemNaML.Text == "" || tbxSubIDML.Text == "" || tbxSubNaML.Text == "")
                 {
-                    MessageBox.Show("Chỉnh sửa thất bại. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin tiết học");
+                    MessageBox.Show("Hãy điền đầy đủ thông tin và thử lại!", "Chỉnh sửa thông tin tiết học");
                 }
             }
             catch (Exception ex)
@@ -111,6 +113,7 @@ namespace StudentSupportApp
                 btnSaveML_Click(sender, e);
         }
 #endregion
+
         void SetColor(Color x)
         {
             btnExitML.ActiveFillColor = btnExitML.ForeColor = btnExitML.IdleLineColor = btnExitML.IdleForecolor =
