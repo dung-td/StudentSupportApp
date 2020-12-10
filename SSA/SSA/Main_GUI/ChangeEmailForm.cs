@@ -43,6 +43,7 @@ namespace StudentSupportApp
             this.parent = parent;
             this.sID = id;
             GetEncodedPasswd();
+            SetColor(Properties.Settings.Default.Color);
         }
 
         private void GetEncodedPasswd()
@@ -207,5 +208,20 @@ namespace StudentSupportApp
         {
             lbWrongVeriCode.Visible = false;
         }
+
+        void SetColor(Color x)
+        {
+            GradientPanelAddDeadline.BackColor =
+                GradientPanelAddDeadline.GradientBottomLeft = GradientPanelAddDeadline.GradientBottomRight =
+                GradientPanelAddDeadline.GradientTopLeft = GradientPanelAddDeadline.GradientTopRight =
+
+                tbxCurPass.LineFocusedColor = tbxCurPass.LineMouseHoverColor =
+                tbxNewEmail.LineFocusedColor = tbxNewEmail.LineMouseHoverColor =
+                tbxChangeMailVC.LineFocusedColor = tbxChangeMailVC.LineMouseHoverColor =
+
+                btnSendCodeCE.ActiveFillColor = btnSendCodeCE.ForeColor = btnSendCodeCE.IdleForecolor = btnSendCodeCE.IdleLineColor =
+                 btnChangeEmailF.ActiveFillColor = btnChangeEmailF.ForeColor = btnChangeEmailF.IdleForecolor = btnChangeEmailF.IdleLineColor =
+                  btnExitEmailF.ActiveFillColor = btnExitEmailF.ForeColor = btnExitEmailF.IdleForecolor = btnExitEmailF.IdleLineColor = x;
+        }    
     }
 }

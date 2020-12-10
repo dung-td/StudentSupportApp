@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Drawing;
 
 namespace StudentSupportApp
 {
@@ -23,6 +24,7 @@ namespace StudentSupportApp
         public LoginForm()
         {
             InitializeComponent();
+            SetColor(Properties.Settings.Default.Color);
         }
         #region EventHandler
         private void bExit_Click(object sender, EventArgs e)
@@ -83,6 +85,23 @@ namespace StudentSupportApp
         private void LoginForm_MouseMove(object sender, MouseEventArgs e)
         {
             OnMouseDown(e);
+        }
+
+        void SetColor(Color x)
+        {
+            bunifuGradientPanel1.BackColor = bunifuGradientPanel1.GradientTopLeft = bunifuGradientPanel1.GradientTopRight =
+                bunifuGradientPanel1.GradientBottomLeft = bunifuGradientPanel1.GradientBottomRight =
+
+                bunifuCustomLabel1.ForeColor = bunifuSeparator1.LineColor =
+                tbxID.LineFocusedColor = tbxID.LineMouseHoverColor =
+                tbxPass.LineMouseHoverColor = tbxPass.LineFocusedColor =
+
+                 bLogin.ActiveFillColor = bLogin.ForeColor = bLogin.IdleLineColor = bLogin.IdleForecolor =
+
+                  bSignUp.ActiveFillColor = bSignUp.ForeColor = bSignUp.IdleLineColor = bSignUp.IdleForecolor =
+
+                   bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleLineColor = bExit.IdleForecolor =
+                   bID.OnHoverTextColor = bPassword.OnHoverTextColor = bForgot.OnHoverTextColor = x;
         }
         #endregion
     }

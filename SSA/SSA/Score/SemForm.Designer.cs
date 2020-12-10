@@ -41,11 +41,11 @@ namespace StudentSupportApp
             this.lSum = new System.Windows.Forms.Label();
             this.bAdd = new Bunifu.Framework.UI.BunifuThinButton2();
             this.dtgvSem = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.label2 = new System.Windows.Forms.Label();
-            this.bExit = new Bunifu.Framework.UI.BunifuThinButton2();
             this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bExit = new Bunifu.Framework.UI.BunifuThinButton2();
             this.SemFormPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSem)).BeginInit();
             this.SuspendLayout();
@@ -87,7 +87,7 @@ namespace StudentSupportApp
             this.bDel.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bDel.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bDel.Location = new System.Drawing.Point(14, 287);
-            this.bDel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bDel.Margin = new System.Windows.Forms.Padding(5);
             this.bDel.Name = "bDel";
             this.bDel.Size = new System.Drawing.Size(126, 62);
             this.bDel.TabIndex = 40;
@@ -125,7 +125,7 @@ namespace StudentSupportApp
             this.bMod.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bMod.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bMod.Location = new System.Drawing.Point(14, 215);
-            this.bMod.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bMod.Margin = new System.Windows.Forms.Padding(5);
             this.bMod.Name = "bMod";
             this.bMod.Size = new System.Drawing.Size(126, 62);
             this.bMod.TabIndex = 39;
@@ -151,6 +151,7 @@ namespace StudentSupportApp
             this.bAdd.ActiveFillColor = System.Drawing.SystemColors.Highlight;
             this.bAdd.ActiveForecolor = System.Drawing.Color.White;
             this.bAdd.ActiveLineColor = System.Drawing.Color.Empty;
+            this.bAdd.AutoSize = true;
             this.bAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bAdd.BackgroundImage")));
             this.bAdd.ButtonText = "Thêm";
@@ -163,7 +164,7 @@ namespace StudentSupportApp
             this.bAdd.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bAdd.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bAdd.Location = new System.Drawing.Point(14, 143);
-            this.bAdd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bAdd.Margin = new System.Windows.Forms.Padding(5);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(126, 62);
             this.bAdd.TabIndex = 38;
@@ -203,6 +204,27 @@ namespace StudentSupportApp
             this.dtgvSem.TabIndex = 40;
             this.dtgvSem.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgvSem_RowHeaderMouseClick);
             // 
+            // NAME
+            // 
+            this.NAME.HeaderText = "TÊN HỌC KÌ";
+            this.NAME.MinimumWidth = 8;
+            this.NAME.Name = "NAME";
+            this.NAME.Width = 300;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "SỐ TÍN CHỈ";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "ĐIỂM TRUNG BÌNH";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 150;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -234,33 +256,12 @@ namespace StudentSupportApp
             this.bExit.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bExit.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bExit.Location = new System.Drawing.Point(586, 323);
-            this.bExit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bExit.Margin = new System.Windows.Forms.Padding(5);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(99, 50);
             this.bExit.TabIndex = 42;
             this.bExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
-            // 
-            // NAME
-            // 
-            this.NAME.HeaderText = "TÊN HỌC KÌ";
-            this.NAME.MinimumWidth = 8;
-            this.NAME.Name = "NAME";
-            this.NAME.Width = 300;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "SỐ TÍN CHỈ";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "ĐIỂM TRUNG BÌNH";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
             // 
             // SemForm
             // 
@@ -272,7 +273,7 @@ namespace StudentSupportApp
             this.Controls.Add(this.dtgvSem);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SemForm";
             this.Text = "SemForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SemForm_FormClosed);

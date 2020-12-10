@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace StudentSupportApp
 {
@@ -37,6 +38,8 @@ namespace StudentSupportApp
                     }
                     this.sOldInfo[5] = this.sUserID;
                 }
+
+                SetColor(Properties.Settings.Default.Color);
             }
             catch (Exception ex)
             {
@@ -108,5 +111,15 @@ namespace StudentSupportApp
                 btnSaveML_Click(sender, e);
         }
 #endregion
+        void SetColor(Color x)
+        {
+            btnExitML.ActiveFillColor = btnExitML.ForeColor = btnExitML.IdleLineColor = btnExitML.IdleForecolor =
+                  btnSaveML.ActiveFillColor = btnSaveML.ForeColor = btnSaveML.IdleLineColor = btnSaveML.IdleForecolor =
+                  GradientPanelAddLesson.BackColor = GradientPanelAddLesson.GradientTopLeft = GradientPanelAddLesson.GradientTopRight = GradientPanelAddLesson.GradientBottomLeft = GradientPanelAddLesson.GradientBottomRight =
+                  tbxSemNaML.LineFocusedColor = tbxSemNaML.LineMouseHoverColor =
+                  tbxSubIDML.LineMouseHoverColor = tbxSubIDML.LineFocusedColor =
+                  tbxSubNaML.LineFocusedColor = tbxSubNaML.LineMouseHoverColor = x;
+            
+        }
     }
 }

@@ -67,7 +67,7 @@ namespace StudentSupportApp
             "AM",
             "PM"});
             this.comboBoxTime.Location = new System.Drawing.Point(415, 276);
-            this.comboBoxTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxTime.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxTime.Name = "comboBoxTime";
             this.comboBoxTime.Size = new System.Drawing.Size(69, 21);
             this.comboBoxTime.TabIndex = 24;
@@ -85,6 +85,7 @@ namespace StudentSupportApp
             this.btbMinute.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbMinute.LineThickness = 2;
             this.btbMinute.Location = new System.Drawing.Point(339, 242);
+            this.btbMinute.Margin = new System.Windows.Forms.Padding(4);
             this.btbMinute.Name = "btbMinute";
             this.btbMinute.Size = new System.Drawing.Size(26, 51);
             this.btbMinute.TabIndex = 23;
@@ -104,6 +105,7 @@ namespace StudentSupportApp
             this.btbHour.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbHour.LineThickness = 2;
             this.btbHour.Location = new System.Drawing.Point(262, 242);
+            this.btbHour.Margin = new System.Windows.Forms.Padding(4);
             this.btbHour.Name = "btbHour";
             this.btbHour.Size = new System.Drawing.Size(26, 51);
             this.btbHour.TabIndex = 22;
@@ -134,6 +136,7 @@ namespace StudentSupportApp
             this.btbSubID.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbSubID.LineThickness = 2;
             this.btbSubID.Location = new System.Drawing.Point(262, 7);
+            this.btbSubID.Margin = new System.Windows.Forms.Padding(4);
             this.btbSubID.Name = "btbSubID";
             this.btbSubID.Size = new System.Drawing.Size(335, 51);
             this.btbSubID.TabIndex = 20;
@@ -164,6 +167,7 @@ namespace StudentSupportApp
             this.btbSubject.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbSubject.LineThickness = 2;
             this.btbSubject.Location = new System.Drawing.Point(262, 70);
+            this.btbSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btbSubject.Name = "btbSubject";
             this.btbSubject.Size = new System.Drawing.Size(335, 51);
             this.btbSubject.TabIndex = 18;
@@ -182,6 +186,7 @@ namespace StudentSupportApp
             this.btbDetails.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbDetails.LineThickness = 2;
             this.btbDetails.Location = new System.Drawing.Point(262, 131);
+            this.btbDetails.Margin = new System.Windows.Forms.Padding(4);
             this.btbDetails.Name = "btbDetails";
             this.btbDetails.Size = new System.Drawing.Size(335, 51);
             this.btbDetails.TabIndex = 17;
@@ -200,6 +205,7 @@ namespace StudentSupportApp
             this.btbStatus.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbStatus.LineThickness = 2;
             this.btbStatus.Location = new System.Drawing.Point(262, 299);
+            this.btbStatus.Margin = new System.Windows.Forms.Padding(4);
             this.btbStatus.Name = "btbStatus";
             this.btbStatus.Size = new System.Drawing.Size(176, 51);
             this.btbStatus.TabIndex = 16;
@@ -327,7 +333,6 @@ namespace StudentSupportApp
             // GradientPanelAddDeadline
             // 
             this.GradientPanelAddDeadline.BackColor = System.Drawing.SystemColors.Highlight;
-            this.GradientPanelAddDeadline.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GradientPanelAddDeadline.BackgroundImage")));
             this.GradientPanelAddDeadline.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.GradientPanelAddDeadline.Controls.Add(this.lbAddLesson);
             this.GradientPanelAddDeadline.Dock = System.Windows.Forms.DockStyle.Left;
@@ -336,7 +341,7 @@ namespace StudentSupportApp
             this.GradientPanelAddDeadline.GradientTopLeft = System.Drawing.SystemColors.Highlight;
             this.GradientPanelAddDeadline.GradientTopRight = System.Drawing.SystemColors.Highlight;
             this.GradientPanelAddDeadline.Location = new System.Drawing.Point(0, 0);
-            this.GradientPanelAddDeadline.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GradientPanelAddDeadline.Margin = new System.Windows.Forms.Padding(2);
             this.GradientPanelAddDeadline.Name = "GradientPanelAddDeadline";
             this.GradientPanelAddDeadline.Quality = 10;
             this.GradientPanelAddDeadline.Size = new System.Drawing.Size(139, 434);
@@ -394,7 +399,7 @@ namespace StudentSupportApp
             this.Controls.Add(this.labelTimeSubmit);
             this.Controls.Add(this.bDateTime);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddDeadline";
             this.Text = "AddDeadline";
             this.GradientPanelAddDeadline.ResumeLayout(false);

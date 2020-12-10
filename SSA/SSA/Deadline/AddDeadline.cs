@@ -14,6 +14,7 @@ namespace StudentSupportApp
         {
             this.parent = parent;
             InitializeComponent();
+            SetColor(Properties.Settings.Default.Color);
         }
         #region EventHandler
         private void tbCancel_Click(object sender, EventArgs e)
@@ -84,6 +85,23 @@ namespace StudentSupportApp
                 rp.Show();
                 this.Hide();
             }
+
+        }
+        void SetColor(Color x)
+        {
+            GradientPanelAddDeadline.BackColor = GradientPanelAddDeadline.GradientTopLeft = GradientPanelAddDeadline.GradientTopRight =
+                GradientPanelAddDeadline.GradientBottomLeft = GradientPanelAddDeadline.GradientBottomRight =
+                bDateTime.BackColor =
+                btbDetails.LineFocusedColor = btbDetails.LineMouseHoverColor =
+                 btbSubject.LineFocusedColor = btbSubject.LineMouseHoverColor =
+                  btbSubID.LineFocusedColor = btbSubID.LineMouseHoverColor =
+                   btbDetails.LineFocusedColor = btbDetails.LineMouseHoverColor =
+                    btbHour.LineFocusedColor = btbHour.LineMouseHoverColor =
+                     btbMinute.LineFocusedColor = btbMinute.LineMouseHoverColor =
+                      btbStatus.LineFocusedColor = btbStatus.LineMouseHoverColor =
+
+                       tbAdd.ActiveFillColor = tbAdd.ForeColor = tbAdd.IdleLineColor = tbAdd.IdleForecolor =
+                        tbCancel.ActiveFillColor = tbCancel.ForeColor = tbCancel.IdleLineColor = tbCancel.IdleForecolor = x;
         }
         #endregion
     }
