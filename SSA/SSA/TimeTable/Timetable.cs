@@ -30,9 +30,9 @@ namespace StudentSupportApp
 
         public void LoadUserTimetable()
         {
+            Connect loadTimetable = new Connect();
             try
             {
-                Connect loadTimetable = new Connect();
                 loadTimetable.OpenConnection();
 
                 string[] sWeekDay = new string[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
@@ -59,9 +59,15 @@ namespace StudentSupportApp
                     }
                 }
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                loadTimetable.CloseConnection();
             }
         }
 
@@ -79,9 +85,11 @@ namespace StudentSupportApp
                     }
                 }
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
             }
         }
 
@@ -104,10 +112,14 @@ namespace StudentSupportApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Problem with connecting to server or with data adding.");
-                return 0;
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
             }
-            AddLesson.CloseConnection();
+            finally
+            {
+                AddLesson.CloseConnection();
+            }
             return 1;
         }
 
@@ -130,10 +142,14 @@ namespace StudentSupportApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Problem with connecting to server or with data updating.");
-                return 0;
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
             }
-            ModLesson.CloseConnection();
+            finally
+            {
+                ModLesson.CloseConnection();
+            }
             return 1;
         }
 
@@ -152,11 +168,12 @@ namespace StudentSupportApp
                     if (reader.Read() == false) break;
                     if (reader.GetString(0) == input) return 1;
                 }
-                return 0;
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
             }
             return 0;
         }

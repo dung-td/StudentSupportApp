@@ -38,12 +38,15 @@ namespace StudentSupportApp
                     this.sOldInfo[5] = this.sUserID;
                 }
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
         }
 
+        #region EventHandler
         private void btnExitML_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -59,17 +62,19 @@ namespace StudentSupportApp
                     Timetable lesson = new Timetable();
                     string[] sData = new string[] { cbxDIWML.Text, cbxTimeOrderM.Text, tbxSubIDML.Text.Remove(0, 1), tbxSubNaML.Text, tbxSemNaML.Text, this.sUserID };
                     if (lesson.UpdateLessonInfo(sOldInfo, sData) == 1)
-                        MessageBox.Show("Sucessfully modified!", "Modify Lesson Information");
-                    else MessageBox.Show("Failed to modify lesson. Check your data.", "Modify Lesson");
+                        MessageBox.Show("Chỉnh sửa thành công!", "Chỉnh sửa thông tin tiết học");
+                    else MessageBox.Show("Chỉnh sửa thất bại. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin tiết học");
                 }
                 else
                 {
-                    MessageBox.Show("Failed to modify lesson. Check your data.", "Modify Lesson");
+                    MessageBox.Show("Chỉnh sửa thất bại. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin tiết học");
                 }
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
         }
 
@@ -102,5 +107,6 @@ namespace StudentSupportApp
             if (e.KeyCode == Keys.Enter)
                 btnSaveML_Click(sender, e);
         }
+#endregion
     }
 }

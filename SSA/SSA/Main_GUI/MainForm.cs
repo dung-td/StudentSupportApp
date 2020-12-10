@@ -316,6 +316,8 @@ namespace StudentSupportApp
             {
                 cbxSem.SelectedItem = cbxSem.Items[cbxSem.Items.IndexOf(Properties.Settings.Default.Text)];
             }
+
+            btnLoadTT_Click(sender, e);
         }
         private void btnInformation_Click(object sender, EventArgs e)
         {
@@ -344,12 +346,12 @@ namespace StudentSupportApp
                 NotifiDeadline();
 
                 //Danh
-                this.lbHello.Text += " " + this.User.Name + "! Have a nice day!";
+                this.lbHello.Text += " " + this.User.Name + "! Chúc một ngày tốt lành!";
                 dataGridViewHomeTimeTB.Columns[1].HeaderText = DateTime.Today.DayOfWeek.ToString();
-                string[] sRow = new string[] {"Lesson 1\n(7:30-8:15)", "Lesson 2\n(8:15-9:00)",
-                "Lesson 3\n(9:00 - 9:45)" , "Lesson 4\n(10:00-10:45)", "Lesson 5\n(10:45-11:30)",
-                "Lesson 6\n(13:00-13:45)", "Lesson 7\n(13:45-14:30)", "Lesson 8\n(14:30-15:15)",
-                "Lesson 9\n(15:30-16:15)", "Lesson 10\n(16:15-17:00)"};
+                string[] sRow = new string[] {"Tiết 1\n(7:30-8:15)", "Tiết 2\n(8:15-9:00)",
+                "Tiết 3\n(9:00 - 9:45)" , "Tiết 4\n(10:00-10:45)", "Tiết 5\n(10:45-11:30)",
+                "Tiết 6\n(13:00-13:45)", "Tiết 7\n(13:45-14:30)", "Tiết 8\n(14:30-15:15)",
+                "Tiết 9\n(15:30-16:15)", "Tiết 10\n(16:15-17:00)"};
                 for (int i = 0; i < sRow.Length; i++)
                 {
                     dataGridViewTimetable.Rows.Add(sRow[i]);
@@ -372,16 +374,24 @@ namespace StudentSupportApp
                 MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
                 ReportError rp = new ReportError(this, ex);
                 rp.Show();
-                this.Hide();
             }
         }
         public void LoadTimetableToHomeDGV(DataGridView obj, List<string> Lesson)
         {
-            int iLessonIndex = 0;
-            for (int i = 0; i < 10; i++)
+            try
             {
-                obj.Rows[i].Cells[1].Value = Lesson[iLessonIndex];
-                iLessonIndex++;
+                int iLessonIndex = 0;
+                for (int i = 0; i < 10; i++)
+                {
+                    obj.Rows[i].Cells[1].Value = Lesson[iLessonIndex];
+                    iLessonIndex++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
         }
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -754,6 +764,7 @@ namespace StudentSupportApp
     public partial class MainForm
     {
         string Semester;
+
         private void btnCreNewLess_Click(object sender, EventArgs e)
         {
             try
@@ -762,11 +773,14 @@ namespace StudentSupportApp
                 AddLesson.Show();
                 this.Hide();
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
         }
+
         private void ReadSchedulesSemesterComboboxItems()
         {
             try
@@ -785,14 +799,19 @@ namespace StudentSupportApp
                 }
                 foreach (var sem in sItem)
                     cbxSem.Items.Add(sem);
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+            }
+            finally
+            {
                 Connection.CloseConnection();
             }
-            catch (Exception a)
-            {
-                MessageBox.Show(a.Message);
-            }
         }
+
         private void btnLoadTT_Click(object sender, EventArgs e)
         {
             try
@@ -805,11 +824,14 @@ namespace StudentSupportApp
                 btnExportTT.Visible = true;
                 this.Semester = cbxSem.Text;
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
         }
+
         private void btnExportTT_Click(object sender, EventArgs e)
         {
             if (dataGridViewTimetable.Rows.Count > 0)
@@ -826,10 +848,12 @@ namespace StudentSupportApp
                         {
                             File.Delete(sfd.FileName);
                         }
-                        catch (IOException ex)
+                        catch (Exception ex)
                         {
                             fileError = true;
-                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                            MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                            ReportError rp = new ReportError(this, ex);
+                            rp.Show();
                         }
                     }
                     if (!fileError)
@@ -865,20 +889,23 @@ namespace StudentSupportApp
                                 stream.Close();
                             }
 
-                            MessageBox.Show("Data exported successfully!!!", "Export Timetable");
+                            MessageBox.Show("Xuất thời khóa biểu thành công!", "Xuất TKB");
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error :" + ex.Message);
+                            MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                            ReportError rp = new ReportError(this, ex);
+                            rp.Show();
                         }
                     }
                 }
             }
             else
             {
-                MessageBox.Show("No Record To Export!!!", "Info");
+                MessageBox.Show("Dữ liệu để xuất trống!", "Cảnh Báo");
             }
         }
+
         private void btnModifyLess_Click(object sender, EventArgs e)
         {
             try
@@ -896,30 +923,36 @@ namespace StudentSupportApp
                     this.Hide();
                 }
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
         }
+
         private void AddLessonTimeToDataGridView()
         {
             try
             {
                 //dataGridViewHomeTimetable.Columns[1].HeaderText = DateTime.Today.DayOfWeek.ToString();
-                string[] sRow = new string[] {"Lesson 1\n(7:30-8:15)", "Lesson 2\n(8:15-9:00)",
-                "Lesson 3\n(9:00 - 9:45)" , "Lesson 4\n(10:00-10:45)", "Lesson 5\n(10:45-11:30)",
-                "Lesson 6\n(13:00-13:45)", "Lesson 7\n(13:45-14:30)", "Lesson 8\n(14:30-15:15)",
-                "Lesson 9\n(15:30-16:15)", "Lesson 10\n(16:15-17:00)"};
+                string[] sRow = new string[] {"Tiết 1\n(7:30-8:15)", "Tiết 2\n(8:15-9:00)",
+                "Tiết 3\n(9:00 - 9:45)" , "Tiết 4\n(10:00-10:45)", "Tiết 5\n(10:45-11:30)",
+                "Tiết 6\n(13:00-13:45)", "Tiết 7\n(13:45-14:30)", "Tiết 8\n(14:30-15:15)",
+                "Tiết 9\n(15:30-16:15)", "Tiết 10\n(16:15-17:00)"};
                 for (int i = 0; i < sRow.Length; i++)
                 {
                     dataGridViewTimetable.Rows.Add(sRow[i]);
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
         }
+
         private void cbxSem_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnLoadTT.Visible = true;
@@ -934,13 +967,14 @@ namespace StudentSupportApp
         {
             Properties.Settings.Default.Text = cbxSem.Text;
             Properties.Settings.Default.Save();
-            MessageBox.Show("Saved!", "Set Default Semester");
+            MessageBox.Show("Đã lưu!", "Đặt học kỳ mặc định");
         }
+
         private void LoadInformationTab()
         {
+            Connect Info = new Connect();
             try
             {
-                Connect Info = new Connect();
                 Info.OpenConnection();
 
                 List<string> sData = new List<string>();
@@ -959,15 +993,21 @@ namespace StudentSupportApp
                     sData.Add(reader.GetString(5));
                     sData.Add(reader.GetString(6));
                 }
-                Info.CloseConnection();
 
                 ShowUserInformation(sData);
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+            }
+            finally
+            {
+                Info.CloseConnection();
             }
         }
+
         private void ShowUserInformation(List<string> data)
         {
             lbAccID.Text = data[0];
@@ -978,6 +1018,7 @@ namespace StudentSupportApp
             tbxClassInfo.Text = data[5];
             tbxGenderInfo.Text = data[6];
         }
+
         private void btnChangeInfo_Click(object sender, EventArgs e)
         {
             tbxNameInfo.Enabled = !tbxNameInfo.Enabled;
@@ -988,14 +1029,15 @@ namespace StudentSupportApp
             btnCancelInfo.Visible = !btnCancelInfo.Visible;
             btnSaveInfo.Visible = !btnSaveInfo.Visible;
         }
+
         private void btnSaveInfo_Click(object sender, EventArgs e)
         {
             try
             {
                 if (tbxNameInfo.Text == "" && tbxGenderInfo.Text == "" && tbxClassInfo.Text == "")
                 {
-                    const string message = "Your information is now empty? Are you sure to continue?";
-                    const string caption = "Change Information";
+                    const string message = "Thông tin của bạn đang trống. Bạn chắc chắn muốn tiếp tục?";
+                    const string caption = "Chỉnh sửa thông tin";
                     var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
@@ -1003,9 +1045,9 @@ namespace StudentSupportApp
                                                             tbxGenderInfo.Text, tbxClassInfo.Text };
                         if (this.User.UpdateUserInfo(this.User.ID, sInfo) == 1)
                         {
-                            MessageBox.Show("Changed your information successfully!", "Change Information");
+                            MessageBox.Show("Chỉnh sửa thông tin thành công!", "Chỉnh sửa thông tin");
                         }
-                        else MessageBox.Show("Failed to change your information! Try again.", "Change Information");
+                        else MessageBox.Show("Chỉnh sửa thất bại. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin");
                     }
                 }
                 else
@@ -1014,22 +1056,25 @@ namespace StudentSupportApp
                                                             tbxGenderInfo.Text, tbxClassInfo.Text };
                     if (this.User.UpdateUserInfo(this.User.ID, sInfo) == 1)
                     {
-                        MessageBox.Show("Changed your information successfully!", "Change Information");
+                        MessageBox.Show("Chỉnh sửa thông tin thành công!", "Chỉnh sửa thông tin");
                     }
-                    else MessageBox.Show("Failed to change your information! Try again.", "Change Information");
+                    else MessageBox.Show("Chỉnh sửa thất bại. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin");
                 }
 
                 btnChangeInfo_Click(sender, e);
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
         }
+
         private void btnCancelInfo_Click(object sender, EventArgs e)
         {
-            const string message = "Your changes will not be saved? Are you sure to continue?";
-            const string caption = "Cancel Changing Information";
+            const string message = "Thay đổi của bạn sẽ không được lưu lại. Bạn chắc chắn muốn tiếp tục?";
+            const string caption = "Hủy bỏ thay đổi";
             var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -1037,6 +1082,7 @@ namespace StudentSupportApp
                 btnChangeInfo_Click(sender, e);
             }
         }
+
         private void tbxNameInfo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((Char.IsLetter(e.KeyChar) == false && (e.KeyChar != (char)Keys.Space) && e.KeyChar != (char)Keys.Back))
@@ -1044,6 +1090,7 @@ namespace StudentSupportApp
             if (e.KeyChar == (char)Keys.Enter)
                 BirthDTPicker.Focus();
         }
+
         private void tbxGenderInfo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((Char.IsLetter(e.KeyChar) == false && (e.KeyChar != (char)Keys.Space) && e.KeyChar != (char)Keys.Back))
@@ -1051,12 +1098,14 @@ namespace StudentSupportApp
             if (e.KeyChar == (char)Keys.Enter)
                 tbxClassInfo.Focus();
         }
+
         private void btnChangeEmail_Click(object sender, EventArgs e)
         {
             ChangeEmailForm changeMail = new ChangeEmailForm(this, this.User.ID);
             changeMail.Show();
             this.Hide();
         }
+
         public void LoadTodayTimetable(string today, ref List<string> Lesson)
         {
             Connect loadHomeTimetable = new Connect();
@@ -1084,9 +1133,11 @@ namespace StudentSupportApp
                     reader.Close();
                 }
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
             finally
             {

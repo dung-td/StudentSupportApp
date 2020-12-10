@@ -20,6 +20,7 @@ namespace StudentSupportApp
             InitializeComponent();
         }
 
+        #region EventHandler
         private void btnAddAL_Click(object sender, EventArgs e)
         {
             try
@@ -29,17 +30,19 @@ namespace StudentSupportApp
                     Timetable lesson = new Timetable();
                     string[] sData = new string[] { cbxDIWAL.Text, cbxTimeOrder.Text, tbxSubIDAL.Text, tbxSubNaAL.Text, tbxSemNaAL.Text, this.sUserID };
                     if (lesson.AddLessonToDatabase(sData) == 1)
-                        MessageBox.Show("Succeeded in adding new lesson!", "Add Lesson");
-                    else MessageBox.Show("Failed to add new lesson. Check your data.", "Add Lesson");
+                        MessageBox.Show("Thêm tiết học mới thành công!", "Thêm tiết học mới");
+                    else MessageBox.Show("Thêm tiết học thất bại. Vui lòng kiểm tra và thử lại!", "Thêm tiết học mới");
                 }
                 else
                 {
-                    MessageBox.Show("Failed to add new lesson. Check your data.", "Add Lesson");
+                    MessageBox.Show("Thêm tiết học thất bại. Vui lòng kiểm tra và thử lại!", "Thêm tiết học mới");
                 }
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
         }
 
@@ -84,8 +87,7 @@ namespace StudentSupportApp
             if (e.KeyCode == Keys.Enter)
                 btnAddAL_Click(sender, e);
         }
-
-       
+        #endregion
     }
 }
 
