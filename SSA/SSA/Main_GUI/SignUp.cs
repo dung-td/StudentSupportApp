@@ -128,7 +128,7 @@ namespace StudentSupportApp
                 bunifuGradientPanel1.GradientBottomLeft = bunifuGradientPanel1.GradientBottomRight =
                 bunifuCustomLabel1.ForeColor = bunifuSeparator2.ForeColor = lbBirthSU.ForeColor = lbPassSU.ForeColor = lbRePassSU.ForeColor =
                 lbEmailSU.ForeColor = lbVerify.ForeColor = lbCodeSent.ForeColor = lnAddtitional.ForeColor = lbNameSU.ForeColor = lbBirthSU.ForeColor = lbGenderSU.ForeColor =
-              lbClassSU.ForeColor = dateBirth.BackColor =
+              lbClassSU.ForeColor = lbIDSU.ForeColor = bunifuSeparator2.LineColor =  dateBirth.BackColor =
 
               bSendCode.ActiveFillColor = bSendCode.ForeColor = bSendCode.IdleLineColor = bSendCode.IdleForecolor =
               bCancel.ActiveFillColor = bCancel.ForeColor = bCancel.IdleLineColor = bCancel.IdleForecolor =
@@ -136,6 +136,7 @@ namespace StudentSupportApp
 
               tbxPass.LineFocusedColor = tbxPass.LineMouseHoverColor =
               tbxConfirmPass.LineFocusedColor = tbxConfirmPass.LineMouseHoverColor =
+              tbxID.LineFocusedColor = tbxID.LineMouseHoverColor =
               tbxEmail.LineFocusedColor = tbxEmail.LineMouseHoverColor =
               tbxCode.LineFocusedColor = tbxCode.LineMouseHoverColor =
               tbxName.LineFocusedColor = tbxName.LineMouseHoverColor =
