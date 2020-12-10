@@ -117,48 +117,527 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="lConfirmWrong.TabIndex" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="&gt;&gt;bChange.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lCodeWrong.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bExit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="lSent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>293, 261</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GradientPanelAddDeadline.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 646</value>
+  </data>
+  <data name="tbVerifyCode.TabIndex" type="System.Int32, mscorlib">
+    <value>83</value>
+  </data>
+  <data name="bSend.TabIndex" type="System.Int32, mscorlib">
+    <value>85</value>
+  </data>
+  <data name="lInvalid.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 9pt</value>
+  </data>
+  <data name="tbEmail.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 10pt</value>
+  </data>
+  <data name="lShortPass.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 21</value>
+  </data>
+  <data name="&gt;&gt;lSent.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tbNewPass1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>555, 68</value>
+  </data>
+  <data name="GradientPanelAddDeadline.TabIndex" type="System.Int32, mscorlib">
+    <value>82</value>
+  </data>
+  <data name="bExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 68</value>
+  </data>
+  <data name="&gt;&gt;tbVerifyCode.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lShortPass.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>ForgotPass</value>
+  </data>
+  <data name="&gt;&gt;lConfirmWrong.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;bSend.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbAddLesson.Name" xml:space="preserve">
+    <value>lbAddLesson</value>
+  </data>
+  <data name="&gt;&gt;lSent.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="bSend.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 12pt</value>
+  </data>
+  <data name="&gt;&gt;tbNewPass1.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;lShortPass.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="bSend.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAJwAAABECAYAAAB01VwPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAALPSURBVHhe7d09aFNxFIbxjm6Ojm666eYmTuIiuAgdHNxc
-        HERcMihVhwoiIoIKldJJOihWROygYJciFkk1tpqmxKgxpmhso1iKRTny/u/NbWNiqHrvmZ4fvCD0Y3po
-        bir09DWbTWPMawTHXEdwzHUEx1xHcMx1BMdc1zO4hU+LNjxRtYPXSrb7/EvbmitY35GnjLVNXaiP/ZeL
-        dvVh1d7WF7v2pP0xuFtPauEb9Q+VbXTqsz2a+2qVxncDfqcu1MfY9JIdHqmEbhRet646glOdh67P275L
-        Jat/WY2/JbBxS8s/Qnh7LxZtrtpo66stOMW248yMjUw24i8F/t34TNN2Dc5aobIWXVtw+slGbEiTXmr1
-        fNcRnJ7Z9DIKpC13+72dvvNmLTi9G9WDHs9syMLK6k/beXbWpkofo+D0jkIPeUBWzo3X7fhoOQpOvz/R
-        W1ogK9PvlsMb0hDctpMFe1VfiT8EpE8vq5uO5qPgNh/Lh9+dAFkK/zOh4PQPIGsEB1cEB1cEB1cEB1cE
-        B1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cE
-        B1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1cEB1dJcPpjv/qjv0CWkuB0FIRLgchaEpyuvukQF5AVnWXQ
-        eYYQ3MBYJdxDArKio4E6HhiC03nB7ade8ByHzBy4Mm83JmtRcFru5msbuFuLPwykRxfFdcZenSXB6aKg
-        7lo+Ln+LPw34f7pQqVfP1h38JDhN5wV1ZpC7W0iDYttzoWj38vWksbbgtAfPF8LVt8H7H+IvA/6erlPq
-        J9v62LSO4DS9vOq2perUuwsO92IjdCBQz2v9Q+VwErX1Mrp+XYNrTXXqreyWE8+iX9ox1mO6Sqk3B8MT
-        1a49aT2DYyztERxzHcEx1xEccx3BMcc17RfqYBNnrN+AJAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAJwAAAAvCAYAAAAW5qOWAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
+        JQAAFiUBSVIk8AAAAo1JREFUeF7tnD9oE2EYhzu6OTq66aabmziJi+AiODi4uTiIuGRQqg4tiIgIKijS
+        STooVkTsoKBLkRZJbWw1TYlRY0zR2EaxFIvyyu/L9eqZM1S9e6fngQcK+TM95L7veu/X1263DdFLgkNX
+        CQ5dJTh0leDQVYJDV3sGN/9xwa4/rtv+KxXbefaFbS6UrO/wU8SE6kJ97L1YtssP6/amuZDak/xjcLfG
+        G+GLDlyt2vDEJ3s0+8VqrW8G8DvqQn2MTC7aoaFa6EbhpXXVFZzqPHhtzvZcqFjz80r0lQDrZ3Hpewhv
+        9/myzdZbib4SwSm2baenbWisFX0U4N8ZnW7bjoEZK9XWoksEp182YoMs0aVW67uu4LRm02UUIGsKt9/Z
+        qTuv14LTblQLPdZskAfLKz9s+5kZm6h86ASnHYUWeQB5MTjatGPD1U5wun+iLS1AXky+XQob0hDclhMl
+        e9lcjl4CyB5dVjccKXaC23i0GO6dAORJ+M+EgtMfAHlDcOAKwYErBAeuEBy4QnDgCsGBKwQHrhAcuEJw
+        4ArBgSsEB64QHLhCcOBKHJyeU9LzSgB5EgeneQaGnCFv4uA0sKoZQoC80BPlerI8BNc/UgujXAB5oXln
+        zT2H4DQZvfXkc9ZxkBv7Ls3ZjbFGJzhZuPnK+u82opcBskOHIekELnUWB6dhaI3kP6l+jd4G8P9ouF5X
+        z9UjvOLgpCajNSHNyCBkgWLbda5s94rNuLFEcPLB1HwYWB24/z76GMDfo8F6/bL9GpvsCk7q8qqxfNWp
+        3QVnjsB60Gyz1ms6xFKnOaSdhJka3KqqU1vZTcefdW7aIfZQA/XaHOiY3rSeZM/gELOW4NBVgkNXCQ5d
+        JTh0tG0/AXmvYpn+4kBQAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="bChange.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAJwAAABFCAYAAAC/iY+qAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAALSSURBVHhe7d09aFNxFIbxjm6Ojm666eYmTuIiuBQ6OLi5
-        OIi4ZFCqDhVERAQtVEon6aBYEbGDgl2KWCTV2GqaEqPGmKKxvYqlWJQj7z+3aa+Joeq9Z3p+8ILQj+mh
-        uanQ0xNFkTHmNYJjriM45jqCY64jOOY6gmOu6xrcwqdFG56oWu9gyfZeeGnbcwXrOfqUscTUhfo4eKVo
-        1x5W7W19sWNP2h+Du/WkFr5R31DZRqc+26O5r1ZpfDfgd+pCfYxNL9mRkUroRuF16qotONV5+Pq8Hbhc
-        svqX1fhbApu3tPwjhLf/UtHmqo1EX4ngFNuuszM2MtmIvxT4d+Mzke0ZmLVCZT26RHD6yUZsSJNeavV8
-        1xacntn0MgqkLXf7vZ2582Y9OL0b1YMez2zIwsrqT9t9btamSh+bwekdhR7ygKycH6/bidFyMzj9/kRv
-        aYGsTL9bDm9IQ3A7ThXsVX0l/hCQPr2sbjmWbwa39Xg+/O4EyFL4nwkFp38AWSM4uCI4uCI4uCI4uCI4
-        uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4
-        uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uCI4uGoFp78urb8yDWSpFZyu0HCaEllrBaczg7r8BmRF
-        d0B0DyQE1z9WCQe4gKzoSqWuVYbgdM9y5+kXPMchM4euztuNyVozOC1387X1363FHwbSoxP2vYOl5L1U
-        nbDUIdXH5W/xpwH/TydR9eqpa+OJ4DTds9RdSw69IQ2Kbd/Fot3L11uNJYLTHjxfCGcGB+5/iL8M+Hs6
-        h6qfbBtj09qC0/TyqmOqqlPvLrgUjc3QRUo9r/UNlcMN3rWX0Y3rGNzaVKfeym47+az5SzvGukxnUPXm
-        YHii2rEnrWtwjKU9gmOuIzjmOoJjriM45rjIfgFNeX1SSNOvvwAAAABJRU5ErkJggg==
-</value>
+  <data name="lInvalid.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>9, 20</value>
+  </data>
+  <data name="&gt;&gt;tbNewPass2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bChange.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="tbNewPass1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>298, 291</value>
+  </data>
+  <data name="&gt;&gt;tbEmail.Name" xml:space="preserve">
+    <value>tbEmail</value>
+  </data>
+  <data name="lConfirmWrong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>242, 21</value>
+  </data>
+  <data name="bSend.Location" type="System.Drawing.Point, System.Drawing">
+    <value>697, 166</value>
+  </data>
+  <data name="&gt;&gt;bChange.Type" xml:space="preserve">
+    <value>Bunifu.Framework.UI.BunifuThinButton2, Bunifu_UI_v1.52, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="tbEmail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>555, 68</value>
+  </data>
+  <data name="&gt;&gt;bExit.Name" xml:space="preserve">
+    <value>bExit</value>
+  </data>
+  <data name="lCodeWrong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>357, 21</value>
+  </data>
+  <data name="&gt;&gt;GradientPanelAddDeadline.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tbNewPass2.TabIndex" type="System.Int32, mscorlib">
+    <value>76</value>
+  </data>
+  <data name="tbEmail.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 6, 6, 6</value>
+  </data>
+  <data name="bChange.TabIndex" type="System.Int32, mscorlib">
+    <value>77</value>
+  </data>
+  <data name="tbNewPass2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 6, 6, 6</value>
+  </data>
+  <data name="&gt;&gt;bSend.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="bChange.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 12pt</value>
+  </data>
+  <data name="tbNewPass2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>555, 68</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ForgotPass</value>
+  </data>
+  <data name="lCodeWrong.Text" xml:space="preserve">
+    <value>Mã xác nhận không đúng, vui lòng thử lại</value>
+  </data>
+  <data name="GradientPanelAddDeadline.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lbAddLesson.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 110</value>
+  </data>
+  <data name="&gt;&gt;lInvalid.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="bExit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 12pt</value>
+  </data>
+  <data name="lCodeWrong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>293, 240</value>
+  </data>
+  <data name="&gt;&gt;GradientPanelAddDeadline.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lCodeWrong.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lbAddLesson.Parent" xml:space="preserve">
+    <value>GradientPanelAddDeadline</value>
+  </data>
+  <data name="&gt;&gt;tbVerifyCode.Type" xml:space="preserve">
+    <value>Bunifu.Framework.UI.BunifuMaterialTextbox, Bunifu_UI_v1.52, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lConfirmWrong.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lConfirmWrong.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lShortPass.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 9pt</value>
+  </data>
+  <data name="lCodeWrong.TabIndex" type="System.Int32, mscorlib">
+    <value>84</value>
+  </data>
+  <data name="tbNewPass2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 10pt</value>
+  </data>
+  <data name="&gt;&gt;lbAddLesson.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GradientPanelAddDeadline.Type" xml:space="preserve">
+    <value>Bunifu.Framework.UI.BunifuGradientPanel, Bunifu_UI_v1.52, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="lbAddLesson.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="lbAddLesson.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 240</value>
+  </data>
+  <data name="tbEmail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>297, 15</value>
+  </data>
+  <data name="lInvalid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>293, 109</value>
+  </data>
+  <data name="&gt;&gt;bExit.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;lSent.Name" xml:space="preserve">
+    <value>lSent</value>
+  </data>
+  <data name="&gt;&gt;lCodeWrong.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bExit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>683, 560</value>
   </data>
   <data name="GradientPanelAddDeadline.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAAqSURBVChTjcghAQAACAMwYtOUOCcAE4iZVfXkhSlMYQpT
-        mMIUpjCFeUwW8nPmeVB+J6gAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
+        JQAAFiUBSVIk8AAAACpJREFUKFONyCEBAAAIAzBi05Q4JwATiJlV9eSFKUxhClOYwhSmMIV5TBbyc+Z5
+        UH4nqAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="tbNewPass1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 6, 6, 6</value>
+  </data>
+  <data name="&gt;&gt;tbVerifyCode.Name" xml:space="preserve">
+    <value>tbVerifyCode</value>
+  </data>
+  <data name="lConfirmWrong.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lInvalid.TabIndex" type="System.Int32, mscorlib">
+    <value>81</value>
+  </data>
+  <data name="&gt;&gt;tbNewPass1.Type" xml:space="preserve">
+    <value>Bunifu.Framework.UI.BunifuMaterialTextbox, Bunifu_UI_v1.52, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="tbVerifyCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>298, 145</value>
+  </data>
+  <data name="lInvalid.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;bSend.Type" xml:space="preserve">
+    <value>Bunifu.Framework.UI.BunifuThinButton2, Bunifu_UI_v1.52, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;bChange.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lShortPass.Text" xml:space="preserve">
+    <value>Mật khẩu phải dài hơn 8 kí tự</value>
+  </data>
+  <data name="lConfirmWrong.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 9pt</value>
+  </data>
+  <data name="&gt;&gt;tbEmail.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="bExit.TabIndex" type="System.Int32, mscorlib">
+    <value>78</value>
+  </data>
+  <data name="tbNewPass1.TabIndex" type="System.Int32, mscorlib">
+    <value>75</value>
+  </data>
+  <data name="&gt;&gt;lSent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GradientPanelAddDeadline.Name" xml:space="preserve">
+    <value>GradientPanelAddDeadline</value>
+  </data>
+  <data name="lCodeWrong.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tbVerifyCode.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;bChange.Name" xml:space="preserve">
+    <value>bChange</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbEmail.Type" xml:space="preserve">
+    <value>Bunifu.Framework.UI.BunifuMaterialTextbox, Bunifu_UI_v1.52, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lbAddLesson.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="lConfirmWrong.Text" xml:space="preserve">
+    <value>Mật khẩu không trùng khớp</value>
+  </data>
+  <data name="lInvalid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>333, 21</value>
+  </data>
+  <data name="tbNewPass1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 10pt</value>
+  </data>
+  <data name="bSend.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="&gt;&gt;lInvalid.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="bSend.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 47</value>
+  </data>
+  <data name="bExit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAJwAAABECAYAAAB01VwPAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
+        JQAAFiUBSVIk8AAAAs9JREFUeF7t3T1oU3EUhvGObo6Obrrp5iZO4iK4CB0c3FwcRFwyKFWHCiIiggqV
+        0kk6KFZE7KBglyIWSTW2mqbEqDGmaGyjWIpFOfL+781tY2Koeu+Znh+8IPRjemhuKvT0NZtNY8xrBMdc
+        R3DMdQTHXEdwzHUEx1zXM7iFT4s2PFG1g9dKtvv8S9uaK1jfkaeMtU1dqI/9l4t29WHV3tYXu/ak/TG4
+        W09q4Rv1D5VtdOqzPZr7apXGdwN+py7Ux9j0kh0eqYRuFF63rjqCU52Hrs/bvkslq39Zjb8lsHFLyz9C
+        eHsvFm2u2mjrqy04xbbjzIyNTDbiLwX+3fhM03YNzlqhshZdW3D6yUZsSJNeavV81xGcntn0MgqkLXf7
+        vZ2+82YtOL0b1YMez2zIwsrqT9t5dtamSh+j4PSOQg95QFbOjdft+Gg5Ck6/P9FbWiAr0++WwxvSENy2
+        kwV7VV+JPwSkTy+rm47mo+A2H8uH350AWQr/M6Hg9A8gawQHVwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQH
+        VwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQHVwQH
+        VwQHVwQHVwQHVwQHVwQHV0lw+mO/+qO/QJaS4HQUhEuByFoSnK6+6RAXkBWdZdB5hhDcwFgl3EMCsqKj
+        gToeGILTecHtp17wHIfMHLgybzcma1FwWu7maxu4W4s/DKRHF8V1xl6dJcHpoqDuWj4uf4s/Dfh/ulCp
+        V8/WHfwkOE3nBXVmkLtbSINi23OhaPfy9aSxtuC0B88XwtW3wfsf4i8D/p6uU+on2/rYtI7gNL286ral
+        6tS7Cw73YiN0IFDPa/1D5XAStfUyun5dg2tNdeqt7JYTz6Jf2jHWY7pKqTcHwxPVrj1pPYNjLO0RHHMd
+        wTHXERxzHcExxzXtF+pgE2es34AkAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="tbVerifyCode.Text" xml:space="preserve">
+    <value>Mã xác nhận</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>379, 21</value>
+  </data>
+  <data name="tbVerifyCode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 10pt</value>
+  </data>
+  <data name="tbEmail.TabIndex" type="System.Int32, mscorlib">
+    <value>74</value>
+  </data>
+  <data name="label1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;bExit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lInvalid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lConfirmWrong.Name" xml:space="preserve">
+    <value>lConfirmWrong</value>
+  </data>
+  <data name="tbNewPass2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>298, 427</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Mã xác nhận đã được gửi vào email của bạn</value>
+  </data>
+  <data name="&gt;&gt;lShortPass.Name" xml:space="preserve">
+    <value>lShortPass</value>
+  </data>
+  <data name="tbVerifyCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>352, 68</value>
+  </data>
+  <data name="&gt;&gt;tbNewPass2.Type" xml:space="preserve">
+    <value>Bunifu.Framework.UI.BunifuMaterialTextbox, Bunifu_UI_v1.52, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="lShortPass.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbAddLesson.Text" xml:space="preserve">
+    <value>Quên 
+mật khẩu</value>
+  </data>
+  <data name="&gt;&gt;bSend.Name" xml:space="preserve">
+    <value>bSend</value>
+  </data>
+  <data name="bChange.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 69</value>
+  </data>
+  <data name="tbEmail.Text" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="&gt;&gt;tbEmail.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="lbAddLesson.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 22pt</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>924, 646</value>
+  </data>
+  <data name="lCodeWrong.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 9pt</value>
+  </data>
+  <data name="bChange.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAJwAAABFCAYAAAC/iY+qAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
+        JQAAFiUBSVIk8AAAAtJJREFUeF7t3T1oU3EUhvGObo6Obrrp5iZO4iK4FDo4uLk4iLhkUKoOFUREBC1U
+        SifpoFgRsYOCXYpYJNXYapoSo8aYorG9iqVYlCPvP7dpr4mh6r1nen7wgtCP6aG5qdDTE0WRMeY1gmOu
+        IzjmOoJjriM45jqCY67rGtzCp0Ubnqha72DJ9l54adtzBes5+pSxxNSF+jh4pWjXHlbtbX2xY0/aH4O7
+        9aQWvlHfUNlGpz7bo7mvVml8N+B36kJ9jE0v2ZGRSuhG4XXqqi041Xn4+rwduFyy+pfV+FsCm7e0/COE
+        t/9S0eaqjURfieAU266zMzYy2Yi/FPh34zOR7RmYtUJlPbpEcPrJRmxIk15q9XzXFpye2fQyCqQtd/u9
+        nbnzZj04vRvVgx7PbMjCyupP231u1qZKH5vB6R2FHvKArJwfr9uJ0XIzOP3+RG9pgaxMv1sOb0hDcDtO
+        FexVfSX+EJA+vaxuOZZvBrf1eD787gTIUvifCQWnfwBZIzi4Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4
+        Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4Iji4
+        Iji4Iji4Iji4Iji4Iji4Iji4agWnvy6tvzINZKkVnK7QcJoSWWsFpzODuvwGZEV3QHQPJATXP1YJB7iA
+        rOhKpa5VhuB0z3Ln6Rc8xyEzh67O243JWjM4LXfztfXfrcUfBtKjE/a9g6XkvVSdsNQh1cflb/GnAf9P
+        J1H16qlr44ngNN2z1F1LDr0hDYpt38Wi3cvXW40lgtMePF8IZwYH7n+Ivwz4ezqHqp9sG2PT2oLT9PKq
+        Y6qqU+8uuBSNzdBFSj2v9Q2Vww3etZfRjesY3NpUp97Kbjv5rPlLO8a6TGdQ9eZgeKLasSeta3CMpT2C
+        Y64jOOY6gmOuIzjmuMh+AU15fVJI06+/AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="GradientPanelAddDeadline.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="bChange.Location" type="System.Drawing.Point, System.Drawing">
+    <value>511, 559</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 9pt</value>
+  </data>
+  <data name="&gt;&gt;lShortPass.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lInvalid.Text" xml:space="preserve">
+    <value>Tài khoản không tồn tại trong hệ thống</value>
+  </data>
+  <data name="&gt;&gt;tbNewPass1.Name" xml:space="preserve">
+    <value>tbNewPass1</value>
+  </data>
+  <data name="lShortPass.TabIndex" type="System.Int32, mscorlib">
+    <value>79</value>
+  </data>
+  <data name="&gt;&gt;tbNewPass2.Name" xml:space="preserve">
+    <value>tbNewPass2</value>
+  </data>
+  <data name="tbVerifyCode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 6, 6, 6</value>
+  </data>
+  <data name="lShortPass.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lbAddLesson.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="GradientPanelAddDeadline.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="lSent.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="&gt;&gt;tbNewPass1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lShortPass.Location" type="System.Drawing.Point, System.Drawing">
+    <value>293, 380</value>
+  </data>
+  <data name="&gt;&gt;bExit.Type" xml:space="preserve">
+    <value>Bunifu.Framework.UI.BunifuThinButton2, Bunifu_UI_v1.52, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;lInvalid.Name" xml:space="preserve">
+    <value>lInvalid</value>
+  </data>
+  <data name="&gt;&gt;lCodeWrong.Name" xml:space="preserve">
+    <value>lCodeWrong</value>
+  </data>
+  <data name="bExit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="&gt;&gt;lCodeWrong.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lConfirmWrong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>293, 527</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>293, 261</value>
+  </data>
+  <data name="&gt;&gt;tbNewPass2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lConfirmWrong.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lbAddLesson.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>aa</value>
+  </metadata>
 </root>
