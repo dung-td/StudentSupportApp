@@ -63,9 +63,11 @@ namespace StudentSupportApp
                     }
                 }
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
             finally
             {

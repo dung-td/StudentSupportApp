@@ -27,17 +27,29 @@ namespace StudentSupportApp
         public USER(string arg)
         {
             Connect Data = new Connect();
-            Data.OpenConnection();
-
-            SqlCommand command = Data.CreateSQLCmd("select FULLNAME from USERS where ID_USER='" + arg + "'");
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.HasRows)
+            try
             {
-                if (reader.Read() == false) break;
-                this.sName = reader.GetString(0);
+                Data.OpenConnection();
+
+                SqlCommand command = Data.CreateSQLCmd("select FULLNAME from USERS where ID_USER='" + arg + "'");
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    this.sName = reader.GetString(0);
+                }
             }
-            Data.CloseConnection();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                Data.CloseConnection();
+            }
             this.sID = this.sPassword = this.sGender = this.sEmail = this.sClass = "";
             this.Birth = DateTime.Today;
         }
@@ -121,55 +133,92 @@ namespace StudentSupportApp
         }
         public int CheckEmail()
         {
-            string sCheckLogin = "SELECT EMAIL FROM USERS WHERE EMAIL = '" + this.sEmail + "'";
-            this.Connection.OpenConnection();
-            SqlCommand command = this.Connection.CreateSQLCmd(sCheckLogin);
-            SqlDataReader reader = command.ExecuteReader();
-            if (reader.HasRows)
-                return 0;
-            else
-                return 1;
+            try
+            {
+                string sCheckLogin = "SELECT EMAIL FROM USERS WHERE EMAIL = '" + this.sEmail + "'";
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(sCheckLogin);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                    return 0;
+                else
+                    return 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                Connection.CloseConnection();
+            }
+            return 1;
         }
         public int CheckLogin()
         {
-            string sCheckLogin = "SELECT PASS FROM USERS WHERE ID_USER = '" + this.sID + "'";
-            this.Connection.OpenConnection();
-            SqlCommand command = this.Connection.CreateSQLCmd(sCheckLogin);
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.HasRows)
+            try
             {
-                MD5Encoder PasswordEncoder = new MD5Encoder();
-                if (reader.Read() == false) break;
-                if (reader.GetString(0) == PasswordEncoder.FromString(this.sPassword))
+                string sCheckLogin = "SELECT PASS FROM USERS WHERE ID_USER = '" + this.sID + "'";
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(sCheckLogin);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.HasRows)
                 {
+                    MD5Encoder PasswordEncoder = new MD5Encoder();
+                    if (reader.Read() == false) break;
+                    if (reader.GetString(0) == PasswordEncoder.FromString(this.sPassword))
+                    {
+                        this.Connection.CloseConnection();
+                        return 1;
+                    }
                     this.Connection.CloseConnection();
-                    return 1;
+                    return -1;
                 }
-                this.Connection.CloseConnection();
-                return -1;
             }
-            this.Connection.CloseConnection();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
             return 0;
         }
         public void LoadUserInfo()
         {
-            string sLoadUserInfo = "SELECT * FROM USERS WHERE ID_USER = '" + this.sID + "'";
-            this.Connection.OpenConnection();
-            SqlCommand command = this.Connection.CreateSQLCmd(sLoadUserInfo);
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.HasRows)
+            try
             {
-                if (reader.Read() == false) break;
-                this.Email = reader.GetString(1);
-                //this.Birthday = reader.GetString(2);
-                this.Password = reader.GetString(3);
-                this.Name = reader.GetString(4);
-                this.Class = reader.GetString(5);
-                this.Gender = reader.GetString(6);
+                string sLoadUserInfo = "SELECT * FROM USERS WHERE ID_USER = '" + this.sID + "'";
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(sLoadUserInfo);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    this.Email = reader.GetString(1);
+                    //this.Birthday = reader.GetString(2);
+                    this.Password = reader.GetString(3);
+                    this.Name = reader.GetString(4);
+                    this.Class = reader.GetString(5);
+                    this.Gender = reader.GetString(6);
+                }
             }
-            this.Connection.CloseConnection();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
         }
-
         public int UpdateUserInfo(string id, string[] newInfo)
         {
             Connect UpdateInfo = new Connect();
@@ -186,9 +235,11 @@ namespace StudentSupportApp
                 UpdateInfo.CloseConnection();
                 return 1;
             }
-            catch (Exception a)
+            catch (Exception ex)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
             }
             finally
             {
@@ -196,7 +247,6 @@ namespace StudentSupportApp
             }
             return 0;
         }
-
         public void AddUserToDatabase()
         {
             try
@@ -222,30 +272,28 @@ namespace StudentSupportApp
         public void GetDeadlineID(ref string i)
         {
             string Query = "SELECT TOP (1) * FROM DEADLINE ORDER BY ID DESC";
-            //try
-            // {
-            this.Connection.OpenConnection();
-            SqlCommand command = this.Connection.CreateSQLCmd(Query);
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.HasRows)
+            try
             {
-                if (reader.Read() == false) break;
-                i = (int.Parse(reader.GetString(0)) + 1).ToString();
-            }
-            //this.Connection.CloseConnection();
-            // i = "1";
-            /*
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(Query);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    i = (int.Parse(reader.GetString(0)) + 1).ToString();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ket noi xay ra loi hoac doc du lieu bi loi");
-                this.Connection.CloseConnection();
-                i = "-1";
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
             }
-            */
-            this.Connection.CloseConnection();
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
         }
-
         public void SetDataDefault()
         {
             try
@@ -259,15 +307,18 @@ namespace StudentSupportApp
                 Connection.OpenConnection();
                 SqlCommand command = this.Connection.CreateSQLCmd(Query);
                 command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
                 Connection.CloseConnection();
             }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-
         }
-
         public void DeleteUser()
         {
             try
@@ -279,9 +330,15 @@ namespace StudentSupportApp
                 SqlCommand command = this.Connection.CreateSQLCmd(Query);
                 command.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                Connection.CloseConnection();
             }
         }
     }
