@@ -121,6 +121,7 @@ namespace StudentSupportApp
         {
             OnMouseDown(e);
         }
+        #endregion
 
         void SetColor(Color x)
         {
@@ -128,11 +129,11 @@ namespace StudentSupportApp
                 bunifuGradientPanel1.GradientBottomLeft = bunifuGradientPanel1.GradientBottomRight =
                 bunifuCustomLabel1.ForeColor = bunifuSeparator2.ForeColor = lbBirthSU.ForeColor = lbPassSU.ForeColor = lbRePassSU.ForeColor =
                 lbEmailSU.ForeColor = lbVerify.ForeColor = lbCodeSent.ForeColor = lnAddtitional.ForeColor = lbNameSU.ForeColor = lbBirthSU.ForeColor = lbGenderSU.ForeColor =
-              lbClassSU.ForeColor = lbIDSU.ForeColor = bunifuSeparator2.LineColor =  dateBirth.BackColor =
+              lbClassSU.ForeColor = lbIDSU.ForeColor = bunifuSeparator2.LineColor = dateBirth.BackColor =
 
-              bSendCode.ActiveFillColor = bSendCode.ForeColor = bSendCode.IdleLineColor = bSendCode.IdleForecolor =
-              bCancel.ActiveFillColor = bCancel.ForeColor = bCancel.IdleLineColor = bCancel.IdleForecolor =
-              bSignUp.ActiveFillColor = bSignUp.ForeColor = bSignUp.IdleLineColor = bSignUp.IdleForecolor =
+              bSendCode.ActiveFillColor = bSendCode.ForeColor = bSendCode.IdleLineColor = bSendCode.IdleForecolor = bSendCode.ActiveLineColor =
+              bCancel.ActiveFillColor = bCancel.ForeColor = bCancel.IdleLineColor = bCancel.IdleForecolor = bCancel.ActiveLineColor =
+              bSignUp.ActiveFillColor = bSignUp.ForeColor = bSignUp.IdleLineColor = bSignUp.IdleForecolor = bSignUp.ActiveLineColor =
 
               tbxPass.LineFocusedColor = tbxPass.LineMouseHoverColor =
               tbxConfirmPass.LineFocusedColor = tbxConfirmPass.LineMouseHoverColor =
@@ -144,6 +145,5 @@ namespace StudentSupportApp
               tbxClass.LineFocusedColor = tbxClass.LineMouseHoverColor = x;
 
         }
-        #endregion
     }
 }

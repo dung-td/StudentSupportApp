@@ -945,7 +945,7 @@ namespace StudentSupportApp
         {
             try
             {
-                if (this.dataGridViewTimetable.CurrentCell.Selected == true)
+                if (this.dataGridViewTimetable.CurrentCell.Selected == true && this.dataGridViewTimetable.CurrentCell.Value.ToString() != "")
                 {
                     int iSubID = this.dataGridViewTimetable.CurrentCell.Value.ToString().IndexOf("\n");
                     int iCellValueLength = this.dataGridViewTimetable.CurrentCell.Value.ToString().Length;
@@ -1179,12 +1179,38 @@ namespace StudentSupportApp
                 loadHomeTimetable.CloseConnection();
             }
         }
+
+        private void dataGridViewTimetable_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex > 0 && e.RowIndex >= 0)
+                {
+                    if (dataGridViewTimetable.CurrentCell.Value.ToString() != "")
+                    {
+                        int iSubID = this.dataGridViewTimetable.CurrentCell.Value.ToString().IndexOf("\n");
+                        int iCellValueLength = this.dataGridViewTimetable.CurrentCell.Value.ToString().Length;
+                        List<string> sLessonData = new List<string> { cbxSem.Text, this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].Name,
+                                                                  this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(0, iSubID),
+                                                                  this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(iSubID, iCellValueLength - iSubID),
+                                                                  (this.dataGridViewTimetable.CurrentCell.RowIndex + 1).ToString(), this.User.ID };
+                        Documents doc = new Documents(this, sLessonData);
+                        doc.Show();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+            }
+        }
     }
 }
 #endregion
 
 //Linh
-
 namespace StudentSupportApp
 {
     public partial class MainForm
@@ -1603,7 +1629,8 @@ namespace StudentSupportApp
 
             cardInfo.color = 
             bunifuCustomLabel4.ForeColor =
-            bdateTime.ForeColor = bdateTime.BackColor =
+            //bdateTime.ForeColor = 
+            bdateTime.BackColor =
             btbSubject.LineMouseHoverColor = btbSubject.LineFocusedColor =
             btbStatus.LineMouseHoverColor = btbStatus.LineFocusedColor =
             btbDetails.LineMouseHoverColor = btbDetails.LineFocusedColor =
@@ -1668,19 +1695,20 @@ namespace StudentSupportApp
             header.BackColor =
                 pLogo.BackColor =
 
-            btnHome.BackColor = btnHome.Activecolor = btnHome.Normalcolor = btnHome.OnHovercolor = btnHome.OnHoverTextColor = x;
+            btnHome.BackColor = btnHome.Activecolor = btnHome.Normalcolor = btnHome.OnHovercolor = x;
             //btnScore.BackColor = btnScore.Activecolor = btnScore.Normalcolor = 
-            btnScore.OnHovercolor = btnScore.OnHoverTextColor =
+            btnScore.OnHovercolor = //btnScore.OnHoverTextColor =
             //btnNofitication.BackColor = btnNofitication.Activecolor = btnNofitication.Normalcolor = 
-            btnNofitication.OnHovercolor = btnNofitication.OnHoverTextColor =
+            btnNofitication.OnHovercolor = //btnNofitication.OnHoverTextColor =
             //btnInformation.BackColor = btnInformation.Activecolor = btnInformation.Normalcolor = 
-            btnInformation.OnHovercolor = btnInformation.OnHoverTextColor =
+            btnInformation.OnHovercolor = //btnInformation.OnHoverTextColor =
             //btnTimeTable.BackColor = btnTimeTable.Activecolor = btnTimeTable.Normalcolor = 
-            btnTimeTable.OnHovercolor = btnTimeTable.OnHoverTextColor =
+            btnTimeTable.OnHovercolor = //btnTimeTable.OnHoverTextColor =
             //btnSetting.BackColor = btnSetting.Activecolor = btnSetting.Normalcolor = 
-            btnSetting.OnHovercolor = btnSetting.OnHoverTextColor =
+            btnSetting.OnHovercolor = //btnSetting.OnHoverTextColor =
             //btnLogOut.BackColor = btnLogOut.Activecolor = btnLogOut.Normalcolor = 
-            btnLogOut.OnHovercolor = btnLogOut.OnHoverTextColor = x;
+            btnLogOut.OnHovercolor //= btnLogOut.OnHoverTextColor
+            = x;
         }
         public void SetColorAll(Color x)
         {

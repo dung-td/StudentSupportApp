@@ -102,8 +102,8 @@ namespace StudentSupportApp
                 tbxSubNaAL.LineFocusedColor = tbxSubNaAL.LineMouseHoverColor =
                 tbxSubIDAL.LineFocusedColor = tbxSubIDAL.LineMouseHoverColor =
 
-                  btnAddAL.ActiveFillColor = btnAddAL.ForeColor = btnAddAL.IdleLineColor = btnAddAL.IdleForecolor =
-                    btnExitAL.ActiveFillColor = btnExitAL.ForeColor = btnExitAL.IdleLineColor = btnExitAL.IdleForecolor = x;
+                  btnAddAL.ActiveFillColor = btnAddAL.ForeColor = btnAddAL.IdleLineColor = btnAddAL.IdleForecolor = btnAddAL.ActiveLineColor = 
+                    btnExitAL.ActiveFillColor = btnExitAL.ForeColor = btnExitAL.IdleLineColor = btnExitAL.IdleForecolor = btnExitAL.ActiveLineColor = x;
         }
        
     }

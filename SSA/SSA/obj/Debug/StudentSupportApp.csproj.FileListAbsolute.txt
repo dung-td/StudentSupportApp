@@ -56,3 +56,4 @@ C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\aa\SSA.re
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.csproj.CopyComplete
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\SSA.exe
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\SSA.pdb
+C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Documents.resources
