@@ -142,7 +142,7 @@ namespace StudentSupportApp
         {
             dtgvSem.HeaderForeColor =
                 SemFormPanel.BackColor =
-            bAdd.BackColor = bAdd.ActiveForecolor= bAdd.ForeColor = bAdd.IdleForecolor = bAdd.IdleLineColor =
+            bAdd.BackColor = bAdd.ActiveFillColor= bAdd.ForeColor = bAdd.IdleForecolor = bAdd.IdleLineColor =
             bMod.BackColor = bMod.ActiveFillColor = bMod.ForeColor = bMod.IdleForecolor = bMod.IdleLineColor =
             bDel.BackColor = bDel.ActiveFillColor = bDel.ForeColor = bDel.IdleForecolor = bDel.IdleLineColor =
             bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleForecolor = bExit.IdleLineColor =
