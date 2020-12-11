@@ -6,7 +6,8 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using System.Runtime.InteropServices; 
+using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace StudentSupportApp
 {
@@ -414,8 +415,16 @@ namespace StudentSupportApp
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
-       
+        private void Restart()
+        {
+            ProcessStartInfo Info = new ProcessStartInfo();
+            Info.Arguments = "/C ping 127.0.0.1 -n 2 && \"" + Application.ExecutablePath + "\"";
+            Info.WindowStyle = ProcessWindowStyle.Hidden;
+            Info.CreateNoWindow = true;
+            Info.FileName = "cmd.exe";
+            Process.Start(Info);
+            Application.Exit();
+        }
     }
 }
 
@@ -1549,7 +1558,6 @@ namespace StudentSupportApp
             }
         }
         #endregion
-
         #region Themes
         void SetColorTabHome(Color x)
         {
@@ -1603,6 +1611,12 @@ namespace StudentSupportApp
             cardDeadline.color =
             labelDeadline.ForeColor =
             dataDeadline.HeaderBgColor = x;
+
+            bAdd.ActiveFillColor = bAdd.ActiveLineColor = bAdd.IdleLineColor = bAdd.IdleForecolor =
+            bEdit.ActiveFillColor = bEdit.ActiveLineColor = bEdit.IdleLineColor = bEdit.IdleForecolor =
+            bDelete.ActiveFillColor = bDelete.ActiveLineColor = bDelete.IdleLineColor = bDelete.IdleForecolor =
+            bEditSave.ActiveFillColor = bEditSave.ActiveLineColor = bEditSave.IdleLineColor = bEditSave.IdleForecolor =
+            bRefresh.ActiveFillColor = bRefresh.ActiveLineColor = bRefresh.IdleLineColor = bRefresh.IdleForecolor = x;
         }
 
         void SetColorTabTimeTable(Color x)
@@ -1668,7 +1682,6 @@ namespace StudentSupportApp
             //btnLogOut.BackColor = btnLogOut.Activecolor = btnLogOut.Normalcolor = 
             btnLogOut.OnHovercolor = btnLogOut.OnHoverTextColor = x;
         }
-
         public void SetColorAll(Color x)
         {
             SetColorTabHome(x);
@@ -1679,41 +1692,40 @@ namespace StudentSupportApp
             SetColorTabTimeTable(x);
             SetColorGUI(x);
         }
-
-        private void bTheme1_Click(object sender, EventArgs e)
+        private void bSetTheme_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Color = Color.LightPink;
+            Properties.Settings.Default.Color = Color.FromArgb(0, 102, 204);
             Properties.Settings.Default.Save();
             MessageBox.Show("Ứng dụng sẽ khởi động lại để thay đổi được áp dụng!");
-            this.Close();
-            this.parent.Show();
+            Restart();
         }
-
+        private void bTheme1_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Color = Color.HotPink;
+            Properties.Settings.Default.Save();
+            MessageBox.Show("Ứng dụng sẽ khởi động lại để thay đổi được áp dụng!");
+            Restart();
+        }
         private void bTheme2_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Color = Color.Black;
             Properties.Settings.Default.Save();
             MessageBox.Show("Ứng dụng sẽ khởi động lại để thay đổi được áp dụng!");
-            this.Close();
-            this.parent.Show();
+            Restart();
         }
-
         private void bTheme3_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Color = Color.Blue;
+            Properties.Settings.Default.Color = Color.Tomato;
             Properties.Settings.Default.Save();
             MessageBox.Show("Ứng dụng sẽ khởi động lại để thay đổi được áp dụng!");
-            this.Close();
-            this.parent.Show();
+            Restart();
         }
-
         private void bTheme4_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Color = Color.Brown;
             Properties.Settings.Default.Save();
             MessageBox.Show("Ứng dụng sẽ khởi động lại để thay đổi được áp dụng!");
-            this.Close();
-            this.parent.Show();
+            Restart();
         }
         #endregion
     }
