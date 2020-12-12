@@ -56,6 +56,7 @@
             // bunifuGradientPanel1
             // 
             this.bunifuGradientPanel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
             this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuGradientPanel1.Controls.Add(this.lbLogin);
             this.bunifuGradientPanel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -64,7 +65,7 @@
             this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.SystemColors.Highlight;
             this.bunifuGradientPanel1.GradientTopRight = System.Drawing.SystemColors.Highlight;
             this.bunifuGradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.bunifuGradientPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuGradientPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
             this.bunifuGradientPanel1.Quality = 10;
             this.bunifuGradientPanel1.Size = new System.Drawing.Size(155, 390);
@@ -103,7 +104,7 @@
             this.bExit.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bExit.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.bExit.Location = new System.Drawing.Point(427, 334);
-            this.bExit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bExit.Margin = new System.Windows.Forms.Padding(5);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(105, 40);
             this.bExit.TabIndex = 2;
@@ -129,7 +130,7 @@
             this.bLogin.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bLogin.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.bLogin.Location = new System.Drawing.Point(205, 334);
-            this.bLogin.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bLogin.Margin = new System.Windows.Forms.Padding(5);
             this.bLogin.Name = "bLogin";
             this.bLogin.Size = new System.Drawing.Size(105, 40);
             this.bLogin.TabIndex = 3;
@@ -155,7 +156,7 @@
             this.bSignUp.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bSignUp.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.bSignUp.Location = new System.Drawing.Point(316, 334);
-            this.bSignUp.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bSignUp.Margin = new System.Windows.Forms.Padding(5);
             this.bSignUp.Name = "bSignUp";
             this.bSignUp.Size = new System.Drawing.Size(105, 40);
             this.bSignUp.TabIndex = 4;
@@ -175,7 +176,7 @@
             this.tbxID.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbxID.LineThickness = 3;
             this.tbxID.Location = new System.Drawing.Point(365, 110);
-            this.tbxID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxID.Margin = new System.Windows.Forms.Padding(4);
             this.tbxID.Name = "tbxID";
             this.tbxID.Size = new System.Drawing.Size(181, 55);
             this.tbxID.TabIndex = 6;
@@ -195,7 +196,7 @@
             this.tbxPass.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbxPass.LineThickness = 3;
             this.tbxPass.Location = new System.Drawing.Point(365, 197);
-            this.tbxPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxPass.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPass.Name = "tbxPass";
             this.tbxPass.Size = new System.Drawing.Size(181, 51);
             this.tbxPass.TabIndex = 7;
@@ -312,7 +313,7 @@
             this.bForgot.IconZoom = 60D;
             this.bForgot.IsTab = false;
             this.bForgot.Location = new System.Drawing.Point(401, 255);
-            this.bForgot.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bForgot.Margin = new System.Windows.Forms.Padding(5);
             this.bForgot.Name = "bForgot";
             this.bForgot.Normalcolor = System.Drawing.Color.Transparent;
             this.bForgot.OnHovercolor = System.Drawing.Color.Transparent;
@@ -349,7 +350,7 @@
             this.labelInvalid.IconZoom = 60D;
             this.labelInvalid.IsTab = false;
             this.labelInvalid.Location = new System.Drawing.Point(362, 175);
-            this.labelInvalid.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelInvalid.Margin = new System.Windows.Forms.Padding(5);
             this.labelInvalid.Name = "labelInvalid";
             this.labelInvalid.Normalcolor = System.Drawing.Color.Transparent;
             this.labelInvalid.OnHovercolor = System.Drawing.Color.Transparent;
@@ -387,7 +388,7 @@
             this.labelWrong.IconZoom = 60D;
             this.labelWrong.IsTab = false;
             this.labelWrong.Location = new System.Drawing.Point(351, 255);
-            this.labelWrong.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelWrong.Margin = new System.Windows.Forms.Padding(5);
             this.labelWrong.Name = "labelWrong";
             this.labelWrong.Normalcolor = System.Drawing.Color.Transparent;
             this.labelWrong.OnHovercolor = System.Drawing.Color.Transparent;
@@ -434,7 +435,7 @@
             this.Controls.Add(this.bExit);
             this.Controls.Add(this.bunifuGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";

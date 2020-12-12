@@ -1580,6 +1580,9 @@ namespace StudentSupportApp
             if (lvScoreBoard.Items.Count > 0)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
+                var fontPath = Path.Combine(Directory.GetCurrentDirectory(), "vuTimes.ttf");
+                BaseFont vuTimes = iTextSharp.text.pdf.BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                iTextSharp.text.Font fontNormal = new iTextSharp.text.Font(vuTimes, 12, iTextSharp.text.Font.NORMAL);
                 sfd.Filter = "PDF (*.pdf)|*.pdf";
                 sfd.FileName = "Score " + this.cbSemester.Text + ".pdf";
                 bool fileError = false;
@@ -1610,7 +1613,7 @@ namespace StudentSupportApp
 
                             for (int i = 0; i < lvScoreBoard.Columns.Count - 4; i++)
                             {
-                                PdfPCell cell = new PdfPCell(new Phrase(lvScoreBoard.Columns[i].Text, FontFactory.GetFont("TimesNewRoman")));
+                                PdfPCell cell = new PdfPCell(new Phrase(lvScoreBoard.Columns[i].Text, fontNormal));
                                 pdfTable.AddCell(cell);
 
                             }
@@ -1619,7 +1622,7 @@ namespace StudentSupportApp
                             {
                                 for (int j = 0; j < lvScoreBoard.Columns.Count - 4; j++)
                                 {
-                                    PdfPCell cell = new PdfPCell(new Phrase(lvScoreBoard.Items[i].SubItems[j].Text, FontFactory.GetFont("TimesNewRoman")));
+                                    PdfPCell cell = new PdfPCell(new Phrase(lvScoreBoard.Items[i].SubItems[j].Text, fontNormal));
                                     pdfTable.AddCell(cell);
                                 }
                             }

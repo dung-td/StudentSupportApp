@@ -99,7 +99,7 @@ namespace StudentSupportApp
             this.bExit.ForeColor = System.Drawing.SystemColors.Highlight;
             this.bExit.IdleBorderThickness = 1;
             this.bExit.IdleCornerRadius = 20;
-            this.bExit.IdleFillColor = System.Drawing.Color.White;
+            this.bExit.IdleFillColor = System.Drawing.Color.WhiteSmoke;
             this.bExit.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bExit.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.bExit.Location = new System.Drawing.Point(14, 273);
