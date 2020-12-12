@@ -100,7 +100,7 @@ namespace StudentSupportApp
             {
                 AddLesson.OpenConnection();
                 string sAddData = "INSERT INTO LESSON VALUES('" + args[0] + "', " + args[1] + ", '" + args[2]
-                                                           + "', '" + args[3] + "', '" + args[4] + "', '" + args[5] + "')";
+                                                           + "', '" + args[3] + "', '" + args[4] + "', '" + args[5] + "', null)";
                 if (CheckExistSemester(args[4]) == 0)
                 {
                     string sAddSem = "INSERT INTO SEMESTER VALUES('" + args[5] + "', '" + args[4] + "')";

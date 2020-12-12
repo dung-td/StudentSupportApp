@@ -116,8 +116,8 @@ namespace StudentSupportApp
 
         void SetColor(Color x)
         {
-            btnExitML.ActiveFillColor = btnExitML.ForeColor = btnExitML.IdleLineColor = btnExitML.IdleForecolor =
-                  btnSaveML.ActiveFillColor = btnSaveML.ForeColor = btnSaveML.IdleLineColor = btnSaveML.IdleForecolor =
+            btnExitML.ActiveFillColor = btnExitML.ForeColor = btnExitML.IdleLineColor = btnExitML.IdleForecolor = btnExitML.ActiveLineColor = 
+                  btnSaveML.ActiveFillColor = btnSaveML.ForeColor = btnSaveML.IdleLineColor = btnSaveML.IdleForecolor = btnSaveML.ActiveLineColor =
                   GradientPanelAddLesson.BackColor = GradientPanelAddLesson.GradientTopLeft = GradientPanelAddLesson.GradientTopRight = GradientPanelAddLesson.GradientBottomLeft = GradientPanelAddLesson.GradientBottomRight =
                   tbxSemNaML.LineFocusedColor = tbxSemNaML.LineMouseHoverColor =
                   tbxSubIDML.LineMouseHoverColor = tbxSubIDML.LineFocusedColor =

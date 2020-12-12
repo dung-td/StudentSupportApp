@@ -86,6 +86,7 @@ namespace StudentSupportApp
         {
             OnMouseDown(e);
         }
+        #endregion
 
         void SetColor(Color x)
         {
@@ -96,13 +97,12 @@ namespace StudentSupportApp
                 tbxID.LineFocusedColor = tbxID.LineMouseHoverColor =
                 tbxPass.LineMouseHoverColor = tbxPass.LineFocusedColor =
 
-                 bLogin.ActiveFillColor = bLogin.ForeColor = bLogin.IdleLineColor = bLogin.IdleForecolor =
+                 bLogin.ActiveFillColor = bLogin.ForeColor = bLogin.IdleLineColor = bLogin.IdleForecolor = bLogin.ActiveLineColor =
 
-                  bSignUp.ActiveFillColor = bSignUp.ForeColor = bSignUp.IdleLineColor = bSignUp.IdleForecolor =
+                  bSignUp.ActiveFillColor = bSignUp.ForeColor = bSignUp.IdleLineColor = bSignUp.IdleForecolor = bSignUp.ActiveLineColor = 
 
-                   bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleLineColor = bExit.IdleForecolor =
+                   bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleLineColor = bExit.IdleForecolor = bExit.ActiveLineColor = 
                    bID.OnHoverTextColor = bPassword.OnHoverTextColor = bForgot.OnHoverTextColor = x;
         }
-        #endregion
     }
 }
