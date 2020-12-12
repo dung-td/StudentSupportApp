@@ -1,6 +1,5 @@
 C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.csprojAssemblyReference.cache
 C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.AddDeadline.resources
-C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Main_GUI.ForgotPass.resources
 C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.ReportError.resources
 C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.AddLessonForm.resources
 C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.ChangeEmailForm.resources
@@ -13,7 +12,6 @@ C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Noti
 C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Properties.Resources.resources
 C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.SemForm.resources
 C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.SignUp.resources
-C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Main_GUI.ForgotPass.aa.resources
 C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.csproj.GenerateResource.cache
 C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.csproj.CoreCompileInputs.cache
 C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\bin\Debug\SSA.exe.config
@@ -57,3 +55,5 @@ C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSu
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\SSA.exe
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\SSA.pdb
 C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Documents.resources
+C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.ForgotPass.resources
+C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.ForgotPass.aa.resources

@@ -1459,7 +1459,7 @@
             this.PanelAnimatior.SetDecoration(this.panelScore, AnimatorNS.DecorationType.None);
             this.panelScore.Location = new System.Drawing.Point(558, 191);
             this.panelScore.Name = "panelScore";
-            this.panelScore.Size = new System.Drawing.Size(104, 106);
+            this.panelScore.Size = new System.Drawing.Size(115, 104);
             this.panelScore.TabIndex = 6;
             // 
             // cardSBoard

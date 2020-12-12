@@ -871,6 +871,9 @@ namespace StudentSupportApp
         {
             if (dataGridViewTimetable.Rows.Count > 0)
             {
+                var fontPath = Path.Combine(Directory.GetCurrentDirectory(), "vuTimes.ttf");
+                BaseFont vuTimes = iTextSharp.text.pdf.BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                iTextSharp.text.Font fontNormal = new iTextSharp.text.Font(vuTimes, 12, iTextSharp.text.Font.NORMAL);
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "PDF (*.pdf)|*.pdf";
                 sfd.FileName = "Timetable.pdf";
@@ -902,7 +905,7 @@ namespace StudentSupportApp
 
                             foreach (DataGridViewColumn column in dataGridViewTimetable.Columns)
                             {
-                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, fontNormal));
                                 pdfTable.AddCell(cell);
                             }
 
@@ -910,7 +913,7 @@ namespace StudentSupportApp
                             {
                                 foreach (DataGridViewCell cell in row.Cells)
                                 {
-                                    pdfTable.AddCell(cell.Value.ToString());
+                                    pdfTable.AddCell(new iTextSharp.text.Phrase(cell.Value.ToString(), fontNormal));
                                 }
                             }
 
@@ -1710,6 +1713,7 @@ namespace StudentSupportApp
             btnLogOut.OnHovercolor //= btnLogOut.OnHoverTextColor
             = x;
         }
+
         public void SetColorAll(Color x)
         {
             SetColorTabHome(x);
@@ -1758,7 +1762,3 @@ namespace StudentSupportApp
         #endregion
     }
 }
-
-
-
-
