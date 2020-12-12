@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -85,6 +86,12 @@
     <Compile Include="OtherClass\EmailVerify.cs" />
     <Compile Include="OtherClass\MD5Encoder.cs" />
     <Compile Include="OtherClass\USER.cs" />
+    <Compile Include="Score\ScoreStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Score\ScoreStatistics.Designer.cs">
+      <DependentUpon>ScoreStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="TimeTable\AddLessonForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main_GUI\ReportError.resx">
       <DependentUpon>ReportError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Score\ScoreStatistics.resx">
+      <DependentUpon>ScoreStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TimeTable\AddLessonForm.resx">
       <DependentUpon>AddLessonForm.cs</DependentUpon>

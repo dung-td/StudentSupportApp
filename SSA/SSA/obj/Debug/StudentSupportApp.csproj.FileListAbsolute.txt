@@ -57,3 +57,34 @@ C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSu
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\SSA.exe
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\SSA.pdb
 C:\Users\Acer\Desktop\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Documents.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\bin\Debug\SSA.exe.config
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\bin\Debug\SSA.exe
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\bin\Debug\SSA.pdb
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\bin\Debug\aa\SSA.resources.dll
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\bin\Debug\itextsharp.dll
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\bin\Debug\itextsharp.xml
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.csprojAssemblyReference.cache
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.AddDeadline.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Main_GUI.ForgotPass.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.ReportError.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.AddLessonForm.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.ChangeEmailForm.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.ChangePass.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.DiaSem.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.MainForm.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.LoginForm.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Documents.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.ModLessonForm.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Notifi.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Properties.Resources.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.SemForm.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.SignUp.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Main_GUI.ForgotPass.aa.resources
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.csproj.GenerateResource.cache
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\aa\SSA.resources.dll
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.csproj.CopyComplete
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\SSA.exe
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\SSA.pdb
+C:\Users\User\OneDrive - Trường ĐH CNTT - University of Information Technology\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.ScoreStatistics.resources

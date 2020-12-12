@@ -38,10 +38,11 @@ namespace StudentSupportApp
 
         public void Read(string x)
         {
+
             this.SEMESTERS.Clear();
 
             CONNECT.OpenConnection();
-            SqlCommand command = CONNECT.CreateSQLCmd(@"select distinct SEM_NAME from SEMESTER where ID = '"+x+"'");
+            SqlCommand command = CONNECT.CreateSQLCmd(@"select distinct SEM_NAME from SEMESTER where ID = '" + x + "'");
             SqlDataReader reader = command.ExecuteReader();
             while (reader.HasRows)
             {
@@ -79,8 +80,8 @@ namespace StudentSupportApp
             }
 
             CONNECT.CloseConnection();
-        }
 
+        }
         public void ShowSemToGridView(DataGridView dt)
         {
             foreach (var sem in listSem)

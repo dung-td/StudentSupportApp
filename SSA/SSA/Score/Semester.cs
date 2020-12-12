@@ -46,20 +46,6 @@ namespace StudentSupportApp
             this.sctb = sc;
         }
 
-        public void Read(StreamReader rd)
-        {
-            string sSep = rd.ReadLine();
-            sName = rd.ReadLine();
-            sctb.Read(rd);
-        }
-
-        public void Write(StreamWriter wt)
-        {
-            wt.WriteLine("|");
-            wt.WriteLine(sName);
-            sctb.Write(wt);
-        }
-
         public void DeleteScore()
         {
             sctb.DeleteAllScore();

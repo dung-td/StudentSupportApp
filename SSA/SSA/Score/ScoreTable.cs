@@ -26,6 +26,10 @@ namespace StudentSupportApp
             }
         }
 
+        public ScoreOfSub SCOREOFSUB(int i)
+        {
+             return lSub[i];
+        }
         public int SumOfCred
         {
             get
@@ -58,17 +62,6 @@ namespace StudentSupportApp
         {
             lSub.Add(x);
         }
-
-        public void Read(StreamReader rd)
-        {
-
-        }
-
-        public void Write(StreamWriter wt)
-        {
-
-        }
-
         public void ShowToListView(ListView lvShow)
         {
             for (int i = 0; i < this.Amount; i++)
@@ -80,26 +73,6 @@ namespace StudentSupportApp
         {
             lSub.Clear();
         }
-
-        //public int Find(string sData)
-        //{
-        //    for (int i = 0; i < Amount; i++)
-        //        if (lSub[i].ToString() == sData)
-        //            return i;
-        //    return -1;
-        //}
-
-        public void ModifySub(int index, ScoreOfSub score)
-        {
-            // lSub[index] = score;
-        }
-
-        public void DeleteScore(int index)
-        {
-            //ScoreOfSub scDel = lSub[index];
-            //lSub.Remove(scDel);
-        }
-
 
     }
 }

@@ -39,52 +39,85 @@ namespace StudentSupportApp
 
         public void GetValue(string value)
         {
-            string sText = value;
+            try
+            {
+                string sText = value;
 
-            Semester sem = new Semester(sText);
+                Semester sem = new Semester(sText);
 
-            data.SEMESTERS.Clear();
-            data.Read(UserID);
-            sem.Add(dtgvSem);
+                data.SEMESTERS.Clear();
+                data.Read(UserID);
+                sem.Add(dtgvSem);
 
-            data.SEMESTERS.Add(sem);
+                data.SEMESTERS.Add(sem);
 
-            CONNECT.OpenConnection();
-            string sql = "Insert Into SEMESTER(SEM_NAME, ID) values (N'" + value + "', '"+this.UserID+"')";
-            SqlCommand command = CONNECT.CreateSQLCmd(sql);
-            command.ExecuteNonQuery();
-            CONNECT.CloseConnection();
+                CONNECT.OpenConnection();
+                string sql = "Insert Into SEMESTER(SEM_NAME, ID) values (N'" + value + "', '" + this.UserID + "')";
+                SqlCommand command = CONNECT.CreateSQLCmd(sql);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, e);
+                rp.Show();
+                this.Hide();
+            }
+            finally
+            {
+                CONNECT.CloseConnection();
+            }
 
         }
 
         public void Modify(string value)
         {
-            string s = "";
-            foreach (DataGridViewRow row in dtgvSem.SelectedRows)
+            try
             {
-                s = row.Cells[0].Value.ToString();
-                row.Cells[0].Value = value;
+                string s = "";
+                foreach (DataGridViewRow row in dtgvSem.SelectedRows)
+                {
+                    s = row.Cells[0].Value.ToString();
+                    row.Cells[0].Value = value;
+                }
+
+                data.SEMESTERS.Clear();
+                data.Read(UserID);
+
+                CONNECT.OpenConnection();
+                string sql = @"UPDATE SEMESTER SET SEM_NAME=N'" + value + "' where SEM_NAME=N'" + s + "' AND ID = '" + this.UserID + "'";
+                SqlCommand command = CONNECT.CreateSQLCmd(sql);
+                command.ExecuteNonQuery();
             }
-
-            data.SEMESTERS.Clear();
-            data.Read(UserID);
-
-            CONNECT.OpenConnection();
-            string sql = @"UPDATE SEMESTER SET SEM_NAME=N'" + value + "' where SEM_NAME=N'" + s + "' AND ID = '"+this.UserID+"'";
-            SqlCommand command = CONNECT.CreateSQLCmd(sql);
-            command.ExecuteNonQuery();
-            CONNECT.CloseConnection();
-
+            catch (Exception e)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, e);
+                rp.Show();
+                this.Hide();
+            }
+            finally
+            {
+                CONNECT.CloseConnection();
+            }
         }
 
         private void SemForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            data.Read(UserID);
-            this.parent.AddItemToComboBoxSemester();
-            this.parent.Show();
+            try
+            {
+                data.Read(UserID);
+                this.parent.AddItemToComboBoxSemester();
+                this.parent.Show();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
+                this.Hide();
+            }
         }
-
-
 
         private void bExit_Click(object sender, EventArgs e)
         {
@@ -94,38 +127,72 @@ namespace StudentSupportApp
 
         private void bDel_Click(object sender, EventArgs e)
         {
-            string s = "";
-            foreach (DataGridViewRow row in dtgvSem.SelectedRows)
+            try
             {
-                s = row.Cells[0].Value.ToString();
-                dtgvSem.Rows.RemoveAt(row.Index);
+                string s = "";
+                foreach (DataGridViewRow row in dtgvSem.SelectedRows)
+                {
+                    s = row.Cells[0].Value.ToString();
+                    dtgvSem.Rows.RemoveAt(row.Index);
+                }
+
+                data.SEMESTERS.Clear();
+
+                CONNECT.OpenConnection();
+                string sql = @"Delete FROM SEMESTER WHERE(SEM_NAME= '" + s + "' and ID='" + this.UserID + "')";
+                sql += "Delete FROM TABLESCORE WHERE(SEM_NAME= '" + s + "' and ID_USER='" + this.UserID + "')";
+                SqlCommand command = CONNECT.CreateSQLCmd(sql);
+                command.ExecuteNonQuery();
             }
-
-            data.SEMESTERS.Clear();
-
-            CONNECT.OpenConnection();
-            string sql = @"Delete FROM SEMESTER WHERE(SEM_NAME= '" + s + "' and ID='"+this.UserID+"')";
-            sql += "Delete FROM TABLESCORE WHERE(SEM_NAME= '" + s + "' and ID_USER='" + this.UserID + "')";
-            SqlCommand command = CONNECT.CreateSQLCmd(sql);
-            command.ExecuteNonQuery();
-            CONNECT.CloseConnection();
+            catch (Exception err)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
+                this.Hide();
+            }
+            finally
+            {
+                CONNECT.CloseConnection();
+            }
         }
 
         private void bAdd_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DiaSem dia = new DiaSem(this, "Nhập tên học kì mới: ");
-            dia.getData = new DiaSem.GetData(GetValue);
-            dia.Show();
+            try
+            {
+
+                this.Hide();
+                DiaSem dia = new DiaSem(this, "Nhập tên học kì mới: ");
+                dia.getData = new DiaSem.GetData(GetValue);
+                dia.Show();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
+                this.Hide();
+            }
 
         }
 
         private void bMod_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DiaSem dia = new DiaSem(this, "Chỉnh sửa tên học kì: ");
-            dia.getData = new DiaSem.GetData(Modify);
-            dia.Show();
+            try
+            {
+                this.Hide();
+                DiaSem dia = new DiaSem(this, "Chỉnh sửa tên học kì: ");
+                dia.getData = new DiaSem.GetData(Modify);
+                dia.Show();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
+                this.Hide();
+            }
         }
 
         private void dtgvSem_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

@@ -41,13 +41,8 @@ namespace StudentSupportApp
             InitializeComponent();
             
             temp = this.btnHome;
+
             data.Read(this.User.ID);
-
-            tbCredit.Enabled = tbSubID.Enabled = tbSubName.Enabled = tbProVa.Enabled = tbProWei.Enabled
-                = tbMidVa.Enabled = tbMidWei.Enabled = tbFinVa.Enabled = tbFinWei.Enabled = tbPracVa.Enabled = tbPracWei.Enabled= false;
-            bAddScore.Visible = bModify.Visible = bDel.Visible = false;
-
-            
 
             this.theme = Properties.Settings.Default.Color;
             SetColorAll(this.theme);
@@ -154,7 +149,7 @@ namespace StudentSupportApp
                 lvScoreBoard.Width += 50;
 
                 //Setting
-                cardAcc.Width -= 50;
+                cardAcc.Width -= 125;
                
                 cardTheme.Location = new Point(cardTheme.Location.X - 150, cardTheme.Location.Y);
                 cardTheme.Width -= 50;
@@ -264,7 +259,7 @@ namespace StudentSupportApp
                 lvScoreBoard.Width -= 50;
 
                 //Setting
-                cardAcc.Width += 50;
+                cardAcc.Width += 125;
                 
                 cardTheme.Location = new Point(cardTheme.Location.X + 150, cardTheme.Location.Y);
                 cardTheme.Width += 50;
@@ -288,7 +283,10 @@ namespace StudentSupportApp
         private void btnHome_Click(object sender, EventArgs e)
         {
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
-            this.btnHome.Normalcolor = Color.CornflowerBlue;
+            //this.btnHome.Normalcolor = Color.CornflowerBlue;
+
+           // temp.Normalcolor = Properties.Settings.Default.Color;
+            this.btnHome.Normalcolor = Properties.Settings.Default.Color;
             panelHome.Dock = DockStyle.Fill;
             panelHome.BringToFront();
             temp = btnHome;
@@ -299,7 +297,9 @@ namespace StudentSupportApp
         private void btnScore_Click(object sender, EventArgs e)
         {
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
-            this.btnScore.Normalcolor = Color.CornflowerBlue;
+            //this.btnScore.Normalcolor = Color.CornflowerBlue;
+            //temp.Normalcolor = Properties.Settings.Default.Color;
+            this.btnHome.Normalcolor = Properties.Settings.Default.Color;
             panelScore.Dock = DockStyle.Fill;
             panelScore.BringToFront();
             temp = btnScore;
@@ -307,7 +307,9 @@ namespace StudentSupportApp
         private void bNofitication_Click(object sender, EventArgs e)
         {
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
-            this.btnNofitication.Normalcolor = Color.CornflowerBlue;
+            //this.btnNofitication.Normalcolor = Color.CornflowerBlue
+            //temp.Normalcolor = Properties.Settings.Default.Color;
+            this.btnHome.Normalcolor = Properties.Settings.Default.Color;
             temp = btnNofitication;
             this.panelNoti.Dock = DockStyle.Fill;
             panelNoti.BringToFront();
@@ -315,7 +317,9 @@ namespace StudentSupportApp
         private void btnTimeTable_Click(object sender, EventArgs e)
         {
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
-            this.btnTimeTable.Normalcolor = Color.CornflowerBlue;
+            //this.btnTimeTable.Normalcolor = Color.CornflowerBlue;
+            //temp.Normalcolor = Properties.Settings.Default.Color;
+            this.btnHome.Normalcolor = Properties.Settings.Default.Color;
             this.panelTimetable.Dock = DockStyle.Fill;
             panelTimetable.BringToFront();
             temp = btnTimeTable;
@@ -330,7 +334,9 @@ namespace StudentSupportApp
         private void btnInformation_Click(object sender, EventArgs e)
         {
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
-            this.btnInformation.Normalcolor = Color.CornflowerBlue;
+            //this.btnInformation.Normalcolor = Color.CornflowerBlue;
+            //temp.Normalcolor = Properties.Settings.Default.Color;
+            this.btnHome.Normalcolor = Properties.Settings.Default.Color;
             this.panelInfo.Dock = DockStyle.Fill;
             panelInfo.BringToFront();
             temp = btnInformation;
@@ -338,7 +344,9 @@ namespace StudentSupportApp
         private void btnSetting_Click(object sender, EventArgs e)
         {
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
-            this.btnSetting.Normalcolor = Color.CornflowerBlue;
+            //this.btnSetting.Normalcolor = Color.CornflowerBlue;
+            //temp.Normalcolor = Properties.Settings.Default.Color;
+            this.btnHome.Normalcolor = Properties.Settings.Default.Color;
             this.panelSetting.Dock = DockStyle.Fill;
             panelSetting.BringToFront();
             temp = btnSetting;
@@ -354,7 +362,7 @@ namespace StudentSupportApp
                 NotifiDeadline();
 
                 //Danh
-                this.lbHello.Text += " " + this.User.Name + "! Chúc một ngày tốt lành!";
+                this.lbHello.Text += " " + this.User.Name + "! \nChúc một ngày tốt lành!";
                 dataGridViewHomeTimeTB.Columns[1].HeaderText = SwitchTodayToVNese(DateTime.Today.DayOfWeek.ToString());
                 string[] sRow = new string[] {"Tiết 1\n(7:30-8:15)", "Tiết 2\n(8:15-9:00)",
                 "Tiết 3\n(9:00 - 9:45)" , "Tiết 4\n(10:00-10:45)", "Tiết 5\n(10:45-11:30)",
@@ -376,6 +384,17 @@ namespace StudentSupportApp
                 dataGridViewTimetable.CurrentCell.Selected = !dataGridViewTimetable.CurrentCell.Selected;
                 btnHome_Click(sender, e);
                 LoadInformationTab();
+
+                //Linh
+                tbCredit.Enabled = tbSubID.Enabled = tbSubName.Enabled = tbProVa.Enabled = tbProWei.Enabled
+                = tbMidVa.Enabled = tbMidWei.Enabled = tbFinVa.Enabled = tbFinWei.Enabled = tbPracVa.Enabled = tbPracWei.Enabled = false;
+                bAddScore.Visible = bModify.Visible = bDel.Visible = false;
+
+                bExportScore.Visible = bstatisticsScore.Visible = false;
+
+                
+
+                AddItemToComboBoxSemester();
             }
             catch (Exception ex)
             {
@@ -1264,6 +1283,7 @@ namespace StudentSupportApp
             tbFinVa.Enabled = tbFinWei.Enabled = true;
 
             bModify.Visible = bDel.Visible = false;
+            bExportScore.Visible = bstatisticsScore.Visible = true;
             data.SEMESTERS.Clear();
 
             //ResetTextbox();
@@ -1305,7 +1325,10 @@ namespace StudentSupportApp
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
+                this.Hide();
             }
         }
         private bool BlankData()
@@ -1343,7 +1366,10 @@ namespace StudentSupportApp
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
+                this.Hide();
             }
         }
         private void bDel_Click(object sender, EventArgs e)
@@ -1372,7 +1398,10 @@ namespace StudentSupportApp
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
+                this.Hide();
             }
         }
         private void bSem_Click(object sender, EventArgs e)
@@ -1404,7 +1433,10 @@ namespace StudentSupportApp
             }
             catch (Exception a)
             {
-                MessageBox.Show(a.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, a);
+                rp.Show();
+                this.Hide();
             }
             finally
             {
@@ -1449,7 +1481,10 @@ namespace StudentSupportApp
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
+                this.Hide();
             }
         }
         private void tbCredit_KeyDown(object sender, KeyEventArgs e)
@@ -1539,6 +1574,101 @@ namespace StudentSupportApp
                 MessageBox.Show("Sử dụng ',' để nhập giá trị số thực");
 
         }
+
+        private void bExportScore_Click(object sender, EventArgs e)
+        {
+            if (lvScoreBoard.Items.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PDF (*.pdf)|*.pdf";
+                sfd.FileName = "Score " + this.cbSemester.Text + ".pdf";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (Exception ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                            ReportError rp = new ReportError(this, ex);
+                            rp.Show();
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+                            PdfPTable pdfTable = new PdfPTable(this.lvScoreBoard.Columns.Count - 4);
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 100;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_MIDDLE;
+
+                            for (int i = 0; i < lvScoreBoard.Columns.Count - 4; i++)
+                            {
+                                PdfPCell cell = new PdfPCell(new Phrase(lvScoreBoard.Columns[i].Text, FontFactory.GetFont("TimesNewRoman")));
+                                pdfTable.AddCell(cell);
+
+                            }
+
+                            for (int i = 0; i < lvScoreBoard.Items.Count; i++)
+                            {
+                                for (int j = 0; j < lvScoreBoard.Columns.Count - 4; j++)
+                                {
+                                    PdfPCell cell = new PdfPCell(new Phrase(lvScoreBoard.Items[i].SubItems[j].Text, FontFactory.GetFont("TimesNewRoman")));
+                                    pdfTable.AddCell(cell);
+                                }
+                            }
+
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            {
+                                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                PdfWriter.GetInstance(pdfDoc, stream);
+
+                                pdfDoc.Open();
+
+                                //pdfDoc.AddHeader("Bảng điểm" + this.cbSemester.Text, "Bảng điểm" + this.cbSemester.Text);
+
+                                //pdfDoc.AddCreator(User.Name.ToString());
+                                //pdfDoc.AddKeywords("Điểm trung bình: " + l_Average.ToString());
+                                //pdfDoc.AddKeywords("Số tín chỉ: " + lSumCre.ToString());
+                                //pdfDoc.AddKeywords("Số môn học: " + lAmountSub.ToString());
+
+                                pdfDoc.Add(pdfTable);
+                                pdfDoc.Close();
+                                stream.Close();
+                            }
+
+                            MessageBox.Show("Xuất bảng điểm thành công!", "Xuất bảng điểm");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                            ReportError rp = new ReportError(this, ex);
+                            rp.Show();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Dữ liệu để xuất trống!", "Cảnh Báo");
+            }
+        }
+
+        private void bStatiticsScore_Click(object sender, EventArgs e)
+        {
+            ScoreStatistics form = new ScoreStatistics(this, this.User.ID, this.cbSemester.Text);
+            this.Hide();
+            form.Show();
+        }
+        #endregion
+
+        #region Settings
         private void bSetData_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Bạn có muốn cài đặt về mặc định? Dữ liệu của bạn sẽ bị xoá!", "CÀI ĐẶT MẶC ĐỊNH", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -1576,7 +1706,10 @@ namespace StudentSupportApp
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
+                this.Hide();
             }
             finally
             {
@@ -1584,6 +1717,7 @@ namespace StudentSupportApp
             }
         }
         #endregion
+
         #region Themes
         void SetColorTabHome(Color x)
         {
@@ -1708,6 +1842,7 @@ namespace StudentSupportApp
             btnSetting.OnHovercolor = //btnSetting.OnHoverTextColor =
             //btnLogOut.BackColor = btnLogOut.Activecolor = btnLogOut.Normalcolor = 
             btnLogOut.OnHovercolor //= btnLogOut.OnHoverTextColor
+            =btnCollapse.BackColor
             = x;
         }
         public void SetColorAll(Color x)
