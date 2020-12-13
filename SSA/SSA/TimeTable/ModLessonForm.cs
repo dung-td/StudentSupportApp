@@ -65,10 +65,14 @@ namespace StudentSupportApp
                 if (cbxDIWML.Text != "" && cbxTimeOrderM.Text != "" && tbxSemNaML.Text != "" && tbxSubIDML.Text != "" && tbxSubNaML.Text != "")
                 {
                     Timetable lesson = new Timetable();
-                    string[] sData = new string[] { sDayInWeek[cbxDIWML.SelectedIndex], cbxTimeOrderM.Text, tbxSubIDML.Text.Remove(0, 1), tbxSubNaML.Text, tbxSemNaML.Text, this.sUserID };
-                    if (lesson.UpdateLessonInfo(sOldInfo, sData) == 1)
-                        MessageBox.Show("Chỉnh sửa thành công!", "Chỉnh sửa thông tin tiết học");
-                    else MessageBox.Show("Chỉnh sửa thất bại. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin tiết học");
+                    if (lesson.CheckExistLesson(tbxSemNaML.Text, cbxDIWML.Text, cbxTimeOrderM.Text, this.sUserID) == false)
+                    {
+                        string[] sData = new string[] { sDayInWeek[cbxDIWML.SelectedIndex], cbxTimeOrderM.Text, tbxSubIDML.Text.Remove(0, 1), tbxSubNaML.Text, tbxSemNaML.Text, this.sUserID };
+                        if (lesson.UpdateLessonInfo(sOldInfo, sData) == 1)
+                            MessageBox.Show("Chỉnh sửa thành công!", "Chỉnh sửa thông tin tiết học");
+                        else MessageBox.Show("Chỉnh sửa thất bại. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin tiết học");
+                    }
+                    else MessageBox.Show("Thời gian muốn sửa đã có tiết học. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin tiết học");
                 }
                 else if (cbxDIWML.Text == "" || cbxTimeOrderM.Text == "" || tbxSemNaML.Text == "" || tbxSubIDML.Text == "" || tbxSubNaML.Text == "")
                 {

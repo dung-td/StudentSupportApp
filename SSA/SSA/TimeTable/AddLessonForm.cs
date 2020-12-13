@@ -15,11 +15,12 @@ namespace StudentSupportApp
             InitializeComponent();
         }
 
-        public AddLessonForm(MainForm parent, string ID)
+        public AddLessonForm(MainForm parent, string ID, string semester)
         {
             this.parent = parent;
             this.sUserID = ID;
             InitializeComponent();
+            this.tbxSemNaAL.Text = semester;
             SetColor(Properties.Settings.Default.Color);
         }
 
@@ -33,10 +34,14 @@ namespace StudentSupportApp
                 if (cbxDIWAL.Text != "" && cbxTimeOrder.Text != "" && tbxSemNaAL.Text != "" && tbxSubIDAL.Text != "" && tbxSubNaAL.Text != "")
                 {
                     Timetable lesson = new Timetable();
-                    string[] sData = new string[] { sDayInWeek[cbxDIWAL.SelectedIndex], cbxTimeOrder.Text, tbxSubIDAL.Text, tbxSubNaAL.Text, tbxSemNaAL.Text, this.sUserID };
-                    if (lesson.AddLessonToDatabase(sData) == 1)
-                        MessageBox.Show("Thêm tiết học mới thành công!", "Thêm tiết học mới");
-                    else MessageBox.Show("Thêm tiết học thất bại. Vui lòng kiểm tra và thử lại!", "Thêm tiết học mới");
+                    if (lesson.CheckExistLesson(tbxSemNaAL.Text, cbxDIWAL.Text, cbxTimeOrder.Text,  this.sUserID) == false)
+                    {
+                        string[] sData = new string[] { sDayInWeek[cbxDIWAL.SelectedIndex], cbxTimeOrder.Text, tbxSubIDAL.Text, tbxSubNaAL.Text, tbxSemNaAL.Text, this.sUserID };
+                        if (lesson.AddLessonToDatabase(sData) == 1)
+                            MessageBox.Show("Thêm tiết học mới thành công!", "Thêm tiết học mới");
+                        else MessageBox.Show("Thêm tiết học thất bại. Vui lòng kiểm tra và thử lại!", "Thêm tiết học mới");
+                    }
+                    else MessageBox.Show("Thời gian muốn thêm đã có tiết học. Vui lòng kiểm tra và thử lại!", "Thêm tiết học mới");
                 }
                 else if (cbxDIWAL.Text == "" || cbxTimeOrder.Text == "" || tbxSemNaAL.Text == "" || tbxSubIDAL.Text == "" || tbxSubNaAL.Text == "")
                 {
@@ -104,8 +109,7 @@ namespace StudentSupportApp
 
                   btnAddAL.ActiveFillColor = btnAddAL.ForeColor = btnAddAL.IdleLineColor = btnAddAL.IdleForecolor = btnAddAL.ActiveLineColor = 
                     btnExitAL.ActiveFillColor = btnExitAL.ForeColor = btnExitAL.IdleLineColor = btnExitAL.IdleForecolor = btnExitAL.ActiveLineColor = x;
-        }
-       
+        }     
     }
 }
 

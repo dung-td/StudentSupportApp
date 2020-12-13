@@ -100,6 +100,7 @@ namespace StudentSupportApp
                 this.dataGridViewHomeTimeTB.Width -= 70;
                 this.dataGridViewHomeTimeTB.Columns[0].Width -= 20;
                 this.dataGridViewHomeTimeTB.Columns[1].Width -= 30;
+                this.lbTodayTT.Location = new Point(this.lbTodayTT.Location.X - 50, this.lbTodayTT.Location.Y);
                 //this.bunifuCardTodayTT.Location = new Point(this.bunifuCardTodayTT.Location.X - 50, this.bunifuCardTodayTT.Location.Y);
 
                 //Linh
@@ -211,6 +212,7 @@ namespace StudentSupportApp
                 this.dataGridViewHomeTimeTB.Width += 70;
                 this.dataGridViewHomeTimeTB.Columns[0].Width += 20;
                 this.dataGridViewHomeTimeTB.Columns[1].Width += 30;
+                this.lbTodayTT.Location = new Point(this.lbTodayTT.Location.X + 50, this.lbTodayTT.Location.Y);
                 //this.bunifuCardTodayTT.Location = new Point(this.bunifuCardTodayTT.Location.X + 50, this.bunifuCardTodayTT.Location.Y);
 
                 //Linh
@@ -284,7 +286,6 @@ namespace StudentSupportApp
         {
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
             //this.btnHome.Normalcolor = Color.CornflowerBlue;
-
            // temp.Normalcolor = Properties.Settings.Default.Color;
             this.btnHome.Normalcolor = Properties.Settings.Default.Color;
             panelHome.Dock = DockStyle.Fill;
@@ -299,7 +300,7 @@ namespace StudentSupportApp
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
             //this.btnScore.Normalcolor = Color.CornflowerBlue;
             //temp.Normalcolor = Properties.Settings.Default.Color;
-            this.btnHome.Normalcolor = Properties.Settings.Default.Color;
+            //this.btnHome.Normalcolor = Properties.Settings.Default.Color;
             panelScore.Dock = DockStyle.Fill;
             panelScore.BringToFront();
             temp = btnScore;
@@ -309,7 +310,7 @@ namespace StudentSupportApp
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
             //this.btnNofitication.Normalcolor = Color.CornflowerBlue
             //temp.Normalcolor = Properties.Settings.Default.Color;
-            this.btnHome.Normalcolor = Properties.Settings.Default.Color;
+            //this.btnHome.Normalcolor = Properties.Settings.Default.Color;
             temp = btnNofitication;
             this.panelNoti.Dock = DockStyle.Fill;
             panelNoti.BringToFront();
@@ -319,7 +320,7 @@ namespace StudentSupportApp
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
             //this.btnTimeTable.Normalcolor = Color.CornflowerBlue;
             //temp.Normalcolor = Properties.Settings.Default.Color;
-            this.btnHome.Normalcolor = Properties.Settings.Default.Color;
+            //this.btnHome.Normalcolor = Properties.Settings.Default.Color;
             this.panelTimetable.Dock = DockStyle.Fill;
             panelTimetable.BringToFront();
             temp = btnTimeTable;
@@ -336,7 +337,7 @@ namespace StudentSupportApp
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
             //this.btnInformation.Normalcolor = Color.CornflowerBlue;
             //temp.Normalcolor = Properties.Settings.Default.Color;
-            this.btnHome.Normalcolor = Properties.Settings.Default.Color;
+            //this.btnHome.Normalcolor = Properties.Settings.Default.Color;
             this.panelInfo.Dock = DockStyle.Fill;
             panelInfo.BringToFront();
             temp = btnInformation;
@@ -346,7 +347,7 @@ namespace StudentSupportApp
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
             //this.btnSetting.Normalcolor = Color.CornflowerBlue;
             //temp.Normalcolor = Properties.Settings.Default.Color;
-            this.btnHome.Normalcolor = Properties.Settings.Default.Color;
+            //this.btnHome.Normalcolor = Properties.Settings.Default.Color;
             this.panelSetting.Dock = DockStyle.Fill;
             panelSetting.BringToFront();
             temp = btnSetting;
@@ -823,7 +824,7 @@ namespace StudentSupportApp
         {
             try
             {
-                AddLessonForm AddLesson = new AddLessonForm(this, this.User.ID);
+                AddLessonForm AddLesson = new AddLessonForm(this, this.User.ID, cbxSem.Text);
                 AddLesson.Show();
                 this.Hide();
             }

@@ -109,6 +109,7 @@ namespace StudentSupportApp
                 }
                 SqlCommand AddCommand1 = AddLesson.CreateSQLCmd(sAddData);
                 AddCommand1.ExecuteNonQuery();
+                return 1;
             }
             catch (Exception ex)
             {
@@ -120,7 +121,7 @@ namespace StudentSupportApp
             {
                 AddLesson.CloseConnection();
             }
-            return 1;
+            return 0;
         }
 
         public int UpdateLessonInfo(string[] oldInfo, string[] newInfo)
@@ -157,9 +158,9 @@ namespace StudentSupportApp
 
         public int CheckExistSemester(string input)
         {
+            Connect Check = new Connect();
             try
             {
-                Connect Check = new Connect();
                 Check.OpenConnection();
 
                 SqlCommand command = Check.CreateSQLCmd("select distinct SEM_NAME from SEMESTER where ID='" + this.user.ID + "'");
@@ -177,7 +178,61 @@ namespace StudentSupportApp
                 ReportError rp = new ReportError(ex);
                 rp.Show();
             }
+            finally
+            {
+                Check.CloseConnection();
+            }
             return 0;
+        }
+
+        public bool CheckExistLesson(string sem, string diw, string time, string userID)
+        {
+            Connect check = new Connect();
+            try
+            {
+                diw = SwitchVietnameseDayToEnglish(diw);
+                check.OpenConnection();
+                string sLoadData = "select * from LESSON where SEM_NAME=N'" + sem
+                                             + "' AND DAYINWEEK='" + diw + "' AND ID_USER = '" + userID + "' AND TIMEORDER=" + time;
+                SqlCommand loadInfo= check.CreateSQLCmd(sLoadData);
+                SqlDataReader reader = loadInfo.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    if (reader.Read())
+                    {
+                        return true;
+                    }           
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                check.CloseConnection();
+            }
+            return false;
+        }
+
+        private string SwitchVietnameseDayToEnglish(string today)
+        {
+            if (today == "Thứ hai")
+                return "Monday";
+            else if (today == "Thứ ba")
+                return "Tuesday";
+            else if (today == "Thứ tư")
+                return "Wednesday";
+            else if (today == "Thứ năm")
+                return "Thursday";
+            else if (today == "Thứ sáu")
+                return "Friday";
+            else if (today == "Thứ bảy")
+                return "Saturday";
+            else return "Sunday nhật";
         }
     }
 }

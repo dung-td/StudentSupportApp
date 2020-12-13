@@ -66,7 +66,7 @@ namespace StudentSupportApp
         }
         void SetColor(Color x)
         {
-            panel1.BackColor = bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleForecolor = bExit.IdleLineColor =
+            panel1.BackColor = bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleForecolor = bExit.IdleLineColor = bExit.ActiveLineColor =
             x;
         }
     }

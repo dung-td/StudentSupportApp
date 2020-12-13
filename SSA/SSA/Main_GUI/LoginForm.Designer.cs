@@ -102,7 +102,7 @@
             this.bExit.IdleFillColor = System.Drawing.Color.White;
             this.bExit.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bExit.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.bExit.Location = new System.Drawing.Point(427, 334);
+            this.bExit.Location = new System.Drawing.Point(703, 447);
             this.bExit.Margin = new System.Windows.Forms.Padding(5);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(158, 62);
@@ -128,7 +128,7 @@
             this.bLogin.IdleFillColor = System.Drawing.Color.White;
             this.bLogin.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bLogin.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.bLogin.Location = new System.Drawing.Point(205, 334);
+            this.bLogin.Location = new System.Drawing.Point(299, 447);
             this.bLogin.Margin = new System.Windows.Forms.Padding(5);
             this.bLogin.Name = "bLogin";
             this.bLogin.Size = new System.Drawing.Size(158, 62);
@@ -154,7 +154,7 @@
             this.bSignUp.IdleFillColor = System.Drawing.Color.White;
             this.bSignUp.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bSignUp.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.bSignUp.Location = new System.Drawing.Point(316, 334);
+            this.bSignUp.Location = new System.Drawing.Point(502, 447);
             this.bSignUp.Margin = new System.Windows.Forms.Padding(5);
             this.bSignUp.Name = "bSignUp";
             this.bSignUp.Size = new System.Drawing.Size(158, 62);
@@ -174,7 +174,7 @@
             this.tbxID.LineIdleColor = System.Drawing.Color.Gray;
             this.tbxID.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbxID.LineThickness = 3;
-            this.tbxID.Location = new System.Drawing.Point(365, 110);
+            this.tbxID.Location = new System.Drawing.Point(535, 149);
             this.tbxID.Margin = new System.Windows.Forms.Padding(4);
             this.tbxID.Name = "tbxID";
             this.tbxID.Size = new System.Drawing.Size(272, 85);
@@ -194,7 +194,7 @@
             this.tbxPass.LineIdleColor = System.Drawing.Color.Gray;
             this.tbxPass.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbxPass.LineThickness = 3;
-            this.tbxPass.Location = new System.Drawing.Point(365, 197);
+            this.tbxPass.Location = new System.Drawing.Point(535, 283);
             this.tbxPass.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPass.Name = "tbxPass";
             this.tbxPass.Size = new System.Drawing.Size(272, 78);
@@ -227,7 +227,7 @@
             this.bID.IconVisible = true;
             this.bID.IconZoom = 60D;
             this.bID.IsTab = false;
-            this.bID.Location = new System.Drawing.Point(274, 212);
+            this.bID.Location = new System.Drawing.Point(262, 186);
             this.bID.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.bID.Name = "bID";
             this.bID.Normalcolor = System.Drawing.Color.Transparent;
@@ -263,7 +263,7 @@
             this.bPassword.IconVisible = true;
             this.bPassword.IconZoom = 60D;
             this.bPassword.IsTab = false;
-            this.bPassword.Location = new System.Drawing.Point(273, 335);
+            this.bPassword.Location = new System.Drawing.Point(262, 313);
             this.bPassword.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.bPassword.Name = "bPassword";
             this.bPassword.Normalcolor = System.Drawing.Color.Transparent;
@@ -310,8 +310,8 @@
             this.bForgot.IconVisible = true;
             this.bForgot.IconZoom = 60D;
             this.bForgot.IsTab = false;
-            this.bForgot.Location = new System.Drawing.Point(401, 255);
-            this.bForgot.Margin = new System.Windows.Forms.Padding(5);
+            this.bForgot.Location = new System.Drawing.Point(562, 370);
+            this.bForgot.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bForgot.Name = "bForgot";
             this.bForgot.Normalcolor = System.Drawing.Color.Transparent;
             this.bForgot.OnHovercolor = System.Drawing.Color.Transparent;
@@ -348,8 +348,8 @@
             this.labelInvalid.IconVisible = true;
             this.labelInvalid.IconZoom = 60D;
             this.labelInvalid.IsTab = false;
-            this.labelInvalid.Location = new System.Drawing.Point(362, 175);
-            this.labelInvalid.Margin = new System.Windows.Forms.Padding(5);
+            this.labelInvalid.Location = new System.Drawing.Point(524, 243);
+            this.labelInvalid.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelInvalid.Name = "labelInvalid";
             this.labelInvalid.Normalcolor = System.Drawing.Color.Transparent;
             this.labelInvalid.OnHovercolor = System.Drawing.Color.Transparent;
@@ -386,8 +386,8 @@
             this.labelWrong.IconVisible = true;
             this.labelWrong.IconZoom = 60D;
             this.labelWrong.IsTab = false;
-            this.labelWrong.Location = new System.Drawing.Point(351, 255);
-            this.labelWrong.Margin = new System.Windows.Forms.Padding(5);
+            this.labelWrong.Location = new System.Drawing.Point(535, 370);
+            this.labelWrong.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelWrong.Name = "labelWrong";
             this.labelWrong.Normalcolor = System.Drawing.Color.Transparent;
             this.labelWrong.OnHovercolor = System.Drawing.Color.Transparent;

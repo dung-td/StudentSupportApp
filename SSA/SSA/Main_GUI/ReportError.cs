@@ -52,8 +52,8 @@ namespace StudentSupportApp
                
                 bunifuCustomLabel1.ForeColor = labelWrong.ForeColor =
                 tbxDetails.LineFocusedColor = tbxDetails.LineMouseHoverColor =
-                 bSend.ActiveFillColor = bSend.ForeColor = bSend.IdleLineColor = bSend.IdleForecolor =
-                  bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleLineColor = bExit.IdleForecolor = x;
+                 bSend.ActiveFillColor = bSend.ForeColor = bSend.IdleLineColor = bSend.IdleForecolor = bSend.ActiveLineColor =
+                  bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleLineColor = bExit.IdleForecolor = bExit.ActiveLineColor = x;
         }
     }
 }
