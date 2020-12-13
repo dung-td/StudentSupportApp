@@ -1588,7 +1588,7 @@ namespace StudentSupportApp
                 BaseFont vuTimes = iTextSharp.text.pdf.BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
                 iTextSharp.text.Font fontNormal = new iTextSharp.text.Font(vuTimes, 12, iTextSharp.text.Font.NORMAL);
                 sfd.Filter = "PDF (*.pdf)|*.pdf";
-                sfd.FileName = "Score " + this.cbSemester.Text + ".pdf";
+                sfd.FileName = "Bảng điểm " + this.cbSemester.Text + ".pdf";
                 bool fileError = false;
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -1638,14 +1638,16 @@ namespace StudentSupportApp
 
                                 pdfDoc.Open();
 
-                                //pdfDoc.AddHeader("Bảng điểm" + this.cbSemester.Text, "Bảng điểm" + this.cbSemester.Text);
-
-                                //pdfDoc.AddCreator(User.Name.ToString());
-                                //pdfDoc.AddKeywords("Điểm trung bình: " + l_Average.ToString());
-                                //pdfDoc.AddKeywords("Số tín chỉ: " + lSumCre.ToString());
-                                //pdfDoc.AddKeywords("Số môn học: " + lAmountSub.ToString());
+                                pdfDoc.Add(new Paragraph("Họ và tên: " + User.Name.ToString(), fontNormal));
+                                pdfDoc.Add(new Paragraph( l_Average.Text.ToString(), fontNormal));
+                                pdfDoc.Add(new Paragraph( lSumCre.Text.ToString(), fontNormal));
+                                pdfDoc.Add(new Paragraph(lAmountSub.Text.ToString(), fontNormal));
+                                pdfDoc.Add(new Paragraph("\n\n"));
+                                pdfDoc.Add(new Paragraph("Bảng điểm " + this.cbSemester.Text.ToUpper(), fontNormal));
+                                pdfDoc.Add(new Paragraph("\n\n"));
 
                                 pdfDoc.Add(pdfTable);
+
                                 pdfDoc.Close();
                                 stream.Close();
                             }
