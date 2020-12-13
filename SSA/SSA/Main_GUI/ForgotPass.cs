@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Drawing;
 
-namespace StudentSupportApp.Main_GUI
+namespace StudentSupportApp
 {
     public partial class ForgotPass : Form
     {
@@ -14,6 +15,7 @@ namespace StudentSupportApp.Main_GUI
         {
             this.parent = parent;
             InitializeComponent();
+            SetColor(Properties.Settings.Default.Color);
         }
         private int CheckPassword()
         {
@@ -33,6 +35,7 @@ namespace StudentSupportApp.Main_GUI
                 return 0;
             return 1;
         }
+        #region EventHandler
         private void bSend_Click(object sender, EventArgs e)
         {
             try
@@ -58,7 +61,6 @@ namespace StudentSupportApp.Main_GUI
                 rp.Show();
             }
         }
-
         private void bChange_Click(object sender, EventArgs e)
         {
             try
@@ -85,11 +87,35 @@ namespace StudentSupportApp.Main_GUI
             }
 
         }
-
         private void bExit_Click(object sender, EventArgs e)
         {
             this.Close();
             this.parent.Show();
+        }
+        private void tbNewPass1_OnValueChanged(object sender, EventArgs e)
+        {
+            tbNewPass1.isPassword = true;
+        }
+        private void tbNewPass2_OnValueChanged(object sender, EventArgs e)
+        {
+            tbNewPass2.isPassword = true;
+        }
+        #endregion
+        void SetColor(Color x)
+        {
+            GradientPanelForgotPasswd.BackColor = GradientPanelForgotPasswd.GradientTopLeft = GradientPanelForgotPasswd.GradientTopRight =
+                GradientPanelForgotPasswd.GradientBottomLeft = GradientPanelForgotPasswd.GradientBottomRight =
+
+                tbEmail.LineFocusedColor = tbEmail.LineMouseHoverColor =
+                tbVerifyCode.LineMouseHoverColor = tbVerifyCode.LineFocusedColor =
+                tbNewPass1.LineFocusedColor = tbNewPass1.LineMouseHoverColor =
+                tbNewPass2.LineFocusedColor = tbNewPass2.LineMouseHoverColor =
+
+                 bChange.ActiveFillColor = bChange.ForeColor = bChange.IdleLineColor = bChange.IdleForecolor = bChange.ActiveLineColor =
+
+                  bSend.ActiveFillColor = bSend.ForeColor = bSend.IdleLineColor = bSend.IdleForecolor = bSend.ActiveLineColor =
+
+                   bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleLineColor = bExit.IdleForecolor = bExit.ActiveLineColor = x;
         }
     }
 }

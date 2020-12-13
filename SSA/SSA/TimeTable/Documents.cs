@@ -134,6 +134,31 @@ namespace StudentSupportApp
                     connection.CloseConnection();
                 }
             }
+            else
+            {
+                try
+                {
+                    connection = new Connect();
+                    connection.OpenConnection();
+                    string sql = @"UPDATE LESSON
+                                    SET DOCUMENTS=null" +
+                                 " WHERE ID_USER='" + sUserID + "' AND DAYINWEEK='" + sLessonInfo[1] +
+                                       "' AND TIMEORDER=" + sLessonInfo[4] + " AND SUB_ID='" + sLessonInfo[3].Remove(0, 1) +
+                                       "' AND SUB_NAME='" + sLessonInfo[2] + "' AND SEM_NAME='" + sLessonInfo[0] + "'";
+                    SqlCommand command = connection.CreateSQLCmd(sql);
+                    command.ExecuteNonQuery();
+
+                    MessageBox.Show("Lưu tài liệu thành công!");
+                }
+                catch (Exception a)
+                {
+                    MessageBox.Show(a.Message);
+                }
+                finally
+                {
+                    connection.CloseConnection();
+                }
+            }
         }
 
         private void Documents_Load(object sender, EventArgs e)
