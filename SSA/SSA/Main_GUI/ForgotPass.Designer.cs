@@ -1,5 +1,5 @@
 ﻿
-namespace StudentSupportApp.Main_GUI
+namespace StudentSupportApp
 {
     partial class ForgotPass
     {
@@ -38,39 +38,40 @@ namespace StudentSupportApp.Main_GUI
             this.lShortPass = new System.Windows.Forms.Label();
             this.tbNewPass1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.tbEmail = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.GradientPanelAddDeadline = new Bunifu.Framework.UI.BunifuGradientPanel();
-            this.lbAddLesson = new System.Windows.Forms.Label();
             this.lCodeWrong = new System.Windows.Forms.Label();
             this.tbVerifyCode = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bSend = new Bunifu.Framework.UI.BunifuThinButton2();
             this.lSent = new System.Windows.Forms.Label();
-            this.GradientPanelAddDeadline.SuspendLayout();
+            this.GradientPanelForgotPasswd = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.lbForgotPass = new System.Windows.Forms.Label();
+            this.GradientPanelForgotPasswd.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbNewPass2
             // 
-            resources.ApplyResources(this.tbNewPass2, "tbNewPass2");
             this.tbNewPass2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            resources.ApplyResources(this.tbNewPass2, "tbNewPass2");
             this.tbNewPass2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbNewPass2.HintForeColor = System.Drawing.Color.Empty;
             this.tbNewPass2.HintText = "Lặp lại mật khẩu";
-            this.tbNewPass2.isPassword = false;
+            this.tbNewPass2.isPassword = true;
             this.tbNewPass2.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbNewPass2.LineIdleColor = System.Drawing.Color.Gray;
             this.tbNewPass2.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbNewPass2.LineThickness = 3;
             this.tbNewPass2.Name = "tbNewPass2";
             this.tbNewPass2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbNewPass2.OnValueChanged += new System.EventHandler(this.tbNewPass2_OnValueChanged);
             // 
             // bExit
             // 
-            resources.ApplyResources(this.bExit, "bExit");
             this.bExit.ActiveBorderThickness = 1;
             this.bExit.ActiveCornerRadius = 20;
             this.bExit.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.bExit.ActiveForecolor = System.Drawing.Color.White;
             this.bExit.ActiveLineColor = System.Drawing.Color.Empty;
             this.bExit.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.bExit, "bExit");
             this.bExit.ButtonText = "Thoát";
             this.bExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
@@ -85,13 +86,13 @@ namespace StudentSupportApp.Main_GUI
             // 
             // bChange
             // 
-            resources.ApplyResources(this.bChange, "bChange");
             this.bChange.ActiveBorderThickness = 1;
             this.bChange.ActiveCornerRadius = 20;
             this.bChange.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.bChange.ActiveForecolor = System.Drawing.Color.White;
             this.bChange.ActiveLineColor = System.Drawing.Color.Empty;
             this.bChange.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.bChange, "bChange");
             this.bChange.ButtonText = "Đổi";
             this.bChange.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
@@ -127,26 +128,27 @@ namespace StudentSupportApp.Main_GUI
             // 
             // tbNewPass1
             // 
-            resources.ApplyResources(this.tbNewPass1, "tbNewPass1");
             this.tbNewPass1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            resources.ApplyResources(this.tbNewPass1, "tbNewPass1");
             this.tbNewPass1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbNewPass1.HintForeColor = System.Drawing.Color.Empty;
             this.tbNewPass1.HintText = "Mật khẩu mới";
-            this.tbNewPass1.isPassword = false;
+            this.tbNewPass1.isPassword = true;
             this.tbNewPass1.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbNewPass1.LineIdleColor = System.Drawing.Color.Gray;
             this.tbNewPass1.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbNewPass1.LineThickness = 3;
             this.tbNewPass1.Name = "tbNewPass1";
             this.tbNewPass1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbNewPass1.OnValueChanged += new System.EventHandler(this.tbNewPass1_OnValueChanged);
             // 
             // tbEmail
             // 
-            resources.ApplyResources(this.tbEmail, "tbEmail");
             this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            resources.ApplyResources(this.tbEmail, "tbEmail");
             this.tbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbEmail.HintForeColor = System.Drawing.Color.Empty;
-            this.tbEmail.HintText = "Your old password";
+            this.tbEmail.HintText = "Email";
             this.tbEmail.isPassword = false;
             this.tbEmail.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbEmail.LineIdleColor = System.Drawing.Color.Gray;
@@ -154,25 +156,6 @@ namespace StudentSupportApp.Main_GUI
             this.tbEmail.LineThickness = 3;
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // GradientPanelAddDeadline
-            // 
-            resources.ApplyResources(this.GradientPanelAddDeadline, "GradientPanelAddDeadline");
-            this.GradientPanelAddDeadline.BackColor = System.Drawing.SystemColors.Highlight;
-            this.GradientPanelAddDeadline.Controls.Add(this.lbAddLesson);
-            this.GradientPanelAddDeadline.GradientBottomLeft = System.Drawing.SystemColors.Highlight;
-            this.GradientPanelAddDeadline.GradientBottomRight = System.Drawing.SystemColors.Highlight;
-            this.GradientPanelAddDeadline.GradientTopLeft = System.Drawing.SystemColors.Highlight;
-            this.GradientPanelAddDeadline.GradientTopRight = System.Drawing.SystemColors.Highlight;
-            this.GradientPanelAddDeadline.Name = "GradientPanelAddDeadline";
-            this.GradientPanelAddDeadline.Quality = 10;
-            // 
-            // lbAddLesson
-            // 
-            resources.ApplyResources(this.lbAddLesson, "lbAddLesson");
-            this.lbAddLesson.BackColor = System.Drawing.Color.Transparent;
-            this.lbAddLesson.ForeColor = System.Drawing.Color.White;
-            this.lbAddLesson.Name = "lbAddLesson";
             // 
             // lCodeWrong
             // 
@@ -183,11 +166,11 @@ namespace StudentSupportApp.Main_GUI
             // 
             // tbVerifyCode
             // 
-            resources.ApplyResources(this.tbVerifyCode, "tbVerifyCode");
             this.tbVerifyCode.Cursor = System.Windows.Forms.Cursors.IBeam;
+            resources.ApplyResources(this.tbVerifyCode, "tbVerifyCode");
             this.tbVerifyCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbVerifyCode.HintForeColor = System.Drawing.Color.Empty;
-            this.tbVerifyCode.HintText = "Your old password";
+            this.tbVerifyCode.HintText = "Mã xác nhận";
             this.tbVerifyCode.isPassword = false;
             this.tbVerifyCode.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbVerifyCode.LineIdleColor = System.Drawing.Color.Gray;
@@ -198,13 +181,13 @@ namespace StudentSupportApp.Main_GUI
             // 
             // bSend
             // 
-            resources.ApplyResources(this.bSend, "bSend");
             this.bSend.ActiveBorderThickness = 1;
             this.bSend.ActiveCornerRadius = 20;
             this.bSend.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.bSend.ActiveForecolor = System.Drawing.Color.White;
             this.bSend.ActiveLineColor = System.Drawing.Color.Empty;
             this.bSend.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.bSend, "bSend");
             this.bSend.ButtonText = "Gửi mã";
             this.bSend.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bSend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
@@ -219,20 +202,39 @@ namespace StudentSupportApp.Main_GUI
             // 
             // lSent
             // 
-            resources.ApplyResources(this.lSent, "lSent");
             this.lSent.BackColor = System.Drawing.Color.Transparent;
             this.lSent.ForeColor = System.Drawing.Color.RoyalBlue;
+            resources.ApplyResources(this.lSent, "lSent");
             this.lSent.Name = "lSent";
+            // 
+            // GradientPanelForgotPasswd
+            // 
+            this.GradientPanelForgotPasswd.BackColor = System.Drawing.SystemColors.Highlight;
+            resources.ApplyResources(this.GradientPanelForgotPasswd, "GradientPanelForgotPasswd");
+            this.GradientPanelForgotPasswd.Controls.Add(this.lbForgotPass);
+            this.GradientPanelForgotPasswd.GradientBottomLeft = System.Drawing.SystemColors.Highlight;
+            this.GradientPanelForgotPasswd.GradientBottomRight = System.Drawing.SystemColors.Highlight;
+            this.GradientPanelForgotPasswd.GradientTopLeft = System.Drawing.SystemColors.Highlight;
+            this.GradientPanelForgotPasswd.GradientTopRight = System.Drawing.SystemColors.Highlight;
+            this.GradientPanelForgotPasswd.Name = "GradientPanelForgotPasswd";
+            this.GradientPanelForgotPasswd.Quality = 10;
+            // 
+            // lbForgotPass
+            // 
+            resources.ApplyResources(this.lbForgotPass, "lbForgotPass");
+            this.lbForgotPass.BackColor = System.Drawing.Color.Transparent;
+            this.lbForgotPass.ForeColor = System.Drawing.Color.White;
+            this.lbForgotPass.Name = "lbForgotPass";
             // 
             // ForgotPass
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.GradientPanelForgotPasswd);
             this.Controls.Add(this.lSent);
             this.Controls.Add(this.bSend);
             this.Controls.Add(this.lCodeWrong);
             this.Controls.Add(this.tbVerifyCode);
-            this.Controls.Add(this.GradientPanelAddDeadline);
             this.Controls.Add(this.tbNewPass2);
             this.Controls.Add(this.bExit);
             this.Controls.Add(this.bChange);
@@ -243,8 +245,8 @@ namespace StudentSupportApp.Main_GUI
             this.Controls.Add(this.tbEmail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ForgotPass";
-            this.GradientPanelAddDeadline.ResumeLayout(false);
-            this.GradientPanelAddDeadline.PerformLayout();
+            this.GradientPanelForgotPasswd.ResumeLayout(false);
+            this.GradientPanelForgotPasswd.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,11 +262,11 @@ namespace StudentSupportApp.Main_GUI
         private System.Windows.Forms.Label lShortPass;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbNewPass1;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbEmail;
-        private Bunifu.Framework.UI.BunifuGradientPanel GradientPanelAddDeadline;
-        private System.Windows.Forms.Label lbAddLesson;
         private System.Windows.Forms.Label lCodeWrong;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbVerifyCode;
         private Bunifu.Framework.UI.BunifuThinButton2 bSend;
         private System.Windows.Forms.Label lSent;
+        private Bunifu.Framework.UI.BunifuGradientPanel GradientPanelForgotPasswd;
+        private System.Windows.Forms.Label lbForgotPass;
     }
 }

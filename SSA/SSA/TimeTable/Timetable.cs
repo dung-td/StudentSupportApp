@@ -42,7 +42,7 @@ namespace StudentSupportApp
                     for (int i = 1; i <= 10; i++)
                     {
                         string sLoadData = "select SUB_NAME, SUB_ID from LESSON where ID_USER='" + this.user.ID
-                                         + "' AND DAYINWEEK='" + sWeekDay[j] + "' AND SEM_NAME='"
+                                         + "' AND DAYINWEEK='" + sWeekDay[j] + "' AND SEM_NAME=N'"
                                          + this.sSemester + "' AND TIMEORDER=" + i;
                         SqlCommand loadDay = loadTimetable.CreateSQLCmd(sLoadData);
                         SqlDataReader reader = loadDay.ExecuteReader();
@@ -100,10 +100,10 @@ namespace StudentSupportApp
             {
                 AddLesson.OpenConnection();
                 string sAddData = "INSERT INTO LESSON VALUES('" + args[0] + "', " + args[1] + ", '" + args[2]
-                                                           + "', '" + args[3] + "', '" + args[4] + "', '" + args[5] + "', null)";
+                                                           + "', N'" + args[3] + "', N'" + args[4] + "', '" + args[5] + "', null)";
                 if (CheckExistSemester(args[4]) == 0)
                 {
-                    string sAddSem = "INSERT INTO SEMESTER VALUES('" + args[5] + "', '" + args[4] + "')";
+                    string sAddSem = "INSERT INTO SEMESTER VALUES('" + args[5] + "', N'" + args[4] + "')";
                     SqlCommand AddCommand2 = AddLesson.CreateSQLCmd(sAddSem);
                     AddCommand2.ExecuteNonQuery();
                 }
@@ -132,11 +132,11 @@ namespace StudentSupportApp
                 ModLesson.OpenConnection();
                 string sUpdateData = "UPDATE LESSON " +
                     "              SET DAYINWEEK='" + newInfo[0] + "' , TIMEORDER=" + newInfo[1] +
-                                        " , SUB_ID='" + newInfo[2] + "' , SUB_NAME='" + newInfo[3] +
-                                        "' , SEM_NAME='" + newInfo[4] +
+                                        " , SUB_ID='" + newInfo[2] + "' , SUB_NAME=N'" + newInfo[3] +
+                                        "' , SEM_NAME=N'" + newInfo[4] +
                                    "' WHERE ID_USER='" + oldInfo[5] + "' AND DAYINWEEK='" + oldInfo[1] +
                                                     "' AND TIMEORDER=" + oldInfo[4] + " AND SUB_ID='" + oldInfo[3].Remove(0, 1) +
-                                                    "' AND SUB_NAME='" + oldInfo[2] + "' AND SEM_NAME='" + oldInfo[0] + "'";
+                                                    "' AND SUB_NAME=N'" + oldInfo[2] + "' AND SEM_NAME=N'" + oldInfo[0] + "'";
 
                 SqlCommand UpdateCommand = ModLesson.CreateSQLCmd(sUpdateData);
                 UpdateCommand.ExecuteNonQuery();

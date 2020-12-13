@@ -154,12 +154,8 @@
         YHii2rEnrWtwjKU9gmOuIzjmOoJjriM45rjIfgFNeX1SSNOvvwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="GradientPanelAddDeadline.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAAqSURBVChTjcghAQAACAMwYtOUOCcAE4iZVfXkhSlMYQpT
-        mMIUpjCFeUwW8nPmeVB+J6gAAAAASUVORK5CYII=
-</value>
+  <data name="lCodeWrong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>361, 21</value>
   </data>
   <data name="bSend.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -189,12 +185,55 @@
     <value>294, 240</value>
   </data>
   <data name="lSent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>442, 21</value>
+    <value>458, 21</value>
   </data>
   <data name="lSent.Text" xml:space="preserve">
     <value>Mã xác nhận đã được gửi vào Email đăng kí của bạn!</value>
   </data>
   <data name="lSent.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="GradientPanelForgotPasswd.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAAqSURBVChTjcghAQAACAMwYtOUOCcAE4iZVfXkhSlMYQpT
+        mMIUpjCFeUwW8nPmeVB+J6gAAAAASUVORK5CYII=
+</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="GradientPanelForgotPasswd.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="GradientPanelForgotPasswd.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="GradientPanelForgotPasswd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>232, 646</value>
+  </data>
+  <data name="GradientPanelForgotPasswd.TabIndex" type="System.Int32, mscorlib">
+    <value>87</value>
+  </data>
+  <data name="lbForgotPass.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbForgotPass.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 28pt</value>
+  </data>
+  <data name="lbForgotPass.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 221</value>
+  </data>
+  <data name="lbForgotPass.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 207</value>
+  </data>
+  <data name="lbForgotPass.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="lbForgotPass.Text" xml:space="preserve">
+    <value>Quên
+mật
+khẩu</value>
+  </data>
+  <data name="lbForgotPass.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
 </root>
