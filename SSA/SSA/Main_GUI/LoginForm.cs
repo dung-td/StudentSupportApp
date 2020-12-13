@@ -27,6 +27,12 @@ namespace StudentSupportApp
             SetColor(Properties.Settings.Default.Color);
         }
         #region EventHandler
+        private void bForgot_Click(object sender, EventArgs e)
+        {
+            ForgotPass forgotPasswd = new ForgotPass(this);
+            forgotPasswd.Show();
+            this.Hide();
+        }
         private void bExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

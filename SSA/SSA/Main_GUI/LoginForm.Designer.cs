@@ -68,7 +68,7 @@
             this.bunifuGradientPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
             this.bunifuGradientPanel1.Quality = 10;
-            this.bunifuGradientPanel1.Size = new System.Drawing.Size(155, 390);
+            this.bunifuGradientPanel1.Size = new System.Drawing.Size(232, 600);
             this.bunifuGradientPanel1.TabIndex = 0;
             // 
             // lbLogin
@@ -77,10 +77,9 @@
             this.lbLogin.BackColor = System.Drawing.Color.Transparent;
             this.lbLogin.Font = new System.Drawing.Font("Century Gothic", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLogin.ForeColor = System.Drawing.Color.White;
-            this.lbLogin.Location = new System.Drawing.Point(16, 116);
-            this.lbLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbLogin.Location = new System.Drawing.Point(12, 212);
             this.lbLogin.Name = "lbLogin";
-            this.lbLogin.Size = new System.Drawing.Size(136, 90);
+            this.lbLogin.Size = new System.Drawing.Size(200, 138);
             this.lbLogin.TabIndex = 20;
             this.lbLogin.Text = "Đăng \r\nnhập";
             this.lbLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -106,7 +105,7 @@
             this.bExit.Location = new System.Drawing.Point(427, 334);
             this.bExit.Margin = new System.Windows.Forms.Padding(5);
             this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(105, 40);
+            this.bExit.Size = new System.Drawing.Size(158, 62);
             this.bExit.TabIndex = 2;
             this.bExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
@@ -132,7 +131,7 @@
             this.bLogin.Location = new System.Drawing.Point(205, 334);
             this.bLogin.Margin = new System.Windows.Forms.Padding(5);
             this.bLogin.Name = "bLogin";
-            this.bLogin.Size = new System.Drawing.Size(105, 40);
+            this.bLogin.Size = new System.Drawing.Size(158, 62);
             this.bLogin.TabIndex = 3;
             this.bLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bLogin.Click += new System.EventHandler(this.bLogin_Click);
@@ -158,7 +157,7 @@
             this.bSignUp.Location = new System.Drawing.Point(316, 334);
             this.bSignUp.Margin = new System.Windows.Forms.Padding(5);
             this.bSignUp.Name = "bSignUp";
-            this.bSignUp.Size = new System.Drawing.Size(105, 40);
+            this.bSignUp.Size = new System.Drawing.Size(158, 62);
             this.bSignUp.TabIndex = 4;
             this.bSignUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bSignUp.Click += new System.EventHandler(this.bSignUp_Click);
@@ -178,7 +177,7 @@
             this.tbxID.Location = new System.Drawing.Point(365, 110);
             this.tbxID.Margin = new System.Windows.Forms.Padding(4);
             this.tbxID.Name = "tbxID";
-            this.tbxID.Size = new System.Drawing.Size(181, 55);
+            this.tbxID.Size = new System.Drawing.Size(272, 85);
             this.tbxID.TabIndex = 6;
             this.tbxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbxID.OnValueChanged += new System.EventHandler(this.tbxID_OnValueChanged);
@@ -198,7 +197,7 @@
             this.tbxPass.Location = new System.Drawing.Point(365, 197);
             this.tbxPass.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPass.Name = "tbxPass";
-            this.tbxPass.Size = new System.Drawing.Size(181, 51);
+            this.tbxPass.Size = new System.Drawing.Size(272, 78);
             this.tbxPass.TabIndex = 7;
             this.tbxPass.Text = "Nhập password";
             this.tbxPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -228,14 +227,14 @@
             this.bID.IconVisible = true;
             this.bID.IconZoom = 60D;
             this.bID.IsTab = false;
-            this.bID.Location = new System.Drawing.Point(183, 138);
-            this.bID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.bID.Location = new System.Drawing.Point(274, 212);
+            this.bID.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.bID.Name = "bID";
             this.bID.Normalcolor = System.Drawing.Color.Transparent;
             this.bID.OnHovercolor = System.Drawing.Color.Transparent;
             this.bID.OnHoverTextColor = System.Drawing.SystemColors.Highlight;
             this.bID.selected = false;
-            this.bID.Size = new System.Drawing.Size(162, 31);
+            this.bID.Size = new System.Drawing.Size(243, 48);
             this.bID.TabIndex = 8;
             this.bID.Text = "ID/Username";
             this.bID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -264,14 +263,14 @@
             this.bPassword.IconVisible = true;
             this.bPassword.IconZoom = 60D;
             this.bPassword.IsTab = false;
-            this.bPassword.Location = new System.Drawing.Point(182, 218);
-            this.bPassword.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.bPassword.Location = new System.Drawing.Point(273, 335);
+            this.bPassword.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.bPassword.Name = "bPassword";
             this.bPassword.Normalcolor = System.Drawing.Color.Transparent;
             this.bPassword.OnHovercolor = System.Drawing.Color.Transparent;
             this.bPassword.OnHoverTextColor = System.Drawing.SystemColors.Highlight;
             this.bPassword.selected = false;
-            this.bPassword.Size = new System.Drawing.Size(155, 31);
+            this.bPassword.Size = new System.Drawing.Size(232, 48);
             this.bPassword.TabIndex = 9;
             this.bPassword.Text = "Mật khẩu";
             this.bPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -283,10 +282,9 @@
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Century Gothic", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(185, 19);
-            this.bunifuCustomLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(278, 29);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(409, 45);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(593, 69);
             this.bunifuCustomLabel1.TabIndex = 10;
             this.bunifuCustomLabel1.Text = "Student Support App";
             // 
@@ -319,12 +317,13 @@
             this.bForgot.OnHovercolor = System.Drawing.Color.Transparent;
             this.bForgot.OnHoverTextColor = System.Drawing.SystemColors.Highlight;
             this.bForgot.selected = false;
-            this.bForgot.Size = new System.Drawing.Size(144, 31);
+            this.bForgot.Size = new System.Drawing.Size(216, 48);
             this.bForgot.TabIndex = 13;
             this.bForgot.Text = "Quên ID/Mật khẩu?";
             this.bForgot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bForgot.Textcolor = System.Drawing.Color.Black;
             this.bForgot.TextFont = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bForgot.Click += new System.EventHandler(this.bForgot_Click);
             // 
             // labelInvalid
             // 
@@ -356,7 +355,7 @@
             this.labelInvalid.OnHovercolor = System.Drawing.Color.Transparent;
             this.labelInvalid.OnHoverTextColor = System.Drawing.Color.SeaGreen;
             this.labelInvalid.selected = false;
-            this.labelInvalid.Size = new System.Drawing.Size(195, 31);
+            this.labelInvalid.Size = new System.Drawing.Size(292, 48);
             this.labelInvalid.TabIndex = 14;
             this.labelInvalid.Text = "ID/ Username không tồn tại!";
             this.labelInvalid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -394,7 +393,7 @@
             this.labelWrong.OnHovercolor = System.Drawing.Color.Transparent;
             this.labelWrong.OnHoverTextColor = System.Drawing.Color.Red;
             this.labelWrong.selected = false;
-            this.labelWrong.Size = new System.Drawing.Size(181, 31);
+            this.labelWrong.Size = new System.Drawing.Size(272, 48);
             this.labelWrong.TabIndex = 15;
             this.labelWrong.Text = "Sai mật khẩu!";
             this.labelWrong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -408,19 +407,19 @@
             this.bunifuSeparator1.ForeColor = System.Drawing.SystemColors.Highlight;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
             this.bunifuSeparator1.LineThickness = 2;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(263, 70);
-            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(394, 108);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(213, 19);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(320, 29);
             this.bunifuSeparator1.TabIndex = 16;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 390);
+            this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.labelWrong);
             this.Controls.Add(this.labelInvalid);
