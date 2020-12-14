@@ -2,11 +2,24 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace StudentSupportApp
 {
     public partial class ModLessonForm : Form
     {
+        internal static class NativeWinAPI
+        {
+            internal static readonly int GWL_EXSTYLE = -20;
+            internal static readonly int WS_EX_COMPOSITED = 0x02000000;
+
+            [DllImport("user32")]
+            internal static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+            [DllImport("user32")]
+            internal static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+        }
+
         MainForm parent;
         private string sUserID;
         private string[] sOldInfo;
@@ -14,6 +27,9 @@ namespace StudentSupportApp
         public ModLessonForm()
         {
             InitializeComponent();
+            int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
+            style |= NativeWinAPI.WS_EX_COMPOSITED;
+            NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
         }
 
         public ModLessonForm(MainForm parent, List<string> data, string ID)
@@ -21,6 +37,10 @@ namespace StudentSupportApp
             try
             {
                 InitializeComponent();
+                int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
+                style |= NativeWinAPI.WS_EX_COMPOSITED;
+                NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
+
                 this.parent = parent;
                 this.sUserID = ID;
                 this.sOldInfo = new string[6];

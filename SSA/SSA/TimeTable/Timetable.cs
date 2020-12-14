@@ -156,6 +156,35 @@ namespace StudentSupportApp
             return 0;
         }
 
+        public int RemoveLesson(List<string> lessonInfo)
+        {
+            Connect RemoveLesson = new Connect();
+
+            try
+            {
+                RemoveLesson.OpenConnection();
+                string sRemove = "DELETE LESSON " +
+                                 "WHERE ID_USER='" + lessonInfo[5] + "' AND DAYINWEEK='" + lessonInfo[1] +
+                                                    "' AND TIMEORDER=" + lessonInfo[4] + " AND SUB_ID='" + lessonInfo[3].Remove(0, 1) +
+                                                    "' AND SUB_NAME=N'" + lessonInfo[2] + "' AND SEM_NAME=N'" + lessonInfo[0] + "'";
+
+                SqlCommand RemoveCommand = RemoveLesson.CreateSQLCmd(sRemove);
+                RemoveCommand.ExecuteNonQuery();
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                RemoveLesson.CloseConnection();
+            }
+            return 0;
+        }
+
         public int CheckExistSemester(string input)
         {
             Connect Check = new Connect();

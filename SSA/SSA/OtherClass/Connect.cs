@@ -10,7 +10,7 @@ namespace StudentSupportApp
         SqlConnection Connection;
         public Connect()
         {
-            String connString = @"Server=KHANHLINH;Database=SSADATABASE;User Id=sa;Password=Linh2001";
+            String connString = @"Server=CONGDANH;Database=SSADATABASE;User Id=sa;Password=c0ngdanh";
             this.Connection = new SqlConnection(connString);
         }
         public void OpenConnection()
