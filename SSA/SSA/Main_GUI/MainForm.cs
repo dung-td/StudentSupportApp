@@ -461,6 +461,10 @@ namespace StudentSupportApp
             Process.Start(Info);
             Application.Exit();
         }
+        private void MainForm_Move(object sender, EventArgs e)
+        {
+            this.Size = new Size(1600, 900);
+        }
     }
 }
 
