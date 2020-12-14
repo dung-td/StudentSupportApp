@@ -213,7 +213,15 @@ namespace StudentSupportApp
             bMod.BackColor = bMod.ActiveFillColor = bMod.ForeColor = bMod.IdleForecolor = bMod.IdleLineColor =
             bDel.BackColor = bDel.ActiveFillColor = bDel.ForeColor = bDel.IdleForecolor = bDel.IdleLineColor =
             bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleForecolor = bExit.IdleLineColor =
+             bStatistic.ActiveFillColor = bStatistic.ForeColor = bStatistic.IdleForecolor = bStatistic.IdleLineColor =
             x;
+        }
+
+        private void bStatistic_Click(object sender, EventArgs e)
+        {
+            ScoreStatistics form = new ScoreStatistics(this, UserID);
+            form.Show();
+            this.Hide();
         }
     }
 }

@@ -23,6 +23,13 @@ namespace StudentSupportApp
             }
         }
 
+        public int Amount
+        {
+            get
+            {
+                return this.listSem.Count;
+            }
+        }
         public int FindSem(string sem)
         {
             for (int i = 0; i < this.listSem.Count(); i++)
