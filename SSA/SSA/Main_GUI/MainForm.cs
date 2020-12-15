@@ -466,7 +466,7 @@ namespace StudentSupportApp
             this.Size = new Size(1600, 900);
         }
 
-       
+        
     }
 }
 
@@ -1780,6 +1780,13 @@ namespace StudentSupportApp
         private void bAboutUs_Click(object sender, EventArgs e)
         {
             AboutUs form = new AboutUs(this);
+            this.Hide();
+            form.Show();
+        }
+
+        private void bFeedSup_Click(object sender, EventArgs e)
+        {
+            Feedback form = new Feedback(this);
             this.Hide();
             form.Show();
         }
