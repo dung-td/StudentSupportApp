@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.IO;
@@ -30,15 +29,18 @@ namespace StudentSupportApp
         Connect connection;
         private string sUserID;
         private string[] sLessonInfo;
+        ImageList imgList;
         List<string> files = new List<string> { };
 
         public Documents(MainForm parent, List<string> data)
         {
             this.parent = parent;
+            imgList = new ImageList();
             InitializeComponent();
             int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
             style |= NativeWinAPI.WS_EX_COMPOSITED;
             NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
+            listView1.SmallImageList = imgList;
 
             if (data.Count > 5)
             {
@@ -73,11 +75,14 @@ namespace StudentSupportApp
                 {
                     string fileName = ofd.FileName;
                     files.Add(fileName);
+                    Icon iconForFile = SystemIcons.WinLogo;
 
                     var info = new FileInfo(fileName);
                     if ((info.Attributes & FileAttributes.System) != FileAttributes.System)
                     {
-                        this.listView1.Items.Add(new ListViewItem(new string[] { info.Name, info.Extension, info.LastWriteTime.Date.ToShortDateString(), info.FullName }));
+                        iconForFile = System.Drawing.Icon.ExtractAssociatedIcon(info.FullName);
+                        imgList.Images.Add(info.Extension, iconForFile);
+                        this.listView1.Items.Add(new ListViewItem(new string[] { info.Name, info.Extension, info.LastWriteTime.Date.ToShortDateString(), info.FullName }, info.Extension.ToString()));
                     }
                 }
             }
@@ -131,10 +136,10 @@ namespace StudentSupportApp
                     connection = new Connect();
                     connection.OpenConnection();
                     string sql = @"UPDATE LESSON
-                                    SET DOCUMENTS='" + sDocs +
-                                 "' WHERE ID_USER='" + sUserID + "' AND DAYINWEEK='" + sLessonInfo[1] +
+                                    SET DOCUMENTS=N'" + sDocs +
+                                 "' WHERE ID_USER='" + sUserID + "' AND DAYINWEEK=N'" + sLessonInfo[1] +
                                        "' AND TIMEORDER=" + sLessonInfo[4] + " AND SUB_ID='" + sLessonInfo[3].Remove(0, 1) +
-                                       "' AND SUB_NAME='" + sLessonInfo[2] + "' AND SEM_NAME='" + sLessonInfo[0] + "'";
+                                       "' AND SUB_NAME=N'" + sLessonInfo[2] + "' AND SEM_NAME=N'" + sLessonInfo[0] + "'";
                     SqlCommand command = connection.CreateSQLCmd(sql);
                     command.ExecuteNonQuery();
 
@@ -159,9 +164,9 @@ namespace StudentSupportApp
                     connection.OpenConnection();
                     string sql = @"UPDATE LESSON
                                     SET DOCUMENTS=null" +
-                                 " WHERE ID_USER='" + sUserID + "' AND DAYINWEEK='" + sLessonInfo[1] +
+                                 " WHERE ID_USER='" + sUserID + "' AND DAYINWEEK=N'" + sLessonInfo[1] +
                                        "' AND TIMEORDER=" + sLessonInfo[4] + " AND SUB_ID='" + sLessonInfo[3].Remove(0, 1) +
-                                       "' AND SUB_NAME='" + sLessonInfo[2] + "' AND SEM_NAME='" + sLessonInfo[0] + "'";
+                                       "' AND SUB_NAME=N'" + sLessonInfo[2] + "' AND SEM_NAME=N'" + sLessonInfo[0] + "'";
                     SqlCommand command = connection.CreateSQLCmd(sql);
                     command.ExecuteNonQuery();
 
@@ -187,9 +192,9 @@ namespace StudentSupportApp
                 connection.OpenConnection();
                 string sql = @"SELECT DOCUMENTS
                                 FROM LESSON" +
-                             " WHERE ID_USER='" + sUserID + "' AND DAYINWEEK='" + sLessonInfo[1] +
+                             " WHERE ID_USER='" + sUserID + "' AND DAYINWEEK=N'" + sLessonInfo[1] +
                                    "' AND TIMEORDER=" + sLessonInfo[4] + " AND SUB_ID='" + sLessonInfo[3].Remove(0, 1) +
-                                   "' AND SUB_NAME='" + sLessonInfo[2] + "' AND SEM_NAME='" + sLessonInfo[0] + "'";
+                                   "' AND SUB_NAME=N'" + sLessonInfo[2] + "' AND SEM_NAME=N'" + sLessonInfo[0] + "'";
                 SqlCommand command = connection.CreateSQLCmd(sql);
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -231,11 +236,15 @@ namespace StudentSupportApp
                     if (File.Exists(sDocPath))
                     {
                         files.Add(sDocPath);
+                        Icon iconForFile = SystemIcons.WinLogo;
 
                         var info = new FileInfo(sDocPath);
+
                         if ((info.Attributes & FileAttributes.System) != FileAttributes.System)
                         {
-                            this.listView1.Items.Add(new ListViewItem(new string[] { info.Name, info.Extension, info.LastWriteTime.Date.ToShortDateString(), info.FullName }));
+                            iconForFile = System.Drawing.Icon.ExtractAssociatedIcon(info.FullName);
+                            imgList.Images.Add(info.Extension, iconForFile);
+                            this.listView1.Items.Add(new ListViewItem(new string[] { info.Name, info.Extension, info.LastWriteTime.Date.ToShortDateString(), info.FullName }, info.Extension.ToString()));
                         }
                     }
                     else
