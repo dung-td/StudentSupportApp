@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Net.Mail;
 
 namespace StudentSupportApp
 {
     public partial class Feedback : Form
     {
         MainForm parent;
+        string Email, ID;
         internal static class NativeWinAPI
         {
             internal static readonly int GWL_EXSTYLE = -20;
@@ -30,10 +32,12 @@ namespace StudentSupportApp
             InitializeComponent();
         }
 
-        public Feedback(MainForm p)
+        public Feedback(MainForm p, string email, string id)
         {
             InitializeComponent();
             this.parent = p;
+            this.Email = email;
+            this.ID = id;
             SetColor(Properties.Settings.Default.Color);
         }
 
@@ -42,7 +46,9 @@ namespace StudentSupportApp
             panel1.BackColor =
                 bExit.ForeColor = bExit.IdleForecolor = bExit.IdleLineColor = bExit.ActiveFillColor =
                 bSend.ForeColor = bSend.IdleForecolor = bSend.IdleLineColor = bSend.ActiveFillColor =
-                tbFeed.BorderColorFocused = tbFeed.BorderColorMouseHover = x;
+                
+                tbTitle.BorderColorFocused = tbTitle.BorderColorMouseHover =
+                x;
         }
 
         private void Feedback_FormClosed(object sender, FormClosedEventArgs e)
@@ -53,6 +59,43 @@ namespace StudentSupportApp
         private void bExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        bool BlankData()
+        {
+            return (tbFeed.Text == "" || tbTitle.Text == "");
+        }
+
+        public void SendMail()
+        {
+            try
+            {
+               MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress("ssa.nonreply@gmail.com");
+                mail.To.Add("ssa.nonreply@gmail.com");
+                mail.Subject = "<FEEDBACK>" + this.tbTitle.Text;
+                mail.Body = "UserID: " + this.ID + "\nEmail: " + this.Email + "\n\n" + this.tbFeed.Text;
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("ssa.nonreply@gmail.com", "Dung0478");
+                SmtpServer.EnableSsl = true;
+                SmtpServer.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void bSend_Click(object sender, EventArgs e)
+        {
+            if (!BlankData())
+            {
+                SendMail();
+                MessageBox.Show("Đã gửi thành công");
+            }
+            else
+                MessageBox.Show("Dữ liệu không được trống!");
         }
     }
 }

@@ -80,7 +80,7 @@ namespace StudentSupportApp
                 slidemenu.Visible = false;
                 slidemenu.Width = 260;
                 this.lbHello.Location = new Point(this.lbHello.Location.X - 110, this.lbHello.Location.Y);
-                PanelAnimatior.ShowSync(slidemenu);
+                animation1.ShowSync(slidemenu);
                 //Dung
                 this.cardDeadline.Width -= 200;
                 this.cardStatus.Width -= 104;
@@ -191,7 +191,7 @@ namespace StudentSupportApp
                 slidemenu.Visible = false;
                 slidemenu.Width = 55;
                 this.lbHello.Location = new Point(this.lbHello.Location.X + 110, this.lbHello.Location.Y);
-                PanelAnimatior.ShowSync(slidemenu);
+                animation1.ShowSync(slidemenu);
                 //Dung
                 this.cardDeadline.Width += 200;
                 this.cardStatus.Width += 104;
@@ -1786,7 +1786,7 @@ namespace StudentSupportApp
 
         private void bFeedSup_Click(object sender, EventArgs e)
         {
-            Feedback form = new Feedback(this);
+            Feedback form = new Feedback(this, User.Email, this.User.ID);
             this.Hide();
             form.Show();
         }

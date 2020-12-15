@@ -35,9 +35,10 @@ namespace StudentSupportApp
             this.bExit = new Bunifu.Framework.UI.BunifuThinButton2();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbFeed = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bSend = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.tbTitle = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.tbFeed = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,23 +96,6 @@ namespace StudentSupportApp
             this.label1.Text = "Phản hồi\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tbFeed
-            // 
-            this.tbFeed.BorderColorFocused = System.Drawing.Color.Blue;
-            this.tbFeed.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbFeed.BorderColorMouseHover = System.Drawing.Color.Blue;
-            this.tbFeed.BorderThickness = 3;
-            this.tbFeed.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbFeed.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.tbFeed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbFeed.isPassword = false;
-            this.tbFeed.Location = new System.Drawing.Point(166, 65);
-            this.tbFeed.Margin = new System.Windows.Forms.Padding(4);
-            this.tbFeed.Name = "tbFeed";
-            this.tbFeed.Size = new System.Drawing.Size(412, 216);
-            this.tbFeed.TabIndex = 74;
-            this.tbFeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
@@ -146,15 +130,44 @@ namespace StudentSupportApp
             this.bSend.Size = new System.Drawing.Size(99, 50);
             this.bSend.TabIndex = 76;
             this.bSend.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bSend.Click += new System.EventHandler(this.bSend_Click);
+            // 
+            // tbTitle
+            // 
+            this.tbTitle.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbTitle.BorderColorFocused = System.Drawing.Color.Blue;
+            this.tbTitle.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbTitle.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.tbTitle.BorderThickness = 1;
+            this.tbTitle.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbTitle.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbTitle.isPassword = false;
+            this.tbTitle.Location = new System.Drawing.Point(166, 54);
+            this.tbTitle.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTitle.Name = "tbTitle";
+            this.tbTitle.Size = new System.Drawing.Size(412, 37);
+            this.tbTitle.TabIndex = 77;
+            this.tbTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // tbFeed
+            // 
+            this.tbFeed.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbFeed.Location = new System.Drawing.Point(165, 98);
+            this.tbFeed.Name = "tbFeed";
+            this.tbFeed.Size = new System.Drawing.Size(412, 184);
+            this.tbFeed.TabIndex = 78;
+            this.tbFeed.Text = "";
             // 
             // Feedback
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 354);
+            this.Controls.Add(this.tbFeed);
+            this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.bSend);
             this.Controls.Add(this.bunifuCustomLabel1);
-            this.Controls.Add(this.tbFeed);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -174,8 +187,9 @@ namespace StudentSupportApp
         private Bunifu.Framework.UI.BunifuThinButton2 bExit;
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private Bunifu.Framework.UI.BunifuMetroTextbox tbFeed;
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuThinButton2 bSend;
+        private Bunifu.Framework.UI.BunifuMetroTextbox tbTitle;
+        private System.Windows.Forms.RichTextBox tbFeed;
     }
 }
