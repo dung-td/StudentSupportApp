@@ -368,6 +368,14 @@ namespace StudentSupportApp
             panelSetting.BringToFront();
             temp = btnSetting;
         }
+        private void btnSocial_Click(object sender, EventArgs e)
+        {
+            temp.Normalcolor = Color.FromArgb(26, 32, 40);
+            this.btnSocial.Normalcolor = Properties.Settings.Default.Color;
+            this.panelSocial.Dock = DockStyle.Fill;
+            panelSocial.BringToFront();
+            temp = btnSocial;
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
             try
@@ -465,6 +473,14 @@ namespace StudentSupportApp
         {
             this.Size = new Size(1600, 900);
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            ReviewForm ReviewForm = new ReviewForm(this.User.ID);
+            this.Hide();
+            ReviewForm.Show();
+        }
+
     }
 }
 

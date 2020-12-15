@@ -92,6 +92,19 @@
     <Compile Include="Score\ScoreStatistics.Designer.cs">
       <DependentUpon>ScoreStatistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="Social\Review.cs" />
+    <Compile Include="Social\ReviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Social\ReviewForm.Designer.cs">
+      <DependentUpon>ReviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Social\WriterRVForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Social\WriterRVForm.Designer.cs">
+      <DependentUpon>WriterRVForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TimeTable\AddLessonForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +196,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Score\ScoreStatistics.resx">
       <DependentUpon>ScoreStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Social\ReviewForm.resx">
+      <DependentUpon>ReviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Social\WriterRVForm.resx">
+      <DependentUpon>WriterRVForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TimeTable\AddLessonForm.resx">
       <DependentUpon>AddLessonForm.cs</DependentUpon>
