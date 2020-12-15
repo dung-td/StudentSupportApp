@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace StudentSupportApp
 {
@@ -10,18 +11,35 @@ namespace StudentSupportApp
 
         public delegate void GetData(string s);
         public GetData getData;
-       
+
+        internal static class NativeWinAPI
+        {
+            internal static readonly int GWL_EXSTYLE = -20;
+            internal static readonly int WS_EX_COMPOSITED = 0x02000000;
+
+            [DllImport("user32")]
+            internal static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+            [DllImport("user32")]
+            internal static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+        }
 
         public DiaSem()
         {
             InitializeComponent();
+            int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
+            style |= NativeWinAPI.WS_EX_COMPOSITED;
+            NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
         }
 
         public DiaSem(SemForm p, string lable)
         {
-           
             this.parent = p;
             InitializeComponent();
+            int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
+            style |= NativeWinAPI.WS_EX_COMPOSITED;
+            NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
+
             lDiaSem.Text = lable;
             SetColor(Properties.Settings.Default.Color);
         }

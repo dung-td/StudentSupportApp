@@ -26,6 +26,19 @@ namespace StudentSupportApp
                 SendMessage(Handle, 161, 2, 0);
             }
         }
+
+        internal static class NativeWinAPI
+        {
+            internal static readonly int GWL_EXSTYLE = -20;
+            internal static readonly int WS_EX_COMPOSITED = 0x02000000;
+
+            [DllImport("user32")]
+            internal static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+            [DllImport("user32")]
+            internal static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+        }
+
         Bunifu.Framework.UI.BunifuFlatButton temp = new Bunifu.Framework.UI.BunifuFlatButton();
         LoginForm parent;
         Connect Connection;
@@ -39,9 +52,12 @@ namespace StudentSupportApp
             this.parent = parent;
             this.Connection = new Connect();
             InitializeComponent();
-            
-            temp = this.btnHome;
 
+            int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
+            style |= NativeWinAPI.WS_EX_COMPOSITED;
+            NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
+
+            temp = this.btnHome;
             data.Read(this.User.ID);
 
             this.theme = Properties.Settings.Default.Color;
@@ -286,7 +302,7 @@ namespace StudentSupportApp
         {
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
             //this.btnHome.Normalcolor = Color.CornflowerBlue;
-           // temp.Normalcolor = Properties.Settings.Default.Color;
+            //temp.Normalcolor = Properties.Settings.Default.Color;
             this.btnHome.Normalcolor = Properties.Settings.Default.Color;
             panelHome.Dock = DockStyle.Fill;
             panelHome.BringToFront();
@@ -300,7 +316,7 @@ namespace StudentSupportApp
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
             //this.btnScore.Normalcolor = Color.CornflowerBlue;
             //temp.Normalcolor = Properties.Settings.Default.Color;
-            //this.btnHome.Normalcolor = Properties.Settings.Default.Color;
+            this.btnScore.Normalcolor = Properties.Settings.Default.Color;
             panelScore.Dock = DockStyle.Fill;
             panelScore.BringToFront();
             temp = btnScore;
@@ -310,7 +326,7 @@ namespace StudentSupportApp
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
             //this.btnNofitication.Normalcolor = Color.CornflowerBlue
             //temp.Normalcolor = Properties.Settings.Default.Color;
-            //this.btnHome.Normalcolor = Properties.Settings.Default.Color;
+            this.btnNofitication.Normalcolor = Properties.Settings.Default.Color;
             temp = btnNofitication;
             this.panelNoti.Dock = DockStyle.Fill;
             panelNoti.BringToFront();
@@ -320,7 +336,7 @@ namespace StudentSupportApp
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
             //this.btnTimeTable.Normalcolor = Color.CornflowerBlue;
             //temp.Normalcolor = Properties.Settings.Default.Color;
-            //this.btnHome.Normalcolor = Properties.Settings.Default.Color;
+            this.btnTimeTable.Normalcolor = Properties.Settings.Default.Color;
             this.panelTimetable.Dock = DockStyle.Fill;
             panelTimetable.BringToFront();
             temp = btnTimeTable;
@@ -337,7 +353,7 @@ namespace StudentSupportApp
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
             //this.btnInformation.Normalcolor = Color.CornflowerBlue;
             //temp.Normalcolor = Properties.Settings.Default.Color;
-            //this.btnHome.Normalcolor = Properties.Settings.Default.Color;
+            this.btnInformation.Normalcolor = Properties.Settings.Default.Color;
             this.panelInfo.Dock = DockStyle.Fill;
             panelInfo.BringToFront();
             temp = btnInformation;
@@ -347,7 +363,7 @@ namespace StudentSupportApp
             temp.Normalcolor = Color.FromArgb(26, 32, 40);
             //this.btnSetting.Normalcolor = Color.CornflowerBlue;
             //temp.Normalcolor = Properties.Settings.Default.Color;
-            //this.btnHome.Normalcolor = Properties.Settings.Default.Color;
+            this.btnSetting.Normalcolor = Properties.Settings.Default.Color;
             this.panelSetting.Dock = DockStyle.Fill;
             panelSetting.BringToFront();
             temp = btnSetting;
@@ -444,6 +460,10 @@ namespace StudentSupportApp
             Info.FileName = "cmd.exe";
             Process.Start(Info);
             Application.Exit();
+        }
+        private void MainForm_Move(object sender, EventArgs e)
+        {
+            this.Size = new Size(1600, 900);
         }
     }
 }
@@ -979,6 +999,35 @@ namespace StudentSupportApp
                     ModLessonForm modLessonForm = new ModLessonForm(this, sLessonData, this.User.ID);
                     modLessonForm.Show();
                     this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+            }
+        }
+
+        private void btnRemoveLess_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.dataGridViewTimetable.CurrentCell.Selected == true && this.dataGridViewTimetable.CurrentCell.Value.ToString() != "")
+                {
+                    int iSubID = this.dataGridViewTimetable.CurrentCell.Value.ToString().IndexOf("\n");
+                    int iCellValueLength = this.dataGridViewTimetable.CurrentCell.Value.ToString().Length;
+                    List<string> sLessonData = new List<string> { cbxSem.Text, this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].Name,
+                                                                  this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(0, iSubID),
+                                                                  this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(iSubID, iCellValueLength - iSubID),
+                                                                  (this.dataGridViewTimetable.CurrentCell.RowIndex + 1).ToString(), this.User.ID };
+                    Timetable Lesson = new Timetable();
+                    if (Lesson.RemoveLesson(sLessonData) == 1)
+                    {
+                        MessageBox.Show("Xóa tiết học thành công!", "Xóa tiết học");
+                        this.dataGridViewTimetable.CurrentCell.Value = "";
+                    }
+                    else MessageBox.Show("Xóa tiết học thất bại!", "Xóa tiết học");
                 }
             }
             catch (Exception ex)
@@ -1801,6 +1850,7 @@ namespace StudentSupportApp
             btnCreNewLess.ActiveFillColor = btnCreNewLess.ActiveLineColor = btnCreNewLess.IdleLineColor = btnCreNewLess.IdleForecolor =
             btnModifyLess.ActiveFillColor = btnModifyLess.ActiveLineColor = btnModifyLess.IdleLineColor = btnModifyLess.IdleForecolor =
             btnExportTT.ActiveFillColor = btnExportTT.ActiveLineColor = btnExportTT.IdleLineColor = btnExportTT.IdleForecolor =
+            btnRemoveLess.ActiveFillColor = btnRemoveLess.ActiveLineColor = btnRemoveLess.IdleLineColor = btnRemoveLess.IdleForecolor =
 
             bCardTimetable.color = lbTimetable.ForeColor = x; 
         }

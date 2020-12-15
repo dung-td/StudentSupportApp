@@ -7,11 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace StudentSupportApp
 {
     public partial class ScoreStatistics : Form
     {
+        internal static class NativeWinAPI
+        {
+            internal static readonly int GWL_EXSTYLE = -20;
+            internal static readonly int WS_EX_COMPOSITED = 0x02000000;
+
+            [DllImport("user32")]
+            internal static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+            [DllImport("user32")]
+            internal static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+        }
+
         string UserID;
         string parent = "";
         MainForm parent1;
@@ -22,6 +35,9 @@ namespace StudentSupportApp
         public ScoreStatistics()
         {
             InitializeComponent();
+            int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
+            style |= NativeWinAPI.WS_EX_COMPOSITED;
+            NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
         }
 
         public ScoreStatistics(MainForm p, string id, string name)
@@ -32,6 +48,9 @@ namespace StudentSupportApp
             this.parent1 = p;
             this.sNameOfSem = name;
             InitializeComponent();
+            int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
+            style |= NativeWinAPI.WS_EX_COMPOSITED;
+            NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
 
             data.Read(UserID);
             SetColor(Properties.Settings.Default.Color);
@@ -60,7 +79,6 @@ namespace StudentSupportApp
         {
            this.Close();
         }
-
         private void ScoreStatistics_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (parent == "semform")
@@ -68,7 +86,6 @@ namespace StudentSupportApp
             else
                 this.parent1.Show();
         }
-
         void CreateChart()
         {
             try
@@ -95,7 +112,6 @@ namespace StudentSupportApp
                 rp.Show();
             }
         }
-
         void CreateChartOfSemesters()
         {
             try
