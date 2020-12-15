@@ -92,6 +92,12 @@
     <Compile Include="Score\ScoreStatistics.Designer.cs">
       <DependentUpon>ScoreStatistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="Setting\AboutUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\AboutUs.Designer.cs">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </Compile>
     <Compile Include="TimeTable\AddLessonForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,10 +110,10 @@
     <Compile Include="Main_GUI\ChangeEmailForm.Designer.cs">
       <DependentUpon>ChangeEmailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main_GUI\ChangePass.cs">
+    <Compile Include="Setting\ChangePass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main_GUI\ChangePass.Designer.cs">
+    <Compile Include="Setting\ChangePass.Designer.cs">
       <DependentUpon>ChangePass.cs</DependentUpon>
     </Compile>
     <Compile Include="Score\CScore.cs" />
@@ -184,6 +190,9 @@
     <EmbeddedResource Include="Score\ScoreStatistics.resx">
       <DependentUpon>ScoreStatistics.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Setting\AboutUs.resx">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TimeTable\AddLessonForm.resx">
       <DependentUpon>AddLessonForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -191,7 +200,7 @@
     <EmbeddedResource Include="Main_GUI\ChangeEmailForm.resx">
       <DependentUpon>ChangeEmailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main_GUI\ChangePass.resx">
+    <EmbeddedResource Include="Setting\ChangePass.resx">
       <DependentUpon>ChangePass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Score\DiaSem.resx">

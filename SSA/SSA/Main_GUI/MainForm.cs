@@ -465,6 +465,8 @@ namespace StudentSupportApp
         {
             this.Size = new Size(1600, 900);
         }
+
+       
     }
 }
 
@@ -1773,6 +1775,13 @@ namespace StudentSupportApp
             {
                 Application.Exit();
             }
+        }
+
+        private void bAboutUs_Click(object sender, EventArgs e)
+        {
+            AboutUs form = new AboutUs(this);
+            this.Hide();
+            form.Show();
         }
         #endregion
 
