@@ -120,6 +120,15 @@
   <metadata name="bunifuElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="richTextBox3.Text" xml:space="preserve">
+    <value>Tab Scores: Easy to modify and control informaion later.
+Tab Schedules: Add once and have an apparent, minimal timetable, modify or create new as you want.
+Tab Notifications: Add your deadline dates and keep up to them.
+Tab Information: Show up your whole personal information to let you control it.
+Tab GeneralSettings: Make some changes to comfort yourself.
+Tab Home: Nearest deadline, today schedules, notes...
+</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bExit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

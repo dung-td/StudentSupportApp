@@ -2383,7 +2383,7 @@
             // bTheme4
             // 
             this.bTheme4.Activecolor = System.Drawing.Color.Gainsboro;
-            this.bTheme4.BackColor = System.Drawing.Color.DarkViolet;
+            this.bTheme4.BackColor = System.Drawing.Color.Green;
             this.bTheme4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bTheme4.BorderRadius = 0;
             this.bTheme4.ButtonText = "";
@@ -2406,8 +2406,8 @@
             this.bTheme4.Location = new System.Drawing.Point(41, 364);
             this.bTheme4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bTheme4.Name = "bTheme4";
-            this.bTheme4.Normalcolor = System.Drawing.Color.DarkViolet;
-            this.bTheme4.OnHovercolor = System.Drawing.Color.DarkViolet;
+            this.bTheme4.Normalcolor = System.Drawing.Color.Green;
+            this.bTheme4.OnHovercolor = System.Drawing.Color.Green;
             this.bTheme4.OnHoverTextColor = System.Drawing.Color.White;
             this.bTheme4.selected = false;
             this.bTheme4.Size = new System.Drawing.Size(137, 58);
@@ -2420,7 +2420,7 @@
             // bTheme3
             // 
             this.bTheme3.Activecolor = System.Drawing.Color.Gainsboro;
-            this.bTheme3.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.bTheme3.BackColor = System.Drawing.Color.Tomato;
             this.bTheme3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bTheme3.BorderRadius = 0;
             this.bTheme3.ButtonText = "";
@@ -2443,8 +2443,8 @@
             this.bTheme3.Location = new System.Drawing.Point(41, 283);
             this.bTheme3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bTheme3.Name = "bTheme3";
-            this.bTheme3.Normalcolor = System.Drawing.Color.LightSeaGreen;
-            this.bTheme3.OnHovercolor = System.Drawing.Color.LightSeaGreen;
+            this.bTheme3.Normalcolor = System.Drawing.Color.Tomato;
+            this.bTheme3.OnHovercolor = System.Drawing.Color.Tomato;
             this.bTheme3.OnHoverTextColor = System.Drawing.Color.White;
             this.bTheme3.selected = false;
             this.bTheme3.Size = new System.Drawing.Size(137, 58);
@@ -2644,7 +2644,7 @@
             this.bFeedSup.BackColor = System.Drawing.Color.Transparent;
             this.bFeedSup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bFeedSup.BorderRadius = 0;
-            this.bFeedSup.ButtonText = "Phản hồi ";
+            this.bFeedSup.ButtonText = "Phản hồi và Ủng hộ";
             this.bFeedSup.Cursor = System.Windows.Forms.Cursors.Hand;
             this.animation1.SetDecoration(this.bFeedSup, AnimatorNS.DecorationType.None);
             this.bFeedSup.DisabledColor = System.Drawing.Color.Gray;
@@ -2670,7 +2670,7 @@
             this.bFeedSup.selected = false;
             this.bFeedSup.Size = new System.Drawing.Size(253, 33);
             this.bFeedSup.TabIndex = 15;
-            this.bFeedSup.Text = "Phản hồi ";
+            this.bFeedSup.Text = "Phản hồi và Ủng hộ";
             this.bFeedSup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bFeedSup.Textcolor = System.Drawing.SystemColors.Highlight;
             this.bFeedSup.TextFont = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

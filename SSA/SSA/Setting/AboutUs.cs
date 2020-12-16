@@ -40,7 +40,10 @@ namespace StudentSupportApp
 
         void SetColor(Color x)
         {
-            panel1.BackColor = bExit.ForeColor = bExit.IdleForecolor = bExit.IdleLineColor = x;
+            panel1.BackColor = bExit.ForeColor = bExit.IdleForecolor = bExit.IdleLineColor = 
+                bunifuCards1.color = bunifuCards2.color = bunifuCards3.color = 
+                bunifuCustomLabel1.ForeColor = bunifuCustomLabel2.ForeColor = bunifuCustomLabel3.ForeColor =
+                x;
         }
 
         private void AboutUs_FormClosed(object sender, FormClosedEventArgs e)

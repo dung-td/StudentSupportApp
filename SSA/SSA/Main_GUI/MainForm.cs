@@ -1961,7 +1961,7 @@ namespace StudentSupportApp
         }
         private void bTheme4_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Color = Color.Brown;
+            Properties.Settings.Default.Color = Color.Green;
             Properties.Settings.Default.Save();
             MessageBox.Show("Ứng dụng sẽ khởi động lại để thay đổi được áp dụng!");
             Restart();
