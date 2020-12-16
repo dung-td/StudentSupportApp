@@ -80,7 +80,7 @@ namespace StudentSupportApp
                 slidemenu.Visible = false;
                 slidemenu.Width = 260;
                 this.lbHello.Location = new Point(this.lbHello.Location.X - 110, this.lbHello.Location.Y);
-                PanelAnimatior.ShowSync(slidemenu);
+                animation1.ShowSync(slidemenu);
                 //Dung
                 this.cardDeadline.Width -= 200;
                 this.cardStatus.Width -= 104;
@@ -191,7 +191,7 @@ namespace StudentSupportApp
                 slidemenu.Visible = false;
                 slidemenu.Width = 55;
                 this.lbHello.Location = new Point(this.lbHello.Location.X + 110, this.lbHello.Location.Y);
-                PanelAnimatior.ShowSync(slidemenu);
+                animation1.ShowSync(slidemenu);
                 //Dung
                 this.cardDeadline.Width += 200;
                 this.cardStatus.Width += 104;
@@ -465,6 +465,8 @@ namespace StudentSupportApp
         {
             this.Size = new Size(1600, 900);
         }
+
+        
     }
 }
 
@@ -1774,6 +1776,20 @@ namespace StudentSupportApp
                 Application.Exit();
             }
         }
+
+        private void bAboutUs_Click(object sender, EventArgs e)
+        {
+            AboutUs form = new AboutUs(this);
+            this.Hide();
+            form.Show();
+        }
+
+        private void bFeedSup_Click(object sender, EventArgs e)
+        {
+            Feedback form = new Feedback(this, User.Email, this.User.ID);
+            this.Hide();
+            form.Show();
+        }
         #endregion
 
         #region Themes
@@ -1945,7 +1961,7 @@ namespace StudentSupportApp
         }
         private void bTheme4_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Color = Color.Brown;
+            Properties.Settings.Default.Color = Color.Green;
             Properties.Settings.Default.Save();
             MessageBox.Show("Ứng dụng sẽ khởi động lại để thay đổi được áp dụng!");
             Restart();

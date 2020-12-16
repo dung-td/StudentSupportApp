@@ -38,7 +38,6 @@ namespace StudentSupportApp
             this.bDel = new Bunifu.Framework.UI.BunifuThinButton2();
             this.lAver = new System.Windows.Forms.Label();
             this.bMod = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.lSum = new System.Windows.Forms.Label();
             this.bAdd = new Bunifu.Framework.UI.BunifuThinButton2();
             this.dtgvSem = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +46,7 @@ namespace StudentSupportApp
             this.label2 = new System.Windows.Forms.Label();
             this.bExit = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bStatistic = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.lSum = new System.Windows.Forms.Label();
             this.SemFormPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSem)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +88,7 @@ namespace StudentSupportApp
             this.bDel.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bDel.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bDel.Location = new System.Drawing.Point(14, 287);
-            this.bDel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bDel.Margin = new System.Windows.Forms.Padding(5);
             this.bDel.Name = "bDel";
             this.bDel.Size = new System.Drawing.Size(126, 62);
             this.bDel.TabIndex = 40;
@@ -126,24 +126,12 @@ namespace StudentSupportApp
             this.bMod.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bMod.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bMod.Location = new System.Drawing.Point(14, 215);
-            this.bMod.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bMod.Margin = new System.Windows.Forms.Padding(5);
             this.bMod.Name = "bMod";
             this.bMod.Size = new System.Drawing.Size(126, 62);
             this.bMod.TabIndex = 39;
             this.bMod.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bMod.Click += new System.EventHandler(this.bMod_Click);
-            // 
-            // lSum
-            // 
-            this.lSum.AutoSize = true;
-            this.lSum.BackColor = System.Drawing.Color.Transparent;
-            this.lSum.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSum.ForeColor = System.Drawing.Color.White;
-            this.lSum.Location = new System.Drawing.Point(11, 59);
-            this.lSum.Name = "lSum";
-            this.lSum.Size = new System.Drawing.Size(99, 23);
-            this.lSum.TabIndex = 30;
-            this.lSum.Text = "Số tín chỉ:";
             // 
             // bAdd
             // 
@@ -165,7 +153,7 @@ namespace StudentSupportApp
             this.bAdd.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bAdd.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bAdd.Location = new System.Drawing.Point(14, 143);
-            this.bAdd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bAdd.Margin = new System.Windows.Forms.Padding(5);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(126, 62);
             this.bAdd.TabIndex = 38;
@@ -257,7 +245,7 @@ namespace StudentSupportApp
             this.bExit.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bExit.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bExit.Location = new System.Drawing.Point(586, 323);
-            this.bExit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bExit.Margin = new System.Windows.Forms.Padding(5);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(99, 50);
             this.bExit.TabIndex = 42;
@@ -290,6 +278,18 @@ namespace StudentSupportApp
             this.bStatistic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bStatistic.Click += new System.EventHandler(this.bStatistic_Click);
             // 
+            // lSum
+            // 
+            this.lSum.AutoSize = true;
+            this.lSum.BackColor = System.Drawing.Color.Transparent;
+            this.lSum.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lSum.ForeColor = System.Drawing.Color.White;
+            this.lSum.Location = new System.Drawing.Point(11, 59);
+            this.lSum.Name = "lSum";
+            this.lSum.Size = new System.Drawing.Size(99, 23);
+            this.lSum.TabIndex = 30;
+            this.lSum.Text = "Số tín chỉ:";
+            // 
             // SemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,7 +301,7 @@ namespace StudentSupportApp
             this.Controls.Add(this.dtgvSem);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SemForm";
             this.Text = "SemForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SemForm_FormClosed);
@@ -321,7 +321,6 @@ namespace StudentSupportApp
         private Bunifu.Framework.UI.BunifuThinButton2 bDel;
         private System.Windows.Forms.Label lAver;
         private Bunifu.Framework.UI.BunifuThinButton2 bMod;
-        private System.Windows.Forms.Label lSum;
         private Bunifu.Framework.UI.BunifuThinButton2 bAdd;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dtgvSem;
         private System.Windows.Forms.Label label2;
@@ -329,5 +328,6 @@ namespace StudentSupportApp
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private Bunifu.Framework.UI.BunifuThinButton2 bStatistic;
+        private System.Windows.Forms.Label lSum;
     }
 }
