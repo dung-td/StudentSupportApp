@@ -93,7 +93,7 @@ namespace StudentSupportApp
                 this.dataDeadline.Width -= 208;
                 this.bunifuCards4.Width -= 100;
                 this.bEditSave.Location = new Point(this.bRefresh.Location.X + 400, this.bRefresh.Location.Y);
-                this.bunifuCards4.Location = new Point(this.bunifuCards4.Location.X - 100, this.bunifuCards4.Location.Y);
+                this.bunifuCards4.Location = new Point(this.bunifuCards4.Location.X - 80, this.bunifuCards4.Location.Y);
                 this.dataHomeDeadline.Width -= 100;
                 //Danh
                 this.bCardTimetable.Width -= 200;
@@ -110,6 +110,12 @@ namespace StudentSupportApp
                 this.tbxClassInfo.Width -= 210;
                 this.BirthDTPicker.Width -= 110;
                 this.tbxEmailInfo.Width -= 210;
+                this.bunifuCardsNote.Width -= 25;
+                this.dataGidViewNote.Width -= 25;
+                this.btnAddNote.Location = new Point(btnAddNote.Location.X - 10, btnAddNote.Location.Y);
+                this.btnDelNote.Location = new Point(btnDelNote.Location.X - 12, btnDelNote.Location.Y);
+                this.lbNote.Location = new Point(lbNote.Location.X - 10, lbNote.Location.Y);
+                this.bunifuCardsNote.Location = new Point(bunifuCardsNote.Location.X - 180, bunifuCardsNote.Location.Y);
                 this.lbUserInfo.Location = new Point(this.lbUserInfo.Location.X - 150, this.lbUserInfo.Location.Y);
                 this.lbAccount.Location = new Point(this.lbAccount.Location.X - 150, this.lbAccount.Location.Y);
                 BirthDTPicker.Location = new Point(BirthDTPicker.Location.X - 80, BirthDTPicker.Location.Y);
@@ -205,7 +211,7 @@ namespace StudentSupportApp
                 this.dataDeadline.Width += 208;
                 this.bunifuCards4.Width += 100;
                 this.bEditSave.Location = new Point(this.bRefresh.Location.X + 620, this.bRefresh.Location.Y);
-                this.bunifuCards4.Location = new Point(this.bunifuCards4.Location.X + 100, this.bunifuCards4.Location.Y);
+                this.bunifuCards4.Location = new Point(this.bunifuCards4.Location.X + 80, this.bunifuCards4.Location.Y);
                 this.dataHomeDeadline.Width += 100;
 
                 //Danh
@@ -223,6 +229,12 @@ namespace StudentSupportApp
                 this.tbxClassInfo.Width += 210;
                 this.BirthDTPicker.Width += 110;
                 this.tbxEmailInfo.Width += 210;
+                this.bunifuCardsNote.Width += 25;
+                this.dataGidViewNote.Width += 25;
+                this.btnAddNote.Location = new Point(btnAddNote.Location.X + 10, btnAddNote.Location.Y);
+                this.btnDelNote.Location = new Point(btnDelNote.Location.X + 12, btnDelNote.Location.Y);
+                this.lbNote.Location = new Point(lbNote.Location.X + 10, lbNote.Location.Y);
+                this.bunifuCardsNote.Location = new Point(bunifuCardsNote.Location.X + 180, bunifuCardsNote.Location.Y);
                 this.lbUserInfo.Location = new Point(this.lbUserInfo.Location.X + 150, this.lbUserInfo.Location.Y);
                 this.lbAccount.Location = new Point(this.lbAccount.Location.X + 150, this.lbAccount.Location.Y);
                 BirthDTPicker.Location = new Point(BirthDTPicker.Location.X + 80, BirthDTPicker.Location.Y);
@@ -402,11 +414,11 @@ namespace StudentSupportApp
 
                 List<string> sLesson = new List<string> { };
                 LoadTodayTimetable(dataGridViewHomeTimeTB.Columns[1].HeaderText.ToString(), ref sLesson);
+                ReadSchedulesSemesterComboboxItems();
                 if (cbxSem.Items.IndexOf(Properties.Settings.Default.Text) >= 0)
                 {
                     LoadTimetableToHomeDGV(dataGridViewHomeTimeTB, sLesson);
                 }
-                ReadSchedulesSemesterComboboxItems();
                 dataGridViewTimetable.CurrentCell.Selected = !dataGridViewTimetable.CurrentCell.Selected;
                 btnHome_Click(sender, e);
                 LoadInformationTab();
@@ -418,27 +430,7 @@ namespace StudentSupportApp
 
                 bExportScore.Visible = bstatisticsScore.Visible = false;
 
-                
-
                 AddItemToComboBoxSemester();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                ReportError rp = new ReportError(this, ex);
-                rp.Show();
-            }
-        }
-        public void LoadTimetableToHomeDGV(DataGridView obj, List<string> Lesson)
-        {
-            try
-            {
-                int iLessonIndex = 0;
-                for (int i = 0; i < 10; i++)
-                {
-                    obj.Rows[i].Cells[1].Value = Lesson[iLessonIndex];
-                    iLessonIndex++;
-                }
             }
             catch (Exception ex)
             {
@@ -1059,18 +1051,15 @@ namespace StudentSupportApp
             }
         }
 
-        private void AddLessonTimeToDataGridView()
+        public void LoadTimetableToHomeDGV(DataGridView obj, List<string> Lesson)
         {
             try
             {
-                //dataGridViewHomeTimetable.Columns[1].HeaderText = DateTime.Today.DayOfWeek.ToString();
-                string[] sRow = new string[] {"Tiết 1\n(7:30-8:15)", "Tiết 2\n(8:15-9:00)",
-                "Tiết 3\n(9:00 - 9:45)" , "Tiết 4\n(10:00-10:45)", "Tiết 5\n(10:45-11:30)",
-                "Tiết 6\n(13:00-13:45)", "Tiết 7\n(13:45-14:30)", "Tiết 8\n(14:30-15:15)",
-                "Tiết 9\n(15:30-16:15)", "Tiết 10\n(16:15-17:00)"};
-                for (int i = 0; i < sRow.Length; i++)
+                int iLessonIndex = 0;
+                for (int i = 0; i < 10; i++)
                 {
-                    dataGridViewTimetable.Rows.Add(sRow[i]);
+                    obj.Rows[i].Cells[1].Value = Lesson[iLessonIndex];
+                    iLessonIndex++;
                 }
             }
             catch (Exception ex)
@@ -1241,11 +1230,11 @@ namespace StudentSupportApp
             {
                 loadHomeTimetable.OpenConnection();
 
-                string sWeekDay = dataGridViewHomeTimeTB.Columns[1].HeaderText.ToString();
+                string sWeekDay = DateTime.Today.DayOfWeek.ToString();
                 for (int i = 1; i <= 10; i++)
                 {
                     string sLoadData = "select SUB_NAME from LESSON where ID_USER='" + this.User.ID
-                                        + "' AND DAYINWEEK='" + sWeekDay + "' AND SEM_NAME='" + Properties.Settings.Default.Text + "'"
+                                        + "' AND DAYINWEEK='" + sWeekDay + "' AND SEM_NAME=N'" + Properties.Settings.Default.Text + "'"
                                         + " AND TIMEORDER=" + i;
                     SqlCommand loadDay = loadHomeTimetable.CreateSQLCmd(sLoadData);
                     SqlDataReader reader = loadDay.ExecuteReader();
@@ -1823,6 +1812,11 @@ namespace StudentSupportApp
         {
             lbHello.ForeColor =
             lbTodayTT.ForeColor =
+            lbNote.ForeColor =
+            btnAddNote.ActiveFillColor = btnAddNote.ActiveLineColor = btnAddNote.IdleLineColor = btnAddNote.IdleForecolor =
+            btnDelNote.ActiveFillColor = btnDelNote.ActiveLineColor = btnDelNote.IdleLineColor = btnDelNote.IdleForecolor =
+            bunifuCardsNote.color =
+            dataGidViewNote.HeaderBgColor =
             lbNearDeadline.ForeColor =
             lbAvgScore.ForeColor =
             dataGridViewHomeTimeTB.HeaderBgColor = 

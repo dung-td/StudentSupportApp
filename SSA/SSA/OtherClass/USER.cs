@@ -227,8 +227,8 @@ namespace StudentSupportApp
             {
                 UpdateInfo.OpenConnection();
                 string sUpdateData = "UPDATE USERS " +
-                    "                 SET BIRTH='" + newInfo[1] + "' , FULLNAME='" + newInfo[0] +
-                                        "' , GENDER='" + newInfo[2] + "' , CLASSNAME='" + newInfo[3] +
+                    "                 SET BIRTH='" + newInfo[1] + "' , FULLNAME=N'" + newInfo[0] +
+                                        "' , GENDER=N'" + newInfo[2] + "' , CLASSNAME=N'" + newInfo[3] +
                                    "' WHERE ID_USER='" + id + "'";
 
                 SqlCommand UpdateCommand = UpdateInfo.CreateSQLCmd(sUpdateData);
