@@ -104,6 +104,7 @@ namespace StudentSupportApp
                 btnSaveInfo.Location = new Point(btnSaveInfo.Location.X - 210, btnSaveInfo.Location.Y);
                 btnCancelInfo.Location = new Point(btnCancelInfo.Location.X - 210, btnCancelInfo.Location.Y);
                 btnChangeEmail.Location = new Point(btnChangeEmail.Location.X - 210, btnChangeEmail.Location.Y);
+                bChangePassword.Location = new Point(bChangePassword.Location.X - 210, bChangePassword.Location.Y);
                 this.tbxNameInfo.Width -= 210;
                 this.tbxGenderInfo.Width -= 210;
                 this.tbxClassInfo.Width -= 210;
@@ -173,7 +174,7 @@ namespace StudentSupportApp
                 cardMore.Width -= 125;
 
                 bSetData.Location = new Point(bSetData.Location.X - 25, bSetData.Location.Y);
-                bChangePass.Location = new Point(bChangePass.Location.X - 25, bChangePass.Location.Y);
+               
                 bDelAcc.Location = new Point(bDelAcc.Location.X - 25, bDelAcc.Location.Y);
 
                 bFeedSup.Location = new Point(bFeedSup.Location.X - 100, bFeedSup.Location.Y);
@@ -216,6 +217,7 @@ namespace StudentSupportApp
                 btnSaveInfo.Location = new Point(btnSaveInfo.Location.X + 210, btnSaveInfo.Location.Y);
                 btnCancelInfo.Location = new Point(btnCancelInfo.Location.X + 210, btnCancelInfo.Location.Y);
                 btnChangeEmail.Location = new Point(btnChangeEmail.Location.X + 210, btnChangeEmail.Location.Y);
+                bChangePassword.Location = new Point(bChangePassword.Location.X + 210, bChangePassword.Location.Y);
                 this.tbxNameInfo.Width += 210;
                 this.tbxGenderInfo.Width += 210;
                 this.tbxClassInfo.Width += 210;
@@ -284,7 +286,6 @@ namespace StudentSupportApp
                 cardMore.Width += 125;
 
                 bSetData.Location = new Point(bSetData.Location.X + 25, bSetData.Location.Y);
-                bChangePass.Location = new Point(bChangePass.Location.X + 25, bChangePass.Location.Y);
                 bDelAcc.Location = new Point(bDelAcc.Location.X + 25, bDelAcc.Location.Y);
 
                 bFeedSup.Location = new Point(bFeedSup.Location.X + 100, bFeedSup.Location.Y);
@@ -466,7 +467,7 @@ namespace StudentSupportApp
             this.Size = new Size(1600, 900);
         }
 
-        
+       
     }
 }
 
@@ -1748,9 +1749,7 @@ namespace StudentSupportApp
         }
         private void bChangePass_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ChangePass form = new ChangePass(this, this.User.ID, this.User.Password);
-            form.Show();
+          
         }
         private void bDelAcc_Click(object sender, EventArgs e)
         {
@@ -1788,6 +1787,15 @@ namespace StudentSupportApp
         {
             Feedback form = new Feedback(this, User.Email, this.User.ID);
             this.Hide();
+            form.Show();
+        }
+        #endregion
+
+        #region ChangePass
+        private void bChangePassword_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ChangePass form = new ChangePass(this, this.User.ID, this.User.Password);
             form.Show();
         }
         #endregion
@@ -1880,7 +1888,7 @@ namespace StudentSupportApp
 
                    bunifuCardAcc.color = lbAccount.ForeColor =
                     btnChangeEmail.ActiveFillColor = btnChangeEmail.ActiveLineColor = btnChangeEmail.IdleLineColor = btnChangeEmail.IdleForecolor =
-
+                     bChangePassword.ActiveFillColor = bChangePassword.ActiveLineColor = bChangePassword.IdleLineColor = bChangePassword.IdleForecolor =
                     tbxClassInfo.LineFocusedColor =tbxClassInfo.LineMouseHoverColor =
                      tbxEmailInfo.LineFocusedColor = tbxEmailInfo.LineMouseHoverColor =
                       tbxGenderInfo.LineFocusedColor = tbxGenderInfo.LineMouseHoverColor =
@@ -1891,7 +1899,7 @@ namespace StudentSupportApp
         void SetColorTabSetting(Color x)
         {
             cardAcc.color = lAccHead.BackColor =
-                 bSetData.Textcolor= bChangePass.Textcolor = bDelAcc.Textcolor =
+                 bSetData.Textcolor= bDelAcc.Textcolor =
 
                 cardTheme.color = lThemeHead.BackColor = bSetTheme.Textcolor =
 

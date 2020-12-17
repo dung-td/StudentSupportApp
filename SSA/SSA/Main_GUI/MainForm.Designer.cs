@@ -190,7 +190,6 @@
             this.cardAcc = new Bunifu.Framework.UI.BunifuCards();
             this.lAccHead = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bDelAcc = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bChangePass = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bSetData = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panelNoti = new System.Windows.Forms.Panel();
@@ -223,6 +222,7 @@
             this.cbxSem = new System.Windows.Forms.ComboBox();
             this.panelInfo = new System.Windows.Forms.Panel();
             this.bunifuCardAcc = new Bunifu.Framework.UI.BunifuCards();
+            this.bChangePassword = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnChangeEmail = new Bunifu.Framework.UI.BunifuThinButton2();
             this.lbAccID = new System.Windows.Forms.Label();
             this.tbxEmailInfo = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -2299,10 +2299,9 @@
             this.panelSetting.Controls.Add(this.cardMore);
             this.panelSetting.Controls.Add(this.cardAcc);
             this.animation1.SetDecoration(this.panelSetting, AnimatorNS.DecorationType.None);
-            this.panelSetting.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSetting.Location = new System.Drawing.Point(266, 31);
+            this.panelSetting.Location = new System.Drawing.Point(674, 150);
             this.panelSetting.Name = "panelSetting";
-            this.panelSetting.Size = new System.Drawing.Size(658, 481);
+            this.panelSetting.Size = new System.Drawing.Size(124, 115);
             this.panelSetting.TabIndex = 7;
             // 
             // cardTheme
@@ -2684,7 +2683,6 @@
             this.cardAcc.color = System.Drawing.SystemColors.Highlight;
             this.cardAcc.Controls.Add(this.lAccHead);
             this.cardAcc.Controls.Add(this.bDelAcc);
-            this.cardAcc.Controls.Add(this.bChangePass);
             this.cardAcc.Controls.Add(this.bSetData);
             this.cardAcc.Controls.Add(this.bunifuCustomLabel6);
             this.animation1.SetDecoration(this.cardAcc, AnimatorNS.DecorationType.None);
@@ -2736,7 +2734,7 @@
             this.bDelAcc.IconVisible = true;
             this.bDelAcc.IconZoom = 60D;
             this.bDelAcc.IsTab = false;
-            this.bDelAcc.Location = new System.Drawing.Point(119, 157);
+            this.bDelAcc.Location = new System.Drawing.Point(119, 143);
             this.bDelAcc.Margin = new System.Windows.Forms.Padding(5);
             this.bDelAcc.Name = "bDelAcc";
             this.bDelAcc.Normalcolor = System.Drawing.Color.Transparent;
@@ -2750,45 +2748,6 @@
             this.bDelAcc.Textcolor = System.Drawing.SystemColors.Highlight;
             this.bDelAcc.TextFont = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bDelAcc.Click += new System.EventHandler(this.bDelAcc_Click);
-            // 
-            // bChangePass
-            // 
-            this.bChangePass.Activecolor = System.Drawing.Color.Transparent;
-            this.bChangePass.BackColor = System.Drawing.Color.Transparent;
-            this.bChangePass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bChangePass.BorderRadius = 0;
-            this.bChangePass.ButtonText = "Đổi mật khẩu";
-            this.bChangePass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.animation1.SetDecoration(this.bChangePass, AnimatorNS.DecorationType.None);
-            this.bChangePass.DisabledColor = System.Drawing.Color.Gray;
-            this.bChangePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bChangePass.ForeColor = System.Drawing.Color.Black;
-            this.bChangePass.Iconcolor = System.Drawing.Color.Transparent;
-            this.bChangePass.Iconimage = ((System.Drawing.Image)(resources.GetObject("bChangePass.Iconimage")));
-            this.bChangePass.Iconimage_right = null;
-            this.bChangePass.Iconimage_right_Selected = null;
-            this.bChangePass.Iconimage_Selected = null;
-            this.bChangePass.IconMarginLeft = 0;
-            this.bChangePass.IconMarginRight = 0;
-            this.bChangePass.IconRightVisible = false;
-            this.bChangePass.IconRightZoom = 0D;
-            this.bChangePass.IconVisible = true;
-            this.bChangePass.IconZoom = 60D;
-            this.bChangePass.IsTab = false;
-            this.bChangePass.Location = new System.Drawing.Point(119, 112);
-            this.bChangePass.Margin = new System.Windows.Forms.Padding(5);
-            this.bChangePass.Name = "bChangePass";
-            this.bChangePass.Normalcolor = System.Drawing.Color.Transparent;
-            this.bChangePass.OnHovercolor = System.Drawing.Color.LightGray;
-            this.bChangePass.OnHoverTextColor = System.Drawing.Color.Black;
-            this.bChangePass.selected = false;
-            this.bChangePass.Size = new System.Drawing.Size(225, 38);
-            this.bChangePass.TabIndex = 12;
-            this.bChangePass.Text = "Đổi mật khẩu";
-            this.bChangePass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bChangePass.Textcolor = System.Drawing.SystemColors.Highlight;
-            this.bChangePass.TextFont = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bChangePass.Click += new System.EventHandler(this.bChangePass_Click);
             // 
             // bSetData
             // 
@@ -3415,10 +3374,11 @@
             this.panelInfo.Controls.Add(this.bunifuCardAcc);
             this.panelInfo.Controls.Add(this.bunifuCardUserInfo);
             this.animation1.SetDecoration(this.panelInfo, AnimatorNS.DecorationType.None);
-            this.panelInfo.Location = new System.Drawing.Point(733, 141);
+            this.panelInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelInfo.Location = new System.Drawing.Point(266, 31);
             this.panelInfo.Margin = new System.Windows.Forms.Padding(2);
             this.panelInfo.Name = "panelInfo";
-            this.panelInfo.Size = new System.Drawing.Size(56, 88);
+            this.panelInfo.Size = new System.Drawing.Size(658, 481);
             this.panelInfo.TabIndex = 9;
             // 
             // bunifuCardAcc
@@ -3427,6 +3387,7 @@
             this.bunifuCardAcc.BorderRadius = 5;
             this.bunifuCardAcc.BottomSahddow = true;
             this.bunifuCardAcc.color = System.Drawing.SystemColors.Highlight;
+            this.bunifuCardAcc.Controls.Add(this.bChangePassword);
             this.bunifuCardAcc.Controls.Add(this.btnChangeEmail);
             this.bunifuCardAcc.Controls.Add(this.lbAccID);
             this.bunifuCardAcc.Controls.Add(this.tbxEmailInfo);
@@ -3442,6 +3403,33 @@
             this.bunifuCardAcc.ShadowDepth = 20;
             this.bunifuCardAcc.Size = new System.Drawing.Size(753, 181);
             this.bunifuCardAcc.TabIndex = 5;
+            // 
+            // bChangePassword
+            // 
+            this.bChangePassword.ActiveBorderThickness = 1;
+            this.bChangePassword.ActiveCornerRadius = 20;
+            this.bChangePassword.ActiveFillColor = System.Drawing.SystemColors.Highlight;
+            this.bChangePassword.ActiveForecolor = System.Drawing.Color.White;
+            this.bChangePassword.ActiveLineColor = System.Drawing.SystemColors.Highlight;
+            this.bChangePassword.BackColor = System.Drawing.Color.White;
+            this.bChangePassword.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bChangePassword.BackgroundImage")));
+            this.bChangePassword.ButtonText = "Đổi mật khẩu";
+            this.bChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.animation1.SetDecoration(this.bChangePassword, AnimatorNS.DecorationType.None);
+            this.bChangePassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bChangePassword.ForeColor = System.Drawing.Color.Black;
+            this.bChangePassword.IdleBorderThickness = 1;
+            this.bChangePassword.IdleCornerRadius = 20;
+            this.bChangePassword.IdleFillColor = System.Drawing.Color.White;
+            this.bChangePassword.IdleForecolor = System.Drawing.SystemColors.Highlight;
+            this.bChangePassword.IdleLineColor = System.Drawing.SystemColors.Highlight;
+            this.bChangePassword.Location = new System.Drawing.Point(597, 109);
+            this.bChangePassword.Margin = new System.Windows.Forms.Padding(5);
+            this.bChangePassword.Name = "bChangePassword";
+            this.bChangePassword.Size = new System.Drawing.Size(112, 59);
+            this.bChangePassword.TabIndex = 70;
+            this.bChangePassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bChangePassword.Click += new System.EventHandler(this.bChangePassword_Click);
             // 
             // btnChangeEmail
             // 
@@ -3462,7 +3450,7 @@
             this.btnChangeEmail.IdleFillColor = System.Drawing.Color.White;
             this.btnChangeEmail.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnChangeEmail.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.btnChangeEmail.Location = new System.Drawing.Point(596, 60);
+            this.btnChangeEmail.Location = new System.Drawing.Point(596, 47);
             this.btnChangeEmail.Margin = new System.Windows.Forms.Padding(5);
             this.btnChangeEmail.Name = "btnChangeEmail";
             this.btnChangeEmail.Size = new System.Drawing.Size(112, 59);
@@ -4157,7 +4145,6 @@
         private Bunifu.Framework.UI.BunifuCards cardAcc;
         private Bunifu.Framework.UI.BunifuCustomLabel lAccHead;
         private Bunifu.Framework.UI.BunifuFlatButton bDelAcc;
-        private Bunifu.Framework.UI.BunifuFlatButton bChangePass;
         private Bunifu.Framework.UI.BunifuFlatButton bSetData;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private System.Windows.Forms.Label lbTimetable;
@@ -4215,5 +4202,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton bstatisticsScore;
         private Bunifu.Framework.UI.BunifuFlatButton bExportScore;
         private Bunifu.Framework.UI.BunifuThinButton2 btnRemoveLess;
+        private Bunifu.Framework.UI.BunifuThinButton2 bChangePassword;
     }
 }
