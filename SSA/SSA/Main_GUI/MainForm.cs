@@ -44,6 +44,8 @@ namespace StudentSupportApp
         Connect Connection;
         USER User = new USER();
         ListSem data = new ListSem();
+        ListWeb listWeb;
+
         Color theme = new Color();
         public MainForm(LoginForm parent, string User)
         {
@@ -51,6 +53,7 @@ namespace StudentSupportApp
             this.User.ID = User;
             this.parent = parent;
             this.Connection = new Connect();
+            this.listWeb = new ListWeb(this.User.ID);
             InitializeComponent();
 
             int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
@@ -59,6 +62,7 @@ namespace StudentSupportApp
 
             temp = this.btnHome;
             data.Read(this.User.ID);
+            listWeb.ShowToListView(lvWeb);
 
             this.theme = Properties.Settings.Default.Color;
             SetColorAll(this.theme);
@@ -1828,7 +1832,10 @@ namespace StudentSupportApp
             dataGridViewHomeTimeTB.HeaderBgColor = 
             dataHomeDeadline.HeaderBgColor = 
             bunifuCardTodayTT.color = bunifuCards4.color = 
-            bunifuCards5.color = x;
+            bunifuCards5.color =  cardWeb.color =
+             bAddWeb.BackColor = bAddWeb.ActiveFillColor = bAddWeb.ForeColor = bAddWeb.IdleForecolor = bAddWeb.IdleLineColor =
+              bDelWeb.BackColor = bDelWeb.ActiveFillColor = bDelWeb.ForeColor = bDelWeb.IdleForecolor = bDelWeb.IdleLineColor =
+            x;
         }
 
         void SetColorTabScore(Color x)

@@ -83,13 +83,15 @@ namespace StudentSupportApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
         }
 
         private void bSend_Click(object sender, EventArgs e)
         {
-            if (!BlankData())
+            if(!BlankData())
             {
                 SendMail();
                 MessageBox.Show("Đã gửi thành công");

@@ -98,6 +98,14 @@
     <Compile Include="OtherClass\EmailVerify.cs" />
     <Compile Include="OtherClass\MD5Encoder.cs" />
     <Compile Include="OtherClass\USER.cs" />
+    <Compile Include="Web\DiaWeb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Web\DiaWeb.Designer.cs">
+      <DependentUpon>DiaWeb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web\ListWeb.cs" />
+    <Compile Include="Web\Web.cs" />
     <Compile Include="Score\ScoreStatistics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main_GUI\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Web\DiaWeb.resx">
+      <DependentUpon>DiaWeb.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
