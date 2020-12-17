@@ -70,12 +70,6 @@
     <Compile Include="Deadline\AddDeadline.Designer.cs">
       <DependentUpon>AddDeadline.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main_GUI\ChangePass.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main_GUI\ChangePass.Designer.cs">
-      <DependentUpon>ChangePass.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main_GUI\ForgotPass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,17 +92,18 @@
     <Compile Include="Score\ScoreStatistics.Designer.cs">
       <DependentUpon>ScoreStatistics.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setting\AboutUs.cs">
+    <Compile Include="Social\Review.cs" />
+    <Compile Include="Social\ReviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Setting\AboutUs.Designer.cs">
-      <DependentUpon>AboutUs.cs</DependentUpon>
+    <Compile Include="Social\ReviewForm.Designer.cs">
+      <DependentUpon>ReviewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setting\Feedback.cs">
+    <Compile Include="Social\WriterRVForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Setting\Feedback.Designer.cs">
-      <DependentUpon>Feedback.cs</DependentUpon>
+    <Compile Include="Social\WriterRVForm.Designer.cs">
+      <DependentUpon>WriterRVForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TimeTable\AddLessonForm.cs">
       <SubType>Form</SubType>
@@ -121,6 +116,12 @@
     </Compile>
     <Compile Include="Main_GUI\ChangeEmailForm.Designer.cs">
       <DependentUpon>ChangeEmailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_GUI\ChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_GUI\ChangePass.Designer.cs">
+      <DependentUpon>ChangePass.cs</DependentUpon>
     </Compile>
     <Compile Include="Score\CScore.cs" />
     <Compile Include="Deadline\Deadline.cs" />
@@ -184,9 +185,6 @@
     <EmbeddedResource Include="Deadline\AddDeadline.resx">
       <DependentUpon>AddDeadline.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main_GUI\ChangePass.resx">
-      <DependentUpon>ChangePass.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main_GUI\ForgotPass.aa.resx">
       <DependentUpon>ForgotPass.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,11 +197,11 @@
     <EmbeddedResource Include="Score\ScoreStatistics.resx">
       <DependentUpon>ScoreStatistics.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Setting\AboutUs.resx">
-      <DependentUpon>AboutUs.cs</DependentUpon>
+    <EmbeddedResource Include="Social\ReviewForm.resx">
+      <DependentUpon>ReviewForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Setting\Feedback.resx">
-      <DependentUpon>Feedback.cs</DependentUpon>
+    <EmbeddedResource Include="Social\WriterRVForm.resx">
+      <DependentUpon>WriterRVForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TimeTable\AddLessonForm.resx">
       <DependentUpon>AddLessonForm.cs</DependentUpon>
@@ -211,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main_GUI\ChangeEmailForm.resx">
       <DependentUpon>ChangeEmailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_GUI\ChangePass.resx">
+      <DependentUpon>ChangePass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Score\DiaSem.resx">
       <DependentUpon>DiaSem.cs</DependentUpon>
