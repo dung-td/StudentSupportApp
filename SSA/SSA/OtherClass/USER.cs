@@ -31,13 +31,14 @@ namespace StudentSupportApp
             {
                 Data.OpenConnection();
 
-                SqlCommand command = Data.CreateSQLCmd("select FULLNAME from USERS where ID_USER='" + arg + "'");
+                SqlCommand command = Data.CreateSQLCmd("select FULLNAME, EMAIL from USERS where ID_USER='" + arg + "'");
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.HasRows)
                 {
                     if (reader.Read() == false) break;
                     this.sName = reader.GetString(0);
+                    this.sEmail = reader.GetString(1);
                 }
             }
             catch (Exception ex)
@@ -50,7 +51,7 @@ namespace StudentSupportApp
             {
                 Data.CloseConnection();
             }
-            this.sID = this.sPassword = this.sGender = this.sEmail = this.sClass = "";
+            this.sID = this.sPassword = this.sGender =  this.sClass = "";
             this.Birth = DateTime.Today;
         }
         public string ID
@@ -112,7 +113,7 @@ namespace StudentSupportApp
         {
             get
             {
-                return sEmail;
+               return sEmail;
             }
             set
             {
