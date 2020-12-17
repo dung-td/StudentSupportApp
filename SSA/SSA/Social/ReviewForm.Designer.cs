@@ -52,8 +52,6 @@ namespace StudentSupportApp
             this.lbIDSub = new System.Windows.Forms.Label();
             this.lbWriter = new System.Windows.Forms.Label();
             this.grbTop = new System.Windows.Forms.GroupBox();
-            this.bunifuCards5 = new Bunifu.Framework.UI.BunifuCards();
-            this.bunifuCards6 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuCards3 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuCards4 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
@@ -63,6 +61,7 @@ namespace StudentSupportApp
             this.btnMinimize = new Bunifu.Framework.UI.BunifuImageButton();
             this.label2 = new System.Windows.Forms.Label();
             this.pLogo = new System.Windows.Forms.PictureBox();
+            this.btnWrite = new Bunifu.Framework.UI.BunifuFlatButton();
             this.grbPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrev)).BeginInit();
@@ -72,7 +71,6 @@ namespace StudentSupportApp
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grbTop.SuspendLayout();
-            this.bunifuCards5.SuspendLayout();
             this.bunifuCards3.SuspendLayout();
             this.bunifuCards1.SuspendLayout();
             this.header.SuspendLayout();
@@ -386,7 +384,6 @@ namespace StudentSupportApp
             // 
             // grbTop
             // 
-            this.grbTop.Controls.Add(this.bunifuCards5);
             this.grbTop.Controls.Add(this.bunifuCards3);
             this.grbTop.Controls.Add(this.bunifuCards1);
             this.grbTop.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
@@ -394,39 +391,10 @@ namespace StudentSupportApp
             this.grbTop.Margin = new System.Windows.Forms.Padding(2);
             this.grbTop.Name = "grbTop";
             this.grbTop.Padding = new System.Windows.Forms.Padding(2);
-            this.grbTop.Size = new System.Drawing.Size(236, 526);
+            this.grbTop.Size = new System.Drawing.Size(236, 363);
             this.grbTop.TabIndex = 6;
             this.grbTop.TabStop = false;
             this.grbTop.Text = "Hôm nay có gì mới?";
-            // 
-            // bunifuCards5
-            // 
-            this.bunifuCards5.BackColor = System.Drawing.Color.White;
-            this.bunifuCards5.BorderRadius = 5;
-            this.bunifuCards5.BottomSahddow = true;
-            this.bunifuCards5.color = System.Drawing.Color.Tomato;
-            this.bunifuCards5.Controls.Add(this.bunifuCards6);
-            this.bunifuCards5.LeftSahddow = false;
-            this.bunifuCards5.Location = new System.Drawing.Point(5, 355);
-            this.bunifuCards5.Name = "bunifuCards5";
-            this.bunifuCards5.RightSahddow = true;
-            this.bunifuCards5.ShadowDepth = 20;
-            this.bunifuCards5.Size = new System.Drawing.Size(226, 157);
-            this.bunifuCards5.TabIndex = 3;
-            // 
-            // bunifuCards6
-            // 
-            this.bunifuCards6.BackColor = System.Drawing.Color.White;
-            this.bunifuCards6.BorderRadius = 5;
-            this.bunifuCards6.BottomSahddow = true;
-            this.bunifuCards6.color = System.Drawing.Color.Tomato;
-            this.bunifuCards6.LeftSahddow = false;
-            this.bunifuCards6.Location = new System.Drawing.Point(0, 163);
-            this.bunifuCards6.Name = "bunifuCards6";
-            this.bunifuCards6.RightSahddow = true;
-            this.bunifuCards6.ShadowDepth = 20;
-            this.bunifuCards6.Size = new System.Drawing.Size(226, 157);
-            this.bunifuCards6.TabIndex = 1;
             // 
             // bunifuCards3
             // 
@@ -550,11 +518,48 @@ namespace StudentSupportApp
             this.pLogo.TabIndex = 2;
             this.pLogo.TabStop = false;
             // 
+            // btnWrite
+            // 
+            this.btnWrite.Activecolor = System.Drawing.Color.Transparent;
+            this.btnWrite.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnWrite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnWrite.BorderRadius = 0;
+            this.btnWrite.ButtonText = "Viết đánh giá";
+            this.btnWrite.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWrite.DisabledColor = System.Drawing.Color.FloralWhite;
+            this.btnWrite.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnWrite.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnWrite.Iconimage")));
+            this.btnWrite.Iconimage_right = null;
+            this.btnWrite.Iconimage_right_Selected = null;
+            this.btnWrite.Iconimage_Selected = null;
+            this.btnWrite.IconMarginLeft = 0;
+            this.btnWrite.IconMarginRight = 0;
+            this.btnWrite.IconRightVisible = true;
+            this.btnWrite.IconRightZoom = 0D;
+            this.btnWrite.IconVisible = true;
+            this.btnWrite.IconZoom = 90D;
+            this.btnWrite.IsTab = false;
+            this.btnWrite.Location = new System.Drawing.Point(840, 462);
+            this.btnWrite.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.btnWrite.Name = "btnWrite";
+            this.btnWrite.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnWrite.OnHovercolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnWrite.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnWrite.selected = false;
+            this.btnWrite.Size = new System.Drawing.Size(205, 47);
+            this.btnWrite.TabIndex = 18;
+            this.btnWrite.Text = "Viết đánh giá";
+            this.btnWrite.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnWrite.Textcolor = System.Drawing.Color.Black;
+            this.btnWrite.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
+            // 
             // ReviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 585);
+            this.Controls.Add(this.btnWrite);
             this.Controls.Add(this.header);
             this.Controls.Add(this.grbTop);
             this.Controls.Add(this.grbPost);
@@ -573,7 +578,6 @@ namespace StudentSupportApp
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grbTop.ResumeLayout(false);
-            this.bunifuCards5.ResumeLayout(false);
             this.bunifuCards3.ResumeLayout(false);
             this.bunifuCards1.ResumeLayout(false);
             this.header.ResumeLayout(false);
@@ -605,8 +609,6 @@ namespace StudentSupportApp
         private System.Windows.Forms.Panel header;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pLogo;
-        private Bunifu.Framework.UI.BunifuCards bunifuCards5;
-        private Bunifu.Framework.UI.BunifuCards bunifuCards6;
         private Bunifu.Framework.UI.BunifuCards bunifuCards3;
         private Bunifu.Framework.UI.BunifuCards bunifuCards4;
         private Bunifu.Framework.UI.BunifuCards bunifuCards1;
@@ -620,5 +622,6 @@ namespace StudentSupportApp
         private Bunifu.Framework.UI.BunifuImageButton btnMinimize;
         private Bunifu.Framework.UI.BunifuMetroTextbox tbxKeyWord;
         private Bunifu.Framework.UI.BunifuFlatButton btnFind;
+        private Bunifu.Framework.UI.BunifuFlatButton btnWrite;
     }
 }

@@ -163,5 +163,11 @@ namespace StudentSupportApp
         {
             OnMouseDown(e);
         }
+
+        private void btnWrite_Click(object sender, EventArgs e)
+        {
+            WriterRVForm Writer = new WriterRVForm(this);
+            Writer.Show();
+        }
     }
 }
