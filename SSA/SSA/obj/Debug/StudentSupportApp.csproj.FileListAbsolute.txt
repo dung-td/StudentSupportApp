@@ -36,7 +36,6 @@ C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\bin\Debug\aa\SSA.re
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\bin\Debug\itextsharp.dll
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\bin\Debug\itextsharp.xml
-C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.csprojAssemblyReference.cache
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.AddDeadline.resources
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.ForgotPass.resources
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.ReportError.resources
@@ -62,3 +61,5 @@ C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\SSA.exe
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\SSA.pdb
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.ReviewForm.resources
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.WriterRVForm.resources
+C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.AboutUs.resources
+C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Feedback.resources

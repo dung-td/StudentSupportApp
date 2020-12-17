@@ -64,11 +64,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutUs.designer.cs">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Deadline\AddDeadline.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Deadline\AddDeadline.Designer.cs">
       <DependentUpon>AddDeadline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Feedback.designer.cs">
+      <DependentUpon>Feedback.cs</DependentUpon>
     </Compile>
     <Compile Include="Main_GUI\ForgotPass.cs">
       <SubType>Form</SubType>
@@ -182,8 +194,14 @@
     </Compile>
     <Compile Include="Score\Subject.cs" />
     <Compile Include="TimeTable\Timetable.cs" />
+    <EmbeddedResource Include="AboutUs.resx">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Deadline\AddDeadline.resx">
       <DependentUpon>AddDeadline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Feedback.resx">
+      <DependentUpon>Feedback.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_GUI\ForgotPass.aa.resx">
       <DependentUpon>ForgotPass.cs</DependentUpon>
