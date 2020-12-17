@@ -80,7 +80,7 @@ namespace StudentSupportApp
                 slidemenu.Visible = false;
                 slidemenu.Width = 260;
                 this.lbHello.Location = new Point(this.lbHello.Location.X - 110, this.lbHello.Location.Y);
-                PanelAnimatior.ShowSync(slidemenu);
+                animation1.ShowSync(slidemenu);
                 //Dung
                 this.cardDeadline.Width -= 200;
                 this.cardStatus.Width -= 104;
@@ -104,6 +104,7 @@ namespace StudentSupportApp
                 btnSaveInfo.Location = new Point(btnSaveInfo.Location.X - 210, btnSaveInfo.Location.Y);
                 btnCancelInfo.Location = new Point(btnCancelInfo.Location.X - 210, btnCancelInfo.Location.Y);
                 btnChangeEmail.Location = new Point(btnChangeEmail.Location.X - 210, btnChangeEmail.Location.Y);
+                bChangePassword.Location = new Point(bChangePassword.Location.X - 210, bChangePassword.Location.Y);
                 this.tbxNameInfo.Width -= 210;
                 this.tbxGenderInfo.Width -= 210;
                 this.tbxClassInfo.Width -= 210;
@@ -173,7 +174,7 @@ namespace StudentSupportApp
                 cardMore.Width -= 125;
 
                 bSetData.Location = new Point(bSetData.Location.X - 25, bSetData.Location.Y);
-                bChangePass.Location = new Point(bChangePass.Location.X - 25, bChangePass.Location.Y);
+               
                 bDelAcc.Location = new Point(bDelAcc.Location.X - 25, bDelAcc.Location.Y);
 
                 bFeedSup.Location = new Point(bFeedSup.Location.X - 100, bFeedSup.Location.Y);
@@ -191,7 +192,7 @@ namespace StudentSupportApp
                 slidemenu.Visible = false;
                 slidemenu.Width = 55;
                 this.lbHello.Location = new Point(this.lbHello.Location.X + 110, this.lbHello.Location.Y);
-                PanelAnimatior.ShowSync(slidemenu);
+                animation1.ShowSync(slidemenu);
                 //Dung
                 this.cardDeadline.Width += 200;
                 this.cardStatus.Width += 104;
@@ -216,6 +217,7 @@ namespace StudentSupportApp
                 btnSaveInfo.Location = new Point(btnSaveInfo.Location.X + 210, btnSaveInfo.Location.Y);
                 btnCancelInfo.Location = new Point(btnCancelInfo.Location.X + 210, btnCancelInfo.Location.Y);
                 btnChangeEmail.Location = new Point(btnChangeEmail.Location.X + 210, btnChangeEmail.Location.Y);
+                bChangePassword.Location = new Point(bChangePassword.Location.X + 210, bChangePassword.Location.Y);
                 this.tbxNameInfo.Width += 210;
                 this.tbxGenderInfo.Width += 210;
                 this.tbxClassInfo.Width += 210;
@@ -284,7 +286,6 @@ namespace StudentSupportApp
                 cardMore.Width += 125;
 
                 bSetData.Location = new Point(bSetData.Location.X + 25, bSetData.Location.Y);
-                bChangePass.Location = new Point(bChangePass.Location.X + 25, bChangePass.Location.Y);
                 bDelAcc.Location = new Point(bDelAcc.Location.X + 25, bDelAcc.Location.Y);
 
                 bFeedSup.Location = new Point(bFeedSup.Location.X + 100, bFeedSup.Location.Y);
@@ -480,7 +481,6 @@ namespace StudentSupportApp
             this.Hide();
             ReviewForm.Show();
         }
-
     }
 }
 
@@ -1762,9 +1762,7 @@ namespace StudentSupportApp
         }
         private void bChangePass_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ChangePass form = new ChangePass(this, this.User.ID, this.User.Password);
-            form.Show();
+          
         }
         private void bDelAcc_Click(object sender, EventArgs e)
         {
@@ -1789,6 +1787,29 @@ namespace StudentSupportApp
             {
                 Application.Exit();
             }
+        }
+
+        private void bAboutUs_Click(object sender, EventArgs e)
+        {
+            AboutUs form = new AboutUs(this);
+            this.Hide();
+            form.Show();
+        }
+
+        private void bFeedSup_Click(object sender, EventArgs e)
+        {
+            Feedback form = new Feedback(this, User.Email, this.User.ID);
+            this.Hide();
+            form.Show();
+        }
+        #endregion
+
+        #region ChangePass
+        private void bChangePassword_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ChangePass form = new ChangePass(this, this.User.ID, this.User.Password);
+            form.Show();
         }
         #endregion
 
@@ -1880,7 +1901,7 @@ namespace StudentSupportApp
 
                    bunifuCardAcc.color = lbAccount.ForeColor =
                     btnChangeEmail.ActiveFillColor = btnChangeEmail.ActiveLineColor = btnChangeEmail.IdleLineColor = btnChangeEmail.IdleForecolor =
-
+                     bChangePassword.ActiveFillColor = bChangePassword.ActiveLineColor = bChangePassword.IdleLineColor = bChangePassword.IdleForecolor =
                     tbxClassInfo.LineFocusedColor =tbxClassInfo.LineMouseHoverColor =
                      tbxEmailInfo.LineFocusedColor = tbxEmailInfo.LineMouseHoverColor =
                       tbxGenderInfo.LineFocusedColor = tbxGenderInfo.LineMouseHoverColor =
@@ -1891,7 +1912,7 @@ namespace StudentSupportApp
         void SetColorTabSetting(Color x)
         {
             cardAcc.color = lAccHead.BackColor =
-                 bSetData.Textcolor= bChangePass.Textcolor = bDelAcc.Textcolor =
+                 bSetData.Textcolor= bDelAcc.Textcolor =
 
                 cardTheme.color = lThemeHead.BackColor = bSetTheme.Textcolor =
 
@@ -1961,7 +1982,7 @@ namespace StudentSupportApp
         }
         private void bTheme4_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Color = Color.Brown;
+            Properties.Settings.Default.Color = Color.Green;
             Properties.Settings.Default.Save();
             MessageBox.Show("Ứng dụng sẽ khởi động lại để thay đổi được áp dụng!");
             Restart();
