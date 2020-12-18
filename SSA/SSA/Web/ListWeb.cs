@@ -50,6 +50,7 @@ namespace StudentSupportApp
         public void ShowToListView(ListView lv)
         {
             this.list.Clear();
+            lv.Items.Clear();
             this.ReadData();
             for (int i=0; i<this.Amount; i++)
                 list[i].ShowToListView(lv, i);

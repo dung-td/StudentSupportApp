@@ -95,7 +95,7 @@
             this.lbTimetable = new System.Windows.Forms.Label();
             this.panelHome = new System.Windows.Forms.Panel();
             this.cardWeb = new Bunifu.Framework.UI.BunifuCards();
-            this.bDelWeb = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bModWeb = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bAddWeb = new Bunifu.Framework.UI.BunifuThinButton2();
             this.lvWeb = new System.Windows.Forms.ListView();
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -921,7 +921,7 @@
             this.cardWeb.BorderRadius = 5;
             this.cardWeb.BottomSahddow = true;
             this.cardWeb.color = System.Drawing.SystemColors.Highlight;
-            this.cardWeb.Controls.Add(this.bDelWeb);
+            this.cardWeb.Controls.Add(this.bModWeb);
             this.cardWeb.Controls.Add(this.bAddWeb);
             this.cardWeb.Controls.Add(this.lvWeb);
             this.cardWeb.Controls.Add(this.lWeb);
@@ -934,31 +934,32 @@
             this.cardWeb.Size = new System.Drawing.Size(420, 155);
             this.cardWeb.TabIndex = 11;
             // 
-            // bDelWeb
+            // bModWeb
             // 
-            this.bDelWeb.ActiveBorderThickness = 1;
-            this.bDelWeb.ActiveCornerRadius = 20;
-            this.bDelWeb.ActiveFillColor = System.Drawing.SystemColors.Highlight;
-            this.bDelWeb.ActiveForecolor = System.Drawing.Color.White;
-            this.bDelWeb.ActiveLineColor = System.Drawing.Color.Empty;
-            this.bDelWeb.BackColor = System.Drawing.Color.White;
-            this.bDelWeb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bDelWeb.BackgroundImage")));
-            this.bDelWeb.ButtonText = "-";
-            this.bDelWeb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.animation1.SetDecoration(this.bDelWeb, AnimatorNS.DecorationType.None);
-            this.bDelWeb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bDelWeb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bDelWeb.IdleBorderThickness = 1;
-            this.bDelWeb.IdleCornerRadius = 20;
-            this.bDelWeb.IdleFillColor = System.Drawing.Color.Transparent;
-            this.bDelWeb.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bDelWeb.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bDelWeb.Location = new System.Drawing.Point(377, 5);
-            this.bDelWeb.Margin = new System.Windows.Forms.Padding(5);
-            this.bDelWeb.Name = "bDelWeb";
-            this.bDelWeb.Size = new System.Drawing.Size(32, 34);
-            this.bDelWeb.TabIndex = 44;
-            this.bDelWeb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bModWeb.ActiveBorderThickness = 1;
+            this.bModWeb.ActiveCornerRadius = 20;
+            this.bModWeb.ActiveFillColor = System.Drawing.SystemColors.Highlight;
+            this.bModWeb.ActiveForecolor = System.Drawing.Color.White;
+            this.bModWeb.ActiveLineColor = System.Drawing.Color.Empty;
+            this.bModWeb.BackColor = System.Drawing.Color.White;
+            this.bModWeb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bModWeb.BackgroundImage")));
+            this.bModWeb.ButtonText = "*";
+            this.bModWeb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.animation1.SetDecoration(this.bModWeb, AnimatorNS.DecorationType.None);
+            this.bModWeb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bModWeb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.bModWeb.IdleBorderThickness = 1;
+            this.bModWeb.IdleCornerRadius = 20;
+            this.bModWeb.IdleFillColor = System.Drawing.Color.Transparent;
+            this.bModWeb.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.bModWeb.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.bModWeb.Location = new System.Drawing.Point(384, 5);
+            this.bModWeb.Margin = new System.Windows.Forms.Padding(5);
+            this.bModWeb.Name = "bModWeb";
+            this.bModWeb.Size = new System.Drawing.Size(32, 34);
+            this.bModWeb.TabIndex = 44;
+            this.bModWeb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bModWeb.Click += new System.EventHandler(this.bModWeb_Click);
             // 
             // bAddWeb
             // 
@@ -979,12 +980,13 @@
             this.bAddWeb.IdleFillColor = System.Drawing.Color.Transparent;
             this.bAddWeb.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bAddWeb.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bAddWeb.Location = new System.Drawing.Point(337, 5);
+            this.bAddWeb.Location = new System.Drawing.Point(346, 5);
             this.bAddWeb.Margin = new System.Windows.Forms.Padding(5);
             this.bAddWeb.Name = "bAddWeb";
             this.bAddWeb.Size = new System.Drawing.Size(32, 34);
             this.bAddWeb.TabIndex = 43;
             this.bAddWeb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bAddWeb.Click += new System.EventHandler(this.bAddWeb_Click);
             // 
             // lvWeb
             // 
@@ -999,6 +1001,7 @@
             this.lvWeb.TabIndex = 3;
             this.lvWeb.UseCompatibleStateImageBehavior = false;
             this.lvWeb.View = System.Windows.Forms.View.Details;
+            this.lvWeb.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvWeb_MouseClick);
             // 
             // name
             // 
@@ -4395,7 +4398,7 @@
         private System.Windows.Forms.ColumnHeader name;
         private System.Windows.Forms.ColumnHeader url;
         private System.Windows.Forms.Label lWeb;
-        private Bunifu.Framework.UI.BunifuThinButton2 bDelWeb;
         private Bunifu.Framework.UI.BunifuThinButton2 bAddWeb;
+        private Bunifu.Framework.UI.BunifuThinButton2 bModWeb;
     }
 }

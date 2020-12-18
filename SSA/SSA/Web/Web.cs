@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace StudentSupportApp
 {
-    class Web
+    public class Web
     {
         string sTitle;
         string sURL;
@@ -27,6 +27,15 @@ namespace StudentSupportApp
             this.UserID = id;
         }
 
+        public string URL
+        {
+            get => sURL;
+        }
+
+        public string Title
+        {
+            get => sTitle;
+        }
         public Web(Web tmp)
         {
             this.UserID = tmp.UserID;
@@ -49,11 +58,11 @@ namespace StudentSupportApp
             }
         }
 
-        public void Delete(string url)
+        public void Delete()
         {
             try
             {
-                string sql = "delete from WEB where URL_WEB = '"+url+"' and ID_USER = '"+this.UserID+"' and TITLE = '"+this.sTitle+"')" ;
+                string sql = "delete from WEB where URL_WEB = '"+this.URL+"' and ID_USER = '"+this.UserID+"' and TITLE = '"+this.sTitle+"')" ;
                 SqlCommand command = CONNECT.CreateSQLCmd(sql);
                 command.ExecuteNonQuery();
                 CONNECT.CloseConnection();
@@ -79,15 +88,28 @@ namespace StudentSupportApp
             }
         }
 
-        public void Access(string url)
+        public void Access()
         {
-            System.Diagnostics.Process.Start(url);
+            try
+            {
+                System.Diagnostics.Process.Start(this.URL);
+            }catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public void ShowToListView(ListView lv, int index)
         {
-            lv.Items.Add(this.sTitle.ToString());
-            lv.Items[index].SubItems.Add(this.sURL.ToString());
+            try
+            {
+                lv.Items.Add(this.sTitle.ToString());
+                lv.Items[index].SubItems.Add(this.sURL.ToString());
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
         }
     }
 }

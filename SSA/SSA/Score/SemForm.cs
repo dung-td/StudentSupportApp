@@ -30,26 +30,35 @@ namespace StudentSupportApp
         }
         public SemForm(MainForm p, string id)
         {
-            data = new ListSem();
-            CONNECT = new Connect();
-            this.UserID = id;
-            this.parent = p;
-            
-            InitializeComponent();
+            try
+            {
+                data = new ListSem();
+                CONNECT = new Connect();
+                this.UserID = id;
+                this.parent = p;
 
-            int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
-            style |= NativeWinAPI.WS_EX_COMPOSITED;
-            NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
+                InitializeComponent();
 
-            data.Read(UserID);
-            data.ShowSemToGridView(dtgvSem);
-            lSum.Text = "Số tín chỉ: " + data.SumOfCre.ToString();
-            lAver.Text = "Điểm TB: " + data.Average.ToString();
+                int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
+                style |= NativeWinAPI.WS_EX_COMPOSITED;
+                NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
 
-            bMod.Visible = bDel.Visible = false;
-            data.SEMESTERS.Clear();
+                data.Read(UserID);
+                data.ShowSemToGridView(dtgvSem);
+                lSum.Text = "Số tín chỉ: " + data.SumOfCre.ToString();
+                lAver.Text = "Điểm TB: " + data.Average.ToString();
 
-            SetColor(Properties.Settings.Default.Color);
+                bMod.Visible = bDel.Visible = false;
+                data.SEMESTERS.Clear();
+
+                SetColor(Properties.Settings.Default.Color);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
+            }
         }
 
         public void GetValue(string value)

@@ -8,6 +8,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.Windows;
 
 namespace StudentSupportApp
 {
@@ -74,7 +75,7 @@ namespace StudentSupportApp
         }
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
-            
+
             Application.Exit();
         }
         private void btnCollapse_Click(object sender, EventArgs e)
@@ -132,7 +133,7 @@ namespace StudentSupportApp
 
                 // AddScore
                 this.cardAddScore.Width -= 220;
-                this.cardSBoard.Width-= 220;
+                this.cardSBoard.Width -= 220;
 
                 lSem.Location = new Point(lSem.Location.X - 100, lSem.Location.Y);
                 lAddScore.Location = new Point(lAddScore.Location.X - 100, lAddScore.Location.Y);
@@ -162,7 +163,7 @@ namespace StudentSupportApp
                 bDel.Location = new Point(bDel.Location.X + 100, bDel.Location.Y);
 
                 //ScoreBoard
-               
+
                 lSBoard.Location = new Point(lSBoard.Location.X - 100, lSBoard.Location.Y);
                 lAmountSub.Location = new Point(lAmountSub.Location.X - 35, lAmountSub.Location.Y);
                 lSumCre.Location = new Point(lSumCre.Location.X - 35, lSumCre.Location.Y);
@@ -172,13 +173,13 @@ namespace StudentSupportApp
 
                 //Setting
                 cardAcc.Width -= 125;
-               
+
                 cardTheme.Location = new Point(cardTheme.Location.X - 150, cardTheme.Location.Y);
                 cardTheme.Width -= 50;
                 cardMore.Width -= 125;
 
                 bSetData.Location = new Point(bSetData.Location.X - 25, bSetData.Location.Y);
-               
+
                 bDelAcc.Location = new Point(bDelAcc.Location.X - 25, bDelAcc.Location.Y);
 
                 bFeedSup.Location = new Point(bFeedSup.Location.X - 100, bFeedSup.Location.Y);
@@ -247,12 +248,12 @@ namespace StudentSupportApp
 
                 //AddScore
                 lSem.Location = new Point(lSem.Location.X + 100, lSem.Location.Y);
-                lAddScore.Location = new Point(lAddScore.Location.X+100, lAddScore.Location.Y);
+                lAddScore.Location = new Point(lAddScore.Location.X + 100, lAddScore.Location.Y);
                 bSem.Location = new Point(bSem.Location.X + 100, bSem.Location.Y);
                 cbSemester.Location = new Point(cbSemester.Location.X + 100, cbSemester.Location.Y);
-                tbSubID.Location = new Point(tbSubID.Location.X+100, tbSubID.Location.Y);
-                tbSubName.Location = new Point(tbSubName.Location.X+100, tbSubName.Location.Y);
-                tbCredit.Location = new Point(tbCredit.Location.X+100, tbCredit.Location.Y);
+                tbSubID.Location = new Point(tbSubID.Location.X + 100, tbSubID.Location.Y);
+                tbSubName.Location = new Point(tbSubName.Location.X + 100, tbSubName.Location.Y);
+                tbCredit.Location = new Point(tbCredit.Location.X + 100, tbCredit.Location.Y);
 
                 lPro.Location = new Point(lPro.Location.X - 100, lPro.Location.Y);
                 lMid.Location = new Point(lMid.Location.X - 100, lMid.Location.Y);
@@ -274,7 +275,7 @@ namespace StudentSupportApp
                 bDel.Location = new Point(bDel.Location.X - 100, bDel.Location.Y);
 
                 //ScoreBoard
-                
+
                 lSBoard.Location = new Point(lSBoard.Location.X + 100, lSBoard.Location.Y);
                 lAmountSub.Location = new Point(lAmountSub.Location.X + 35, lAmountSub.Location.Y);
                 lSumCre.Location = new Point(lSumCre.Location.X + 35, lSumCre.Location.Y);
@@ -284,7 +285,7 @@ namespace StudentSupportApp
 
                 //Setting
                 cardAcc.Width += 125;
-                
+
                 cardTheme.Location = new Point(cardTheme.Location.X + 150, cardTheme.Location.Y);
                 cardTheme.Width += 50;
                 cardMore.Width += 125;
@@ -422,7 +423,7 @@ namespace StudentSupportApp
 
                 bExportScore.Visible = bstatisticsScore.Visible = false;
 
-                
+
 
                 AddItemToComboBoxSemester();
             }
@@ -480,15 +481,10 @@ namespace StudentSupportApp
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             ReviewForm ReviewForm = new ReviewForm(this.User.ID);
             this.Hide();
             ReviewForm.Show();
-        }
-
-        private void bFeedSup_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
@@ -644,7 +640,7 @@ namespace StudentSupportApp
                     SqlCommand command = this.Connection.CreateSQLCmd(Query);
                     dataDeadline.Rows.RemoveAt(row.Index);
                     command.ExecuteNonQuery();
-                 
+
                 }
                 catch (Exception ex)
                 {
@@ -731,8 +727,8 @@ namespace StudentSupportApp
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 MessageBox.Show("SAVED!", "Notification", buttons);
             }
-            catch(Exception ex)
-{
+            catch (Exception ex)
+            {
                 MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
                 ReportError rp = new ReportError(this, ex);
                 rp.Show();
@@ -741,7 +737,7 @@ namespace StudentSupportApp
             finally
             {
                 Connection.CloseConnection();
-                bRefresh_Click(sender, e);    
+                bRefresh_Click(sender, e);
             }
         }
         private void NearestDeadline()
@@ -1313,7 +1309,7 @@ namespace StudentSupportApp
     public partial class MainForm
     {
         #region Score
-        public void ShowToListView(string semester)
+        public void ShowScoresToListView(string semester)
         {
             try
             {
@@ -1333,7 +1329,11 @@ namespace StudentSupportApp
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
+
             }
         }
         private void ResetTextbox()
@@ -1347,22 +1347,31 @@ namespace StudentSupportApp
         }
         private void cbSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string sSemester = cbSemester.SelectedItem.ToString();
-            data.SEMESTERS.Clear();
-            data.Read(this.User.ID);
-            lvScoreBoard.Items.Clear();
-            ShowToListView(sSemester);
+            try
+            {
+                string sSemester = cbSemester.SelectedItem.ToString();
+                data.SEMESTERS.Clear();
+                data.Read(this.User.ID);
+                lvScoreBoard.Items.Clear();
+                ShowScoresToListView(sSemester);
 
-            bAddScore.Visible = bModify.Visible = bDel.Visible = true;
-            tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
-            tbMidVa.Enabled = tbMidWei.Enabled = true;
-            tbPracVa.Enabled = tbPracWei.Enabled = true;
-            tbProVa.Enabled = tbProWei.Enabled = true;
-            tbFinVa.Enabled = tbFinWei.Enabled = true;
+                bAddScore.Visible = bModify.Visible = bDel.Visible = true;
+                tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
+                tbMidVa.Enabled = tbMidWei.Enabled = true;
+                tbPracVa.Enabled = tbPracWei.Enabled = true;
+                tbProVa.Enabled = tbProWei.Enabled = true;
+                tbFinVa.Enabled = tbFinWei.Enabled = true;
 
-            bModify.Visible = bDel.Visible = false;
-            bExportScore.Visible = bstatisticsScore.Visible = true;
-            data.SEMESTERS.Clear();
+                bModify.Visible = bDel.Visible = false;
+                bExportScore.Visible = bstatisticsScore.Visible = true;
+                data.SEMESTERS.Clear();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
+            }
 
             //ResetTextbox();
         }
@@ -1395,7 +1404,7 @@ namespace StudentSupportApp
                         lvScoreBoard.Items.Clear();
                         scTmp.Modify(this.User.ID, cbSemester);
 
-                        ShowToListView(cbSemester.SelectedItem.ToString());
+                        ShowScoresToListView(cbSemester.SelectedItem.ToString());
                     }
                     bAddScore.Visible = true;
                     tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
@@ -1439,7 +1448,7 @@ namespace StudentSupportApp
                     MessageBox.Show("Đã thêm!", "THÊM ĐIỂM SỐ");
 
                     lvScoreBoard.Items.Clear();
-                    ShowToListView(cbSemester.SelectedItem.ToString());
+                    ShowScoresToListView(cbSemester.SelectedItem.ToString());
                 }
             }
             catch (Exception err)
@@ -1469,7 +1478,7 @@ namespace StudentSupportApp
                     MessageBox.Show("Đã xoá!", caption);
 
                     lvScoreBoard.Items.Clear();
-                    ShowToListView(cbSemester.SelectedItem.ToString());
+                    ShowScoresToListView(cbSemester.SelectedItem.ToString());
                 }
                 bAddScore.Enabled = true;
                 tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
@@ -1713,8 +1722,8 @@ namespace StudentSupportApp
                                 pdfDoc.Open();
 
                                 pdfDoc.Add(new Paragraph("Họ và tên: " + User.Name.ToString(), fontNormal));
-                                pdfDoc.Add(new Paragraph( l_Average.Text.ToString(), fontNormal));
-                                pdfDoc.Add(new Paragraph( lSumCre.Text.ToString(), fontNormal));
+                                pdfDoc.Add(new Paragraph(l_Average.Text.ToString(), fontNormal));
+                                pdfDoc.Add(new Paragraph(lSumCre.Text.ToString(), fontNormal));
                                 pdfDoc.Add(new Paragraph(lAmountSub.Text.ToString(), fontNormal));
                                 pdfDoc.Add(new Paragraph("\n\n"));
                                 pdfDoc.Add(new Paragraph("Bảng điểm " + this.cbSemester.Text.ToUpper(), fontNormal));
@@ -1765,13 +1774,15 @@ namespace StudentSupportApp
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
             }
 
         }
         private void bChangePass_Click(object sender, EventArgs e)
         {
-          
+
         }
         private void bDelAcc_Click(object sender, EventArgs e)
         {
@@ -1829,12 +1840,12 @@ namespace StudentSupportApp
             lbTodayTT.ForeColor =
             lbNearDeadline.ForeColor =
             lbAvgScore.ForeColor =
-            dataGridViewHomeTimeTB.HeaderBgColor = 
-            dataHomeDeadline.HeaderBgColor = 
-            bunifuCardTodayTT.color = bunifuCards4.color = 
-            bunifuCards5.color =  cardWeb.color =
+            dataGridViewHomeTimeTB.HeaderBgColor =
+            dataHomeDeadline.HeaderBgColor =
+            bunifuCardTodayTT.color = bunifuCards4.color =
+            bunifuCards5.color = cardWeb.color =
              bAddWeb.BackColor = bAddWeb.ActiveFillColor = bAddWeb.ForeColor = bAddWeb.IdleForecolor = bAddWeb.IdleLineColor =
-              bDelWeb.BackColor = bDelWeb.ActiveFillColor = bDelWeb.ForeColor = bDelWeb.IdleForecolor = bDelWeb.IdleLineColor =
+                bModWeb.BackColor = bModWeb.ActiveFillColor = bModWeb.ForeColor = bModWeb.IdleForecolor = bModWeb.IdleLineColor =
             x;
         }
 
@@ -1868,7 +1879,7 @@ namespace StudentSupportApp
                 labelDate.ForeColor =
                 cardStatus.color =
 
-            cardInfo.color = 
+            cardInfo.color =
             bunifuCustomLabel4.ForeColor =
             //bdateTime.ForeColor = 
             bdateTime.BackColor =
@@ -1901,7 +1912,7 @@ namespace StudentSupportApp
             btnExportTT.ActiveFillColor = btnExportTT.ActiveLineColor = btnExportTT.IdleLineColor = btnExportTT.IdleForecolor =
             btnRemoveLess.ActiveFillColor = btnRemoveLess.ActiveLineColor = btnRemoveLess.IdleLineColor = btnRemoveLess.IdleForecolor =
 
-            bCardTimetable.color = lbTimetable.ForeColor = x; 
+            bCardTimetable.color = lbTimetable.ForeColor = x;
         }
 
         void SetColorTabInfo(Color x)
@@ -1914,7 +1925,7 @@ namespace StudentSupportApp
                    bunifuCardAcc.color = lbAccount.ForeColor =
                     btnChangeEmail.ActiveFillColor = btnChangeEmail.ActiveLineColor = btnChangeEmail.IdleLineColor = btnChangeEmail.IdleForecolor =
                      bChangePassword.ActiveFillColor = bChangePassword.ActiveLineColor = bChangePassword.IdleLineColor = bChangePassword.IdleForecolor =
-                    tbxClassInfo.LineFocusedColor =tbxClassInfo.LineMouseHoverColor =
+                    tbxClassInfo.LineFocusedColor = tbxClassInfo.LineMouseHoverColor =
                      tbxEmailInfo.LineFocusedColor = tbxEmailInfo.LineMouseHoverColor =
                       tbxGenderInfo.LineFocusedColor = tbxGenderInfo.LineMouseHoverColor =
                        tbxNameInfo.LineFocusedColor = tbxNameInfo.LineMouseHoverColor =
@@ -1924,11 +1935,11 @@ namespace StudentSupportApp
         void SetColorTabSetting(Color x)
         {
             cardAcc.color = lAccHead.BackColor =
-                 bSetData.Textcolor= bDelAcc.Textcolor =
+                 bSetData.Textcolor = bDelAcc.Textcolor =
 
                 cardTheme.color = lThemeHead.BackColor = bSetTheme.Textcolor =
 
-                cardMore.color = lMoreHead.BackColor = 
+                cardMore.color = lMoreHead.BackColor =
                 bFeedSup.Textcolor = bShareApp.Textcolor = bAboutUs.Textcolor = x;
         }
 
@@ -1950,7 +1961,7 @@ namespace StudentSupportApp
             btnSetting.OnHovercolor = //btnSetting.OnHoverTextColor =
             //btnLogOut.BackColor = btnLogOut.Activecolor = btnLogOut.Normalcolor = 
             btnLogOut.OnHovercolor //= btnLogOut.OnHoverTextColor
-            =btnCollapse.BackColor
+            = btnCollapse.BackColor
             = x;
         }
 
@@ -1999,6 +2010,83 @@ namespace StudentSupportApp
             MessageBox.Show("Ứng dụng sẽ khởi động lại để thay đổi được áp dụng!");
             Restart();
         }
+        #endregion
+
+        #region Web
+        public void ShowWebsToListView()
+        {
+            
+            this.listWeb.ShowToListView(lvWeb);
+        }
+
+        private void bAddWeb_Click(object sender, EventArgs e)
+        {
+            DiaWeb form = new DiaWeb(this, this.User.ID, "add");
+            this.Hide();
+            form.Show();
+        }
+
+        //private void lvWeb_Click(object sender, EventArgs e)
+        //{
+        //    //Web accessWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
+        //    //accessWeb.Access();
+            
+        //    Web modWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
+        //    DiaWeb form = new DiaWeb(this, this.User.ID, modWeb, "modify");
+        //    this.Hide();
+        //    form.Show();
+        //}
+
+
+        private void bModWeb_Click(object sender, EventArgs e)
+        {
+          
+            Web modWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
+            DiaWeb form = new DiaWeb(this, this.User.ID, modWeb, "modify");
+            this.Hide();
+            form.Show();
+        }
+
+
+        private void lvWeb_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Clicks == 2)
+            {
+                Web modWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
+                DiaWeb form = new DiaWeb(this, this.User.ID, modWeb, "modify");
+                this.Hide();
+                form.Show();
+            }
+            if (e.Clicks == 1)
+            {
+                Web accessWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
+                accessWeb.Access();
+            }
+        }
+
+
+        private void lvWeb_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Clicks == 1)
+            {
+                Web modWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
+                DiaWeb form = new DiaWeb(this, this.User.ID, modWeb, "modify");
+                this.Hide();
+                form.Show();
+            }
+            if (e.Clicks == 2)
+            {
+                Web accessWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
+                accessWeb.Access();
+            }
+        }
+        //private void lvWeb_DoubleClick(object sender, EventArgs e)
+        //{
+        //    Web modWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
+        //    DiaWeb form = new DiaWeb(this, this.User.ID, modWeb, "modify");
+        //    this.Hide();
+        //    form.Show();
+        //}
         #endregion
     }
 }
