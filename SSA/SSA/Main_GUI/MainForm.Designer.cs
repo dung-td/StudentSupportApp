@@ -82,6 +82,10 @@
             this.btnScore = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnHome = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCollapse = new Bunifu.Framework.UI.BunifuImageButton();
+            this.bunifuCards5 = new Bunifu.Framework.UI.BunifuCards();
+            this.lCreSum = new System.Windows.Forms.Label();
+            this.lAverAll = new System.Windows.Forms.Label();
+            this.lbAvgScore = new System.Windows.Forms.Label();
             this.bCardTimetable = new Bunifu.Framework.UI.BunifuCards();
             this.dataGridViewTimetable = new System.Windows.Forms.DataGridView();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,17 +99,12 @@
             this.lbTimetable = new System.Windows.Forms.Label();
             this.panelHome = new System.Windows.Forms.Panel();
             this.cardWeb = new Bunifu.Framework.UI.BunifuCards();
-            this.bModWeb = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bAddWeb = new Bunifu.Framework.UI.BunifuThinButton2();
             this.lvWeb = new System.Windows.Forms.ListView();
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.url = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lWeb = new System.Windows.Forms.Label();
             this.lbHello = new System.Windows.Forms.Label();
-            this.bunifuCards5 = new Bunifu.Framework.UI.BunifuCards();
-            this.lCreSum = new System.Windows.Forms.Label();
-            this.lAverAll = new System.Windows.Forms.Label();
-            this.lbAvgScore = new System.Windows.Forms.Label();
             this.bunifuCards4 = new Bunifu.Framework.UI.BunifuCards();
             this.lbNearDeadline = new System.Windows.Forms.Label();
             this.dataHomeDeadline = new Bunifu.Framework.UI.BunifuCustomDataGrid();
@@ -260,11 +259,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pLogo)).BeginInit();
             this.slidemenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCollapse)).BeginInit();
+            this.bunifuCards5.SuspendLayout();
             this.bCardTimetable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTimetable)).BeginInit();
             this.panelHome.SuspendLayout();
             this.cardWeb.SuspendLayout();
-            this.bunifuCards5.SuspendLayout();
             this.bunifuCards4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataHomeDeadline)).BeginInit();
             this.bunifuCardTodayTT.SuspendLayout();
@@ -312,7 +311,7 @@
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(924, 31);
+            this.header.Size = new System.Drawing.Size(924, 25);
             this.header.TabIndex = 2;
             this.header.MouseMove += new System.Windows.Forms.MouseEventHandler(this.header_MouseMove);
             // 
@@ -384,9 +383,9 @@
             this.slidemenu.Controls.Add(this.btnCollapse);
             this.animation1.SetDecoration(this.slidemenu, AnimatorNS.DecorationType.None);
             this.slidemenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.slidemenu.Location = new System.Drawing.Point(0, 31);
+            this.slidemenu.Location = new System.Drawing.Point(0, 25);
             this.slidemenu.Name = "slidemenu";
-            this.slidemenu.Size = new System.Drawing.Size(266, 481);
+            this.slidemenu.Size = new System.Drawing.Size(213, 487);
             this.slidemenu.TabIndex = 3;
             // 
             // btnSocial
@@ -714,7 +713,7 @@
             this.animation1.SetDecoration(this.btnCollapse, AnimatorNS.DecorationType.None);
             this.btnCollapse.Image = ((System.Drawing.Image)(resources.GetObject("btnCollapse.Image")));
             this.btnCollapse.ImageActive = null;
-            this.btnCollapse.Location = new System.Drawing.Point(223, 6);
+            this.btnCollapse.Location = new System.Drawing.Point(170, 6);
             this.btnCollapse.Name = "btnCollapse";
             this.btnCollapse.Size = new System.Drawing.Size(34, 33);
             this.btnCollapse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -722,6 +721,62 @@
             this.btnCollapse.TabStop = false;
             this.btnCollapse.Zoom = 10;
             this.btnCollapse.Click += new System.EventHandler(this.btnCollapse_Click);
+            // 
+            // bunifuCards5
+            // 
+            this.bunifuCards5.BackColor = System.Drawing.Color.White;
+            this.bunifuCards5.BorderRadius = 5;
+            this.bunifuCards5.BottomSahddow = true;
+            this.bunifuCards5.color = System.Drawing.SystemColors.Highlight;
+            this.bunifuCards5.Controls.Add(this.lCreSum);
+            this.bunifuCards5.Controls.Add(this.lAverAll);
+            this.bunifuCards5.Controls.Add(this.lbAvgScore);
+            this.animation1.SetDecoration(this.bunifuCards5, AnimatorNS.DecorationType.None);
+            this.bunifuCards5.LeftSahddow = false;
+            this.bunifuCards5.Location = new System.Drawing.Point(624, 315);
+            this.bunifuCards5.Margin = new System.Windows.Forms.Padding(2);
+            this.bunifuCards5.Name = "bunifuCards5";
+            this.bunifuCards5.RightSahddow = true;
+            this.bunifuCards5.ShadowDepth = 20;
+            this.bunifuCards5.Size = new System.Drawing.Size(204, 180);
+            this.bunifuCards5.TabIndex = 5;
+            // 
+            // lCreSum
+            // 
+            this.lCreSum.AutoSize = true;
+            this.animation1.SetDecoration(this.lCreSum, AnimatorNS.DecorationType.None);
+            this.lCreSum.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lCreSum.Location = new System.Drawing.Point(48, 100);
+            this.lCreSum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lCreSum.Name = "lCreSum";
+            this.lCreSum.Size = new System.Drawing.Size(122, 21);
+            this.lCreSum.TabIndex = 4;
+            this.lCreSum.Text = "Tổng số tín chỉ:";
+            // 
+            // lAverAll
+            // 
+            this.lAverAll.AutoSize = true;
+            this.animation1.SetDecoration(this.lAverAll, AnimatorNS.DecorationType.None);
+            this.lAverAll.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lAverAll.Location = new System.Drawing.Point(47, 70);
+            this.lAverAll.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lAverAll.Name = "lAverAll";
+            this.lAverAll.Size = new System.Drawing.Size(139, 21);
+            this.lAverAll.TabIndex = 3;
+            this.lAverAll.Text = "Điểm trung bình:";
+            // 
+            // lbAvgScore
+            // 
+            this.lbAvgScore.AutoSize = true;
+            this.animation1.SetDecoration(this.lbAvgScore, AnimatorNS.DecorationType.None);
+            this.lbAvgScore.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAvgScore.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbAvgScore.Location = new System.Drawing.Point(85, 14);
+            this.lbAvgScore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbAvgScore.Name = "lbAvgScore";
+            this.lbAvgScore.Size = new System.Drawing.Size(70, 19);
+            this.lbAvgScore.TabIndex = 2;
+            this.lbAvgScore.Text = "Điểm số";
             // 
             // bCardTimetable
             // 
@@ -903,16 +958,16 @@
             // 
             this.panelHome.Controls.Add(this.cardWeb);
             this.panelHome.Controls.Add(this.lbHello);
-            this.panelHome.Controls.Add(this.bunifuCards5);
             this.panelHome.Controls.Add(this.bunifuCards4);
             this.panelHome.Controls.Add(this.bunifuCardTodayTT);
+            this.panelHome.Controls.Add(this.bunifuCards5);
             this.animation1.SetDecoration(this.panelHome, AnimatorNS.DecorationType.None);
             this.panelHome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelHome.Location = new System.Drawing.Point(266, 31);
+            this.panelHome.Location = new System.Drawing.Point(213, 25);
             this.panelHome.Margin = new System.Windows.Forms.Padding(2);
             this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(658, 481);
+            this.panelHome.Size = new System.Drawing.Size(711, 487);
             this.panelHome.TabIndex = 8;
             // 
             // cardWeb
@@ -921,45 +976,17 @@
             this.cardWeb.BorderRadius = 5;
             this.cardWeb.BottomSahddow = true;
             this.cardWeb.color = System.Drawing.SystemColors.Highlight;
-            this.cardWeb.Controls.Add(this.bModWeb);
             this.cardWeb.Controls.Add(this.bAddWeb);
             this.cardWeb.Controls.Add(this.lvWeb);
             this.cardWeb.Controls.Add(this.lWeb);
             this.animation1.SetDecoration(this.cardWeb, AnimatorNS.DecorationType.None);
             this.cardWeb.LeftSahddow = false;
-            this.cardWeb.Location = new System.Drawing.Point(201, 312);
+            this.cardWeb.Location = new System.Drawing.Point(199, 315);
             this.cardWeb.Name = "cardWeb";
             this.cardWeb.RightSahddow = true;
             this.cardWeb.ShadowDepth = 20;
-            this.cardWeb.Size = new System.Drawing.Size(420, 155);
+            this.cardWeb.Size = new System.Drawing.Size(420, 180);
             this.cardWeb.TabIndex = 11;
-            // 
-            // bModWeb
-            // 
-            this.bModWeb.ActiveBorderThickness = 1;
-            this.bModWeb.ActiveCornerRadius = 20;
-            this.bModWeb.ActiveFillColor = System.Drawing.SystemColors.Highlight;
-            this.bModWeb.ActiveForecolor = System.Drawing.Color.White;
-            this.bModWeb.ActiveLineColor = System.Drawing.Color.Empty;
-            this.bModWeb.BackColor = System.Drawing.Color.White;
-            this.bModWeb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bModWeb.BackgroundImage")));
-            this.bModWeb.ButtonText = "*";
-            this.bModWeb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.animation1.SetDecoration(this.bModWeb, AnimatorNS.DecorationType.None);
-            this.bModWeb.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bModWeb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bModWeb.IdleBorderThickness = 1;
-            this.bModWeb.IdleCornerRadius = 20;
-            this.bModWeb.IdleFillColor = System.Drawing.Color.Transparent;
-            this.bModWeb.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bModWeb.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bModWeb.Location = new System.Drawing.Point(384, 5);
-            this.bModWeb.Margin = new System.Windows.Forms.Padding(5);
-            this.bModWeb.Name = "bModWeb";
-            this.bModWeb.Size = new System.Drawing.Size(32, 34);
-            this.bModWeb.TabIndex = 44;
-            this.bModWeb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bModWeb.Click += new System.EventHandler(this.bModWeb_Click);
             // 
             // bAddWeb
             // 
@@ -980,7 +1007,7 @@
             this.bAddWeb.IdleFillColor = System.Drawing.Color.Transparent;
             this.bAddWeb.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bAddWeb.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bAddWeb.Location = new System.Drawing.Point(346, 5);
+            this.bAddWeb.Location = new System.Drawing.Point(381, 5);
             this.bAddWeb.Margin = new System.Windows.Forms.Padding(5);
             this.bAddWeb.Name = "bAddWeb";
             this.bAddWeb.Size = new System.Drawing.Size(32, 34);
@@ -997,7 +1024,7 @@
             this.lvWeb.HideSelection = false;
             this.lvWeb.Location = new System.Drawing.Point(3, 45);
             this.lvWeb.Name = "lvWeb";
-            this.lvWeb.Size = new System.Drawing.Size(414, 97);
+            this.lvWeb.Size = new System.Drawing.Size(414, 124);
             this.lvWeb.TabIndex = 3;
             this.lvWeb.UseCompatibleStateImageBehavior = false;
             this.lvWeb.View = System.Windows.Forms.View.Details;
@@ -1038,62 +1065,6 @@
             this.lbHello.Size = new System.Drawing.Size(126, 30);
             this.lbHello.TabIndex = 6;
             this.lbHello.Text = "Xin chào,";
-            // 
-            // bunifuCards5
-            // 
-            this.bunifuCards5.BackColor = System.Drawing.Color.White;
-            this.bunifuCards5.BorderRadius = 5;
-            this.bunifuCards5.BottomSahddow = true;
-            this.bunifuCards5.color = System.Drawing.SystemColors.Highlight;
-            this.bunifuCards5.Controls.Add(this.lCreSum);
-            this.bunifuCards5.Controls.Add(this.lAverAll);
-            this.bunifuCards5.Controls.Add(this.lbAvgScore);
-            this.animation1.SetDecoration(this.bunifuCards5, AnimatorNS.DecorationType.None);
-            this.bunifuCards5.LeftSahddow = false;
-            this.bunifuCards5.Location = new System.Drawing.Point(626, 312);
-            this.bunifuCards5.Margin = new System.Windows.Forms.Padding(2);
-            this.bunifuCards5.Name = "bunifuCards5";
-            this.bunifuCards5.RightSahddow = true;
-            this.bunifuCards5.ShadowDepth = 20;
-            this.bunifuCards5.Size = new System.Drawing.Size(136, 158);
-            this.bunifuCards5.TabIndex = 5;
-            // 
-            // lCreSum
-            // 
-            this.lCreSum.AutoSize = true;
-            this.animation1.SetDecoration(this.lCreSum, AnimatorNS.DecorationType.None);
-            this.lCreSum.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lCreSum.Location = new System.Drawing.Point(405, 70);
-            this.lCreSum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lCreSum.Name = "lCreSum";
-            this.lCreSum.Size = new System.Drawing.Size(122, 21);
-            this.lCreSum.TabIndex = 4;
-            this.lCreSum.Text = "Tổng số tín chỉ:";
-            // 
-            // lAverAll
-            // 
-            this.lAverAll.AutoSize = true;
-            this.animation1.SetDecoration(this.lAverAll, AnimatorNS.DecorationType.None);
-            this.lAverAll.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lAverAll.Location = new System.Drawing.Point(47, 70);
-            this.lAverAll.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lAverAll.Name = "lAverAll";
-            this.lAverAll.Size = new System.Drawing.Size(139, 21);
-            this.lAverAll.TabIndex = 3;
-            this.lAverAll.Text = "Điểm trung bình:";
-            // 
-            // lbAvgScore
-            // 
-            this.lbAvgScore.AutoSize = true;
-            this.animation1.SetDecoration(this.lbAvgScore, AnimatorNS.DecorationType.None);
-            this.lbAvgScore.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAvgScore.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lbAvgScore.Location = new System.Drawing.Point(227, 14);
-            this.lbAvgScore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbAvgScore.Name = "lbAvgScore";
-            this.lbAvgScore.Size = new System.Drawing.Size(70, 19);
-            this.lbAvgScore.TabIndex = 2;
-            this.lbAvgScore.Text = "Điểm số";
             // 
             // bunifuCards4
             // 
@@ -1647,10 +1618,10 @@
             this.panelScore.Controls.Add(this.cardSBoard);
             this.panelScore.Controls.Add(this.cardAddScore);
             this.animation1.SetDecoration(this.panelScore, AnimatorNS.DecorationType.None);
-            this.panelScore.Location = new System.Drawing.Point(674, 44);
+            this.panelScore.Location = new System.Drawing.Point(666, 72);
             this.panelScore.Margin = new System.Windows.Forms.Padding(2);
             this.panelScore.Name = "panelScore";
-            this.panelScore.Size = new System.Drawing.Size(86, 84);
+            this.panelScore.Size = new System.Drawing.Size(94, 56);
             this.panelScore.TabIndex = 6;
             // 
             // cardSBoard
@@ -1891,7 +1862,7 @@
             this.lSumCre.AutoSize = true;
             this.animation1.SetDecoration(this.lSumCre, AnimatorNS.DecorationType.None);
             this.lSumCre.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSumCre.Location = new System.Drawing.Point(355, 21);
+            this.lSumCre.Location = new System.Drawing.Point(356, 21);
             this.lSumCre.Name = "lSumCre";
             this.lSumCre.Size = new System.Drawing.Size(76, 20);
             this.lSumCre.TabIndex = 83;
@@ -4160,6 +4131,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pLogo)).EndInit();
             this.slidemenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnCollapse)).EndInit();
+            this.bunifuCards5.ResumeLayout(false);
+            this.bunifuCards5.PerformLayout();
             this.bCardTimetable.ResumeLayout(false);
             this.bCardTimetable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTimetable)).EndInit();
@@ -4167,8 +4140,6 @@
             this.panelHome.PerformLayout();
             this.cardWeb.ResumeLayout(false);
             this.cardWeb.PerformLayout();
-            this.bunifuCards5.ResumeLayout(false);
-            this.bunifuCards5.PerformLayout();
             this.bunifuCards4.ResumeLayout(false);
             this.bunifuCards4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataHomeDeadline)).EndInit();
@@ -4399,6 +4370,5 @@
         private System.Windows.Forms.ColumnHeader url;
         private System.Windows.Forms.Label lWeb;
         private Bunifu.Framework.UI.BunifuThinButton2 bAddWeb;
-        private Bunifu.Framework.UI.BunifuThinButton2 bModWeb;
     }
 }

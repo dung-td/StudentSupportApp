@@ -6,7 +6,7 @@
       <Value Profile="(Default)">Empty</Value>
     </Setting>
     <Setting Name="Color" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Green</Value>
+      <Value Profile="(Default)">Highlight</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -39,6 +39,10 @@ namespace StudentSupportApp
             this.Email = email;
             this.ID = id;
             SetColor(Properties.Settings.Default.Color);
+
+            tbFeed.Text = "Nhập nội dung phản hồi";
+            tbTitle.Text = "Nhập tiêu đề phản hồi";
+
         }
 
         void SetColor(Color x)
@@ -46,7 +50,7 @@ namespace StudentSupportApp
             panel1.BackColor =
                 bExit.ForeColor = bExit.IdleForecolor = bExit.IdleLineColor = bExit.ActiveFillColor =
                 bSend.ForeColor = bSend.IdleForecolor = bSend.IdleLineColor = bSend.ActiveFillColor =
-                
+
                 tbTitle.BorderColorFocused = tbTitle.BorderColorMouseHover =
                 x;
         }
@@ -63,14 +67,14 @@ namespace StudentSupportApp
 
         bool BlankData()
         {
-            return (tbFeed.Text == "" || tbTitle.Text == "");
+            return (tbFeed.Text == "" || tbTitle.Text == "" || tbFeed.Text == "Nhập nội dung phản hồi" || tbTitle.Text == "Nhập tiêu đề phản hồi");
         }
 
         public void SendMail()
         {
             try
             {
-               MailMessage mail = new MailMessage();
+                MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
                 mail.From = new MailAddress("ssa.nonreply@gmail.com");
                 mail.To.Add("ssa.nonreply@gmail.com");
@@ -89,9 +93,33 @@ namespace StudentSupportApp
             }
         }
 
+        private void tbTitle_Enter(object sender, EventArgs e)
+        {
+            if (tbTitle.Text == "Nhập tiêu đề phản hồi")
+                tbTitle.Text = "";
+        }
+
+        private void tbTitle_Leave(object sender, EventArgs e)
+        {
+            if (tbTitle.Text == "")
+                tbTitle.Text = "Nhập tiêu đề phản hồi";
+        }
+
+        private void tbFeed_Leave(object sender, EventArgs e)
+        {
+            if (tbFeed.Text == "")
+                tbFeed.Text = "Nhập nội dung phản hồi";
+        }
+
+        private void tbFeed_Enter(object sender, EventArgs e)
+        {
+            if (tbFeed.Text == "Nhập nội dung phản hồi")
+                tbFeed.Text = "";
+        }
+
         private void bSend_Click(object sender, EventArgs e)
         {
-            if(!BlankData())
+            if (!BlankData())
             {
                 SendMail();
                 MessageBox.Show("Đã gửi thành công");

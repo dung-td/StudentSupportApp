@@ -126,10 +126,13 @@ namespace StudentSupportApp
                 //this.bunifuCardTodayTT.Location = new Point(this.bunifuCardTodayTT.Location.X - 50, this.bunifuCardTodayTT.Location.Y);
 
                 //Linh
-                this.bunifuCards5.Width -= 100;
-                this.bunifuCards5.Location = new Point(this.bunifuCards5.Location.X - 100, this.bunifuCards5.Location.Y);
+                this.bunifuCards5.Width -= 50;
+                this.bunifuCards5.Location = new Point(this.bunifuCards5.Location.X - 50, this.bunifuCards5.Location.Y);
                 lbAvgScore.Location = new Point(this.lbAvgScore.Location.X - 25, this.lbAvgScore.Location.Y);
                 lCreSum.Location = new Point(this.lCreSum.Location.X - 25, this.lCreSum.Location.Y);
+                cardWeb.Width -= 50;
+                this.cardWeb.Location = new Point(this.cardWeb.Location.X - 50, this.cardWeb.Location.Y);
+
 
                 // AddScore
                 this.cardAddScore.Width -= 220;
@@ -241,10 +244,12 @@ namespace StudentSupportApp
                 //Linh
                 this.cardAddScore.Width += 220;
                 this.cardSBoard.Width += 220;
-                this.bunifuCards5.Width += 100;
+                this.bunifuCards5.Width += 50;
                 lbAvgScore.Location = new Point(this.lbAvgScore.Location.X + 25, this.lbAvgScore.Location.Y);
                 lCreSum.Location = new Point(this.lCreSum.Location.X + 25, this.lCreSum.Location.Y);
-                this.bunifuCards5.Location = new Point(this.bunifuCards5.Location.X + 100, this.bunifuCards5.Location.Y);
+                this.bunifuCards5.Location = new Point(this.bunifuCards5.Location.X + 50, this.bunifuCards5.Location.Y);
+                cardWeb.Width += 50;
+                this.cardWeb.Location = new Point(this.bunifuCards5.Location.X - 50, this.bunifuCards5.Location.Y);
 
                 //AddScore
                 lSem.Location = new Point(lSem.Location.X + 100, lSem.Location.Y);
@@ -1845,7 +1850,7 @@ namespace StudentSupportApp
             bunifuCardTodayTT.color = bunifuCards4.color =
             bunifuCards5.color = cardWeb.color =
              bAddWeb.BackColor = bAddWeb.ActiveFillColor = bAddWeb.ForeColor = bAddWeb.IdleForecolor = bAddWeb.IdleLineColor =
-                bModWeb.BackColor = bModWeb.ActiveFillColor = bModWeb.ForeColor = bModWeb.IdleForecolor = bModWeb.IdleLineColor =
+             lWeb.ForeColor =
             x;
         }
 
@@ -2026,67 +2031,15 @@ namespace StudentSupportApp
             form.Show();
         }
 
-        //private void lvWeb_Click(object sender, EventArgs e)
-        //{
-        //    //Web accessWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
-        //    //accessWeb.Access();
-            
-        //    Web modWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
-        //    DiaWeb form = new DiaWeb(this, this.User.ID, modWeb, "modify");
-        //    this.Hide();
-        //    form.Show();
-        //}
-
-
-        private void bModWeb_Click(object sender, EventArgs e)
+       private void lvWeb_MouseClick(object sender, MouseEventArgs e)
         {
-          
+
             Web modWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
             DiaWeb form = new DiaWeb(this, this.User.ID, modWeb, "modify");
             this.Hide();
             form.Show();
         }
 
-
-        private void lvWeb_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Clicks == 2)
-            {
-                Web modWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
-                DiaWeb form = new DiaWeb(this, this.User.ID, modWeb, "modify");
-                this.Hide();
-                form.Show();
-            }
-            if (e.Clicks == 1)
-            {
-                Web accessWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
-                accessWeb.Access();
-            }
-        }
-
-
-        private void lvWeb_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Clicks == 1)
-            {
-                Web modWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
-                DiaWeb form = new DiaWeb(this, this.User.ID, modWeb, "modify");
-                this.Hide();
-                form.Show();
-            }
-            if (e.Clicks == 2)
-            {
-                Web accessWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
-                accessWeb.Access();
-            }
-        }
-        //private void lvWeb_DoubleClick(object sender, EventArgs e)
-        //{
-        //    Web modWeb = new Web(this.User.ID, lvWeb.SelectedItems[0].SubItems[0].Text, lvWeb.SelectedItems[0].SubItems[1].Text);
-        //    DiaWeb form = new DiaWeb(this, this.User.ID, modWeb, "modify");
-        //    this.Hide();
-        //    form.Show();
-        //}
         #endregion
     }
 }

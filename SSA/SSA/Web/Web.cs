@@ -47,6 +47,7 @@ namespace StudentSupportApp
         {
             try
             {
+                CONNECT.OpenConnection();
                 string sql = "insert into WEB values(N'" + this.UserID + "', N'" + this.sTitle + "',N'"+this.sURL+"')";
                 SqlCommand command = CONNECT.CreateSQLCmd(sql);
                 command.ExecuteNonQuery();
@@ -62,7 +63,8 @@ namespace StudentSupportApp
         {
             try
             {
-                string sql = "delete from WEB where URL_WEB = '"+this.URL+"' and ID_USER = '"+this.UserID+"' and TITLE = '"+this.sTitle+"')" ;
+                CONNECT.OpenConnection();
+                string sql = "delete from WEB where URL_WEB = '"+this.URL+"' and ID_USER = '"+this.UserID+"' and TITLE = '"+this.sTitle+"'" ;
                 SqlCommand command = CONNECT.CreateSQLCmd(sql);
                 command.ExecuteNonQuery();
                 CONNECT.CloseConnection();
@@ -77,6 +79,7 @@ namespace StudentSupportApp
         {
             try
             {
+                CONNECT.OpenConnection();
                 string sql = "update WEB set TITLE = N'"+web.sTitle+"', URL_WEB = N'"+web.sURL+ "' where TITLE = '"+this.sTitle+ "' and URL_WEB = '" + this.sURL + "' and ID_USER = '" + this.UserID + "'";
                 SqlCommand command = CONNECT.CreateSQLCmd(sql);
                 command.ExecuteNonQuery();

@@ -39,6 +39,7 @@ namespace StudentSupportApp
             this.bOK = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bExit = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bDelWeb = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bAccess = new Bunifu.Framework.UI.BunifuThinButton2();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,10 +51,11 @@ namespace StudentSupportApp
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.panel1.Controls.Add(this.bAccess);
             this.panel1.Controls.Add(this.lbWeb);
             this.panel1.Location = new System.Drawing.Point(-2, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(141, 284);
+            this.panel1.Size = new System.Drawing.Size(167, 284);
             this.panel1.TabIndex = 71;
             // 
             // lbWeb
@@ -76,7 +78,7 @@ namespace StudentSupportApp
             this.tbURL.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbURL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbURL.HintForeColor = System.Drawing.Color.Empty;
-            this.tbURL.HintText = "New password";
+            this.tbURL.HintText = "Dán URL";
             this.tbURL.isPassword = false;
             this.tbURL.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbURL.LineIdleColor = System.Drawing.Color.Gray;
@@ -87,7 +89,6 @@ namespace StudentSupportApp
             this.tbURL.Name = "tbURL";
             this.tbURL.Size = new System.Drawing.Size(370, 44);
             this.tbURL.TabIndex = 73;
-            this.tbURL.Text = "Dán URL";
             this.tbURL.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // tbTitle
@@ -96,7 +97,7 @@ namespace StudentSupportApp
             this.tbTitle.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbTitle.HintForeColor = System.Drawing.Color.Empty;
-            this.tbTitle.HintText = "Your old password";
+            this.tbTitle.HintText = "Nhập tên";
             this.tbTitle.isPassword = false;
             this.tbTitle.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbTitle.LineIdleColor = System.Drawing.Color.Gray;
@@ -107,7 +108,6 @@ namespace StudentSupportApp
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(370, 44);
             this.tbTitle.TabIndex = 72;
-            this.tbTitle.Text = "Nhập tên ";
             this.tbTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // bOK
@@ -188,6 +188,32 @@ namespace StudentSupportApp
             this.bDelWeb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bDelWeb.Click += new System.EventHandler(this.bDelWeb_Click);
             // 
+            // bAccess
+            // 
+            this.bAccess.ActiveBorderThickness = 1;
+            this.bAccess.ActiveCornerRadius = 20;
+            this.bAccess.ActiveFillColor = System.Drawing.SystemColors.Highlight;
+            this.bAccess.ActiveForecolor = System.Drawing.Color.White;
+            this.bAccess.ActiveLineColor = System.Drawing.Color.Transparent;
+            this.bAccess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.bAccess.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bAccess.BackgroundImage")));
+            this.bAccess.ButtonText = "Truy cập";
+            this.bAccess.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bAccess.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bAccess.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.bAccess.IdleBorderThickness = 1;
+            this.bAccess.IdleCornerRadius = 20;
+            this.bAccess.IdleFillColor = System.Drawing.Color.WhiteSmoke;
+            this.bAccess.IdleForecolor = System.Drawing.SystemColors.Highlight;
+            this.bAccess.IdleLineColor = System.Drawing.SystemColors.Highlight;
+            this.bAccess.Location = new System.Drawing.Point(31, 179);
+            this.bAccess.Margin = new System.Windows.Forms.Padding(5);
+            this.bAccess.Name = "bAccess";
+            this.bAccess.Size = new System.Drawing.Size(105, 40);
+            this.bAccess.TabIndex = 46;
+            this.bAccess.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bAccess.Click += new System.EventHandler(this.bAccess_Click);
+            // 
             // DiaWeb
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,5 +245,6 @@ namespace StudentSupportApp
         private Bunifu.Framework.UI.BunifuThinButton2 bOK;
         private Bunifu.Framework.UI.BunifuThinButton2 bExit;
         private Bunifu.Framework.UI.BunifuThinButton2 bDelWeb;
+        private Bunifu.Framework.UI.BunifuThinButton2 bAccess;
     }
 }
