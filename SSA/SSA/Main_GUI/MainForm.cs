@@ -14,6 +14,7 @@ namespace StudentSupportApp
 {
     public partial class MainForm : Form
     {
+        #region MainForm
         [DllImport("user32")]
         private static extern bool ReleaseCapture();
         [DllImport("user32")]
@@ -484,22 +485,17 @@ namespace StudentSupportApp
         {
             this.Size = new Size(1600, 900);
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            ReviewForm ReviewForm = new ReviewForm(this.User.ID);
-            this.Hide();
-            ReviewForm.Show();
-        }
+        #endregion
     }
 }
 
 //Dung
-#region Notification 
+
 namespace StudentSupportApp
 {
     public partial class MainForm
     {
+        #region Notification 
         public void Alert(string msg)
         {
             Notifi notifi = new Notifi();
@@ -837,18 +833,86 @@ namespace StudentSupportApp
                 this.Connection.CloseConnection();
             }
         }
+        #endregion
+
+        #region Community
+        private void AddToListView(USER[] temp)
+        {
+            foreach (USER user in temp)
+            {
+                if (user == null)
+                    break;
+                listViewProfile.Items.Add(new ListViewItem(new string[] { user.ID, user.Name, user.Email }));
+            }
+        }
+        private void LoadProfile(int i)
+        {
+            
+        }
+        private void tbxFind_OnValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                USER[] temp = new USER[100];
+                int i = 0;
+                Connection.OpenConnection();
+                string Query = "SELECT * FROM USERS WHERE ID_USER LIKE '%" + tbxFind.Text + "%' OR FULLNAME LIKE '%" + tbxFind.Text + "%'";
+                SqlCommand cmd = Connection.CreateSQLCmd(Query);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false)
+                        break;
+                    temp[i] = new USER();
+                    temp[i].ID = reader.GetString(0);
+                    temp[i].Name = reader.GetString(4);
+                    temp[i].Email = reader.GetString(1);
+                    i++;
+                }
+                listViewProfile.Items.Clear();
+                AddToListView(temp);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
+            }
+            finally
+            {
+                Connection.CloseConnection();
+            }
+        }
+        private void listViewProfile_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbxID.Text = listViewProfile.SelectedItems[0].SubItems[0].Text;
+            tbxName.Text = listViewProfile.SelectedItems[0].SubItems[1].Text;
+            tbxEmail.Text = listViewProfile.SelectedItems[0].SubItems[2].Text;
+        }
+        private void btnReview_Click(object sender, EventArgs e)
+        {
+            ReviewForm ReviewForm = new ReviewForm(this.User.ID);
+            this.Hide();
+            ReviewForm.Show();
+        }
+        private void btnWrite_Click(object sender, EventArgs e)
+        {
+            WriterRVForm Writer = new WriterRVForm(this);
+            Writer.Show();
+        }
+        #endregion
     }
 }
-#endregion
 
 //Danh
-#region TimeTable
+
 namespace StudentSupportApp
 {
     public partial class MainForm
     {
+        #region TimeTable
         string Semester;
-
         private string SwitchTodayToVNese(string today)
         {
             if (today == "Monday")
@@ -1090,6 +1154,7 @@ namespace StudentSupportApp
         {
             btnLoadTT.Visible = true;
         }
+
         //private void MainForm_VisibleChanged(object sender, EventArgs e)
         //{
         //    ReadSchedulesSemesterComboboxItems();
@@ -1304,9 +1369,10 @@ namespace StudentSupportApp
                 rp.Show();
             }
         }
+        #endregion
     }
 }
-#endregion
+
 
 //Linh
 namespace StudentSupportApp

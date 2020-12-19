@@ -11,7 +11,7 @@ namespace StudentSupportApp
 {
     public partial class WriterRVForm : Form
     {
-        ReviewForm parent;
+        Form parent;
         Review review;
         [DllImport("user32")]
         private static extern bool ReleaseCapture();
@@ -26,7 +26,7 @@ namespace StudentSupportApp
                 SendMessage(Handle, 161, 2, 0);
             }
         }
-        public WriterRVForm(ReviewForm parent)
+        public WriterRVForm(Form parent)
         {
             this.parent = parent;
             InitializeComponent();

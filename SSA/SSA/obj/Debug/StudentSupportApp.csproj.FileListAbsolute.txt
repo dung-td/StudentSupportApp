@@ -63,3 +63,5 @@ C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSu
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.WriterRVForm.resources
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.AboutUs.resources
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.Feedback.resources
+C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.csprojAssemblyReference.cache
+C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.DiaWeb.resources
