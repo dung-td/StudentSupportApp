@@ -13,6 +13,7 @@ namespace StudentSupportApp
     {
         Form parent;
         Review review;
+        string ID_User;
         [DllImport("user32")]
         private static extern bool ReleaseCapture();
         [DllImport("user32")]
@@ -26,8 +27,9 @@ namespace StudentSupportApp
                 SendMessage(Handle, 161, 2, 0);
             }
         }
-        public WriterRVForm(Form parent)
+        public WriterRVForm(Form parent, string ID_User)
         {
+            this.ID_User = ID_User;
             this.parent = parent;
             InitializeComponent();
         }
@@ -37,7 +39,8 @@ namespace StudentSupportApp
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
+            this.parent.Show();
         }
         private void btnUpload_Click(object sender, EventArgs e)
         {
@@ -45,6 +48,7 @@ namespace StudentSupportApp
             int temp = 1;
             review.GetReviewID(ref temp);
             review._ID = temp;
+            review._ID_User = ID_User;
             review._Like = 0;
             review._Report = 0;
             review._Dislike = 0;
@@ -53,10 +57,12 @@ namespace StudentSupportApp
             review._Date = DateTime.Now;
             review._Details = tbxDetails.Text;
             review.AddReviewToDatabase();
+            this.Close();
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.parent.Show();
         }
     }
 }

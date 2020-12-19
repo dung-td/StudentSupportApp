@@ -31,8 +31,8 @@ namespace StudentSupportApp
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReviewForm));
             this.grbPost = new System.Windows.Forms.GroupBox();
+            this.tbxKeyWord = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.btnFind = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.tbxKeyWord = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.btnNext = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnPrev = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnReport = new Bunifu.Framework.UI.BunifuImageButton();
@@ -62,6 +62,8 @@ namespace StudentSupportApp
             this.label2 = new System.Windows.Forms.Label();
             this.pLogo = new System.Windows.Forms.PictureBox();
             this.btnWrite = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.lbLike = new System.Windows.Forms.Label();
+            this.lbDislike = new System.Windows.Forms.Label();
             this.grbPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrev)).BeginInit();
@@ -84,8 +86,10 @@ namespace StudentSupportApp
             this.grbPost.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbPost.Controls.Add(this.btnFind);
+            this.grbPost.Controls.Add(this.lbDislike);
+            this.grbPost.Controls.Add(this.lbLike);
             this.grbPost.Controls.Add(this.tbxKeyWord);
+            this.grbPost.Controls.Add(this.btnFind);
             this.grbPost.Controls.Add(this.btnNext);
             this.grbPost.Controls.Add(this.btnPrev);
             this.grbPost.Controls.Add(this.btnReport);
@@ -104,6 +108,26 @@ namespace StudentSupportApp
             this.grbPost.TabIndex = 5;
             this.grbPost.TabStop = false;
             this.grbPost.Text = "Bài viết";
+            // 
+            // tbxKeyWord
+            // 
+            this.tbxKeyWord.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbxKeyWord.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbxKeyWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbxKeyWord.HintForeColor = System.Drawing.Color.Empty;
+            this.tbxKeyWord.HintText = "Nhập từ khóa";
+            this.tbxKeyWord.isPassword = false;
+            this.tbxKeyWord.LineFocusedColor = System.Drawing.Color.Blue;
+            this.tbxKeyWord.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbxKeyWord.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.tbxKeyWord.LineThickness = 3;
+            this.tbxKeyWord.Location = new System.Drawing.Point(192, 13);
+            this.tbxKeyWord.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxKeyWord.Name = "tbxKeyWord";
+            this.tbxKeyWord.Size = new System.Drawing.Size(317, 44);
+            this.tbxKeyWord.TabIndex = 1;
+            this.tbxKeyWord.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbxKeyWord.OnValueChanged += new System.EventHandler(this.tbxKeyWord_OnValueChanged);
             // 
             // btnFind
             // 
@@ -140,25 +164,6 @@ namespace StudentSupportApp
             this.btnFind.Textcolor = System.Drawing.Color.Black;
             this.btnFind.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
-            // 
-            // tbxKeyWord
-            // 
-            this.tbxKeyWord.BorderColorFocused = System.Drawing.Color.Blue;
-            this.tbxKeyWord.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbxKeyWord.BorderColorMouseHover = System.Drawing.Color.Blue;
-            this.tbxKeyWord.BorderThickness = 3;
-            this.tbxKeyWord.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxKeyWord.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.tbxKeyWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbxKeyWord.isPassword = false;
-            this.tbxKeyWord.Location = new System.Drawing.Point(191, 16);
-            this.tbxKeyWord.Margin = new System.Windows.Forms.Padding(4);
-            this.tbxKeyWord.Name = "tbxKeyWord";
-            this.tbxKeyWord.Size = new System.Drawing.Size(318, 41);
-            this.tbxKeyWord.TabIndex = 16;
-            this.tbxKeyWord.Text = "Nhập từ khóa cần tìm kiếm";
-            this.tbxKeyWord.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.tbxKeyWord.OnValueChanged += new System.EventHandler(this.tbxKeyWord_OnValueChanged);
             // 
             // btnNext
             // 
@@ -207,7 +212,7 @@ namespace StudentSupportApp
             this.btnDislike.BackColor = System.Drawing.Color.Transparent;
             this.btnDislike.Image = ((System.Drawing.Image)(resources.GetObject("btnDislike.Image")));
             this.btnDislike.ImageActive = null;
-            this.btnDislike.Location = new System.Drawing.Point(738, 293);
+            this.btnDislike.Location = new System.Drawing.Point(738, 265);
             this.btnDislike.Name = "btnDislike";
             this.btnDislike.Size = new System.Drawing.Size(47, 42);
             this.btnDislike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -221,7 +226,7 @@ namespace StudentSupportApp
             this.btnLike.BackColor = System.Drawing.Color.Transparent;
             this.btnLike.Image = ((System.Drawing.Image)(resources.GetObject("btnLike.Image")));
             this.btnLike.ImageActive = null;
-            this.btnLike.Location = new System.Drawing.Point(740, 211);
+            this.btnLike.Location = new System.Drawing.Point(740, 182);
             this.btnLike.Name = "btnLike";
             this.btnLike.Size = new System.Drawing.Size(47, 42);
             this.btnLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -305,7 +310,7 @@ namespace StudentSupportApp
             // lSubName
             // 
             this.lSubName.AutoSize = true;
-            this.lSubName.Location = new System.Drawing.Point(469, 47);
+            this.lSubName.Location = new System.Drawing.Point(579, 47);
             this.lSubName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lSubName.Name = "lSubName";
             this.lSubName.Size = new System.Drawing.Size(158, 19);
@@ -315,7 +320,7 @@ namespace StudentSupportApp
             // lDate
             // 
             this.lDate.AutoSize = true;
-            this.lDate.Location = new System.Drawing.Point(469, 19);
+            this.lDate.Location = new System.Drawing.Point(579, 19);
             this.lDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lDate.Name = "lDate";
             this.lDate.Size = new System.Drawing.Size(193, 19);
@@ -345,7 +350,7 @@ namespace StudentSupportApp
             // lbSubName
             // 
             this.lbSubName.AutoSize = true;
-            this.lbSubName.Location = new System.Drawing.Point(272, 47);
+            this.lbSubName.Location = new System.Drawing.Point(378, 47);
             this.lbSubName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSubName.Name = "lbSubName";
             this.lbSubName.Size = new System.Drawing.Size(108, 19);
@@ -355,7 +360,7 @@ namespace StudentSupportApp
             // lbDate
             // 
             this.lbDate.AutoSize = true;
-            this.lbDate.Location = new System.Drawing.Point(272, 18);
+            this.lbDate.Location = new System.Drawing.Point(378, 19);
             this.lbDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(168, 19);
@@ -554,6 +559,24 @@ namespace StudentSupportApp
             this.btnWrite.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
             // 
+            // lbLike
+            // 
+            this.lbLike.AutoSize = true;
+            this.lbLike.Location = new System.Drawing.Point(753, 227);
+            this.lbLike.Name = "lbLike";
+            this.lbLike.Size = new System.Drawing.Size(20, 21);
+            this.lbLike.TabIndex = 18;
+            this.lbLike.Text = "1";
+            // 
+            // lbDislike
+            // 
+            this.lbDislike.AutoSize = true;
+            this.lbDislike.Location = new System.Drawing.Point(753, 310);
+            this.lbDislike.Name = "lbDislike";
+            this.lbDislike.Size = new System.Drawing.Size(20, 21);
+            this.lbDislike.TabIndex = 19;
+            this.lbDislike.Text = "1";
+            // 
             // ReviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -620,8 +643,10 @@ namespace StudentSupportApp
         private Bunifu.Framework.UI.BunifuImageButton btnDislike;
         private Bunifu.Framework.UI.BunifuImageButton btnExit;
         private Bunifu.Framework.UI.BunifuImageButton btnMinimize;
-        private Bunifu.Framework.UI.BunifuMetroTextbox tbxKeyWord;
         private Bunifu.Framework.UI.BunifuFlatButton btnFind;
         private Bunifu.Framework.UI.BunifuFlatButton btnWrite;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox tbxKeyWord;
+        private System.Windows.Forms.Label lbDislike;
+        private System.Windows.Forms.Label lbLike;
     }
 }

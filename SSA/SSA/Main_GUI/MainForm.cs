@@ -898,7 +898,7 @@ namespace StudentSupportApp
         }
         private void btnWrite_Click(object sender, EventArgs e)
         {
-            WriterRVForm Writer = new WriterRVForm(this);
+            WriterRVForm Writer = new WriterRVForm(this, User.ID);
             Writer.Show();
         }
         #endregion
