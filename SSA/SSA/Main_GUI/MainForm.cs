@@ -111,7 +111,7 @@ namespace StudentSupportApp
                 this.BirthDTPicker.Width -= 110;
                 this.tbxEmailInfo.Width -= 210;
                 this.bunifuCardsNote.Width -= 25;
-                this.dataGidViewNote.Width -= 25;
+                this.dataGridViewNote.Width -= 25;
                 this.btnAddNote.Location = new Point(btnAddNote.Location.X - 10, btnAddNote.Location.Y);
                 this.btnDelNote.Location = new Point(btnDelNote.Location.X - 12, btnDelNote.Location.Y);
                 this.lbNote.Location = new Point(lbNote.Location.X - 10, lbNote.Location.Y);
@@ -230,7 +230,7 @@ namespace StudentSupportApp
                 this.BirthDTPicker.Width += 110;
                 this.tbxEmailInfo.Width += 210;
                 this.bunifuCardsNote.Width += 25;
-                this.dataGidViewNote.Width += 25;
+                this.dataGridViewNote.Width += 25;
                 this.btnAddNote.Location = new Point(btnAddNote.Location.X + 10, btnAddNote.Location.Y);
                 this.btnDelNote.Location = new Point(btnDelNote.Location.X + 12, btnDelNote.Location.Y);
                 this.lbNote.Location = new Point(lbNote.Location.X + 10, lbNote.Location.Y);
@@ -421,6 +421,7 @@ namespace StudentSupportApp
                 }
                 dataGridViewTimetable.CurrentCell.Selected = !dataGridViewTimetable.CurrentCell.Selected;
                 btnHome_Click(sender, e);
+                LoadNotes();
                 LoadInformationTab();
 
                 //Linh
@@ -473,7 +474,6 @@ namespace StudentSupportApp
             this.Hide();
             ReviewForm.Show();
         }
-
         private void bFeedSup_Click_1(object sender, EventArgs e)
         {
 
@@ -829,11 +829,12 @@ namespace StudentSupportApp
 #endregion
 
 //Danh
-#region TimeTable
+#region Danh
 namespace StudentSupportApp
 {
     public partial class MainForm
     {
+        #region Timetable
         string Semester;
 
         private string SwitchTodayToVNese(string today)
@@ -1051,6 +1052,45 @@ namespace StudentSupportApp
             }
         }
 
+        public void LoadTodayTimetable(string today, ref List<string> Lesson)
+        {
+            Connect loadHomeTimetable = new Connect();
+            try
+            {
+                loadHomeTimetable.OpenConnection();
+
+                string sWeekDay = DateTime.Today.DayOfWeek.ToString();
+                for (int i = 1; i <= 10; i++)
+                {
+                    string sLoadData = "select SUB_NAME from LESSON where ID_USER='" + this.User.ID
+                                        + "' AND DAYINWEEK='" + sWeekDay + "' AND SEM_NAME=N'" + Properties.Settings.Default.Text + "'"
+                                        + " AND TIMEORDER=" + i;
+                    SqlCommand loadDay = loadHomeTimetable.CreateSQLCmd(sLoadData);
+                    SqlDataReader reader = loadDay.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        if (reader.Read() == false)
+                        {
+                            break;
+                        }
+                        Lesson.Add(reader.GetString(0));
+                    }
+                    else Lesson.Add("");
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+            }
+            finally
+            {
+                loadHomeTimetable.CloseConnection();
+            }
+        }
+
         public void LoadTimetableToHomeDGV(DataGridView obj, List<string> Lesson)
         {
             try
@@ -1086,7 +1126,9 @@ namespace StudentSupportApp
             Properties.Settings.Default.Save();
             MessageBox.Show("Đã lưu!", "Đặt học kỳ mặc định");
         }
+        #endregion
 
+        #region Information Tab
         private void LoadInformationTab()
         {
             Connect Info = new Connect();
@@ -1222,46 +1264,9 @@ namespace StudentSupportApp
             changeMail.Show();
             this.Hide();
         }
+        #endregion
 
-        public void LoadTodayTimetable(string today, ref List<string> Lesson)
-        {
-            Connect loadHomeTimetable = new Connect();
-            try
-            {
-                loadHomeTimetable.OpenConnection();
-
-                string sWeekDay = DateTime.Today.DayOfWeek.ToString();
-                for (int i = 1; i <= 10; i++)
-                {
-                    string sLoadData = "select SUB_NAME from LESSON where ID_USER='" + this.User.ID
-                                        + "' AND DAYINWEEK='" + sWeekDay + "' AND SEM_NAME=N'" + Properties.Settings.Default.Text + "'"
-                                        + " AND TIMEORDER=" + i;
-                    SqlCommand loadDay = loadHomeTimetable.CreateSQLCmd(sLoadData);
-                    SqlDataReader reader = loadDay.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        if (reader.Read() == false)
-                        {
-                            break;
-                        }
-                        Lesson.Add(reader.GetString(0));
-                    }
-                    else Lesson.Add("");
-                    reader.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                ReportError rp = new ReportError(this, ex);
-                rp.Show();
-            }
-            finally
-            {
-                loadHomeTimetable.CloseConnection();
-            }
-        }
-
+        #region Documents
         private void dataGridViewTimetable_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -1288,6 +1293,96 @@ namespace StudentSupportApp
                 rp.Show();
             }
         }
+        #endregion
+
+        #region Note
+        private void btnDelNote_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewNote.SelectedCells.Count > 0)
+            {
+                DeleleNoteFromDatabase(dataGridViewNote.SelectedCells[0].Value.ToString());
+            }
+
+            dataGridViewNote.Rows.Clear();
+            LoadNotes();
+        }
+
+        private void btnAddNote_Click(object sender, EventArgs e)
+        {
+            NoteForm noteForm = new NoteForm(this.User.ID);
+            noteForm.Show();
+        }
+
+        private void dataGridViewNote_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Note note = new Note(this.User.ID);
+            note.Name = dataGridViewNote.Rows[e.RowIndex].Cells[0].Value.ToString();
+            note.UserID = this.User.ID;
+            note.LoadNoteData();
+
+            NoteForm noteForm = new NoteForm(this.User.ID, note.Name, note.Detail);
+            noteForm.Width = note.Width;
+            noteForm.Height = note.Height;
+
+            noteForm.Show();
+        }
+
+        private void LoadNotes()
+        {
+            try
+            {
+                string Query = "SELECT NOTE_NAME FROM NOTE WHERE ID_USER='" + this.User.ID + "'";
+                this.Connection.OpenConnection();
+
+                SqlCommand loadName = Connection.CreateSQLCmd(Query);
+                SqlDataReader reader = loadName.ExecuteReader();
+
+                while (reader.HasRows)
+                {
+                    if (reader.Read())
+                    {
+                        string name = reader.GetString(0);
+                        dataGridViewNote.Rows.Add(name);
+                    }
+                    else break;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
+        }
+
+        private void DeleleNoteFromDatabase(string name)
+        {
+            try
+            {
+                string sQuery = "DELETE NOTE WHERE NOTE_NAME=N'" + name + "' AND ID_USER='" + this.User.ID + "'";
+                Connection.OpenConnection();
+
+                SqlCommand Command = Connection.CreateSQLCmd(sQuery);
+                Command.ExecuteNonQuery();
+                MessageBox.Show("Xóa ghi chú thành công!", "Xóa ghi chú");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                Connection.CloseConnection();
+            }
+        }
+        #endregion
     }
 }
 #endregion
@@ -1816,7 +1911,7 @@ namespace StudentSupportApp
             btnAddNote.ActiveFillColor = btnAddNote.ActiveLineColor = btnAddNote.IdleLineColor = btnAddNote.IdleForecolor =
             btnDelNote.ActiveFillColor = btnDelNote.ActiveLineColor = btnDelNote.IdleLineColor = btnDelNote.IdleForecolor =
             bunifuCardsNote.color =
-            dataGidViewNote.HeaderBgColor =
+            dataGridViewNote.HeaderBgColor =
             lbNearDeadline.ForeColor =
             lbAvgScore.ForeColor =
             dataGridViewHomeTimeTB.HeaderBgColor = 

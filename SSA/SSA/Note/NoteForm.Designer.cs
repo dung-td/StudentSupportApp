@@ -1,5 +1,5 @@
 ﻿
-namespace StudentSupportApp.Note
+namespace StudentSupportApp
 {
     partial class NoteForm
     {
@@ -30,11 +30,164 @@ namespace StudentSupportApp.Note
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteForm));
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.GradientPanelNote = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.btnExitNote = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnSaveNote = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.lbYourNote = new System.Windows.Forms.Label();
+            this.rtbDetail = new System.Windows.Forms.RichTextBox();
+            this.tbxNoteName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.GradientPanelNote.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 5;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // GradientPanelNote
+            // 
+            this.GradientPanelNote.BackColor = System.Drawing.SystemColors.Highlight;
+            this.GradientPanelNote.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GradientPanelNote.BackgroundImage")));
+            this.GradientPanelNote.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.GradientPanelNote.Controls.Add(this.btnExitNote);
+            this.GradientPanelNote.Controls.Add(this.btnSaveNote);
+            this.GradientPanelNote.Controls.Add(this.lbYourNote);
+            this.GradientPanelNote.Dock = System.Windows.Forms.DockStyle.Left;
+            this.GradientPanelNote.GradientBottomLeft = System.Drawing.SystemColors.Highlight;
+            this.GradientPanelNote.GradientBottomRight = System.Drawing.SystemColors.Highlight;
+            this.GradientPanelNote.GradientTopLeft = System.Drawing.SystemColors.Highlight;
+            this.GradientPanelNote.GradientTopRight = System.Drawing.SystemColors.Highlight;
+            this.GradientPanelNote.Location = new System.Drawing.Point(0, 0);
+            this.GradientPanelNote.Margin = new System.Windows.Forms.Padding(2);
+            this.GradientPanelNote.MinimumSize = new System.Drawing.Size(137, 450);
+            this.GradientPanelNote.Name = "GradientPanelNote";
+            this.GradientPanelNote.Quality = 10;
+            this.GradientPanelNote.Size = new System.Drawing.Size(137, 450);
+            this.GradientPanelNote.TabIndex = 48;
+            // 
+            // btnExitNote
+            // 
+            this.btnExitNote.ActiveBorderThickness = 1;
+            this.btnExitNote.ActiveCornerRadius = 20;
+            this.btnExitNote.ActiveFillColor = System.Drawing.SystemColors.Highlight;
+            this.btnExitNote.ActiveForecolor = System.Drawing.Color.White;
+            this.btnExitNote.ActiveLineColor = System.Drawing.SystemColors.Highlight;
+            this.btnExitNote.BackColor = System.Drawing.Color.Transparent;
+            this.btnExitNote.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExitNote.BackgroundImage")));
+            this.btnExitNote.ButtonText = "Thoát";
+            this.btnExitNote.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExitNote.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExitNote.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.btnExitNote.IdleBorderThickness = 1;
+            this.btnExitNote.IdleCornerRadius = 20;
+            this.btnExitNote.IdleFillColor = System.Drawing.Color.White;
+            this.btnExitNote.IdleForecolor = System.Drawing.SystemColors.Highlight;
+            this.btnExitNote.IdleLineColor = System.Drawing.SystemColors.Highlight;
+            this.btnExitNote.Location = new System.Drawing.Point(14, 379);
+            this.btnExitNote.Margin = new System.Windows.Forms.Padding(5);
+            this.btnExitNote.Name = "btnExitNote";
+            this.btnExitNote.Size = new System.Drawing.Size(105, 57);
+            this.btnExitNote.TabIndex = 54;
+            this.btnExitNote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnExitNote.Click += new System.EventHandler(this.btnExitNote_Click);
+            // 
+            // btnSaveNote
+            // 
+            this.btnSaveNote.ActiveBorderThickness = 1;
+            this.btnSaveNote.ActiveCornerRadius = 20;
+            this.btnSaveNote.ActiveFillColor = System.Drawing.SystemColors.Highlight;
+            this.btnSaveNote.ActiveForecolor = System.Drawing.Color.White;
+            this.btnSaveNote.ActiveLineColor = System.Drawing.SystemColors.Highlight;
+            this.btnSaveNote.BackColor = System.Drawing.Color.Transparent;
+            this.btnSaveNote.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSaveNote.BackgroundImage")));
+            this.btnSaveNote.ButtonText = "Lưu";
+            this.btnSaveNote.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveNote.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveNote.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.btnSaveNote.IdleBorderThickness = 1;
+            this.btnSaveNote.IdleCornerRadius = 20;
+            this.btnSaveNote.IdleFillColor = System.Drawing.Color.White;
+            this.btnSaveNote.IdleForecolor = System.Drawing.SystemColors.Highlight;
+            this.btnSaveNote.IdleLineColor = System.Drawing.SystemColors.Highlight;
+            this.btnSaveNote.Location = new System.Drawing.Point(14, 312);
+            this.btnSaveNote.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSaveNote.Name = "btnSaveNote";
+            this.btnSaveNote.Size = new System.Drawing.Size(105, 57);
+            this.btnSaveNote.TabIndex = 53;
+            this.btnSaveNote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSaveNote.Click += new System.EventHandler(this.btnSaveNote_Click);
+            // 
+            // lbYourNote
+            // 
+            this.lbYourNote.AutoSize = true;
+            this.lbYourNote.BackColor = System.Drawing.Color.Transparent;
+            this.lbYourNote.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbYourNote.ForeColor = System.Drawing.Color.White;
+            this.lbYourNote.Location = new System.Drawing.Point(28, 107);
+            this.lbYourNote.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbYourNote.Name = "lbYourNote";
+            this.lbYourNote.Size = new System.Drawing.Size(77, 78);
+            this.lbYourNote.TabIndex = 18;
+            this.lbYourNote.Text = "Ghi\r\nchú";
+            this.lbYourNote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // rtbDetail
+            // 
+            this.rtbDetail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbDetail.Location = new System.Drawing.Point(136, 58);
+            this.rtbDetail.Name = "rtbDetail";
+            this.rtbDetail.Size = new System.Drawing.Size(452, 392);
+            this.rtbDetail.TabIndex = 49;
+            this.rtbDetail.Text = "";
+            // 
+            // tbxNoteName
+            // 
+            this.tbxNoteName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbxNoteName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxNoteName.ForeColor = System.Drawing.Color.Black;
+            this.tbxNoteName.HintForeColor = System.Drawing.Color.Black;
+            this.tbxNoteName.HintText = "Tên ghi chú";
+            this.tbxNoteName.isPassword = false;
+            this.tbxNoteName.LineFocusedColor = System.Drawing.SystemColors.Highlight;
+            this.tbxNoteName.LineIdleColor = System.Drawing.Color.DimGray;
+            this.tbxNoteName.LineMouseHoverColor = System.Drawing.SystemColors.Highlight;
+            this.tbxNoteName.LineThickness = 3;
+            this.tbxNoteName.Location = new System.Drawing.Point(159, 7);
+            this.tbxNoteName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxNoteName.Name = "tbxNoteName";
+            this.tbxNoteName.Size = new System.Drawing.Size(237, 37);
+            this.tbxNoteName.TabIndex = 50;
+            this.tbxNoteName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // NoteForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "NoteForm";
+            this.ClientSize = new System.Drawing.Size(587, 450);
+            this.ControlBox = false;
+            this.Controls.Add(this.tbxNoteName);
+            this.Controls.Add(this.rtbDetail);
+            this.Controls.Add(this.GradientPanelNote);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "NoteForm";
+            this.Load += new System.EventHandler(this.NoteForm_Load);
+            this.SizeChanged += new System.EventHandler(this.NoteForm_SizeChanged);
+            this.GradientPanelNote.ResumeLayout(false);
+            this.GradientPanelNote.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Bunifu.Framework.UI.BunifuGradientPanel GradientPanelNote;
+        private System.Windows.Forms.Label lbYourNote;
+        private System.Windows.Forms.RichTextBox rtbDetail;
+        private Bunifu.Framework.UI.BunifuMaterialTextbox tbxNoteName;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnExitNote;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnSaveNote;
     }
 }

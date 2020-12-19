@@ -9,9 +9,11 @@ namespace StudentSupportApp
         string sUserID;
         string sNoteName;
         string sNoteDetail;
+        int iWidth;
+        int iHeight;
         Connect connection;
 
-        Note(string id)
+        public Note(string id)
         {
             sUserID = id;
             sNoteName = sNoteDetail = "";
@@ -35,6 +37,18 @@ namespace StudentSupportApp
             set => sUserID = value;
         }
 
+        public int Width
+        {
+            get => iWidth;
+            set => iWidth = value;
+        }
+
+        public int Height
+        {
+            get => iHeight;
+            set => iHeight = value;
+        }
+
         private bool CheckExistName()
         {
             try
@@ -52,6 +66,7 @@ namespace StudentSupportApp
                         if (Name == reader.GetString(0))
                             return true;
                     }
+                    else break;
                 }
                 reader.Close();
 
@@ -69,14 +84,48 @@ namespace StudentSupportApp
             return false;
         }
 
-        private void AddNoteToDatabase()
+        public void LoadNoteData()
+        {
+            try
+            {
+                connection = new Connect();
+                string sQuery = "SELECT * FROM NOTE WHERE ID_USER='" + UserID + "' AND NOTE_NAME=N'" + Name + "'";
+                connection.OpenConnection();
+
+                SqlCommand command = connection.CreateSQLCmd(sQuery);
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    if (reader.Read())
+                    {
+                        Detail = reader.GetString(1);
+                        Width = reader.GetInt16(3);
+                        Height = reader.GetInt16(4);
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                connection.CloseConnection();
+            }
+        }
+
+        public void AddNoteToDatabase()
         {
             try
             {
                 connection = new Connect();
                 if (CheckExistName() == false)
                 {
-                    string sQuery = "INSERT INTO NOTE VALUES(N'" + Name + "', N'" + Detail + "', '" + UserID + "')";
+                    string sQuery = "INSERT INTO NOTE VALUES(N'" + Name + "', N'" + Detail + "', '" + UserID + "', " + Width + ", " + Height + ")";
                     connection.OpenConnection();
 
                     SqlCommand addCommand = connection.CreateSQLCmd(sQuery);
@@ -100,14 +149,15 @@ namespace StudentSupportApp
             }
         }
 
-        private void UpdateNoteInfo(string oldName)
+        public void UpdateNoteInfo(string oldName)
         {
             try
             {
                 connection = new Connect();
-                if (CheckExistName() == false)
+                if (CheckExistName() == false || (CheckExistName() == true && oldName == Name))
                 {
-                    string sQuery = "UPDATE NOTE SET NOTE_NAME=N'" + Name + "' AND NOTE_DETAIL=N'" + Detail + "' WHERE NOTE_NAME=N'" + oldName + "'";
+                    string sQuery = "UPDATE NOTE SET NOTE_NAME=N'" + Name + "', NOTE_DETAIL=N'" + Detail + "' , NOTE_WIDTH=" + Width + ", NOTE_HEIGHT=" + Height + 
+                                    " WHERE NOTE_NAME=N'" + oldName + "' AND ID_USER='" + UserID + "'";
                     connection.OpenConnection();
 
                     SqlCommand addCommand = connection.CreateSQLCmd(sQuery);
@@ -131,12 +181,12 @@ namespace StudentSupportApp
             }
         }
 
-        private void DeleleNoteFromDatabase(string name)
+        public void DeleleNoteFromDatabase(string name)
         {
             try
             {
                 connection = new Connect();
-                string sQuery = "DELETE NOTE WHERE NOTE_NAME=N'" + name + "'";
+                string sQuery = "DELETE NOTE WHERE NOTE_NAME=N'" + name + "' AND ID_USER='" + UserID + "'";
                 connection.OpenConnection();
 
                 SqlCommand addCommand = connection.CreateSQLCmd(sQuery);
