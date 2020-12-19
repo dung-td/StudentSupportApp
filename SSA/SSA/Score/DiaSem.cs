@@ -46,17 +46,27 @@ namespace StudentSupportApp
 
         private void bOK_Click(object sender, EventArgs e)
         {
-            if (tbAddNew.Text != "")
+            try
             {
-                getData(tbAddNew.Text);
-                bOK.Enabled = false;
-                this.Close();
-                this.parent.Show();
-                MessageBox.Show("Đã xong!");
-            }
-            else
+
+
+                if (tbAddNew.Text != "")
+                {
+                    getData(tbAddNew.Text);
+                    bOK.Enabled = false;
+                    this.Close();
+                    this.parent.Show();
+                    MessageBox.Show("Đã xong!");
+                }
+                else
+                {
+                    MessageBox.Show("Dữ liệu trống", "LỖI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }catch(Exception err)
             {
-                MessageBox.Show("Dữ liệu trống", "LỖI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, err);
+                rp.Show();
             }
         }
 

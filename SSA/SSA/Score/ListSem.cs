@@ -45,48 +45,54 @@ namespace StudentSupportApp
 
         public void Read(string x)
         {
-
-            this.SEMESTERS.Clear();
-
-            CONNECT.OpenConnection();
-            SqlCommand command = CONNECT.CreateSQLCmd(@"select distinct SEM_NAME from SEMESTER where ID = '" + x + "'");
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.HasRows)
+            try
             {
-                if (reader.Read() == false) break;
-                Semester sem = new Semester(reader.GetString(0));
-                listSem.Add(sem);
+                this.SEMESTERS.Clear();
+
+                CONNECT.OpenConnection();
+                SqlCommand command = CONNECT.CreateSQLCmd(@"select distinct SEM_NAME from SEMESTER where ID = '" + x + "'");
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    Semester sem = new Semester(reader.GetString(0));
+                    listSem.Add(sem);
+                }
+                CONNECT.CloseConnection();
+
+                CONNECT.OpenConnection();
+                command = CONNECT.CreateSQLCmd(@"select * from TABLESCORE where ID_USER = '" + x + "'");
+                reader = command.ExecuteReader();
+
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false)
+                        break;
+
+                    string sNameOfSem = reader.GetString(1);
+                    string sID = reader.GetString(2);
+                    string sName = reader.GetString(3);
+                    int iCredit = reader.GetByte(4);
+
+                    Subject sub = new Subject(sID, sName, iCredit);
+                    CScore s1 = new CScore((float)reader.GetSqlDouble(5), (float)reader.GetSqlDouble(9));
+                    CScore s2 = new CScore((float)reader.GetSqlDouble(6), (float)reader.GetSqlDouble(10));
+                    CScore s3 = new CScore((float)reader.GetSqlDouble(7), (float)reader.GetSqlDouble(11));
+                    CScore s4 = new CScore((float)reader.GetSqlDouble(8), (float)reader.GetSqlDouble(12));
+
+                    ScoreOfSub score = new ScoreOfSub(sub, s1, s2, s3, s4);
+
+                    foreach (var sem in listSem)
+                        if (sem.Name == sNameOfSem)
+                            sem.SCORETABLE.Add(score);
+                }
+
+                CONNECT.CloseConnection();
             }
-            CONNECT.CloseConnection();
-
-            CONNECT.OpenConnection();
-            command = CONNECT.CreateSQLCmd(@"select * from TABLESCORE where ID_USER = '" + x + "'");
-            reader = command.ExecuteReader();
-
-            while (reader.HasRows)
+            catch(Exception e)
             {
-                if (reader.Read() == false)
-                    break;
-
-                string sNameOfSem = reader.GetString(1);
-                string sID = reader.GetString(2);
-                string sName = reader.GetString(3);
-                int iCredit = reader.GetByte(4);
-
-                Subject sub = new Subject(sID, sName, iCredit);
-                CScore s1 = new CScore((float)reader.GetSqlDouble(5), (float)reader.GetSqlDouble(9));
-                CScore s2 = new CScore((float)reader.GetSqlDouble(6), (float)reader.GetSqlDouble(10));
-                CScore s3 = new CScore((float)reader.GetSqlDouble(7), (float)reader.GetSqlDouble(11));
-                CScore s4 = new CScore((float)reader.GetSqlDouble(8), (float)reader.GetSqlDouble(12));
-
-                ScoreOfSub score = new ScoreOfSub(sub, s1, s2, s3, s4);
-
-                foreach (var sem in listSem)
-                    if (sem.Name == sNameOfSem)
-                        sem.SCORETABLE.Add(score);
+                MessageBox.Show(e.Message);
             }
-
-            CONNECT.CloseConnection();
 
         }
         public void ShowSemToGridView(DataGridView dt)
