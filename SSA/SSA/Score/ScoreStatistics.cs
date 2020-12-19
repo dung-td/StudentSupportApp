@@ -42,38 +42,56 @@ namespace StudentSupportApp
 
         public ScoreStatistics(MainForm p, string id, string name)
         {
-            data = new ListSem();
-            CONNECT = new Connect();
-            this.UserID = id;
-            this.parent1 = p;
-            this.sNameOfSem = name;
-            InitializeComponent();
-            int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
-            style |= NativeWinAPI.WS_EX_COMPOSITED;
-            NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
+            try
+            {
+                data = new ListSem();
+                CONNECT = new Connect();
+                this.UserID = id;
+                this.parent1 = p;
+                this.sNameOfSem = name;
+                InitializeComponent();
+                int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
+                style |= NativeWinAPI.WS_EX_COMPOSITED;
+                NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
 
-            data.Read(UserID);
-            SetColor(Properties.Settings.Default.Color);
-            CreateChart();
+                data.Read(UserID);
+                SetColor(Properties.Settings.Default.Color);
+                CreateChart();
 
-            parent = "mainform";
-            //var canvas = new Bunifu.DataViz.Canvas();
+                parent = "mainform";
+                //var canvas = new Bunifu.DataViz.Canvas();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+            }
         }
 
         public ScoreStatistics(SemForm p, string id)
         {
-            data = new ListSem();
-            CONNECT = new Connect();
-            this.UserID = id;
-            this.parent2 = p;
-            InitializeComponent();
+            try
+            {
+                data = new ListSem();
+                CONNECT = new Connect();
+                this.UserID = id;
+                this.parent2 = p;
+                InitializeComponent();
 
-            data.Read(UserID);
-            SetColor(Properties.Settings.Default.Color);
-            parent = "semform";
+                data.Read(UserID);
+                SetColor(Properties.Settings.Default.Color);
+                parent = "semform";
 
-            CreateChartOfSemesters();
-            //var canvas = new Bunifu.DataViz.Canvas();
+                CreateChartOfSemesters();
+                //var canvas = new Bunifu.DataViz.Canvas();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+            }
         }
         private void bExit_Click(object sender, EventArgs e)
         {

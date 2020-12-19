@@ -37,7 +37,7 @@ namespace StudentSupportApp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Green")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Highlight")]
         public global::System.Drawing.Color Color {
             get {
                 return ((global::System.Drawing.Color)(this["Color"]));

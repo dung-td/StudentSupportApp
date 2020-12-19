@@ -149,6 +149,8 @@ namespace StudentSupportApp
             this.tbTitle.Size = new System.Drawing.Size(412, 37);
             this.tbTitle.TabIndex = 77;
             this.tbTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbTitle.Enter += new System.EventHandler(this.tbTitle_Enter);
+            this.tbTitle.Leave += new System.EventHandler(this.tbTitle_Leave);
             // 
             // tbFeed
             // 
@@ -158,6 +160,8 @@ namespace StudentSupportApp
             this.tbFeed.Size = new System.Drawing.Size(412, 184);
             this.tbFeed.TabIndex = 78;
             this.tbFeed.Text = "";
+            this.tbFeed.Enter += new System.EventHandler(this.tbFeed_Enter);
+            this.tbFeed.Leave += new System.EventHandler(this.tbFeed_Leave);
             // 
             // Feedback
             // 
