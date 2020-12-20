@@ -225,6 +225,26 @@ namespace StudentSupportApp
                 this.Connection.CloseConnection();
             }
         }
+        public void ModifyReview()
+        {
+            string Query = "UPDATE REVIEW SET SujectID='" + SubjectID + "' Subject='" + Subject + "' Details='" + Details + "' Date_='" + Date + "' WHERE ID='" + ID + "'";
+            try
+            {
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(Query);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
+        }
         //public void GetReviewInfomation()
         //{
         //    try

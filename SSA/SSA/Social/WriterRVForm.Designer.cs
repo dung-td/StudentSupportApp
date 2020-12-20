@@ -38,6 +38,8 @@ namespace StudentSupportApp
             this.pLogo = new System.Windows.Forms.PictureBox();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
             this.bunifuCards5 = new Bunifu.Framework.UI.BunifuCards();
+            this.tbxSubID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.tbxSubName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lbSubName = new System.Windows.Forms.Label();
             this.lbSubID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,8 +50,6 @@ namespace StudentSupportApp
             this.tbxDetails = new System.Windows.Forms.RichTextBox();
             this.btnUpload = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCancel = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.tbxSubName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.tbxSubID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -171,6 +171,44 @@ namespace StudentSupportApp
             this.bunifuCards5.ShadowDepth = 20;
             this.bunifuCards5.Size = new System.Drawing.Size(290, 160);
             this.bunifuCards5.TabIndex = 24;
+            // 
+            // tbxSubID
+            // 
+            this.tbxSubID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbxSubID.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbxSubID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbxSubID.HintForeColor = System.Drawing.Color.Empty;
+            this.tbxSubID.HintText = "IT001";
+            this.tbxSubID.isPassword = false;
+            this.tbxSubID.LineFocusedColor = System.Drawing.Color.Blue;
+            this.tbxSubID.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbxSubID.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.tbxSubID.LineThickness = 3;
+            this.tbxSubID.Location = new System.Drawing.Point(90, 43);
+            this.tbxSubID.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxSubID.Name = "tbxSubID";
+            this.tbxSubID.Size = new System.Drawing.Size(196, 24);
+            this.tbxSubID.TabIndex = 14;
+            this.tbxSubID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // tbxSubName
+            // 
+            this.tbxSubName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbxSubName.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbxSubName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbxSubName.HintForeColor = System.Drawing.Color.Empty;
+            this.tbxSubName.HintText = "Nhập môn lập trình";
+            this.tbxSubName.isPassword = false;
+            this.tbxSubName.LineFocusedColor = System.Drawing.Color.Blue;
+            this.tbxSubName.LineIdleColor = System.Drawing.Color.Gray;
+            this.tbxSubName.LineMouseHoverColor = System.Drawing.Color.Blue;
+            this.tbxSubName.LineThickness = 3;
+            this.tbxSubName.Location = new System.Drawing.Point(90, 93);
+            this.tbxSubName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxSubName.Name = "tbxSubName";
+            this.tbxSubName.Size = new System.Drawing.Size(196, 24);
+            this.tbxSubName.TabIndex = 13;
+            this.tbxSubName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // lbSubName
             // 
@@ -297,7 +335,7 @@ namespace StudentSupportApp
             this.btnUpload.Size = new System.Drawing.Size(190, 39);
             this.btnUpload.TabIndex = 25;
             this.btnUpload.Text = "Đăng tải";
-            this.btnUpload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpload.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnUpload.Textcolor = System.Drawing.Color.Black;
             this.btnUpload.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
@@ -323,7 +361,7 @@ namespace StudentSupportApp
             this.btnCancel.IconVisible = true;
             this.btnCancel.IconZoom = 90D;
             this.btnCancel.IsTab = false;
-            this.btnCancel.Location = new System.Drawing.Point(689, 123);
+            this.btnCancel.Location = new System.Drawing.Point(689, 137);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Normalcolor = System.Drawing.Color.Silver;
             this.btnCancel.OnHovercolor = System.Drawing.Color.Silver;
@@ -332,48 +370,10 @@ namespace StudentSupportApp
             this.btnCancel.Size = new System.Drawing.Size(190, 38);
             this.btnCancel.TabIndex = 26;
             this.btnCancel.Text = "Hủy";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnCancel.Textcolor = System.Drawing.Color.Black;
             this.btnCancel.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // tbxSubName
-            // 
-            this.tbxSubName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxSubName.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.tbxSubName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbxSubName.HintForeColor = System.Drawing.Color.Empty;
-            this.tbxSubName.HintText = "IT001";
-            this.tbxSubName.isPassword = false;
-            this.tbxSubName.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbxSubName.LineIdleColor = System.Drawing.Color.Gray;
-            this.tbxSubName.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.tbxSubName.LineThickness = 3;
-            this.tbxSubName.Location = new System.Drawing.Point(90, 43);
-            this.tbxSubName.Margin = new System.Windows.Forms.Padding(4);
-            this.tbxSubName.Name = "tbxSubName";
-            this.tbxSubName.Size = new System.Drawing.Size(196, 24);
-            this.tbxSubName.TabIndex = 13;
-            this.tbxSubName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // tbxSubID
-            // 
-            this.tbxSubID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxSubID.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.tbxSubID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbxSubID.HintForeColor = System.Drawing.Color.Empty;
-            this.tbxSubID.HintText = "Nhập môn lập trình";
-            this.tbxSubID.isPassword = false;
-            this.tbxSubID.LineFocusedColor = System.Drawing.Color.Blue;
-            this.tbxSubID.LineIdleColor = System.Drawing.Color.Gray;
-            this.tbxSubID.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.tbxSubID.LineThickness = 3;
-            this.tbxSubID.Location = new System.Drawing.Point(90, 93);
-            this.tbxSubID.Margin = new System.Windows.Forms.Padding(4);
-            this.tbxSubID.Name = "tbxSubID";
-            this.tbxSubID.Size = new System.Drawing.Size(196, 24);
-            this.tbxSubID.TabIndex = 14;
-            this.tbxSubID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // WriterRVForm
             // 

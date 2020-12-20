@@ -31,6 +31,8 @@ namespace StudentSupportApp
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReviewForm));
             this.grbPost = new System.Windows.Forms.GroupBox();
+            this.lbDislike = new System.Windows.Forms.Label();
+            this.lbLike = new System.Windows.Forms.Label();
             this.tbxKeyWord = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.btnFind = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnNext = new Bunifu.Framework.UI.BunifuImageButton();
@@ -62,8 +64,7 @@ namespace StudentSupportApp
             this.label2 = new System.Windows.Forms.Label();
             this.pLogo = new System.Windows.Forms.PictureBox();
             this.btnWrite = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.lbLike = new System.Windows.Forms.Label();
-            this.lbDislike = new System.Windows.Forms.Label();
+            this.btnEdit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.grbPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrev)).BeginInit();
@@ -109,6 +110,24 @@ namespace StudentSupportApp
             this.grbPost.TabStop = false;
             this.grbPost.Text = "Bài viết";
             // 
+            // lbDislike
+            // 
+            this.lbDislike.AutoSize = true;
+            this.lbDislike.Location = new System.Drawing.Point(753, 310);
+            this.lbDislike.Name = "lbDislike";
+            this.lbDislike.Size = new System.Drawing.Size(20, 21);
+            this.lbDislike.TabIndex = 19;
+            this.lbDislike.Text = "1";
+            // 
+            // lbLike
+            // 
+            this.lbLike.AutoSize = true;
+            this.lbLike.Location = new System.Drawing.Point(753, 227);
+            this.lbLike.Name = "lbLike";
+            this.lbLike.Size = new System.Drawing.Size(20, 21);
+            this.lbLike.TabIndex = 18;
+            this.lbLike.Text = "1";
+            // 
             // tbxKeyWord
             // 
             this.tbxKeyWord.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -148,7 +167,7 @@ namespace StudentSupportApp
             this.btnFind.IconRightVisible = true;
             this.btnFind.IconRightZoom = 0D;
             this.btnFind.IconVisible = true;
-            this.btnFind.IconZoom = 90D;
+            this.btnFind.IconZoom = 80D;
             this.btnFind.IsTab = false;
             this.btnFind.Location = new System.Drawing.Point(648, 23);
             this.btnFind.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -198,7 +217,7 @@ namespace StudentSupportApp
             this.btnReport.BackColor = System.Drawing.Color.Transparent;
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.ImageActive = null;
-            this.btnReport.Location = new System.Drawing.Point(738, 370);
+            this.btnReport.Location = new System.Drawing.Point(740, 447);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(47, 42);
             this.btnReport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -529,7 +548,7 @@ namespace StudentSupportApp
             this.btnWrite.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnWrite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnWrite.BorderRadius = 0;
-            this.btnWrite.ButtonText = "Viết đánh giá";
+            this.btnWrite.ButtonText = "Viết bài viết";
             this.btnWrite.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWrite.DisabledColor = System.Drawing.Color.FloralWhite;
             this.btnWrite.Iconcolor = System.Drawing.Color.Transparent;
@@ -544,7 +563,7 @@ namespace StudentSupportApp
             this.btnWrite.IconVisible = true;
             this.btnWrite.IconZoom = 90D;
             this.btnWrite.IsTab = false;
-            this.btnWrite.Location = new System.Drawing.Point(840, 462);
+            this.btnWrite.Location = new System.Drawing.Point(851, 447);
             this.btnWrite.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnWrite.Name = "btnWrite";
             this.btnWrite.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
@@ -553,35 +572,55 @@ namespace StudentSupportApp
             this.btnWrite.selected = false;
             this.btnWrite.Size = new System.Drawing.Size(205, 47);
             this.btnWrite.TabIndex = 18;
-            this.btnWrite.Text = "Viết đánh giá";
+            this.btnWrite.Text = "Viết bài viết";
             this.btnWrite.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnWrite.Textcolor = System.Drawing.Color.Black;
             this.btnWrite.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
             // 
-            // lbLike
+            // btnEdit
             // 
-            this.lbLike.AutoSize = true;
-            this.lbLike.Location = new System.Drawing.Point(753, 227);
-            this.lbLike.Name = "lbLike";
-            this.lbLike.Size = new System.Drawing.Size(20, 21);
-            this.lbLike.TabIndex = 18;
-            this.lbLike.Text = "1";
-            // 
-            // lbDislike
-            // 
-            this.lbDislike.AutoSize = true;
-            this.lbDislike.Location = new System.Drawing.Point(753, 310);
-            this.lbDislike.Name = "lbDislike";
-            this.lbDislike.Size = new System.Drawing.Size(20, 21);
-            this.lbDislike.TabIndex = 19;
-            this.lbDislike.Text = "1";
+            this.btnEdit.Activecolor = System.Drawing.Color.Transparent;
+            this.btnEdit.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEdit.BorderRadius = 0;
+            this.btnEdit.ButtonText = "Chỉnh sửa bài viết";
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.DisabledColor = System.Drawing.Color.FloralWhite;
+            this.btnEdit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEdit.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnEdit.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnEdit.Iconimage")));
+            this.btnEdit.Iconimage_right = null;
+            this.btnEdit.Iconimage_right_Selected = null;
+            this.btnEdit.Iconimage_Selected = null;
+            this.btnEdit.IconMarginLeft = 0;
+            this.btnEdit.IconMarginRight = 0;
+            this.btnEdit.IconRightVisible = true;
+            this.btnEdit.IconRightZoom = 0D;
+            this.btnEdit.IconVisible = true;
+            this.btnEdit.IconZoom = 90D;
+            this.btnEdit.IsTab = false;
+            this.btnEdit.Location = new System.Drawing.Point(851, 504);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnEdit.OnHovercolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnEdit.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnEdit.selected = false;
+            this.btnEdit.Size = new System.Drawing.Size(205, 47);
+            this.btnEdit.TabIndex = 19;
+            this.btnEdit.Text = "Chỉnh sửa bài viết";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEdit.Textcolor = System.Drawing.Color.Black;
+            this.btnEdit.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // ReviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 585);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnWrite);
             this.Controls.Add(this.header);
             this.Controls.Add(this.grbTop);
@@ -648,5 +687,6 @@ namespace StudentSupportApp
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbxKeyWord;
         private System.Windows.Forms.Label lbDislike;
         private System.Windows.Forms.Label lbLike;
+        private Bunifu.Framework.UI.BunifuFlatButton btnEdit;
     }
 }

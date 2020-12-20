@@ -107,7 +107,7 @@ namespace StudentSupportApp
                 this.lbLike.Text = Reviews[temp]._Like.ToString();
                 this.lbDislike.Text = Reviews[temp]._Dislike.ToString();
             }
-        }
+        }   
         private void btnLike_Click(object sender, EventArgs e)
         {
             Reviews[temp].UpdateLike();
@@ -123,6 +123,7 @@ namespace StudentSupportApp
         private void btnReport_Click(object sender, EventArgs e)
         {
             Reviews[temp].UpdateReport();
+            MessageBox.Show("Cảm ơn bạn đã báo cáo bài viết! Chúng tôi sẽ xem xét báo cáo của bạn!");
         }
         private void btnPrev_Click(object sender, EventArgs e)
         {
@@ -187,6 +188,19 @@ namespace StudentSupportApp
             ReadData(Query);
             temp = 0;
             SetReview();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (Reviews[temp]._ID_User == ID_User)
+            {
+                WriterRVForm writerRVForm = new WriterRVForm(this, Reviews[temp]._ID, new string[] { Reviews[temp]._SubjectID, Reviews[temp]._Subject, Reviews[temp]._Details}, Reviews[temp]._Date);
+                writerRVForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Đây không phải bài viết của bạn, bạn không thể chỉnh sửa!");
+            }
         }
     }
 }
