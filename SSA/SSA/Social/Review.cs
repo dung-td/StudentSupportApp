@@ -19,7 +19,7 @@ namespace StudentSupportApp
         public Review()
         {
             ID = Like = Dislike = Report = 0;
-            Subject = SubjectID = ID_User = Details = "";
+            Subject = SubjectID = ID_User = Details = "Không có dữ liệu!";
             Date = DateTime.Now;
         }
         public Review(string[] args, int[] num, DateTime date)
@@ -87,6 +87,7 @@ namespace StudentSupportApp
                 string Query = "INSERT INTO REVIEW VALUES(" + ID.ToString() + ", '" + SubjectID + "', '" + Subject + "', '" + ID_User + "', '" + Details + "', " + Like + ", " + Dislike + ", " + Report + ", '" + Date + "')";
                 SqlCommand cmd = Connection.CreateSQLCmd(Query);
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Thêm bài viết thành công!");
             }
             catch (Exception ex)
             {
@@ -210,8 +211,28 @@ namespace StudentSupportApp
                 while (reader.HasRows)
                 {
                     if (reader.Read() == false) break;
-                    i = int.Parse(reader.GetString(0)) + 1;
+                    i = reader.GetInt32(0) + 1;
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
+        }
+        public void ModifyReview()
+        {
+            string Query = "UPDATE REVIEW SET SujectID='" + SubjectID + "' Subject='" + Subject + "' Details='" + Details + "' Date_='" + Date + "' WHERE ID='" + ID + "'";
+            try
+            {
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(Query);
+                command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {

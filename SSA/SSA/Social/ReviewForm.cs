@@ -46,6 +46,7 @@ namespace StudentSupportApp
         public void ReadData(string Query)
         {
             num = 0;
+            Reviews[num] = new Review();
             try
             {
                 Connection.OpenConnection();
@@ -82,7 +83,18 @@ namespace StudentSupportApp
         public void SetReview()
         {
             if (Reviews[temp] == null || temp < 0 || temp > num)
+            {
                 MessageBox.Show("Đã hết dữ liệu!");
+                this.lWriter.Text = "Không có dữ liệu";
+                this.lSubID.Text = "Không có dữ liệu";
+                this.lSubName.Text = "Không có dữ liệu";
+                this.lDate.Text = "Không có dữ liệu";
+                this.btnLike.Text = "Không có dữ liệu";
+                this.btnDislike.Text = "Không có dữ liệu";
+                this.tbxDetails.Text = "Không có dữ liệu";
+                this.lbLike.Text = "0";
+                this.lbDislike.Text = "0";
+            }
             else
             {
                 this.lWriter.Text = Reviews[temp]._ID_User;
@@ -92,19 +104,26 @@ namespace StudentSupportApp
                 this.btnLike.Text = Reviews[temp]._Like.ToString();
                 this.btnDislike.Text = Reviews[temp]._Dislike.ToString();
                 this.tbxDetails.Text = Reviews[temp]._Details;
+                this.lbLike.Text = Reviews[temp]._Like.ToString();
+                this.lbDislike.Text = Reviews[temp]._Dislike.ToString();
             }
         }
         private void btnLike_Click(object sender, EventArgs e)
         {
             Reviews[temp].UpdateLike();
+            this.lbLike.Text = (int.Parse(this.lbLike.Text) + 1).ToString();
+            Reviews[temp]._Like += 1;
         }
         private void btnDislike_Click(object sender, EventArgs e)
         {
             Reviews[temp].UpdateDislike();
+            this.lbDislike.Text = (int.Parse(this.lbDislike.Text) + 1).ToString();
+            Reviews[temp]._Dislike += 1;
         }
         private void btnReport_Click(object sender, EventArgs e)
         {
             Reviews[temp].UpdateReport();
+            MessageBox.Show("Cảm ơn bạn đã báo cáo bài viết! Chúng tôi sẽ xem xét báo cáo của bạn!");
         }
         private void btnPrev_Click(object sender, EventArgs e)
         {
@@ -132,28 +151,6 @@ namespace StudentSupportApp
         {
             Key = cbbCate.Text;
         }
-        private void tbxKeyWord_OnValueChanged(object sender, EventArgs e)
-        {
-            string Query;
-            switch (cbbCate.Text)
-            {
-                case "ID Môn học":
-                    Query = "SELECT * FROM REVIEW WHERE SubjectID='" + tbxKeyWord.Text + "'";
-                    break;
-                case "Người viết":
-                    Query = "SELECT * FROM REVIEW WHERE ID_USER='" + tbxKeyWord.Text + "'";
-                    break;
-                case "Môn học":
-                    Query = "SELECT * FROM REVIEW WHERE Subject='" + tbxKeyWord.Text + "'";
-                    break;
-                default:
-                    Query = "SELECT * FROM REVIEW";
-                    break;
-            }
-            ReadData(Query);
-            temp = 0;
-            SetReview();
-        }
         private void btnFind_Click(object sender, EventArgs e)
         {
 
@@ -166,8 +163,42 @@ namespace StudentSupportApp
 
         private void btnWrite_Click(object sender, EventArgs e)
         {
-            WriterRVForm Writer = new WriterRVForm(this);
+            WriterRVForm Writer = new WriterRVForm(this, ID_User);
             Writer.Show();
+        }
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (Reviews[temp]._ID_User == ID_User)
+            {
+                WriterRVForm writerRVForm = new WriterRVForm(this, Reviews[temp]._ID, new string[] { Reviews[temp]._SubjectID, Reviews[temp]._Subject, Reviews[temp]._Details }, Reviews[temp]._Date);
+                writerRVForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Đây không phải bài viết của bạn, bạn không thể chỉnh sửa!");
+            }
+        }
+        private void tbxKeyWord_OnValueChanged(object sender, EventArgs e)
+        {
+            string Query;
+            switch (cbbCate.Text)
+            {
+                case "ID Môn học":
+                    Query = "SELECT * FROM REVIEW WHERE SubjectID LIKE '%" + tbxKeyWord.Text + "%'";
+                    break;
+                case "Người viết":
+                    Query = "SELECT * FROM REVIEW WHERE ID_USER LIKE '%" + tbxKeyWord.Text + "%'";
+                    break;
+                case "Môn học":
+                    Query = "SELECT * FROM REVIEW WHERE Subject_ LIKE '%" + tbxKeyWord.Text + "%'";
+                    break;
+                default:
+                    Query = "SELECT * FROM REVIEW WHERE SubjectID LIKE '%" + tbxKeyWord.Text + "%'" + "OR ID_USER LIKE '%" + tbxKeyWord.Text + "%'" + "OR Subject_ LIKE '%" + tbxKeyWord.Text + "%'";
+                    break;
+            }
+            ReadData(Query);
+            temp = 0;
+            SetReview();
         }
     }
 }

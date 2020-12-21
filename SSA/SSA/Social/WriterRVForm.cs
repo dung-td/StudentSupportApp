@@ -11,8 +11,9 @@ namespace StudentSupportApp
 {
     public partial class WriterRVForm : Form
     {
-        ReviewForm parent;
+        Form parent;
         Review review;
+        int temp = 0;
         [DllImport("user32")]
         private static extern bool ReleaseCapture();
         [DllImport("user32")]
@@ -26,10 +27,27 @@ namespace StudentSupportApp
                 SendMessage(Handle, 161, 2, 0);
             }
         }
-        public WriterRVForm(ReviewForm parent)
+        public WriterRVForm(Form parent, string ID_User)
         {
+            temp = 1;
+            review = new Review();
+            this.review._ID_User = ID_User;
             this.parent = parent;
             InitializeComponent();
+        }
+        public WriterRVForm(Form parent, int ID, string[] args, DateTime Date)
+        {
+            temp = -1;
+            review = new Review();
+            this.review._ID = ID;
+            this.review._SubjectID = args[0];
+            this.review._Subject = args[1];
+            this.review._Details = args[2];
+            this.review._Date = Date;
+            InitializeComponent();
+            this.tbxSubID.Text = review._SubjectID;
+            this.tbxSubName.Text = review._Subject;
+            this.tbxDetails.Text = review._Details;
         }
         private void btnMinimize_Click(object sender, EventArgs e)
         {
@@ -37,26 +55,38 @@ namespace StudentSupportApp
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            btnCancel_Click(sender, e);
         }
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            review = new Review();
-            int temp = 1;
-            review.GetReviewID(ref temp);
-            review._ID = temp;
-            review._Like = 0;
-            review._Report = 0;
-            review._Dislike = 0;
-            review._Subject = tbxSubName.Text;
-            review._SubjectID = tbxSubID.Text;
-            review._Date = DateTime.Now;
-            review._Details = tbxDetails.Text;
-            review.AddReviewToDatabase();
+            if (temp == 1)
+            {
+                review = new Review();
+                review.GetReviewID(ref temp);
+                review._ID = temp;
+                review._Like = 0;
+                review._Report = 0;
+                review._Dislike = 0;
+                review._Subject = tbxSubName.Text;
+                review._SubjectID = tbxSubID.Text;
+                review._Date = DateTime.Now;
+                review._Details = tbxDetails.Text;
+                review.AddReviewToDatabase();
+            }
+            else
+            {
+                review._Subject = tbxSubName.Text;
+                review._SubjectID = tbxSubID.Text;
+                review._Date = DateTime.Now;
+                review._Details = tbxDetails.Text;
+                review.ModifyReview();
+            }
+            this.Close();
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.parent.Show();
         }
     }
 }
