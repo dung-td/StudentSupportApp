@@ -436,7 +436,7 @@ namespace StudentSupportApp
 
                 bExportScore.Visible = bstatisticsScore.Visible = false;
 
-
+                bExitScore.Visible = false;
 
                 AddItemToComboBoxSemester();
             }
@@ -482,6 +482,7 @@ namespace StudentSupportApp
             ReviewForm.Show();
         }
 
+       
     }
 }
 
@@ -1695,9 +1696,10 @@ namespace StudentSupportApp
         {
             try
             {
-                bAddScore.Visible = true;
+                bAddScore.Visible = false;
                 bDel.Visible = true;
                 bModify.Visible = true;
+                bExitScore.Visible = true;
 
                 tbSubID.Text = lvScoreBoard.SelectedItems[0].SubItems[0].Text;
                 tbSubName.Text = lvScoreBoard.SelectedItems[0].SubItems[1].Text;
@@ -1915,6 +1917,13 @@ namespace StudentSupportApp
             this.Hide();
             form.Show();
         }
+
+        private void bExit_Click(object sender, EventArgs e)
+        {
+            ResetTextbox();
+            bAddScore.Visible = true;
+            bExitScore.Visible = bModify.Visible = bDel.Visible = false;
+        }
         #endregion
 
         #region Settings
@@ -2029,7 +2038,9 @@ namespace StudentSupportApp
             tbMidWei.LineMouseHoverColor = tbMidWei.LineFocusedColor =
             tbFinVa.LineMouseHoverColor = tbFinVa.LineFocusedColor =
             tbFinWei.LineFocusedColor = tbFinWei.LineMouseHoverColor =
-            x;
+
+             bExitScore.ActiveFillColor = bExitScore.ForeColor = bExitScore.IdleLineColor = bExitScore.IdleForecolor = bExitScore.ActiveLineColor = x;
+           
 
         }
 
