@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Drawing;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -35,6 +33,7 @@ namespace StudentSupportApp
             this.ID_User = ID_User;
             Reviews = new Review[1000];
             InitializeComponent();
+            SetColor(Properties.Settings.Default.Color);
         }
         private void ReviewForm_Load(object sender, EventArgs e)
         {
@@ -155,7 +154,6 @@ namespace StudentSupportApp
         {
 
         }
-
         private void header_MouseMove(object sender, MouseEventArgs e)
         {
             OnMouseDown(e);
@@ -199,6 +197,11 @@ namespace StudentSupportApp
             ReadData(Query);
             temp = 0;
             SetReview();
+        }
+        void SetColor(Color x)
+        {
+            header.BackColor =
+            tbxKeyWord.LineFocusedColor = tbxKeyWord.LineMouseHoverColor = x;
         }
     }
 }

@@ -34,6 +34,7 @@ namespace StudentSupportApp
             this.review._ID_User = ID_User;
             this.parent = parent;
             InitializeComponent();
+            SetColor(Properties.Settings.Default.Color);
         }
         public WriterRVForm(Form parent, int ID, string[] args, DateTime Date)
         {
@@ -87,6 +88,12 @@ namespace StudentSupportApp
         {
             this.Close();
             this.parent.Show();
+        }
+        void SetColor(Color x)
+        {
+            tbxSubID.LineFocusedColor = tbxSubID.LineMouseHoverColor =
+                tbxSubName.LineMouseHoverColor = tbxSubName.LineFocusedColor =
+                    header.BackColor = x;
         }
     }
 }
