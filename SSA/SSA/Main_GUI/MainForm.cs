@@ -99,6 +99,20 @@ namespace StudentSupportApp
                 this.bEditSave.Location = new Point(this.bRefresh.Location.X + 400, this.bRefresh.Location.Y);
                 this.bunifuCards4.Location = new Point(this.bunifuCards4.Location.X - 80, this.bunifuCards4.Location.Y);
                 this.dataHomeDeadline.Width -= 100;
+
+                this.cardCommunity.Width -= 104;
+                cardProfile.Location = new Point(this.cardCommunity.Location.X + this.cardCommunity.Width - 60, this.cardCommunity.Location.Y);
+                this.cardProfile.Width -= 90;
+                cardSubRV.Location = new Point(this.cardCommunity.Location.X + this.cardCommunity.Width - 60, this.cardProfile.Location.Y + this.cardProfile.Height - 1);
+                this.cardSubRV.Width -= 90;
+
+                this.tbxFind.Width -= 80;
+                this.tbxID.Width -= 80;
+                this.tbxName.Width -= 80;
+                this.tbxEmail.Width -= 80;
+                this.listViewProfile.Width -= 70;
+                this.btnFind.Location = new Point(this.btnFind.Location.X - 80, this.btnFind.Location.Y);
+
                 //Danh
                 this.bCardTimetable.Width -= 200;
                 this.dataGridViewTimetable.Width -= 200;
@@ -218,6 +232,19 @@ namespace StudentSupportApp
                 this.bEditSave.Location = new Point(this.bRefresh.Location.X + 620, this.bRefresh.Location.Y);
                 this.bunifuCards4.Location = new Point(this.bunifuCards4.Location.X + 80, this.bunifuCards4.Location.Y);
                 this.dataHomeDeadline.Width += 100;
+
+                this.cardCommunity.Width += 104;
+                cardProfile.Location = new Point(this.cardCommunity.Location.X + this.cardCommunity.Width - 1, this.cardCommunity.Location.Y);
+                this.cardProfile.Width += 90;
+                cardSubRV.Location = new Point(this.cardCommunity.Location.X + this.cardCommunity.Width - 1, this.cardProfile.Location.Y + this.cardProfile.Height - 1);
+                this.cardSubRV.Width += 90;
+
+                this.tbxFind.Width += 80;
+                this.tbxID.Width += 80;
+                this.tbxName.Width += 80;
+                this.tbxEmail.Width += 80;
+                this.listViewProfile.Width += 70;
+                this.btnFind.Location = new Point(this.btnFind.Location.X + 80, this.btnFind.Location.Y);
 
                 //Danh
                 this.bCardTimetable.Width += 200;
@@ -501,249 +528,6 @@ namespace StudentSupportApp
             Notifi notifi = new Notifi();
             notifi.showAlert(msg);
         }
-        private void NotifiDeadline()
-        {
-            try
-            {
-                Deadlines[] ListDeadline = new Deadlines[1000];
-                string sQuery = "SELECT * FROM DEADLINE WHERE YEAR(DATESUBMIT) = YEAR(GETDATE()) AND MONTH(DATESUBMIT) = MONTH(GETDATE()) AND DAY(DATESUBMIT) = DAY(GETDATE()) AND STATU='1' AND ID_USER = '" + this.User.ID + "'";
-                this.Connection.OpenConnection();
-                SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
-                SqlDataReader reader = command.ExecuteReader();
-                int temp = 0;
-                string[] args = new string[5];
-                while (reader.HasRows)
-                {
-                    if (reader.Read() == false) break;
-                    args[0] = reader.GetString(0);
-                    args[1] = reader.GetString(1);
-                    args[2] = reader.GetString(2);
-                    args[3] = reader.GetString(3);
-                    DateTime temp1 = reader.GetDateTime(4);
-                    args[4] = reader.GetString(5);
-                    ListDeadline[temp] = new Deadlines(args, temp1);
-                    temp++;
-                }
-                foreach (Deadlines DL in ListDeadline)
-                {
-                    if (DL == null)
-                        break;
-                    this.Alert(DL.SubjectCode + " | " + DL.Details + " | Today: " + DL.TimeSubmit.TimeOfDay);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                ReportError rp = new ReportError(this, ex);
-                rp.Show();
-                this.Hide();
-            }
-            finally
-            {
-                this.Connection.CloseConnection();
-            }
-        }
-        private void bEdit_Click(object sender, EventArgs e)
-        {
-            this.bEditSave.Visible = true;
-            this.btbDetails.Enabled = true;
-            this.btbStatus.Enabled = true;
-            this.btbSubject.Enabled = true;
-            this.sliderProgress.Enabled = true;
-        }
-        private void LoadToHomeDeadline()
-        {
-            Deadlines[] temp = new Deadlines[5];
-            string Top5Deadlilne = "SELECT TOP (5) * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "' AND STATU < 100 ORDER BY DEADLINE.DATESUBMIT ASC";
-            try
-            {
-                this.Connection.OpenConnection();
-                SqlCommand command = this.Connection.CreateSQLCmd(Top5Deadlilne);
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.HasRows)
-                {
-                    if (reader.Read() == false)
-                    {
-                        break;
-                    }
-                    dataHomeDeadline.Rows.Add(reader.GetString(1), reader.GetDateTime(4).ToString(), false);
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                ReportError rp = new ReportError(this, ex);
-                rp.Show();
-                this.Hide();
-            }
-            finally
-            {
-                this.Connection.CloseConnection();
-            }
-        }
-        private void bRefresh_Click(object sender, EventArgs e)
-        {
-            Deadlines[] ListDeadline = new Deadlines[1000];
-            try
-            {
-                while (dataDeadline.Rows.Count > 1)
-                {
-                    dataDeadline.Rows.RemoveAt(0);
-                }
-                string sQuery = "SELECT * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "'";
-                this.Connection.OpenConnection();
-                SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
-                SqlDataReader reader = command.ExecuteReader();
-                int temp = 0;
-                string[] args = new string[5];
-                while (reader.HasRows)
-                {
-                    if (reader.Read() == false) break;
-                    args[0] = reader.GetString(0);
-                    args[1] = reader.GetString(1);
-                    args[2] = reader.GetString(2);
-                    args[3] = reader.GetString(3);
-                    DateTime temp1 = reader.GetDateTime(4);
-                    args[4] = reader.GetString(5);
-                    ListDeadline[temp] = new Deadlines(args, temp1);
-                    temp++;
-                }
-                foreach (Deadlines DL in ListDeadline)
-                {
-                    if (DL == null)
-                        break;
-                    dataDeadline.Rows.Add(DL.ID, DL.SubjectCode, DL.Subject, DL.Details, DL.TimeSubmit, DL.Status);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                ReportError rp = new ReportError(this, ex);
-                rp.Show();
-                this.Hide();
-            }
-            finally
-            {
-                this.Connection.CloseConnection();
-            }
-
-        }
-        private void bDelete_Click(object sender, EventArgs e)
-        {
-            MessageBoxButtons button = MessageBoxButtons.OK;
-            MessageBox.Show(" All selected items will be delete!", "WARNING!", button);
-            foreach (DataGridViewRow row in dataDeadline.SelectedRows)
-            {
-                try
-                {
-                    this.Connection.OpenConnection();
-                    string Query = "DELETE FROM DEADLINE WHERE ID ='" + row.Cells[0].Value + "'";
-                    SqlCommand command = this.Connection.CreateSQLCmd(Query);
-                    dataDeadline.Rows.RemoveAt(row.Index);
-                    command.ExecuteNonQuery();
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                    ReportError rp = new ReportError(this, ex);
-                    rp.Show();
-                    this.Hide();
-                }
-                finally
-                {
-                    this.Connection.CloseConnection();
-                    NearestDeadline();
-                }
-            }
-        }
-        private void bAdd_Click(object sender, EventArgs e)
-        {
-            AddDeadline add = new AddDeadline(this);
-            add.addItem = new AddDeadline.AddItem(addDeadline);
-            this.Hide();
-            add.Show();
-        }
-        private void addDeadline(string[] temp)
-        {
-            try
-            {
-                this.Connection.OpenConnection();
-                temp[0] = "1";
-                User.GetDeadlineID(ref temp[0]);
-                temp[6] = "0";
-                this.dataDeadline.Rows.Add(temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6]);
-                string Query = "INSERT INTO DEADLINE VALUES('" + temp[0] + "', '" + temp[1] + "', '" + temp[2] + "', '" +
-                                                                temp[3] + "', '" + temp[4] + "', '" + temp[5] + "', '" + this.User.ID + "', " + temp[6] + ")";
-                SqlCommand command = this.Connection.CreateSQLCmd(Query);
-                command.ExecuteNonQuery();
-                MessageBox.Show(" ADDED SUCCESSFULLY!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                ReportError rp = new ReportError(this, ex);
-                rp.Show();
-                this.Hide();
-            }
-            finally
-            {
-                this.Connection.CloseConnection();
-            }
-        }
-        private void dataDeadline_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (dataDeadline.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-                {
-                    dataDeadline.CurrentRow.Selected = true;
-                    labelID.Text = dataDeadline.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    btbSubject.Text = dataDeadline.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    btbDetails.Text = dataDeadline.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    bdateTime.Value = DateTime.Parse(dataDeadline.Rows[e.RowIndex].Cells[4].Value.ToString());
-                    btbStatus.Text = dataDeadline.Rows[e.RowIndex].Cells[5].Value.ToString();
-                    sliderProgress.Value = int.Parse(dataDeadline.Rows[e.RowIndex].Cells[6].Value.ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                ReportError rp = new ReportError(this, ex);
-                rp.Show();
-                this.Hide();
-            }
-        }
-        private void bEditSave_Click(object sender, EventArgs e)
-        {
-            this.btbDetails.Enabled = false;
-            this.btbStatus.Enabled = false;
-            this.btbSubject.Enabled = false;
-            this.bEditSave.Hide();
-            try
-            {
-                string Query = "UPDATE DEADLINE SET DETAIL='" + btbDetails.Text + "', DATESUBMIT='" + bdateTime.Value.ToString() + "', STAT='" + btbStatus.Text + "', SUB_NAME='" + btbSubject.Text + "' STATU=" + sliderProgress.Value.ToString()
-                                                              + "' WHERE ID='" + labelID.Text + "'";
-                Connection.OpenConnection();
-                SqlCommand command = Connection.CreateSQLCmd(Query);
-                command.ExecuteNonQuery();
-                MessageBoxButtons buttons = MessageBoxButtons.OK;
-                MessageBox.Show("SAVED!", "Notification", buttons);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                ReportError rp = new ReportError(this, ex);
-                rp.Show();
-                this.Hide();
-            }
-            finally
-            {
-                Connection.CloseConnection();
-                bRefresh_Click(sender, e);
-            }
-        }
         private void NearestDeadline()
         {
             try
@@ -836,6 +620,251 @@ namespace StudentSupportApp
                 this.Connection.CloseConnection();
             }
         }
+        private void NotifiDeadline()
+        {
+            try
+            {
+                Deadlines[] ListDeadline = new Deadlines[1000];
+                string sQuery = "SELECT * FROM DEADLINE WHERE YEAR(DATESUBMIT) = YEAR(GETDATE()) AND MONTH(DATESUBMIT) = MONTH(GETDATE()) AND DAY(DATESUBMIT) = DAY(GETDATE()) AND STATU='1' AND ID_USER = '" + this.User.ID + "'";
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
+                SqlDataReader reader = command.ExecuteReader();
+                int temp = 0;
+                string[] args = new string[5];
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    args[0] = reader.GetString(0);
+                    args[1] = reader.GetString(1);
+                    args[2] = reader.GetString(2);
+                    args[3] = reader.GetString(3);
+                    DateTime temp1 = reader.GetDateTime(4);
+                    args[4] = reader.GetString(5);
+                    ListDeadline[temp] = new Deadlines(args, temp1);
+                    temp++;
+                }
+                foreach (Deadlines DL in ListDeadline)
+                {
+                    if (DL == null)
+                        break;
+                    this.Alert(DL.SubjectCode + " | " + DL.Details + " | Today: " + DL.TimeSubmit.TimeOfDay);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
+        }
+        private void LoadToHomeDeadline()
+        {
+            Deadlines[] temp = new Deadlines[5];
+            string Top5Deadlilne = "SELECT TOP (5) * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "' AND STATU < 100 ORDER BY DEADLINE.DATESUBMIT ASC";
+            try
+            {
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(Top5Deadlilne);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false)
+                    {
+                        break;
+                    }
+                    dataHomeDeadline.Rows.Add(reader.GetString(1), reader.GetDateTime(4).ToString(), false);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
+        }
+        private void addDeadline(string[] temp)
+        {
+            try
+            {
+                this.Connection.OpenConnection();
+                temp[0] = "1";
+                User.GetDeadlineID(ref temp[0]);
+                temp[6] = "0";
+                this.dataDeadline.Rows.Add(temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6]);
+                string Query = "INSERT INTO DEADLINE VALUES('" + temp[0] + "', '" + temp[1] + "', '" + temp[2] + "', '" +
+                                                                temp[3] + "', '" + temp[4] + "', '" + temp[5] + "', '" + this.User.ID + "', " + temp[6] + ")";
+                SqlCommand command = this.Connection.CreateSQLCmd(Query);
+                command.ExecuteNonQuery();
+                MessageBox.Show(" ADDED SUCCESSFULLY!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
+        }
+        #region EventHandler
+        private void bEdit_Click(object sender, EventArgs e)
+        {
+            this.bEditSave.Visible = true;
+            this.btbDetails.Enabled = true;
+            this.btbStatus.Enabled = true;
+            this.btbSubject.Enabled = true;
+            this.sliderProgress.Enabled = true;
+        }
+        private void bRefresh_Click(object sender, EventArgs e)
+        {
+            Deadlines[] ListDeadline = new Deadlines[1000];
+            try
+            {
+                while (dataDeadline.Rows.Count > 1)
+                {
+                    dataDeadline.Rows.RemoveAt(0);
+                }
+                string sQuery = "SELECT * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "'";
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
+                SqlDataReader reader = command.ExecuteReader();
+                int temp = 0;
+                string[] args = new string[6];
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    args[0] = reader.GetString(0);
+                    args[1] = reader.GetString(1);
+                    args[2] = reader.GetString(2);
+                    args[3] = reader.GetString(3);
+                    DateTime temp1 = reader.GetDateTime(4);
+                    args[4] = reader.GetString(5);
+                    args[5] = reader.GetInt32(7).ToString();
+                    ListDeadline[temp] = new Deadlines(args, temp1);
+                    temp++;
+                }
+                foreach (Deadlines DL in ListDeadline)
+                {
+                    if (DL == null)
+                        break;
+                    dataDeadline.Rows.Add(DL.ID, DL.SubjectCode, DL.Subject, DL.Details, DL.TimeSubmit, DL.Status, DL.Progress);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
+
+        }
+        private void bDelete_Click(object sender, EventArgs e)
+        {
+            MessageBoxButtons button = MessageBoxButtons.OK;
+            MessageBox.Show(" All selected items will be delete!", "WARNING!", button);
+            foreach (DataGridViewRow row in dataDeadline.SelectedRows)
+            {
+                try
+                {
+                    this.Connection.OpenConnection();
+                    string Query = "DELETE FROM DEADLINE WHERE ID ='" + row.Cells[0].Value + "'";
+                    SqlCommand command = this.Connection.CreateSQLCmd(Query);
+                    dataDeadline.Rows.RemoveAt(row.Index);
+                    command.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                    ReportError rp = new ReportError(this, ex);
+                    rp.Show();
+                    this.Hide();
+                }
+                finally
+                {
+                    this.Connection.CloseConnection();
+                    NearestDeadline();
+                }
+            }
+        }
+        private void bAdd_Click(object sender, EventArgs e)
+        {
+            AddDeadline add = new AddDeadline(this);
+            add.addItem = new AddDeadline.AddItem(addDeadline);
+            this.Hide();
+            add.Show();
+        }
+        private void dataDeadline_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dataDeadline.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    dataDeadline.CurrentRow.Selected = true;
+                    labelID.Text = dataDeadline.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    btbSubject.Text = dataDeadline.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    btbDetails.Text = dataDeadline.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    bdateTime.Value = DateTime.Parse(dataDeadline.Rows[e.RowIndex].Cells[4].Value.ToString());
+                    btbStatus.Text = dataDeadline.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    sliderProgress.Value = int.Parse(dataDeadline.Rows[e.RowIndex].Cells[6].Value.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
+            }
+        }
+        private void bEditSave_Click(object sender, EventArgs e)
+        {
+            this.btbDetails.Enabled = false;
+            this.btbStatus.Enabled = false;
+            this.btbSubject.Enabled = false;
+            this.bEditSave.Hide();
+            try
+            {
+                string Query = "UPDATE DEADLINE SET DETAIL='" + btbDetails.Text + "', DATESUBMIT='" + bdateTime.Value.ToString() + "', STAT='" + btbStatus.Text + "', SUB_NAME='" + btbSubject.Text + "' STATU=" + sliderProgress.Value.ToString()
+                                                              + "' WHERE ID='" + labelID.Text + "'";
+                Connection.OpenConnection();
+                SqlCommand command = Connection.CreateSQLCmd(Query);
+                command.ExecuteNonQuery();
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBox.Show("SAVED!", "Notification", buttons);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+                this.Hide();
+            }
+            finally
+            {
+                Connection.CloseConnection();
+                bRefresh_Click(sender, e);
+            }
+        }
         private void cbView_SelectedIndexChanged(object sender, EventArgs e)
         {
             while (dataDeadline.Rows.Count > 1)
@@ -863,6 +892,12 @@ namespace StudentSupportApp
             }
             GetDeadline(sQuery);
         }
+        private void btnStatistic_Click(object sender, EventArgs e)
+        {
+            DeadlineStatistic deadlineStatistic = new DeadlineStatistic(this, User.ID);
+            deadlineStatistic.Show();
+        }
+        #endregion
         #endregion
 
         #region Community
@@ -875,10 +910,7 @@ namespace StudentSupportApp
                 listViewProfile.Items.Add(new ListViewItem(new string[] { user.ID, user.Name, user.Email }));
             }
         }
-        private void LoadProfile(int i)
-        {
-
-        }
+        #region EventHandler
         private void tbxFind_OnValueChanged(object sender, EventArgs e)
         {
             try
@@ -930,6 +962,7 @@ namespace StudentSupportApp
             WriterRVForm Writer = new WriterRVForm(this, User.ID);
             Writer.Show();
         }
+        #endregion
         #endregion
     }
 }
@@ -2101,7 +2134,8 @@ namespace StudentSupportApp
             bEdit.ActiveFillColor = bEdit.ActiveLineColor = bEdit.IdleLineColor = bEdit.IdleForecolor =
             bDelete.ActiveFillColor = bDelete.ActiveLineColor = bDelete.IdleLineColor = bDelete.IdleForecolor =
             bEditSave.ActiveFillColor = bEditSave.ActiveLineColor = bEditSave.IdleLineColor = bEditSave.IdleForecolor =
-            bRefresh.ActiveFillColor = bRefresh.ActiveLineColor = bRefresh.IdleLineColor = bRefresh.IdleForecolor = x;
+            bRefresh.ActiveFillColor = bRefresh.ActiveLineColor = bRefresh.IdleLineColor = bRefresh.IdleForecolor = 
+            btnStatistic.ActiveFillColor = btnStatistic.ActiveLineColor = btnStatistic.IdleLineColor = btnStatistic.IdleForecolor = x;
         }
 
         void SetColorTabTimeTable(Color x)
@@ -2148,6 +2182,14 @@ namespace StudentSupportApp
                 cardMore.color = lMoreHead.BackColor =
                 bFeedSup.Textcolor = bShareApp.Textcolor = bAboutUs.Textcolor = x;
         }
+        void SetColorTabCommunity(Color x)
+        {
+            cardCommunity.color = cardProfile.color = cardSubRV.color =
+                tbxFind.LineFocusedColor = tbxFind.LineMouseHoverColor =
+                tbxID.LineFocusedColor = tbxID.LineMouseHoverColor =
+                tbxName.LineFocusedColor = tbxName.LineMouseHoverColor =
+                tbxEmail.LineFocusedColor = tbxEmail.LineMouseHoverColor = x;
+        }
 
         void SetColorGUI(Color x)
         {
@@ -2166,9 +2208,9 @@ namespace StudentSupportApp
             //btnSetting.BackColor = btnSetting.Activecolor = btnSetting.Normalcolor = 
             btnSetting.OnHovercolor = //btnSetting.OnHoverTextColor =
             //btnLogOut.BackColor = btnLogOut.Activecolor = btnLogOut.Normalcolor = 
-            btnLogOut.OnHovercolor //= btnLogOut.OnHoverTextColor
-            = btnCollapse.BackColor
-            = x;
+            btnLogOut.OnHovercolor = //= btnLogOut.OnHoverTextColor
+            btnSocial.OnHovercolor =
+            btnCollapse.BackColor = x;
         }
 
         public void SetColorAll(Color x)
@@ -2179,6 +2221,7 @@ namespace StudentSupportApp
             SetColorTabInfo(x);
             SetColorTabSetting(x);
             SetColorTabTimeTable(x);
+            SetColorTabCommunity(x);
             SetColorGUI(x);
         }
         private void bSetTheme_Click(object sender, EventArgs e)
