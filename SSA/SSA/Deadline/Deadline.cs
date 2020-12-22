@@ -102,28 +102,5 @@ namespace StudentSupportApp
             get => iProgress;
             set => iProgress = value;
         }
-        public void Swap(ref Deadlines DL)
-        {
-            string temp;
-            temp = this.Subject;
-            this.Subject = DL.Subject;
-            DL.Subject = temp;
-
-            temp = this.SubjectCode;
-            this.SubjectCode = DL.SubjectCode;
-            DL.SubjectCode = temp;
-
-            temp = this.Details;
-            this.Details = DL.Details;
-            DL.Details = temp;
-
-            temp = this.Status;
-            this.Status = DL.Status;
-            DL.Status = temp;
-
-            DateTime temp1 = this.dtTimeSubmit;
-            this.dtTimeSubmit = DL.dtTimeSubmit;
-            DL.dtTimeSubmit = temp1;
-        }
     }
 }

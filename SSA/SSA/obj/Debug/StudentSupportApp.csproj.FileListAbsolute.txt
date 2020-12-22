@@ -66,3 +66,4 @@ C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSu
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.csprojAssemblyReference.cache
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.DiaWeb.resources
 C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.NoteForm.resources
+C:\Users\Duc Dung\Documents\GitHub\StudentSupportApp\SSA\SSA\obj\Debug\StudentSupportApp.DeadlineStatistic.resources

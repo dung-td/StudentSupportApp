@@ -78,6 +78,9 @@ namespace StudentSupportApp
                 this.UserID = id;
                 this.parent2 = p;
                 InitializeComponent();
+                int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
+                style |= NativeWinAPI.WS_EX_COMPOSITED;
+                NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
 
                 data.Read(UserID);
                 SetColor(Properties.Settings.Default.Color);
@@ -117,7 +120,6 @@ namespace StudentSupportApp
 
                 for (int i = 0; i < amount; i++)
                 {
-
                     chartStatistic.Series["Điểm số"].Points.AddXY((table.SCOREOFSUB(i).SUBJECT.Name), table.SCOREOFSUB(i).Average);
                 }
 

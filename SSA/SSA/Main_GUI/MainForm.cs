@@ -862,6 +862,11 @@ namespace StudentSupportApp
             }
             GetDeadline(sQuery);
         }
+        private void btnStatistic_Click(object sender, EventArgs e)
+        {
+            DeadlineStatistic statistic = new DeadlineStatistic(this, User.ID);
+            statistic.Show();
+        }
         #endregion
 
         #region Community
