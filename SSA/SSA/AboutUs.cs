@@ -14,6 +14,21 @@ namespace StudentSupportApp
     public partial class AboutUs : Form
     {
         MainForm parent;
+
+        [DllImport("user32")]
+        private static extern bool ReleaseCapture();
+        [DllImport("user32")]
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wp, int lp);
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, 161, 2, 0);
+            }
+        }
+
         internal static class NativeWinAPI
         {
             internal static readonly int GWL_EXSTYLE = -20;
@@ -34,13 +49,21 @@ namespace StudentSupportApp
         public AboutUs(MainForm p)
         {
             InitializeComponent();
+            this.Size = new Size(810, 530);
             this.parent = p;
             SetColor(Properties.Settings.Default.Color);
+
+            int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
+            style |= NativeWinAPI.WS_EX_COMPOSITED;
+            NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
         }
 
         void SetColor(Color x)
         {
-            panel1.BackColor = bExit.ForeColor = bExit.IdleForecolor = bExit.IdleLineColor = 
+            panel1.BackColor = bExit.IdleForecolor = bExit.IdleLineColor =
+                lbHome.ForeColor = lbInfomation.ForeColor = lbNotification.ForeColor = lbScore.ForeColor = lbTimetable.ForeColor =
+                lbSetting.ForeColor = lbSocial.ForeColor = lbUser.ForeColor = lbLastWord.ForeColor = lbGoal.ForeColor =
+                bExit.ActiveLineColor = bExit.ActiveFillColor = bExit.ForeColor =
                 bunifuCards1.color = bunifuCards2.color = bunifuCards3.color = 
                 bunifuCustomLabel1.ForeColor = bunifuCustomLabel2.ForeColor = bunifuCustomLabel3.ForeColor =
                 x;
@@ -54,6 +77,11 @@ namespace StudentSupportApp
         private void bExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            OnMouseDown(e);
         }
     }
 }

@@ -70,10 +70,10 @@ namespace StudentSupportApp
             // 
             this.btnExitNote.ActiveBorderThickness = 1;
             this.btnExitNote.ActiveCornerRadius = 20;
-            this.btnExitNote.ActiveFillColor = System.Drawing.SystemColors.Highlight;
-            this.btnExitNote.ActiveForecolor = System.Drawing.Color.White;
+            this.btnExitNote.ActiveFillColor = System.Drawing.Color.White;
+            this.btnExitNote.ActiveForecolor = System.Drawing.Color.LightCoral;
             this.btnExitNote.ActiveLineColor = System.Drawing.SystemColors.Highlight;
-            this.btnExitNote.BackColor = System.Drawing.Color.Transparent;
+            this.btnExitNote.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnExitNote.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExitNote.BackgroundImage")));
             this.btnExitNote.ButtonText = "Thoát";
             this.btnExitNote.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -96,10 +96,10 @@ namespace StudentSupportApp
             // 
             this.btnSaveNote.ActiveBorderThickness = 1;
             this.btnSaveNote.ActiveCornerRadius = 20;
-            this.btnSaveNote.ActiveFillColor = System.Drawing.SystemColors.Highlight;
-            this.btnSaveNote.ActiveForecolor = System.Drawing.Color.White;
+            this.btnSaveNote.ActiveFillColor = System.Drawing.Color.White;
+            this.btnSaveNote.ActiveForecolor = System.Drawing.Color.LightCoral;
             this.btnSaveNote.ActiveLineColor = System.Drawing.SystemColors.Highlight;
-            this.btnSaveNote.BackColor = System.Drawing.Color.Transparent;
+            this.btnSaveNote.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnSaveNote.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSaveNote.BackgroundImage")));
             this.btnSaveNote.ButtonText = "Lưu";
             this.btnSaveNote.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -152,6 +152,8 @@ namespace StudentSupportApp
             // 
             // rtbDetail
             // 
+            this.rtbDetail.AcceptsTab = true;
+            this.rtbDetail.EnableAutoDragDrop = true;
             this.rtbDetail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbDetail.Location = new System.Drawing.Point(206, 89);
             this.rtbDetail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

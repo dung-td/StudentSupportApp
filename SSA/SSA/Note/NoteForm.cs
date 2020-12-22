@@ -50,6 +50,7 @@ namespace StudentSupportApp
             this.UserID = userID;
             this.oldName = "";
             this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.btnSaveNote.BackColor = this.btnExitNote.BackColor = Color.Transparent;
             SetColor(Properties.Settings.Default.Color);
 
             int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
@@ -63,6 +64,7 @@ namespace StudentSupportApp
             this.UserID = userID;
             this.oldName = "";
             this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.btnSaveNote.BackColor = this.btnExitNote.BackColor = Color.Transparent;
             tbxNoteName.Text = name;
             rtbDetail.Text = detail;
             SetColor(Properties.Settings.Default.Color);
@@ -100,6 +102,7 @@ namespace StudentSupportApp
         private void NoteForm_Load(object sender, EventArgs e)
         {
             this.oldName = tbxNoteName.Text;
+            this.btnSaveNote.BackColor = this.btnExitNote.BackColor = Color.Transparent;
         }
         #endregion
 
@@ -109,8 +112,8 @@ namespace StudentSupportApp
             this.GradientPanelNote.GradientBottomRight = this.GradientPanelNote.GradientTopLeft =
             this.GradientPanelNote.GradientTopRight =
             this.tbxNoteName.LineFocusedColor = this.tbxNoteName.LineMouseHoverColor =
-            this.btnSaveNote.ActiveFillColor = this.btnSaveNote.ActiveLineColor = this.btnSaveNote.IdleLineColor = this.btnSaveNote.ForeColor = this.btnSaveNote.IdleForecolor =
-            this.btnExitNote.ActiveFillColor = this.btnExitNote.ActiveLineColor = this.btnExitNote.IdleLineColor = this.btnExitNote.ForeColor = this.btnExitNote.IdleForecolor = x;
+            this.btnSaveNote.ActiveForecolor = this.btnSaveNote.ActiveLineColor = this.btnSaveNote.IdleLineColor = this.btnSaveNote.ForeColor = this.btnSaveNote.IdleForecolor =
+            this.btnExitNote.ActiveForecolor = this.btnExitNote.ActiveLineColor = this.btnExitNote.IdleLineColor = this.btnExitNote.ForeColor = this.btnExitNote.IdleForecolor = x;
         }
     }
 }
