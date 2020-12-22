@@ -62,20 +62,20 @@ namespace StudentSupportApp
             // 
             // comboBoxTime
             // 
+            this.comboBoxTime.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTime.FormattingEnabled = true;
             this.comboBoxTime.Items.AddRange(new object[] {
             "AM",
             "PM"});
-            this.comboBoxTime.Location = new System.Drawing.Point(415, 276);
-            this.comboBoxTime.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxTime.Location = new System.Drawing.Point(622, 425);
             this.comboBoxTime.Name = "comboBoxTime";
-            this.comboBoxTime.Size = new System.Drawing.Size(69, 21);
+            this.comboBoxTime.Size = new System.Drawing.Size(102, 33);
             this.comboBoxTime.TabIndex = 24;
             // 
             // btbMinute
             // 
             this.btbMinute.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btbMinute.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btbMinute.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btbMinute.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btbMinute.HintForeColor = System.Drawing.Color.Empty;
             this.btbMinute.HintText = "";
@@ -84,10 +84,10 @@ namespace StudentSupportApp
             this.btbMinute.LineIdleColor = System.Drawing.Color.Gray;
             this.btbMinute.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbMinute.LineThickness = 2;
-            this.btbMinute.Location = new System.Drawing.Point(339, 242);
-            this.btbMinute.Margin = new System.Windows.Forms.Padding(4);
+            this.btbMinute.Location = new System.Drawing.Point(508, 380);
+            this.btbMinute.Margin = new System.Windows.Forms.Padding(6);
             this.btbMinute.Name = "btbMinute";
-            this.btbMinute.Size = new System.Drawing.Size(26, 51);
+            this.btbMinute.Size = new System.Drawing.Size(39, 70);
             this.btbMinute.TabIndex = 23;
             this.btbMinute.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btbMinute.OnValueChanged += new System.EventHandler(this.btbMinute_OnValueChanged);
@@ -95,7 +95,7 @@ namespace StudentSupportApp
             // btbHour
             // 
             this.btbHour.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btbHour.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btbHour.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btbHour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btbHour.HintForeColor = System.Drawing.Color.Empty;
             this.btbHour.HintText = "";
@@ -104,10 +104,10 @@ namespace StudentSupportApp
             this.btbHour.LineIdleColor = System.Drawing.Color.Gray;
             this.btbHour.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbHour.LineThickness = 2;
-            this.btbHour.Location = new System.Drawing.Point(262, 242);
-            this.btbHour.Margin = new System.Windows.Forms.Padding(4);
+            this.btbHour.Location = new System.Drawing.Point(393, 380);
+            this.btbHour.Margin = new System.Windows.Forms.Padding(6);
             this.btbHour.Name = "btbHour";
-            this.btbHour.Size = new System.Drawing.Size(26, 51);
+            this.btbHour.Size = new System.Drawing.Size(39, 70);
             this.btbHour.TabIndex = 22;
             this.btbHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btbHour.OnValueChanged += new System.EventHandler(this.btbHour_OnValueChanged);
@@ -115,18 +115,17 @@ namespace StudentSupportApp
             // labelTimeSubmit
             // 
             this.labelTimeSubmit.AutoSize = true;
-            this.labelTimeSubmit.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTimeSubmit.Location = new System.Drawing.Point(154, 276);
-            this.labelTimeSubmit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTimeSubmit.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTimeSubmit.Location = new System.Drawing.Point(231, 425);
             this.labelTimeSubmit.Name = "labelTimeSubmit";
-            this.labelTimeSubmit.Size = new System.Drawing.Size(66, 20);
+            this.labelTimeSubmit.Size = new System.Drawing.Size(96, 29);
             this.labelTimeSubmit.TabIndex = 21;
             this.labelTimeSubmit.Text = "Giờ nộp";
             // 
             // btbSubID
             // 
             this.btbSubID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btbSubID.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btbSubID.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btbSubID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btbSubID.HintForeColor = System.Drawing.Color.Empty;
             this.btbSubID.HintText = "";
@@ -135,10 +134,10 @@ namespace StudentSupportApp
             this.btbSubID.LineIdleColor = System.Drawing.Color.Gray;
             this.btbSubID.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbSubID.LineThickness = 2;
-            this.btbSubID.Location = new System.Drawing.Point(262, 7);
-            this.btbSubID.Margin = new System.Windows.Forms.Padding(4);
+            this.btbSubID.Location = new System.Drawing.Point(393, 15);
+            this.btbSubID.Margin = new System.Windows.Forms.Padding(6);
             this.btbSubID.Name = "btbSubID";
-            this.btbSubID.Size = new System.Drawing.Size(335, 51);
+            this.btbSubID.Size = new System.Drawing.Size(502, 74);
             this.btbSubID.TabIndex = 20;
             this.btbSubID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btbSubID.OnValueChanged += new System.EventHandler(this.btbSubID_OnValueChanged);
@@ -146,18 +145,17 @@ namespace StudentSupportApp
             // labelSubID
             // 
             this.labelSubID.AutoSize = true;
-            this.labelSubID.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubID.Location = new System.Drawing.Point(155, 40);
-            this.labelSubID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSubID.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubID.Location = new System.Drawing.Point(232, 62);
             this.labelSubID.Name = "labelSubID";
-            this.labelSubID.Size = new System.Drawing.Size(93, 20);
+            this.labelSubID.Size = new System.Drawing.Size(138, 29);
             this.labelSubID.TabIndex = 19;
             this.labelSubID.Text = "ID môn học";
             // 
             // btbSubject
             // 
             this.btbSubject.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btbSubject.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btbSubject.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btbSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btbSubject.HintForeColor = System.Drawing.Color.Empty;
             this.btbSubject.HintText = "";
@@ -166,17 +164,17 @@ namespace StudentSupportApp
             this.btbSubject.LineIdleColor = System.Drawing.Color.Gray;
             this.btbSubject.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbSubject.LineThickness = 2;
-            this.btbSubject.Location = new System.Drawing.Point(262, 70);
-            this.btbSubject.Margin = new System.Windows.Forms.Padding(4);
+            this.btbSubject.Location = new System.Drawing.Point(393, 112);
+            this.btbSubject.Margin = new System.Windows.Forms.Padding(6);
             this.btbSubject.Name = "btbSubject";
-            this.btbSubject.Size = new System.Drawing.Size(335, 51);
+            this.btbSubject.Size = new System.Drawing.Size(502, 74);
             this.btbSubject.TabIndex = 18;
             this.btbSubject.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // btbDetails
             // 
             this.btbDetails.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btbDetails.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btbDetails.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btbDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btbDetails.HintForeColor = System.Drawing.Color.Empty;
             this.btbDetails.HintText = "";
@@ -185,17 +183,17 @@ namespace StudentSupportApp
             this.btbDetails.LineIdleColor = System.Drawing.Color.Gray;
             this.btbDetails.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbDetails.LineThickness = 2;
-            this.btbDetails.Location = new System.Drawing.Point(262, 131);
-            this.btbDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.btbDetails.Location = new System.Drawing.Point(393, 206);
+            this.btbDetails.Margin = new System.Windows.Forms.Padding(6);
             this.btbDetails.Name = "btbDetails";
-            this.btbDetails.Size = new System.Drawing.Size(335, 51);
+            this.btbDetails.Size = new System.Drawing.Size(502, 74);
             this.btbDetails.TabIndex = 17;
             this.btbDetails.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // btbStatus
             // 
             this.btbStatus.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.btbStatus.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btbStatus.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btbStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btbStatus.HintForeColor = System.Drawing.Color.Empty;
             this.btbStatus.HintText = "";
@@ -204,10 +202,10 @@ namespace StudentSupportApp
             this.btbStatus.LineIdleColor = System.Drawing.Color.Gray;
             this.btbStatus.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbStatus.LineThickness = 2;
-            this.btbStatus.Location = new System.Drawing.Point(262, 299);
-            this.btbStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.btbStatus.Location = new System.Drawing.Point(393, 455);
+            this.btbStatus.Margin = new System.Windows.Forms.Padding(6);
             this.btbStatus.Name = "btbStatus";
-            this.btbStatus.Size = new System.Drawing.Size(103, 51);
+            this.btbStatus.Size = new System.Drawing.Size(154, 72);
             this.btbStatus.TabIndex = 16;
             this.btbStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -215,10 +213,9 @@ namespace StudentSupportApp
             // 
             this.label_ID.AutoSize = true;
             this.label_ID.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_ID.Location = new System.Drawing.Point(251, 19);
-            this.label_ID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_ID.Location = new System.Drawing.Point(376, 29);
             this.label_ID.Name = "label_ID";
-            this.label_ID.Size = new System.Drawing.Size(0, 19);
+            this.label_ID.Size = new System.Drawing.Size(0, 28);
             this.label_ID.TabIndex = 13;
             // 
             // bDateTime
@@ -228,53 +225,50 @@ namespace StudentSupportApp
             this.bDateTime.ForeColor = System.Drawing.Color.White;
             this.bDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.bDateTime.FormatCustom = null;
-            this.bDateTime.Location = new System.Drawing.Point(262, 214);
+            this.bDateTime.Location = new System.Drawing.Point(393, 329);
+            this.bDateTime.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.bDateTime.Name = "bDateTime";
-            this.bDateTime.Size = new System.Drawing.Size(335, 22);
+            this.bDateTime.Size = new System.Drawing.Size(502, 34);
             this.bDateTime.TabIndex = 12;
             this.bDateTime.Value = new System.DateTime(2020, 11, 23, 18, 17, 39, 367);
             // 
             // labelDateSubmit
             // 
             this.labelDateSubmit.AutoSize = true;
-            this.labelDateSubmit.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDateSubmit.Location = new System.Drawing.Point(155, 218);
-            this.labelDateSubmit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDateSubmit.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDateSubmit.Location = new System.Drawing.Point(232, 335);
             this.labelDateSubmit.Name = "labelDateSubmit";
-            this.labelDateSubmit.Size = new System.Drawing.Size(80, 20);
+            this.labelDateSubmit.Size = new System.Drawing.Size(115, 29);
             this.labelDateSubmit.TabIndex = 11;
             this.labelDateSubmit.Text = "Ngày nộp";
             // 
             // labelStatus
             // 
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStatus.Location = new System.Drawing.Point(154, 325);
-            this.labelStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelStatus.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStatus.Location = new System.Drawing.Point(231, 500);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(77, 20);
+            this.labelStatus.Size = new System.Drawing.Size(119, 29);
             this.labelStatus.TabIndex = 7;
             this.labelStatus.Text = "Trạng thái";
             // 
             // labelDetails
             // 
             this.labelDetails.AutoSize = true;
-            this.labelDetails.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDetails.Location = new System.Drawing.Point(155, 164);
-            this.labelDetails.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDetails.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDetails.Location = new System.Drawing.Point(232, 252);
             this.labelDetails.Name = "labelDetails";
-            this.labelDetails.Size = new System.Drawing.Size(58, 20);
+            this.labelDetails.Size = new System.Drawing.Size(88, 29);
             this.labelDetails.TabIndex = 5;
             this.labelDetails.Text = "Chi tiết";
             // 
             // labelSubject
             // 
             this.labelSubject.AutoSize = true;
-            this.labelSubject.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubject.Location = new System.Drawing.Point(155, 103);
-            this.labelSubject.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSubject.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubject.Location = new System.Drawing.Point(232, 158);
             this.labelSubject.Name = "labelSubject";
-            this.labelSubject.Size = new System.Drawing.Size(75, 20);
+            this.labelSubject.Size = new System.Drawing.Size(107, 29);
             this.labelSubject.TabIndex = 4;
             this.labelSubject.Text = "Môn học";
             // 
@@ -289,17 +283,17 @@ namespace StudentSupportApp
             this.tbAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tbAdd.BackgroundImage")));
             this.tbAdd.ButtonText = "Thêm";
             this.tbAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tbAdd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAdd.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAdd.ForeColor = System.Drawing.SystemColors.Highlight;
             this.tbAdd.IdleBorderThickness = 1;
             this.tbAdd.IdleCornerRadius = 20;
             this.tbAdd.IdleFillColor = System.Drawing.Color.White;
             this.tbAdd.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.tbAdd.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.tbAdd.Location = new System.Drawing.Point(255, 367);
-            this.tbAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbAdd.Location = new System.Drawing.Point(382, 565);
+            this.tbAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.tbAdd.Name = "tbAdd";
-            this.tbAdd.Size = new System.Drawing.Size(101, 47);
+            this.tbAdd.Size = new System.Drawing.Size(152, 72);
             this.tbAdd.TabIndex = 3;
             this.tbAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.tbAdd.Click += new System.EventHandler(this.tbAdd_Click);
@@ -315,17 +309,17 @@ namespace StudentSupportApp
             this.tbCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tbCancel.BackgroundImage")));
             this.tbCancel.ButtonText = "Huỷ";
             this.tbCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tbCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCancel.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCancel.ForeColor = System.Drawing.SystemColors.Highlight;
             this.tbCancel.IdleBorderThickness = 1;
             this.tbCancel.IdleCornerRadius = 20;
             this.tbCancel.IdleFillColor = System.Drawing.Color.White;
             this.tbCancel.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.tbCancel.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.tbCancel.Location = new System.Drawing.Point(415, 369);
-            this.tbCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbCancel.Location = new System.Drawing.Point(622, 568);
+            this.tbCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.tbCancel.Name = "tbCancel";
-            this.tbCancel.Size = new System.Drawing.Size(101, 46);
+            this.tbCancel.Size = new System.Drawing.Size(152, 71);
             this.tbCancel.TabIndex = 4;
             this.tbCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.tbCancel.Click += new System.EventHandler(this.tbCancel_Click);
@@ -342,22 +336,20 @@ namespace StudentSupportApp
             this.GradientPanelAddDeadline.GradientTopLeft = System.Drawing.SystemColors.Highlight;
             this.GradientPanelAddDeadline.GradientTopRight = System.Drawing.SystemColors.Highlight;
             this.GradientPanelAddDeadline.Location = new System.Drawing.Point(0, 0);
-            this.GradientPanelAddDeadline.Margin = new System.Windows.Forms.Padding(2);
             this.GradientPanelAddDeadline.Name = "GradientPanelAddDeadline";
             this.GradientPanelAddDeadline.Quality = 10;
-            this.GradientPanelAddDeadline.Size = new System.Drawing.Size(139, 434);
+            this.GradientPanelAddDeadline.Size = new System.Drawing.Size(208, 668);
             this.GradientPanelAddDeadline.TabIndex = 47;
             // 
             // lbAddLesson
             // 
             this.lbAddLesson.AutoSize = true;
             this.lbAddLesson.BackColor = System.Drawing.Color.Transparent;
-            this.lbAddLesson.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAddLesson.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAddLesson.ForeColor = System.Drawing.Color.White;
-            this.lbAddLesson.Location = new System.Drawing.Point(-7, 175);
-            this.lbAddLesson.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbAddLesson.Location = new System.Drawing.Point(3, 263);
             this.lbAddLesson.Name = "lbAddLesson";
-            this.lbAddLesson.Size = new System.Drawing.Size(149, 74);
+            this.lbAddLesson.Size = new System.Drawing.Size(193, 110);
             this.lbAddLesson.TabIndex = 18;
             this.lbAddLesson.Text = "Thêm\r\nDeadline";
             this.lbAddLesson.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -365,21 +357,20 @@ namespace StudentSupportApp
             // labelTimeFormat
             // 
             this.labelTimeFormat.AutoSize = true;
-            this.labelTimeFormat.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTimeFormat.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTimeFormat.ForeColor = System.Drawing.Color.Red;
-            this.labelTimeFormat.Location = new System.Drawing.Point(494, 278);
-            this.labelTimeFormat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTimeFormat.Location = new System.Drawing.Point(741, 428);
             this.labelTimeFormat.Name = "labelTimeFormat";
-            this.labelTimeFormat.Size = new System.Drawing.Size(110, 17);
+            this.labelTimeFormat.Size = new System.Drawing.Size(170, 25);
             this.labelTimeFormat.TabIndex = 48;
             this.labelTimeFormat.Text = "Sai định dạng giờ!";
             this.labelTimeFormat.Visible = false;
             // 
             // AddDeadline
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(622, 434);
+            this.ClientSize = new System.Drawing.Size(933, 668);
             this.Controls.Add(this.labelTimeFormat);
             this.Controls.Add(this.GradientPanelAddDeadline);
             this.Controls.Add(this.labelStatus);
@@ -400,7 +391,6 @@ namespace StudentSupportApp
             this.Controls.Add(this.labelTimeSubmit);
             this.Controls.Add(this.bDateTime);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddDeadline";
             this.Text = "AddDeadline";
             this.GradientPanelAddDeadline.ResumeLayout(false);

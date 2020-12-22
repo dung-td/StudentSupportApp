@@ -8,6 +8,7 @@ namespace StudentSupportApp
 {
     public partial class ReviewForm : Form
     {
+
         Connect Connection = new Connect();
         Review[] Reviews;
         int temp;
@@ -34,6 +35,7 @@ namespace StudentSupportApp
             Reviews = new Review[1000];
             InitializeComponent();
             SetColor(Properties.Settings.Default.Color);
+            this.Size = new Size(1600, 900);
         }
         private void ReviewForm_Load(object sender, EventArgs e)
         {
@@ -140,7 +142,7 @@ namespace StudentSupportApp
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
         private void btnMinimize_Click(object sender, EventArgs e)
         {

@@ -65,7 +65,7 @@ namespace StudentSupportApp
             this.btnSaveML.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSaveML.BackgroundImage")));
             this.btnSaveML.ButtonText = "Lưu";
             this.btnSaveML.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveML.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveML.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveML.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnSaveML.IdleBorderThickness = 1;
             this.btnSaveML.IdleCornerRadius = 20;
@@ -91,7 +91,7 @@ namespace StudentSupportApp
             this.btnExitML.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExitML.BackgroundImage")));
             this.btnExitML.ButtonText = "Thoát";
             this.btnExitML.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExitML.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExitML.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExitML.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnExitML.IdleBorderThickness = 1;
             this.btnExitML.IdleCornerRadius = 20;
@@ -109,7 +109,7 @@ namespace StudentSupportApp
             // tbxSubIDML
             // 
             this.tbxSubIDML.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxSubIDML.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxSubIDML.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxSubIDML.ForeColor = System.Drawing.Color.Black;
             this.tbxSubIDML.HintForeColor = System.Drawing.Color.Black;
             this.tbxSubIDML.HintText = "";
@@ -117,7 +117,7 @@ namespace StudentSupportApp
             this.tbxSubIDML.LineFocusedColor = System.Drawing.SystemColors.Highlight;
             this.tbxSubIDML.LineIdleColor = System.Drawing.Color.DimGray;
             this.tbxSubIDML.LineMouseHoverColor = System.Drawing.SystemColors.Highlight;
-            this.tbxSubIDML.LineThickness = 3;
+            this.tbxSubIDML.LineThickness = 4;
             this.tbxSubIDML.Location = new System.Drawing.Point(375, 229);
             this.tbxSubIDML.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxSubIDML.Name = "tbxSubIDML";
@@ -129,7 +129,7 @@ namespace StudentSupportApp
             // tbxSubNaML
             // 
             this.tbxSubNaML.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxSubNaML.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxSubNaML.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxSubNaML.ForeColor = System.Drawing.Color.Black;
             this.tbxSubNaML.HintForeColor = System.Drawing.Color.Black;
             this.tbxSubNaML.HintText = "";
@@ -137,11 +137,11 @@ namespace StudentSupportApp
             this.tbxSubNaML.LineFocusedColor = System.Drawing.SystemColors.Highlight;
             this.tbxSubNaML.LineIdleColor = System.Drawing.Color.DimGray;
             this.tbxSubNaML.LineMouseHoverColor = System.Drawing.SystemColors.Highlight;
-            this.tbxSubNaML.LineThickness = 3;
-            this.tbxSubNaML.Location = new System.Drawing.Point(375, 144);
+            this.tbxSubNaML.LineThickness = 4;
+            this.tbxSubNaML.Location = new System.Drawing.Point(375, 148);
             this.tbxSubNaML.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxSubNaML.Name = "tbxSubNaML";
-            this.tbxSubNaML.Size = new System.Drawing.Size(348, 75);
+            this.tbxSubNaML.Size = new System.Drawing.Size(348, 71);
             this.tbxSubNaML.TabIndex = 56;
             this.tbxSubNaML.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbxSubNaML.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxSubNaML_KeyDown);
@@ -150,7 +150,7 @@ namespace StudentSupportApp
             // 
             this.tbxSemNaML.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbxSemNaML.Enabled = false;
-            this.tbxSemNaML.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxSemNaML.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxSemNaML.ForeColor = System.Drawing.Color.Black;
             this.tbxSemNaML.HintForeColor = System.Drawing.Color.Black;
             this.tbxSemNaML.HintText = "";
@@ -158,7 +158,7 @@ namespace StudentSupportApp
             this.tbxSemNaML.LineFocusedColor = System.Drawing.SystemColors.Highlight;
             this.tbxSemNaML.LineIdleColor = System.Drawing.Color.DimGray;
             this.tbxSemNaML.LineMouseHoverColor = System.Drawing.SystemColors.Highlight;
-            this.tbxSemNaML.LineThickness = 3;
+            this.tbxSemNaML.LineThickness = 4;
             this.tbxSemNaML.Location = new System.Drawing.Point(375, 0);
             this.tbxSemNaML.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxSemNaML.Name = "tbxSemNaML";
@@ -171,7 +171,7 @@ namespace StudentSupportApp
             // 
             this.cbxTimeOrderM.BackColor = System.Drawing.Color.White;
             this.cbxTimeOrderM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxTimeOrderM.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTimeOrderM.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxTimeOrderM.FormattingEnabled = true;
             this.cbxTimeOrderM.Items.AddRange(new object[] {
             "1",
@@ -187,7 +187,7 @@ namespace StudentSupportApp
             this.cbxTimeOrderM.Location = new System.Drawing.Point(375, 343);
             this.cbxTimeOrderM.Margin = new System.Windows.Forms.Padding(2);
             this.cbxTimeOrderM.Name = "cbxTimeOrderM";
-            this.cbxTimeOrderM.Size = new System.Drawing.Size(344, 33);
+            this.cbxTimeOrderM.Size = new System.Drawing.Size(344, 35);
             this.cbxTimeOrderM.TabIndex = 54;
             this.cbxTimeOrderM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxTimeOrderM_KeyDown);
             // 
@@ -195,7 +195,7 @@ namespace StudentSupportApp
             // 
             this.cbxDIWML.BackColor = System.Drawing.Color.White;
             this.cbxDIWML.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxDIWML.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxDIWML.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxDIWML.FormattingEnabled = true;
             this.cbxDIWML.Items.AddRange(new object[] {
             "Thứ hai",
@@ -208,7 +208,7 @@ namespace StudentSupportApp
             this.cbxDIWML.Location = new System.Drawing.Point(379, 111);
             this.cbxDIWML.Margin = new System.Windows.Forms.Padding(2);
             this.cbxDIWML.Name = "cbxDIWML";
-            this.cbxDIWML.Size = new System.Drawing.Size(344, 33);
+            this.cbxDIWML.Size = new System.Drawing.Size(344, 35);
             this.cbxDIWML.TabIndex = 53;
             this.cbxDIWML.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxDIWML_KeyDown);
             // 
@@ -216,11 +216,11 @@ namespace StudentSupportApp
             // 
             this.lbTimeOrML.AutoSize = true;
             this.lbTimeOrML.BackColor = System.Drawing.Color.Transparent;
-            this.lbTimeOrML.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTimeOrML.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTimeOrML.ForeColor = System.Drawing.Color.Black;
             this.lbTimeOrML.Location = new System.Drawing.Point(189, 343);
             this.lbTimeOrML.Name = "lbTimeOrML";
-            this.lbTimeOrML.Size = new System.Drawing.Size(90, 25);
+            this.lbTimeOrML.Size = new System.Drawing.Size(98, 29);
             this.lbTimeOrML.TabIndex = 52;
             this.lbTimeOrML.Text = "Tiết học";
             // 
@@ -228,11 +228,11 @@ namespace StudentSupportApp
             // 
             this.lbSubIDML.AutoSize = true;
             this.lbSubIDML.BackColor = System.Drawing.Color.Transparent;
-            this.lbSubIDML.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSubIDML.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSubIDML.ForeColor = System.Drawing.Color.Black;
             this.lbSubIDML.Location = new System.Drawing.Point(189, 268);
             this.lbSubIDML.Name = "lbSubIDML";
-            this.lbSubIDML.Size = new System.Drawing.Size(133, 25);
+            this.lbSubIDML.Size = new System.Drawing.Size(138, 29);
             this.lbSubIDML.TabIndex = 51;
             this.lbSubIDML.Text = "ID môn học";
             // 
@@ -240,11 +240,11 @@ namespace StudentSupportApp
             // 
             this.lbSubNameML.AutoSize = true;
             this.lbSubNameML.BackColor = System.Drawing.Color.Transparent;
-            this.lbSubNameML.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSubNameML.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSubNameML.ForeColor = System.Drawing.Color.Black;
             this.lbSubNameML.Location = new System.Drawing.Point(189, 188);
             this.lbSubNameML.Name = "lbSubNameML";
-            this.lbSubNameML.Size = new System.Drawing.Size(149, 25);
+            this.lbSubNameML.Size = new System.Drawing.Size(152, 29);
             this.lbSubNameML.TabIndex = 50;
             this.lbSubNameML.Text = "Tên môn học";
             // 
@@ -252,11 +252,11 @@ namespace StudentSupportApp
             // 
             this.lbDIWML.AutoSize = true;
             this.lbDIWML.BackColor = System.Drawing.Color.Transparent;
-            this.lbDIWML.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDIWML.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDIWML.ForeColor = System.Drawing.Color.Black;
             this.lbDIWML.Location = new System.Drawing.Point(189, 114);
             this.lbDIWML.Name = "lbDIWML";
-            this.lbDIWML.Size = new System.Drawing.Size(185, 25);
+            this.lbDIWML.Size = new System.Drawing.Size(182, 29);
             this.lbDIWML.TabIndex = 49;
             this.lbDIWML.Text = "Ngày trong tuần";
             // 
@@ -264,11 +264,11 @@ namespace StudentSupportApp
             // 
             this.lbSemML.AutoSize = true;
             this.lbSemML.BackColor = System.Drawing.Color.Transparent;
-            this.lbSemML.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSemML.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSemML.ForeColor = System.Drawing.Color.Black;
             this.lbSemML.Location = new System.Drawing.Point(189, 51);
             this.lbSemML.Name = "lbSemML";
-            this.lbSemML.Size = new System.Drawing.Size(117, 25);
+            this.lbSemML.Size = new System.Drawing.Size(126, 29);
             this.lbSemML.TabIndex = 48;
             this.lbSemML.Text = "Tên học kì";
             // 
@@ -294,13 +294,14 @@ namespace StudentSupportApp
             // 
             this.lbModLesson.AutoSize = true;
             this.lbModLesson.BackColor = System.Drawing.Color.Transparent;
-            this.lbModLesson.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbModLesson.Font = new System.Drawing.Font("Times New Roman", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbModLesson.ForeColor = System.Drawing.Color.White;
             this.lbModLesson.Location = new System.Drawing.Point(16, 148);
             this.lbModLesson.Name = "lbModLesson";
-            this.lbModLesson.Size = new System.Drawing.Size(135, 165);
+            this.lbModLesson.Size = new System.Drawing.Size(141, 192);
             this.lbModLesson.TabIndex = 18;
             this.lbModLesson.Text = "Sửa\r\nmôn \r\nhọc\r\n";
+            this.lbModLesson.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ModLessonForm
             // 

@@ -65,22 +65,21 @@
             this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.SystemColors.Highlight;
             this.bunifuGradientPanel1.GradientTopRight = System.Drawing.SystemColors.Highlight;
             this.bunifuGradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.bunifuGradientPanel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.bunifuGradientPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
             this.bunifuGradientPanel1.Quality = 10;
-            this.bunifuGradientPanel1.Size = new System.Drawing.Size(155, 390);
+            this.bunifuGradientPanel1.Size = new System.Drawing.Size(232, 600);
             this.bunifuGradientPanel1.TabIndex = 0;
             // 
             // lbLogin
             // 
             this.lbLogin.AutoSize = true;
             this.lbLogin.BackColor = System.Drawing.Color.Transparent;
-            this.lbLogin.Font = new System.Drawing.Font("Century Gothic", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLogin.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLogin.ForeColor = System.Drawing.Color.White;
-            this.lbLogin.Location = new System.Drawing.Point(11, 144);
-            this.lbLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbLogin.Location = new System.Drawing.Point(31, 232);
             this.lbLogin.Name = "lbLogin";
-            this.lbLogin.Size = new System.Drawing.Size(136, 90);
+            this.lbLogin.Size = new System.Drawing.Size(173, 136);
             this.lbLogin.TabIndex = 20;
             this.lbLogin.Text = "Đăng \r\nnhập";
             this.lbLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -96,16 +95,17 @@
             this.bExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bExit.BackgroundImage")));
             this.bExit.ButtonText = "Thoát";
             this.bExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bExit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bExit.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bExit.ForeColor = System.Drawing.SystemColors.Highlight;
             this.bExit.IdleBorderThickness = 1;
             this.bExit.IdleCornerRadius = 20;
             this.bExit.IdleFillColor = System.Drawing.Color.White;
             this.bExit.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bExit.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.bExit.Location = new System.Drawing.Point(469, 291);
+            this.bExit.Location = new System.Drawing.Point(689, 495);
+            this.bExit.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(105, 40);
+            this.bExit.Size = new System.Drawing.Size(158, 62);
             this.bExit.TabIndex = 2;
             this.bExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
@@ -121,16 +121,17 @@
             this.bLogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bLogin.BackgroundImage")));
             this.bLogin.ButtonText = "Đăng nhập";
             this.bLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bLogin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bLogin.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bLogin.ForeColor = System.Drawing.SystemColors.Highlight;
             this.bLogin.IdleBorderThickness = 1;
             this.bLogin.IdleCornerRadius = 20;
             this.bLogin.IdleFillColor = System.Drawing.Color.White;
             this.bLogin.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bLogin.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.bLogin.Location = new System.Drawing.Point(199, 291);
+            this.bLogin.Location = new System.Drawing.Point(283, 495);
+            this.bLogin.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.bLogin.Name = "bLogin";
-            this.bLogin.Size = new System.Drawing.Size(105, 40);
+            this.bLogin.Size = new System.Drawing.Size(158, 62);
             this.bLogin.TabIndex = 3;
             this.bLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bLogin.Click += new System.EventHandler(this.bLogin_Click);
@@ -146,16 +147,17 @@
             this.bSignUp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bSignUp.BackgroundImage")));
             this.bSignUp.ButtonText = "Đăng kí";
             this.bSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bSignUp.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSignUp.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bSignUp.ForeColor = System.Drawing.SystemColors.Highlight;
             this.bSignUp.IdleBorderThickness = 1;
             this.bSignUp.IdleCornerRadius = 20;
             this.bSignUp.IdleFillColor = System.Drawing.Color.White;
             this.bSignUp.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bSignUp.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.bSignUp.Location = new System.Drawing.Point(335, 291);
+            this.bSignUp.Location = new System.Drawing.Point(487, 495);
+            this.bSignUp.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.bSignUp.Name = "bSignUp";
-            this.bSignUp.Size = new System.Drawing.Size(105, 40);
+            this.bSignUp.Size = new System.Drawing.Size(158, 62);
             this.bSignUp.TabIndex = 4;
             this.bSignUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bSignUp.Click += new System.EventHandler(this.bSignUp_Click);
@@ -163,7 +165,7 @@
             // tbxID
             // 
             this.tbxID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxID.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxID.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbxID.HintForeColor = System.Drawing.Color.Empty;
             this.tbxID.HintText = "Nhập ID hoặc Username";
@@ -171,10 +173,11 @@
             this.tbxID.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbxID.LineIdleColor = System.Drawing.Color.Gray;
             this.tbxID.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.tbxID.LineThickness = 3;
-            this.tbxID.Location = new System.Drawing.Point(357, 97);
+            this.tbxID.LineThickness = 4;
+            this.tbxID.Location = new System.Drawing.Point(542, 183);
+            this.tbxID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbxID.Name = "tbxID";
-            this.tbxID.Size = new System.Drawing.Size(181, 55);
+            this.tbxID.Size = new System.Drawing.Size(272, 85);
             this.tbxID.TabIndex = 6;
             this.tbxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbxID.OnValueChanged += new System.EventHandler(this.tbxID_OnValueChanged);
@@ -182,7 +185,7 @@
             // tbxPass
             // 
             this.tbxPass.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxPass.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPass.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbxPass.HintForeColor = System.Drawing.Color.Empty;
             this.tbxPass.HintText = "Nhập mật khẩu";
@@ -190,10 +193,11 @@
             this.tbxPass.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbxPass.LineIdleColor = System.Drawing.Color.Gray;
             this.tbxPass.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.tbxPass.LineThickness = 3;
-            this.tbxPass.Location = new System.Drawing.Point(357, 184);
+            this.tbxPass.LineThickness = 4;
+            this.tbxPass.Location = new System.Drawing.Point(542, 317);
+            this.tbxPass.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbxPass.Name = "tbxPass";
-            this.tbxPass.Size = new System.Drawing.Size(181, 51);
+            this.tbxPass.Size = new System.Drawing.Size(272, 78);
             this.tbxPass.TabIndex = 7;
             this.tbxPass.Text = "Nhập password";
             this.tbxPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -210,7 +214,7 @@
             this.bID.ButtonText = "ID/Username";
             this.bID.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bID.DisabledColor = System.Drawing.Color.Transparent;
-            this.bID.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bID.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bID.Iconcolor = System.Drawing.Color.Transparent;
             this.bID.Iconimage = ((System.Drawing.Image)(resources.GetObject("bID.Iconimage")));
             this.bID.Iconimage_right = null;
@@ -223,19 +227,19 @@
             this.bID.IconVisible = true;
             this.bID.IconZoom = 60D;
             this.bID.IsTab = false;
-            this.bID.Location = new System.Drawing.Point(175, 121);
-            this.bID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.bID.Location = new System.Drawing.Point(261, 217);
+            this.bID.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.bID.Name = "bID";
             this.bID.Normalcolor = System.Drawing.Color.Transparent;
             this.bID.OnHovercolor = System.Drawing.Color.Transparent;
             this.bID.OnHoverTextColor = System.Drawing.SystemColors.Highlight;
             this.bID.selected = false;
-            this.bID.Size = new System.Drawing.Size(162, 31);
+            this.bID.Size = new System.Drawing.Size(243, 60);
             this.bID.TabIndex = 8;
             this.bID.Text = "ID/Username";
             this.bID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bID.Textcolor = System.Drawing.Color.Black;
-            this.bID.TextFont = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bID.TextFont = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // bPassword
             // 
@@ -246,7 +250,7 @@
             this.bPassword.ButtonText = "Mật khẩu";
             this.bPassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bPassword.DisabledColor = System.Drawing.Color.Gray;
-            this.bPassword.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bPassword.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bPassword.Iconcolor = System.Drawing.Color.Transparent;
             this.bPassword.Iconimage = ((System.Drawing.Image)(resources.GetObject("bPassword.Iconimage")));
             this.bPassword.Iconimage_right = null;
@@ -259,29 +263,28 @@
             this.bPassword.IconVisible = true;
             this.bPassword.IconZoom = 60D;
             this.bPassword.IsTab = false;
-            this.bPassword.Location = new System.Drawing.Point(175, 203);
-            this.bPassword.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.bPassword.Location = new System.Drawing.Point(261, 340);
+            this.bPassword.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.bPassword.Name = "bPassword";
             this.bPassword.Normalcolor = System.Drawing.Color.Transparent;
             this.bPassword.OnHovercolor = System.Drawing.Color.Transparent;
             this.bPassword.OnHoverTextColor = System.Drawing.SystemColors.Highlight;
             this.bPassword.selected = false;
-            this.bPassword.Size = new System.Drawing.Size(155, 31);
+            this.bPassword.Size = new System.Drawing.Size(232, 64);
             this.bPassword.TabIndex = 9;
             this.bPassword.Text = "Mật khẩu";
             this.bPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bPassword.Textcolor = System.Drawing.Color.Black;
-            this.bPassword.TextFont = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bPassword.TextFont = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Century Gothic", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(185, 19);
-            this.bunifuCustomLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(295, 32);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(409, 45);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(532, 68);
             this.bunifuCustomLabel1.TabIndex = 10;
             this.bunifuCustomLabel1.Text = "Student Support App";
             // 
@@ -294,7 +297,7 @@
             this.bForgot.ButtonText = "Quên ID/Mật khẩu?";
             this.bForgot.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bForgot.DisabledColor = System.Drawing.Color.Transparent;
-            this.bForgot.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bForgot.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bForgot.Iconcolor = System.Drawing.Color.Transparent;
             this.bForgot.Iconimage = null;
             this.bForgot.Iconimage_right = null;
@@ -307,18 +310,19 @@
             this.bForgot.IconVisible = true;
             this.bForgot.IconZoom = 60D;
             this.bForgot.IsTab = false;
-            this.bForgot.Location = new System.Drawing.Point(375, 240);
+            this.bForgot.Location = new System.Drawing.Point(568, 403);
+            this.bForgot.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.bForgot.Name = "bForgot";
             this.bForgot.Normalcolor = System.Drawing.Color.Transparent;
             this.bForgot.OnHovercolor = System.Drawing.Color.Transparent;
             this.bForgot.OnHoverTextColor = System.Drawing.SystemColors.Highlight;
             this.bForgot.selected = false;
-            this.bForgot.Size = new System.Drawing.Size(144, 31);
+            this.bForgot.Size = new System.Drawing.Size(216, 48);
             this.bForgot.TabIndex = 13;
             this.bForgot.Text = "Quên ID/Mật khẩu?";
             this.bForgot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bForgot.Textcolor = System.Drawing.Color.Black;
-            this.bForgot.TextFont = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bForgot.TextFont = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bForgot.Click += new System.EventHandler(this.bForgot_Click);
             // 
             // labelInvalid
@@ -330,7 +334,7 @@
             this.labelInvalid.ButtonText = "ID/ Username không tồn tại!";
             this.labelInvalid.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelInvalid.DisabledColor = System.Drawing.Color.Transparent;
-            this.labelInvalid.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInvalid.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInvalid.ForeColor = System.Drawing.Color.Red;
             this.labelInvalid.Iconcolor = System.Drawing.Color.Transparent;
             this.labelInvalid.Iconimage = null;
@@ -344,18 +348,19 @@
             this.labelInvalid.IconVisible = true;
             this.labelInvalid.IconZoom = 60D;
             this.labelInvalid.IsTab = false;
-            this.labelInvalid.Location = new System.Drawing.Point(349, 158);
+            this.labelInvalid.Location = new System.Drawing.Point(531, 273);
+            this.labelInvalid.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.labelInvalid.Name = "labelInvalid";
             this.labelInvalid.Normalcolor = System.Drawing.Color.Transparent;
             this.labelInvalid.OnHovercolor = System.Drawing.Color.Transparent;
             this.labelInvalid.OnHoverTextColor = System.Drawing.Color.SeaGreen;
             this.labelInvalid.selected = false;
-            this.labelInvalid.Size = new System.Drawing.Size(195, 31);
+            this.labelInvalid.Size = new System.Drawing.Size(292, 48);
             this.labelInvalid.TabIndex = 14;
             this.labelInvalid.Text = "ID/ Username không tồn tại!";
             this.labelInvalid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelInvalid.Textcolor = System.Drawing.Color.Red;
-            this.labelInvalid.TextFont = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInvalid.TextFont = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInvalid.Visible = false;
             // 
             // labelWrong
@@ -367,7 +372,7 @@
             this.labelWrong.ButtonText = "Sai mật khẩu!";
             this.labelWrong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelWrong.DisabledColor = System.Drawing.Color.Transparent;
-            this.labelWrong.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWrong.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWrong.ForeColor = System.Drawing.Color.Red;
             this.labelWrong.Iconcolor = System.Drawing.Color.Transparent;
             this.labelWrong.Iconimage = null;
@@ -381,18 +386,19 @@
             this.labelWrong.IconVisible = true;
             this.labelWrong.IconZoom = 60D;
             this.labelWrong.IsTab = false;
-            this.labelWrong.Location = new System.Drawing.Point(357, 240);
+            this.labelWrong.Location = new System.Drawing.Point(542, 403);
+            this.labelWrong.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.labelWrong.Name = "labelWrong";
             this.labelWrong.Normalcolor = System.Drawing.Color.Transparent;
             this.labelWrong.OnHovercolor = System.Drawing.Color.Transparent;
             this.labelWrong.OnHoverTextColor = System.Drawing.Color.Red;
             this.labelWrong.selected = false;
-            this.labelWrong.Size = new System.Drawing.Size(181, 31);
+            this.labelWrong.Size = new System.Drawing.Size(272, 48);
             this.labelWrong.TabIndex = 15;
             this.labelWrong.Text = "Sai mật khẩu!";
             this.labelWrong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelWrong.Textcolor = System.Drawing.Color.Red;
-            this.labelWrong.TextFont = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWrong.TextFont = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWrong.Visible = false;
             // 
             // bunifuSeparator1
@@ -401,19 +407,19 @@
             this.bunifuSeparator1.ForeColor = System.Drawing.SystemColors.Highlight;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
             this.bunifuSeparator1.LineThickness = 2;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(263, 70);
-            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(394, 108);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(213, 19);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(320, 29);
             this.bunifuSeparator1.TabIndex = 16;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 390);
+            this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.labelWrong);
             this.Controls.Add(this.labelInvalid);
@@ -428,7 +434,7 @@
             this.Controls.Add(this.bExit);
             this.Controls.Add(this.bunifuGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";

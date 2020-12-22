@@ -77,7 +77,7 @@ namespace StudentSupportApp
             this.btnExitNote.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExitNote.BackgroundImage")));
             this.btnExitNote.ButtonText = "Thoát";
             this.btnExitNote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExitNote.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExitNote.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExitNote.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnExitNote.IdleBorderThickness = 1;
             this.btnExitNote.IdleCornerRadius = 20;
@@ -103,7 +103,7 @@ namespace StudentSupportApp
             this.btnSaveNote.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSaveNote.BackgroundImage")));
             this.btnSaveNote.ButtonText = "Lưu";
             this.btnSaveNote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveNote.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveNote.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveNote.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnSaveNote.IdleBorderThickness = 1;
             this.btnSaveNote.IdleCornerRadius = 20;
@@ -122,11 +122,11 @@ namespace StudentSupportApp
             // 
             this.lbYourNote.AutoSize = true;
             this.lbYourNote.BackColor = System.Drawing.Color.Transparent;
-            this.lbYourNote.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbYourNote.Font = new System.Drawing.Font("Times New Roman", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbYourNote.ForeColor = System.Drawing.Color.White;
             this.lbYourNote.Location = new System.Drawing.Point(42, 146);
             this.lbYourNote.Name = "lbYourNote";
-            this.lbYourNote.Size = new System.Drawing.Size(114, 116);
+            this.lbYourNote.Size = new System.Drawing.Size(111, 128);
             this.lbYourNote.TabIndex = 18;
             this.lbYourNote.Text = "Ghi\r\nchú";
             this.lbYourNote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -134,7 +134,7 @@ namespace StudentSupportApp
             // tbxNoteName
             // 
             this.tbxNoteName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxNoteName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxNoteName.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxNoteName.ForeColor = System.Drawing.Color.Black;
             this.tbxNoteName.HintForeColor = System.Drawing.Color.Black;
             this.tbxNoteName.HintText = "Tên ghi chú";
@@ -142,7 +142,7 @@ namespace StudentSupportApp
             this.tbxNoteName.LineFocusedColor = System.Drawing.SystemColors.Highlight;
             this.tbxNoteName.LineIdleColor = System.Drawing.Color.DimGray;
             this.tbxNoteName.LineMouseHoverColor = System.Drawing.SystemColors.Highlight;
-            this.tbxNoteName.LineThickness = 3;
+            this.tbxNoteName.LineThickness = 4;
             this.tbxNoteName.Location = new System.Drawing.Point(224, 0);
             this.tbxNoteName.Margin = new System.Windows.Forms.Padding(6);
             this.tbxNoteName.Name = "tbxNoteName";
@@ -154,7 +154,7 @@ namespace StudentSupportApp
             // 
             this.rtbDetail.AcceptsTab = true;
             this.rtbDetail.EnableAutoDragDrop = true;
-            this.rtbDetail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbDetail.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbDetail.Location = new System.Drawing.Point(206, 89);
             this.rtbDetail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rtbDetail.Name = "rtbDetail";

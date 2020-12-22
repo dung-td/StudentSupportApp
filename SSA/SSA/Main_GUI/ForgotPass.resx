@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="tbNewPass2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 10pt</value>
+    <value>Times New Roman, 13pt</value>
   </data>
   <data name="tbNewPass2.Location" type="System.Drawing.Point, System.Drawing">
     <value>298, 427</value>
@@ -166,10 +166,10 @@
 </value>
   </data>
   <data name="bExit.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 12pt</value>
+    <value>Times New Roman, 14pt</value>
   </data>
   <data name="bExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>683, 560</value>
+    <value>697, 559</value>
   </data>
   <data name="bExit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>8, 8, 8, 8</value>
@@ -211,7 +211,7 @@
 </value>
   </data>
   <data name="bChange.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 12pt</value>
+    <value>Times New Roman, 14pt</value>
   </data>
   <data name="bChange.Location" type="System.Drawing.Point, System.Drawing">
     <value>511, 559</value>
@@ -241,13 +241,13 @@
     <value>True</value>
   </data>
   <data name="lInvalid.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 9pt</value>
+    <value>Times New Roman, 11pt</value>
   </data>
   <data name="lInvalid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 109</value>
+    <value>293, 99</value>
   </data>
   <data name="lInvalid.Size" type="System.Drawing.Size, System.Drawing">
-    <value>333, 21</value>
+    <value>348, 25</value>
   </data>
   <data name="lInvalid.TabIndex" type="System.Int32, mscorlib">
     <value>81</value>
@@ -274,13 +274,13 @@
     <value>True</value>
   </data>
   <data name="lConfirmWrong.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 9pt</value>
+    <value>Times New Roman, 11pt</value>
   </data>
   <data name="lConfirmWrong.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 527</value>
+    <value>293, 517</value>
   </data>
   <data name="lConfirmWrong.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 21</value>
+    <value>253, 25</value>
   </data>
   <data name="lConfirmWrong.TabIndex" type="System.Int32, mscorlib">
     <value>80</value>
@@ -307,13 +307,13 @@
     <value>True</value>
   </data>
   <data name="lShortPass.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 9pt</value>
+    <value>Times New Roman, 11pt</value>
   </data>
   <data name="lShortPass.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 380</value>
+    <value>293, 370</value>
   </data>
   <data name="lShortPass.Size" type="System.Drawing.Size, System.Drawing">
-    <value>243, 21</value>
+    <value>273, 25</value>
   </data>
   <data name="lShortPass.TabIndex" type="System.Int32, mscorlib">
     <value>79</value>
@@ -337,7 +337,7 @@
     <value>10</value>
   </data>
   <data name="tbNewPass1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 10pt</value>
+    <value>Times New Roman, 13pt</value>
   </data>
   <data name="tbNewPass1.Location" type="System.Drawing.Point, System.Drawing">
     <value>298, 291</value>
@@ -364,7 +364,7 @@
     <value>11</value>
   </data>
   <data name="tbEmail.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 10pt</value>
+    <value>Times New Roman, 13pt</value>
   </data>
   <data name="tbEmail.Location" type="System.Drawing.Point, System.Drawing">
     <value>297, 15</value>
@@ -394,13 +394,13 @@
     <value>True</value>
   </data>
   <data name="lCodeWrong.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 9pt</value>
+    <value>Times New Roman, 11pt</value>
   </data>
   <data name="lCodeWrong.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 240</value>
+    <value>293, 230</value>
   </data>
   <data name="lCodeWrong.Size" type="System.Drawing.Size, System.Drawing">
-    <value>361, 21</value>
+    <value>373, 25</value>
   </data>
   <data name="lCodeWrong.TabIndex" type="System.Int32, mscorlib">
     <value>84</value>
@@ -424,7 +424,7 @@
     <value>3</value>
   </data>
   <data name="tbVerifyCode.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 10pt</value>
+    <value>Times New Roman, 13pt</value>
   </data>
   <data name="tbVerifyCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>298, 145</value>
@@ -452,32 +452,33 @@
   </data>
   <data name="bSend.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
 </value>
   </data>
   <data name="bSend.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 12pt</value>
+    <value>Times New Roman, 14pt</value>
   </data>
   <data name="bSend.Location" type="System.Drawing.Point, System.Drawing">
-    <value>697, 166</value>
+    <value>697, 145</value>
   </data>
   <data name="bSend.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>8, 8, 8, 8</value>
   </data>
   <data name="bSend.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 47</value>
+    <value>156, 68</value>
   </data>
   <data name="bSend.TabIndex" type="System.Int32, mscorlib">
     <value>85</value>
@@ -525,32 +526,6 @@
   <data name="GradientPanelForgotPasswd.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="lbForgotPass.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbForgotPass.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 28pt</value>
-  </data>
-  <data name="lbForgotPass.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbForgotPass.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 221</value>
-  </data>
-  <data name="lbForgotPass.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 207</value>
-  </data>
-  <data name="lbForgotPass.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="lbForgotPass.Text" xml:space="preserve">
-    <value>Quên
-mật
-khẩu</value>
-  </data>
-  <data name="lbForgotPass.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
   <data name="&gt;&gt;lbForgotPass.Name" xml:space="preserve">
     <value>lbForgotPass</value>
   </data>
@@ -585,6 +560,44 @@ khẩu</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;GradientPanelForgotPasswd.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbForgotPass.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbForgotPass.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 28pt</value>
+  </data>
+  <data name="lbForgotPass.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbForgotPass.Location" type="System.Drawing.Point, System.Drawing">
+    <value>37, 220</value>
+  </data>
+  <data name="lbForgotPass.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 192</value>
+  </data>
+  <data name="lbForgotPass.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="lbForgotPass.Text" xml:space="preserve">
+    <value>Quên
+mật
+khẩu</value>
+  </data>
+  <data name="lbForgotPass.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lbForgotPass.Name" xml:space="preserve">
+    <value>lbForgotPass</value>
+  </data>
+  <data name="&gt;&gt;lbForgotPass.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbForgotPass.Parent" xml:space="preserve">
+    <value>GradientPanelForgotPasswd</value>
+  </data>
+  <data name="&gt;&gt;lbForgotPass.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

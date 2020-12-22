@@ -56,11 +56,11 @@ namespace StudentSupportApp
             // 
             this.lbYourDocs.AutoSize = true;
             this.lbYourDocs.BackColor = System.Drawing.Color.Transparent;
-            this.lbYourDocs.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbYourDocs.Font = new System.Drawing.Font("Times New Roman", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbYourDocs.ForeColor = System.Drawing.Color.White;
             this.lbYourDocs.Location = new System.Drawing.Point(22, 97);
             this.lbYourDocs.Name = "lbYourDocs";
-            this.lbYourDocs.Size = new System.Drawing.Size(116, 232);
+            this.lbYourDocs.Size = new System.Drawing.Size(111, 256);
             this.lbYourDocs.TabIndex = 18;
             this.lbYourDocs.Text = "Tài\r\nliệu\r\ncủa\r\nbạn";
             this.lbYourDocs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -89,6 +89,7 @@ namespace StudentSupportApp
             this.Type,
             this.ModifiedDate,
             this.Path});
+            this.listView1.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(190, 37);
             this.listView1.Name = "listView1";
@@ -126,7 +127,7 @@ namespace StudentSupportApp
             this.btnAddDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddDoc.BackgroundImage")));
             this.btnAddDoc.ButtonText = "Thêm";
             this.btnAddDoc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddDoc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddDoc.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddDoc.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnAddDoc.IdleBorderThickness = 1;
             this.btnAddDoc.IdleCornerRadius = 20;
@@ -152,7 +153,7 @@ namespace StudentSupportApp
             this.btnOpenDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOpenDoc.BackgroundImage")));
             this.btnOpenDoc.ButtonText = "Mở";
             this.btnOpenDoc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpenDoc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenDoc.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenDoc.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnOpenDoc.IdleBorderThickness = 1;
             this.btnOpenDoc.IdleCornerRadius = 20;
@@ -178,7 +179,7 @@ namespace StudentSupportApp
             this.btnDelDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelDoc.BackgroundImage")));
             this.btnDelDoc.ButtonText = "Xóa";
             this.btnDelDoc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelDoc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelDoc.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelDoc.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnDelDoc.IdleBorderThickness = 1;
             this.btnDelDoc.IdleCornerRadius = 20;
@@ -204,7 +205,7 @@ namespace StudentSupportApp
             this.btnSaveDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSaveDoc.BackgroundImage")));
             this.btnSaveDoc.ButtonText = "Lưu";
             this.btnSaveDoc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveDoc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveDoc.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveDoc.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnSaveDoc.IdleBorderThickness = 1;
             this.btnSaveDoc.IdleCornerRadius = 20;
@@ -230,7 +231,7 @@ namespace StudentSupportApp
             this.btnExitDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExitDoc.BackgroundImage")));
             this.btnExitDoc.ButtonText = "Thoát";
             this.btnExitDoc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExitDoc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExitDoc.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExitDoc.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnExitDoc.IdleBorderThickness = 1;
             this.btnExitDoc.IdleCornerRadius = 20;

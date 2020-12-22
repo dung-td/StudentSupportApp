@@ -120,6 +120,11 @@
   <metadata name="bunifuElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="tbxGoal.Text" xml:space="preserve">
+    <value>Hỗ trợ, giúp bạn có thể quản lý, lưu trữ công việc, dữ liệu học tập một cách dễ dàng, hiệu quả.
+Bên cạnh đó còn cung cấp một số tính năng mang tính cộng đồng, nhằm mở rộng phạm vi hoạt động của người dùng.
+</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bExit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -155,11 +160,6 @@
         14OCyzDkRbDccgC0S1CL+MrOVlseB+/aWmLhK3HWcmNg0nPq9XAc3Bx9HB+70A94JJ1OLxGZ+BgMX/BH
         8jqtMTDNaWREX0jBey5YR2J38Uz5U4wNCrVwrHsp/Bzqty0+49j3KGbbFEgk/gKtqmTAloJ0WAAAAABJ
         RU5ErkJggg==
-</value>
-  </data>
-  <data name="tbxGoal.Text" xml:space="preserve">
-    <value>Hỗ trợ, giúp bạn có thể quản lý, lưu trữ công việc, dữ liệu học tập một cách dễ dàng, hiệu quả.
-Bên cạnh đó còn cung cấp một số tính năng mang tính cộng đồng, nhằm mở rộng phạm vi hoạt động của người dùng.
 </value>
   </data>
 </root>
