@@ -207,7 +207,7 @@ namespace StudentSupportApp
             this.btbStatus.Location = new System.Drawing.Point(262, 299);
             this.btbStatus.Margin = new System.Windows.Forms.Padding(4);
             this.btbStatus.Name = "btbStatus";
-            this.btbStatus.Size = new System.Drawing.Size(176, 51);
+            this.btbStatus.Size = new System.Drawing.Size(103, 51);
             this.btbStatus.TabIndex = 16;
             this.btbStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -333,6 +333,7 @@ namespace StudentSupportApp
             // GradientPanelAddDeadline
             // 
             this.GradientPanelAddDeadline.BackColor = System.Drawing.SystemColors.Highlight;
+            this.GradientPanelAddDeadline.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GradientPanelAddDeadline.BackgroundImage")));
             this.GradientPanelAddDeadline.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.GradientPanelAddDeadline.Controls.Add(this.lbAddLesson);
             this.GradientPanelAddDeadline.Dock = System.Windows.Forms.DockStyle.Left;
@@ -369,7 +370,7 @@ namespace StudentSupportApp
             this.labelTimeFormat.Location = new System.Drawing.Point(494, 278);
             this.labelTimeFormat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTimeFormat.Name = "labelTimeFormat";
-            this.labelTimeFormat.Size = new System.Drawing.Size(111, 17);
+            this.labelTimeFormat.Size = new System.Drawing.Size(110, 17);
             this.labelTimeFormat.TabIndex = 48;
             this.labelTimeFormat.Text = "Sai định dạng giờ!";
             this.labelTimeFormat.Visible = false;
