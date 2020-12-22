@@ -153,6 +153,7 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panelScore = new System.Windows.Forms.Panel();
             this.cardAddScore = new Bunifu.Framework.UI.BunifuCards();
+            this.bExitScore = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bSem = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lAddScore = new System.Windows.Forms.Label();
             this.cbSemester = new System.Windows.Forms.ComboBox();
@@ -804,7 +805,7 @@
             this.lAverAll.Location = new System.Drawing.Point(11, 66);
             this.lAverAll.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lAverAll.Name = "lAverAll";
-            this.lAverAll.Size = new System.Drawing.Size(138, 21);
+            this.lAverAll.Size = new System.Drawing.Size(139, 21);
             this.lAverAll.TabIndex = 3;
             this.lAverAll.Text = "Điểm trung bình:";
             // 
@@ -817,7 +818,7 @@
             this.lbAvgScore.Location = new System.Drawing.Point(63, 14);
             this.lbAvgScore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbAvgScore.Name = "lbAvgScore";
-            this.lbAvgScore.Size = new System.Drawing.Size(75, 21);
+            this.lbAvgScore.Size = new System.Drawing.Size(70, 19);
             this.lbAvgScore.TabIndex = 2;
             this.lbAvgScore.Text = "Điểm số";
             // 
@@ -993,7 +994,7 @@
             this.lbTimetable.Location = new System.Drawing.Point(311, 7);
             this.lbTimetable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTimetable.Name = "lbTimetable";
-            this.lbTimetable.Size = new System.Drawing.Size(124, 20);
+            this.lbTimetable.Size = new System.Drawing.Size(115, 18);
             this.lbTimetable.TabIndex = 11;
             this.lbTimetable.Text = "Thời khoá biểu";
             // 
@@ -1167,7 +1168,7 @@
             this.lbNote.Location = new System.Drawing.Point(62, 10);
             this.lbNote.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbNote.Name = "lbNote";
-            this.lbNote.Size = new System.Drawing.Size(71, 19);
+            this.lbNote.Size = new System.Drawing.Size(61, 17);
             this.lbNote.TabIndex = 1;
             this.lbNote.Text = "Ghi chú";
             // 
@@ -1250,7 +1251,7 @@
             this.lWeb.Location = new System.Drawing.Point(126, 17);
             this.lWeb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lWeb.Name = "lWeb";
-            this.lWeb.Size = new System.Drawing.Size(181, 19);
+            this.lWeb.Size = new System.Drawing.Size(155, 17);
             this.lWeb.TabIndex = 2;
             this.lWeb.Text = "Các trang web đã lưu";
             // 
@@ -1294,7 +1295,7 @@
             this.lbNearDeadline.Location = new System.Drawing.Point(183, 10);
             this.lbNearDeadline.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbNearDeadline.Name = "lbNearDeadline";
-            this.lbNearDeadline.Size = new System.Drawing.Size(143, 19);
+            this.lbNearDeadline.Size = new System.Drawing.Size(128, 17);
             this.lbNearDeadline.TabIndex = 2;
             this.lbNearDeadline.Text = "Hoạt động sắp tới";
             // 
@@ -1480,7 +1481,7 @@
             this.lbTodayTT.Location = new System.Drawing.Point(44, 6);
             this.lbTodayTT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTodayTT.Name = "lbTodayTT";
-            this.lbTodayTT.Size = new System.Drawing.Size(107, 19);
+            this.lbTodayTT.Size = new System.Drawing.Size(94, 17);
             this.lbTodayTT.TabIndex = 1;
             this.lbTodayTT.Text = "TKB hôm nay";
             // 
@@ -1569,7 +1570,7 @@
             this.bunifuCustomLabel4.Location = new System.Drawing.Point(221, 4);
             this.bunifuCustomLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(92, 21);
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(79, 19);
             this.bunifuCustomLabel4.TabIndex = 23;
             this.bunifuCustomLabel4.Text = "Thông tin";
             // 
@@ -1789,7 +1790,7 @@
             this.bunifuCustomLabel5.Location = new System.Drawing.Point(8, 138);
             this.bunifuCustomLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
-            this.bunifuCustomLabel5.Size = new System.Drawing.Size(226, 21);
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(228, 21);
             this.bunifuCustomLabel5.TabIndex = 11;
             this.bunifuCustomLabel5.Text = "Hoạt động gần nhất sẽ vào: ";
             // 
@@ -1814,7 +1815,7 @@
             this.bunifuCustomLabel3.Location = new System.Drawing.Point(11, 81);
             this.bunifuCustomLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(146, 21);
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(148, 21);
             this.bunifuCustomLabel3.TabIndex = 8;
             this.bunifuCustomLabel3.Text = "hoạt động sắp tới!";
             // 
@@ -1839,7 +1840,7 @@
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(107, 3);
             this.bunifuCustomLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(98, 21);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(84, 19);
             this.bunifuCustomLabel1.TabIndex = 6;
             this.bunifuCustomLabel1.Text = "Trạng thái";
             // 
@@ -1848,10 +1849,11 @@
             this.panelScore.Controls.Add(this.cardAddScore);
             this.panelScore.Controls.Add(this.cardSBoard);
             this.animation1.SetDecoration(this.panelScore, AnimatorNS.DecorationType.None);
-            this.panelScore.Location = new System.Drawing.Point(666, 72);
+            this.panelScore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelScore.Location = new System.Drawing.Point(248, 34);
             this.panelScore.Margin = new System.Windows.Forms.Padding(2);
             this.panelScore.Name = "panelScore";
-            this.panelScore.Size = new System.Drawing.Size(94, 56);
+            this.panelScore.Size = new System.Drawing.Size(819, 551);
             this.panelScore.TabIndex = 6;
             // 
             // cardAddScore
@@ -1860,6 +1862,7 @@
             this.cardAddScore.BorderRadius = 5;
             this.cardAddScore.BottomSahddow = true;
             this.cardAddScore.color = System.Drawing.SystemColors.Highlight;
+            this.cardAddScore.Controls.Add(this.bExitScore);
             this.cardAddScore.Controls.Add(this.bSem);
             this.cardAddScore.Controls.Add(this.lAddScore);
             this.cardAddScore.Controls.Add(this.cbSemester);
@@ -1892,6 +1895,33 @@
             this.cardAddScore.ShadowDepth = 20;
             this.cardAddScore.Size = new System.Drawing.Size(789, 215);
             this.cardAddScore.TabIndex = 85;
+            // 
+            // bExitScore
+            // 
+            this.bExitScore.ActiveBorderThickness = 1;
+            this.bExitScore.ActiveCornerRadius = 20;
+            this.bExitScore.ActiveFillColor = System.Drawing.SystemColors.Highlight;
+            this.bExitScore.ActiveForecolor = System.Drawing.Color.White;
+            this.bExitScore.ActiveLineColor = System.Drawing.SystemColors.Highlight;
+            this.bExitScore.BackColor = System.Drawing.Color.White;
+            this.bExitScore.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bExitScore.BackgroundImage")));
+            this.bExitScore.ButtonText = "Thoát";
+            this.bExitScore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.animation1.SetDecoration(this.bExitScore, AnimatorNS.DecorationType.None);
+            this.bExitScore.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bExitScore.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.bExitScore.IdleBorderThickness = 1;
+            this.bExitScore.IdleCornerRadius = 20;
+            this.bExitScore.IdleFillColor = System.Drawing.Color.White;
+            this.bExitScore.IdleForecolor = System.Drawing.SystemColors.Highlight;
+            this.bExitScore.IdleLineColor = System.Drawing.SystemColors.Highlight;
+            this.bExitScore.Location = new System.Drawing.Point(639, 12);
+            this.bExitScore.Margin = new System.Windows.Forms.Padding(5);
+            this.bExitScore.Name = "bExitScore";
+            this.bExitScore.Size = new System.Drawing.Size(68, 40);
+            this.bExitScore.TabIndex = 107;
+            this.bExitScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bExitScore.Click += new System.EventHandler(this.bExit_Click);
             // 
             // bSem
             // 
@@ -1941,7 +1971,7 @@
             this.lAddScore.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lAddScore.Location = new System.Drawing.Point(3, 12);
             this.lAddScore.Name = "lAddScore";
-            this.lAddScore.Size = new System.Drawing.Size(187, 25);
+            this.lAddScore.Size = new System.Drawing.Size(172, 26);
             this.lAddScore.TabIndex = 105;
             this.lAddScore.Text = "THÊM ĐIỂM SỐ:\r\n";
             // 
@@ -2525,7 +2555,7 @@
             this.lSBoard.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lSBoard.Location = new System.Drawing.Point(5, 14);
             this.lSBoard.Name = "lSBoard";
-            this.lSBoard.Size = new System.Drawing.Size(152, 25);
+            this.lSBoard.Size = new System.Drawing.Size(145, 26);
             this.lSBoard.TabIndex = 87;
             this.lSBoard.Text = "BẢNG ĐIỂM:\r\n";
             // 
@@ -2641,7 +2671,7 @@
             this.l_Average.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_Average.Location = new System.Drawing.Point(545, 21);
             this.l_Average.Name = "l_Average";
-            this.l_Average.Size = new System.Drawing.Size(125, 20);
+            this.l_Average.Size = new System.Drawing.Size(126, 20);
             this.l_Average.TabIndex = 84;
             this.l_Average.Text = "Điểm trung bình:";
             // 
@@ -2701,7 +2731,7 @@
             this.lThemeHead.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lThemeHead.Location = new System.Drawing.Point(23, 25);
             this.lThemeHead.Name = "lThemeHead";
-            this.lThemeHead.Size = new System.Drawing.Size(94, 30);
+            this.lThemeHead.Size = new System.Drawing.Size(84, 28);
             this.lThemeHead.TabIndex = 17;
             this.lThemeHead.Text = "THEME";
             this.lThemeHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2922,7 +2952,7 @@
             this.lMoreHead.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lMoreHead.Location = new System.Drawing.Point(52, 23);
             this.lMoreHead.Name = "lMoreHead";
-            this.lMoreHead.Size = new System.Drawing.Size(156, 30);
+            this.lMoreHead.Size = new System.Drawing.Size(145, 28);
             this.lMoreHead.TabIndex = 18;
             this.lMoreHead.Text = "HƠN NỮA...";
             this.lMoreHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3070,7 +3100,7 @@
             this.lAccHead.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lAccHead.Location = new System.Drawing.Point(137, 19);
             this.lAccHead.Name = "lAccHead";
-            this.lAccHead.Size = new System.Drawing.Size(147, 30);
+            this.lAccHead.Size = new System.Drawing.Size(139, 28);
             this.lAccHead.TabIndex = 14;
             this.lAccHead.Text = "TÀI KHOẢN";
             this.lAccHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3295,7 +3325,7 @@
             this.labelDeadline.Location = new System.Drawing.Point(368, 9);
             this.labelDeadline.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDeadline.Name = "labelDeadline";
-            this.labelDeadline.Size = new System.Drawing.Size(95, 21);
+            this.labelDeadline.Size = new System.Drawing.Size(86, 19);
             this.labelDeadline.TabIndex = 2;
             this.labelDeadline.Text = "Deadlines";
             // 
@@ -3358,6 +3388,66 @@
             this.dataDeadline.Size = new System.Drawing.Size(785, 188);
             this.dataDeadline.TabIndex = 1;
             this.dataDeadline.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDeadline_CellClick);
+            // 
+            // cID
+            // 
+            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cID.DefaultCellStyle = dataGridViewCellStyle71;
+            this.cID.HeaderText = "ID";
+            this.cID.MinimumWidth = 8;
+            this.cID.Name = "cID";
+            this.cID.ReadOnly = true;
+            this.cID.Width = 150;
+            // 
+            // cSubjectID
+            // 
+            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cSubjectID.DefaultCellStyle = dataGridViewCellStyle72;
+            this.cSubjectID.HeaderText = "ID môn học";
+            this.cSubjectID.MinimumWidth = 8;
+            this.cSubjectID.Name = "cSubjectID";
+            this.cSubjectID.ReadOnly = true;
+            this.cSubjectID.Width = 150;
+            // 
+            // cSubject
+            // 
+            dataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cSubject.DefaultCellStyle = dataGridViewCellStyle73;
+            this.cSubject.HeaderText = "Môn học";
+            this.cSubject.MinimumWidth = 8;
+            this.cSubject.Name = "cSubject";
+            this.cSubject.ReadOnly = true;
+            this.cSubject.Width = 180;
+            // 
+            // cDetails
+            // 
+            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cDetails.DefaultCellStyle = dataGridViewCellStyle74;
+            this.cDetails.HeaderText = "Chi tiết";
+            this.cDetails.MinimumWidth = 8;
+            this.cDetails.Name = "cDetails";
+            this.cDetails.ReadOnly = true;
+            this.cDetails.Width = 200;
+            // 
+            // cTimeSubmit
+            // 
+            dataGridViewCellStyle75.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cTimeSubmit.DefaultCellStyle = dataGridViewCellStyle75;
+            this.cTimeSubmit.HeaderText = "Giờ nộp bài";
+            this.cTimeSubmit.MinimumWidth = 8;
+            this.cTimeSubmit.Name = "cTimeSubmit";
+            this.cTimeSubmit.ReadOnly = true;
+            this.cTimeSubmit.Width = 150;
+            // 
+            // cStatus
+            // 
+            dataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cStatus.DefaultCellStyle = dataGridViewCellStyle76;
+            this.cStatus.HeaderText = "Trạng thái";
+            this.cStatus.MinimumWidth = 8;
+            this.cStatus.Name = "cStatus";
+            this.cStatus.ReadOnly = true;
+            this.cStatus.Width = 150;
             // 
             // bRefresh
             // 
@@ -3560,7 +3650,7 @@
             this.lbFunc.Location = new System.Drawing.Point(5, 6);
             this.lbFunc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbFunc.Name = "lbFunc";
-            this.lbFunc.Size = new System.Drawing.Size(97, 20);
+            this.lbFunc.Size = new System.Drawing.Size(90, 18);
             this.lbFunc.TabIndex = 11;
             this.lbFunc.Text = "Chức năng";
             // 
@@ -3650,7 +3740,7 @@
             this.lbTimeline.Location = new System.Drawing.Point(17, 7);
             this.lbTimeline.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTimeline.Name = "lbTimeline";
-            this.lbTimeline.Size = new System.Drawing.Size(80, 20);
+            this.lbTimeline.Size = new System.Drawing.Size(74, 18);
             this.lbTimeline.TabIndex = 11;
             this.lbTimeline.Text = "Thời gian";
             // 
@@ -3883,7 +3973,7 @@
             this.lbAccount.Location = new System.Drawing.Point(347, 3);
             this.lbAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbAccount.Name = "lbAccount";
-            this.lbAccount.Size = new System.Drawing.Size(92, 21);
+            this.lbAccount.Size = new System.Drawing.Size(83, 19);
             this.lbAccount.TabIndex = 58;
             this.lbAccount.Text = "Tài khoản";
             // 
@@ -4250,7 +4340,7 @@
             this.lbUserInfo.Location = new System.Drawing.Point(308, 3);
             this.lbUserInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbUserInfo.Name = "lbUserInfo";
-            this.lbUserInfo.Size = new System.Drawing.Size(170, 21);
+            this.lbUserInfo.Size = new System.Drawing.Size(149, 19);
             this.lbUserInfo.TabIndex = 1;
             this.lbUserInfo.Text = "Thông tin cá nhân";
             // 
@@ -4991,6 +5081,7 @@
         private System.Windows.Forms.ColumnHeader clEmail;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbxFind;
         private System.Windows.Forms.Label lbOthers;
+        private Bunifu.Framework.UI.BunifuThinButton2 bExitScore;
         private System.Windows.Forms.Label labelFinish;
         private Bunifu.Framework.UI.BunifuSlider sliderProgress;
         private System.Windows.Forms.DataGridViewTextBoxColumn cID;
