@@ -64,23 +64,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutUs.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AboutUs.designer.cs">
-      <DependentUpon>AboutUs.cs</DependentUpon>
-    </Compile>
     <Compile Include="Deadline\AddDeadline.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Deadline\AddDeadline.Designer.cs">
       <DependentUpon>AddDeadline.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Feedback.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Feedback.designer.cs">
-      <DependentUpon>Feedback.cs</DependentUpon>
     </Compile>
     <Compile Include="Main_GUI\ForgotPass.cs">
       <SubType>Form</SubType>
@@ -94,10 +82,29 @@
     <Compile Include="Main_GUI\ReportError.Designer.cs">
       <DependentUpon>ReportError.cs</DependentUpon>
     </Compile>
+    <Compile Include="Note\Note.cs" />
+    <Compile Include="Note\NoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Note\NoteForm.Designer.cs">
+      <DependentUpon>NoteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OtherClass\Connect.cs" />
     <Compile Include="OtherClass\EmailVerify.cs" />
     <Compile Include="OtherClass\MD5Encoder.cs" />
     <Compile Include="OtherClass\USER.cs" />
+    <Compile Include="Setting\AboutUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\AboutUs.Designer.cs">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\Feedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\Feedback.Designer.cs">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </Compile>
     <Compile Include="Web\DiaWeb.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,14 +209,8 @@
     </Compile>
     <Compile Include="Score\Subject.cs" />
     <Compile Include="TimeTable\Timetable.cs" />
-    <EmbeddedResource Include="AboutUs.resx">
-      <DependentUpon>AboutUs.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Deadline\AddDeadline.resx">
       <DependentUpon>AddDeadline.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Feedback.resx">
-      <DependentUpon>Feedback.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_GUI\ForgotPass.aa.resx">
       <DependentUpon>ForgotPass.cs</DependentUpon>
@@ -220,8 +221,17 @@
     <EmbeddedResource Include="Main_GUI\ReportError.resx">
       <DependentUpon>ReportError.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Note\NoteForm.resx">
+      <DependentUpon>NoteForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Score\ScoreStatistics.resx">
       <DependentUpon>ScoreStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\AboutUs.resx">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\Feedback.resx">
+      <DependentUpon>Feedback.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Social\ReviewForm.resx">
       <DependentUpon>ReviewForm.cs</DependentUpon>

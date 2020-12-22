@@ -10,6 +10,7 @@ namespace StudentSupportApp
         string sSubjectCode;
         string sDetails;
         string bStatus;
+        int iProgress;
         public Deadlines()
         {
             sID = "00000";
@@ -18,6 +19,7 @@ namespace StudentSupportApp
             sSubjectCode = "IT001.K15";
             sDetails = "Nop bai NMLT!";
             bStatus = "Da nop bai";
+            iProgress = 0;
         }
         public Deadlines(string[] args, DateTime DT)
         {
@@ -27,6 +29,7 @@ namespace StudentSupportApp
             sDetails = args[3];
             bStatus = args[4];
             dtTimeSubmit = DT;
+            iProgress = int.Parse(args[5]);
         }
         public string ID
         {
@@ -93,6 +96,11 @@ namespace StudentSupportApp
             {
                 this.bStatus = value;
             }
+        }
+        public int Progress
+        {
+            get => iProgress;
+            set => iProgress = value;
         }
         public void Swap(ref Deadlines DL)
         {

@@ -34,6 +34,7 @@ namespace StudentSupportApp
             int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
             style |= NativeWinAPI.WS_EX_COMPOSITED;
             NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
+            SetColor(Properties.Settings.Default.Color);
         }
         public enum enumAction
         {
@@ -110,6 +111,11 @@ namespace StudentSupportApp
             this.action = enumAction.start;
             timer1.Interval = 1;
             timer1.Start();
+        }
+        void SetColor(Color x)
+        {
+            bunifuGradientPanel1.GradientTopLeft = bunifuGradientPanel1.GradientTopRight
+                = bunifuGradientPanel1.GradientBottomLeft = bunifuGradientPanel1.GradientBottomRight = x;
         }
         #endregion
     }

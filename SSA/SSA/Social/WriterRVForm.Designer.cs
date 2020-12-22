@@ -36,11 +36,6 @@ namespace StudentSupportApp
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
             this.label7 = new System.Windows.Forms.Label();
             this.pLogo = new System.Windows.Forms.PictureBox();
-            this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
-            this.bunifuCards5 = new Bunifu.Framework.UI.BunifuCards();
-            this.lbSubName = new System.Windows.Forms.Label();
-            this.lbSubID = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.bunifuCards3 = new Bunifu.Framework.UI.BunifuCards();
             this.label6 = new System.Windows.Forms.Label();
             this.bunifuCards4 = new Bunifu.Framework.UI.BunifuCards();
@@ -48,16 +43,19 @@ namespace StudentSupportApp
             this.tbxDetails = new System.Windows.Forms.RichTextBox();
             this.btnUpload = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCancel = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuCards5 = new Bunifu.Framework.UI.BunifuCards();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbSubID = new System.Windows.Forms.Label();
+            this.lbSubName = new System.Windows.Forms.Label();
             this.tbxSubName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.tbxSubID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pLogo)).BeginInit();
-            this.bunifuCards1.SuspendLayout();
-            this.bunifuCards5.SuspendLayout();
             this.bunifuCards3.SuspendLayout();
             this.bunifuCards4.SuspendLayout();
+            this.bunifuCards5.SuspendLayout();
             this.SuspendLayout();
             // 
             // header
@@ -138,79 +136,12 @@ namespace StudentSupportApp
             this.pLogo.TabIndex = 2;
             this.pLogo.TabStop = false;
             // 
-            // bunifuCards1
-            // 
-            this.bunifuCards1.BackColor = System.Drawing.Color.White;
-            this.bunifuCards1.BorderRadius = 5;
-            this.bunifuCards1.BottomSahddow = true;
-            this.bunifuCards1.color = System.Drawing.Color.Tomato;
-            this.bunifuCards1.Controls.Add(this.bunifuCards5);
-            this.bunifuCards1.LeftSahddow = false;
-            this.bunifuCards1.Location = new System.Drawing.Point(0, 44);
-            this.bunifuCards1.Name = "bunifuCards1";
-            this.bunifuCards1.RightSahddow = true;
-            this.bunifuCards1.ShadowDepth = 20;
-            this.bunifuCards1.Size = new System.Drawing.Size(294, 160);
-            this.bunifuCards1.TabIndex = 22;
-            // 
-            // bunifuCards5
-            // 
-            this.bunifuCards5.BackColor = System.Drawing.Color.White;
-            this.bunifuCards5.BorderRadius = 5;
-            this.bunifuCards5.BottomSahddow = true;
-            this.bunifuCards5.color = System.Drawing.Color.Tomato;
-            this.bunifuCards5.Controls.Add(this.tbxSubID);
-            this.bunifuCards5.Controls.Add(this.tbxSubName);
-            this.bunifuCards5.Controls.Add(this.lbSubName);
-            this.bunifuCards5.Controls.Add(this.lbSubID);
-            this.bunifuCards5.Controls.Add(this.label1);
-            this.bunifuCards5.LeftSahddow = false;
-            this.bunifuCards5.Location = new System.Drawing.Point(2, 0);
-            this.bunifuCards5.Name = "bunifuCards5";
-            this.bunifuCards5.RightSahddow = true;
-            this.bunifuCards5.ShadowDepth = 20;
-            this.bunifuCards5.Size = new System.Drawing.Size(290, 160);
-            this.bunifuCards5.TabIndex = 24;
-            // 
-            // lbSubName
-            // 
-            this.lbSubName.AutoSize = true;
-            this.lbSubName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbSubName.Location = new System.Drawing.Point(9, 104);
-            this.lbSubName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbSubName.Name = "lbSubName";
-            this.lbSubName.Size = new System.Drawing.Size(49, 13);
-            this.lbSubName.TabIndex = 12;
-            this.lbSubName.Text = "Môn học";
-            // 
-            // lbSubID
-            // 
-            this.lbSubID.AutoSize = true;
-            this.lbSubID.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbSubID.Location = new System.Drawing.Point(9, 54);
-            this.lbSubID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbSubID.Name = "lbSubID";
-            this.lbSubID.Size = new System.Drawing.Size(63, 13);
-            this.lbSubID.TabIndex = 10;
-            this.lbSubID.Text = "ID Môn học";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 19);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "THÔNG TIN BÀI VIẾT";
-            // 
             // bunifuCards3
             // 
             this.bunifuCards3.BackColor = System.Drawing.Color.White;
             this.bunifuCards3.BorderRadius = 5;
             this.bunifuCards3.BottomSahddow = true;
-            this.bunifuCards3.color = System.Drawing.Color.Tomato;
+            this.bunifuCards3.color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bunifuCards3.Controls.Add(this.label6);
             this.bunifuCards3.LeftSahddow = false;
             this.bunifuCards3.Location = new System.Drawing.Point(298, 44);
@@ -236,7 +167,7 @@ namespace StudentSupportApp
             this.bunifuCards4.BackColor = System.Drawing.Color.White;
             this.bunifuCards4.BorderRadius = 5;
             this.bunifuCards4.BottomSahddow = true;
-            this.bunifuCards4.color = System.Drawing.Color.Tomato;
+            this.bunifuCards4.color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bunifuCards4.Controls.Add(this.label2);
             this.bunifuCards4.Controls.Add(this.tbxDetails);
             this.bunifuCards4.LeftSahddow = false;
@@ -337,6 +268,58 @@ namespace StudentSupportApp
             this.btnCancel.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // bunifuCards5
+            // 
+            this.bunifuCards5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.bunifuCards5.BorderRadius = 5;
+            this.bunifuCards5.BottomSahddow = true;
+            this.bunifuCards5.color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.bunifuCards5.Controls.Add(this.tbxSubID);
+            this.bunifuCards5.Controls.Add(this.tbxSubName);
+            this.bunifuCards5.Controls.Add(this.lbSubName);
+            this.bunifuCards5.Controls.Add(this.lbSubID);
+            this.bunifuCards5.Controls.Add(this.label1);
+            this.bunifuCards5.LeftSahddow = false;
+            this.bunifuCards5.Location = new System.Drawing.Point(2, 44);
+            this.bunifuCards5.Name = "bunifuCards5";
+            this.bunifuCards5.RightSahddow = true;
+            this.bunifuCards5.ShadowDepth = 20;
+            this.bunifuCards5.Size = new System.Drawing.Size(290, 160);
+            this.bunifuCards5.TabIndex = 24;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(162, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "THÔNG TIN BÀI VIẾT";
+            // 
+            // lbSubID
+            // 
+            this.lbSubID.AutoSize = true;
+            this.lbSubID.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lbSubID.Location = new System.Drawing.Point(9, 54);
+            this.lbSubID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSubID.Name = "lbSubID";
+            this.lbSubID.Size = new System.Drawing.Size(63, 13);
+            this.lbSubID.TabIndex = 10;
+            this.lbSubID.Text = "ID Môn học";
+            // 
+            // lbSubName
+            // 
+            this.lbSubName.AutoSize = true;
+            this.lbSubName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lbSubName.Location = new System.Drawing.Point(9, 104);
+            this.lbSubName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSubName.Name = "lbSubName";
+            this.lbSubName.Size = new System.Drawing.Size(49, 13);
+            this.lbSubName.TabIndex = 12;
+            this.lbSubName.Text = "Môn học";
+            // 
             // tbxSubName
             // 
             this.tbxSubName.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -383,8 +366,8 @@ namespace StudentSupportApp
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.bunifuCards3);
-            this.Controls.Add(this.bunifuCards1);
             this.Controls.Add(this.header);
+            this.Controls.Add(this.bunifuCards5);
             this.Controls.Add(this.bunifuCards4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WriterRVForm";
@@ -394,13 +377,12 @@ namespace StudentSupportApp
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pLogo)).EndInit();
-            this.bunifuCards1.ResumeLayout(false);
-            this.bunifuCards5.ResumeLayout(false);
-            this.bunifuCards5.PerformLayout();
             this.bunifuCards3.ResumeLayout(false);
             this.bunifuCards3.PerformLayout();
             this.bunifuCards4.ResumeLayout(false);
             this.bunifuCards4.PerformLayout();
+            this.bunifuCards5.ResumeLayout(false);
+            this.bunifuCards5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -411,13 +393,8 @@ namespace StudentSupportApp
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pLogo;
         private Bunifu.Framework.UI.BunifuCards bunifuCards2;
-        private Bunifu.Framework.UI.BunifuCards bunifuCards1;
         private Bunifu.Framework.UI.BunifuCards bunifuCards3;
         private Bunifu.Framework.UI.BunifuCards bunifuCards4;
-        private Bunifu.Framework.UI.BunifuCards bunifuCards5;
-        private System.Windows.Forms.Label lbSubName;
-        private System.Windows.Forms.Label lbSubID;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox tbxDetails;
         private System.Windows.Forms.Label label2;
@@ -425,7 +402,11 @@ namespace StudentSupportApp
         private Bunifu.Framework.UI.BunifuFlatButton btnCancel;
         private Bunifu.Framework.UI.BunifuImageButton btnExit;
         private Bunifu.Framework.UI.BunifuImageButton btnMinimize;
+        private Bunifu.Framework.UI.BunifuCards bunifuCards5;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbxSubID;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbxSubName;
+        private System.Windows.Forms.Label lbSubName;
+        private System.Windows.Forms.Label lbSubID;
+        private System.Windows.Forms.Label label1;
     }
 }
