@@ -674,7 +674,7 @@ namespace StudentSupportApp
                 temp[6] = "0";
                 this.dataDeadline.Rows.Add(temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6]);
                 string Query = "INSERT INTO DEADLINE VALUES('" + temp[0] + "', '" + temp[1] + "', '" + temp[2] + "', '" +
-                                                                temp[3] + "', '" + temp[4] + "', '" + temp[5] + "', '" + this.User.ID + "', '" + temp[6] + "')";
+                                                                temp[3] + "', '" + temp[4] + "', '" + temp[5] + "', '" + this.User.ID + "', " + temp[6] + ")";
                 SqlCommand command = this.Connection.CreateSQLCmd(Query);
                 command.ExecuteNonQuery();
                 MessageBox.Show(" ADDED SUCCESSFULLY!");
@@ -703,7 +703,7 @@ namespace StudentSupportApp
                     btbDetails.Text = dataDeadline.Rows[e.RowIndex].Cells[3].Value.ToString();
                     bdateTime.Value = DateTime.Parse(dataDeadline.Rows[e.RowIndex].Cells[4].Value.ToString());
                     btbStatus.Text = dataDeadline.Rows[e.RowIndex].Cells[5].Value.ToString();
-                    sliderProgress.Value = int.Parse(dataDeadline.Rows[e.RowIndex].Cells[5].Value.ToString());
+                    sliderProgress.Value = int.Parse(dataDeadline.Rows[e.RowIndex].Cells[6].Value.ToString());
                 }
             }
             catch (Exception ex)
@@ -802,7 +802,7 @@ namespace StudentSupportApp
                 SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
                 SqlDataReader reader = command.ExecuteReader();
                 int temp = 0;
-                string[] args = new string[5];
+                string[] args = new string[6];
                 while (reader.HasRows)
                 {
                     if (reader.Read() == false) break;
@@ -837,6 +837,10 @@ namespace StudentSupportApp
         }
         private void cbView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            while (dataDeadline.Rows.Count > 1)
+            {
+                dataDeadline.Rows.RemoveAt(0);
+            }
             string sQuery = "";
             switch (cbView.Text)
             {

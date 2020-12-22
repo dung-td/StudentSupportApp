@@ -76,7 +76,7 @@ namespace StudentSupportApp
         {
             try
             {
-                string[] sTempString = new string[6];
+                string[] sTempString = new string[7];
                 sTempString[1] = btbSubID.Text;
                 sTempString[2] = btbSubject.Text;
                 sTempString[3] = btbDetails.Text;
@@ -90,6 +90,7 @@ namespace StudentSupportApp
                     DateTime TempDateTime = new DateTime(bDateTime.Value.Year, bDateTime.Value.Month, bDateTime.Value.Day, hour, min, 0);
                     sTempString[4] = TempDateTime.ToString();
                     sTempString[5] = "UNFINISHED";
+                    sTempString[6] = "0";
                     addItem(sTempString);
                     this.Hide();
                     this.parent.Show();
