@@ -399,7 +399,7 @@ namespace StudentSupportApp
             try
             {
                 //Dung
-                GetDeadline();
+                GetDeadline("SELECT * FROM DEADLINE WHERE ID_USER='" + User.ID + "'");
                 NearestDeadline();
                 LoadToHomeDeadline();
                 NotifiDeadline();
@@ -481,8 +481,11 @@ namespace StudentSupportApp
             this.Hide();
             ReviewForm.Show();
         }
-
-       
+        private void btnMail_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo sInfo = new ProcessStartInfo("https://mail.google.com/mail/u/0/#inbox?compose=new");
+            Process.Start(sInfo);
+        }
     }
 }
 
@@ -502,7 +505,7 @@ namespace StudentSupportApp
             try
             {
                 Deadlines[] ListDeadline = new Deadlines[1000];
-                string sQuery = "SELECT * FROM DEADLINE WHERE YEAR(DATESUBMIT) = YEAR(GETDATE()) AND MONTH(DATESUBMIT) = MONTH(GETDATE()) AND DAY(DATESUBMIT) = DAY(GETDATE()) AND ID_USER = '" + this.User.ID + "'";
+                string sQuery = "SELECT * FROM DEADLINE WHERE YEAR(DATESUBMIT) = YEAR(GETDATE()) AND MONTH(DATESUBMIT) = MONTH(GETDATE()) AND DAY(DATESUBMIT) = DAY(GETDATE()) AND STATU='1' AND ID_USER = '" + this.User.ID + "'";
                 this.Connection.OpenConnection();
                 SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
                 SqlDataReader reader = command.ExecuteReader();
@@ -545,11 +548,12 @@ namespace StudentSupportApp
             this.btbDetails.Enabled = true;
             this.btbStatus.Enabled = true;
             this.btbSubject.Enabled = true;
+            this.sliderProgress.Enabled = true;
         }
         private void LoadToHomeDeadline()
         {
             Deadlines[] temp = new Deadlines[5];
-            string Top5Deadlilne = "SELECT TOP (5) * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "' ORDER BY DEADLINE.DATESUBMIT ASC";
+            string Top5Deadlilne = "SELECT TOP (5) * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "' AND STATU < 100 ORDER BY DEADLINE.DATESUBMIT ASC";
             try
             {
                 this.Connection.OpenConnection();
@@ -667,9 +671,10 @@ namespace StudentSupportApp
                 this.Connection.OpenConnection();
                 temp[0] = "1";
                 User.GetDeadlineID(ref temp[0]);
-                this.dataDeadline.Rows.Add(temp[0], temp[2], temp[1], temp[3], temp[4], temp[5]);
+                temp[6] = "0";
+                this.dataDeadline.Rows.Add(temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6]);
                 string Query = "INSERT INTO DEADLINE VALUES('" + temp[0] + "', '" + temp[1] + "', '" + temp[2] + "', '" +
-                                                                temp[3] + "', '" + temp[4] + "', '" + temp[5] + "', '" + this.User.ID + "')";
+                                                                temp[3] + "', '" + temp[4] + "', '" + temp[5] + "', '" + this.User.ID + "', '" + temp[6] + "')";
                 SqlCommand command = this.Connection.CreateSQLCmd(Query);
                 command.ExecuteNonQuery();
                 MessageBox.Show(" ADDED SUCCESSFULLY!");
@@ -698,6 +703,7 @@ namespace StudentSupportApp
                     btbDetails.Text = dataDeadline.Rows[e.RowIndex].Cells[3].Value.ToString();
                     bdateTime.Value = DateTime.Parse(dataDeadline.Rows[e.RowIndex].Cells[4].Value.ToString());
                     btbStatus.Text = dataDeadline.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    sliderProgress.Value = int.Parse(dataDeadline.Rows[e.RowIndex].Cells[5].Value.ToString());
                 }
             }
             catch (Exception ex)
@@ -716,7 +722,7 @@ namespace StudentSupportApp
             this.bEditSave.Hide();
             try
             {
-                string Query = "UPDATE DEADLINE SET DETAIL='" + btbDetails.Text + "', DATESUBMIT='" + bdateTime.Value.ToString() + "', STAT='" + btbStatus.Text + "', SUB_NAME='" + btbSubject.Text
+                string Query = "UPDATE DEADLINE SET DETAIL='" + btbDetails.Text + "', DATESUBMIT='" + bdateTime.Value.ToString() + "', STAT='" + btbStatus.Text + "', SUB_NAME='" + btbSubject.Text + "' STATU=" + sliderProgress.Value.ToString()
                                                               + "' WHERE ID='" + labelID.Text + "'";
                 Connection.OpenConnection();
                 SqlCommand command = Connection.CreateSQLCmd(Query);
@@ -787,12 +793,11 @@ namespace StudentSupportApp
                 this.Connection.CloseConnection();
             }
         }
-        private void GetDeadline()
+        private void GetDeadline(string sQuery)
         {
             try
             {
                 Deadlines[] ListDeadline = new Deadlines[1000];
-                string sQuery = "SELECT * FROM DEADLINE WHERE ID_USER='" + this.User.ID + "'";
                 this.Connection.OpenConnection();
                 SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
                 SqlDataReader reader = command.ExecuteReader();
@@ -807,6 +812,7 @@ namespace StudentSupportApp
                     args[3] = reader.GetString(3);
                     DateTime temp1 = reader.GetDateTime(4);
                     args[4] = reader.GetString(5);
+                    args[5] = reader.GetInt32(7).ToString();
                     ListDeadline[temp] = new Deadlines(args, temp1);
                     temp++;
                 }
@@ -814,7 +820,7 @@ namespace StudentSupportApp
                 {
                     if (DL == null)
                         break;
-                    dataDeadline.Rows.Add(DL.ID, DL.SubjectCode, DL.Subject, DL.Details, DL.TimeSubmit, DL.Status);
+                    dataDeadline.Rows.Add(DL.ID, DL.SubjectCode, DL.Subject, DL.Details, DL.TimeSubmit, DL.Status, DL.Progress);
                 }
             }
             catch (Exception ex)
@@ -828,6 +834,29 @@ namespace StudentSupportApp
             {
                 this.Connection.CloseConnection();
             }
+        }
+        private void cbView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sQuery = "";
+            switch (cbView.Text)
+            {
+                case "Đã hoàn thành":
+                    sQuery = "SELECT * FROM DEADLINE WHERE STATU = 100 AND ID_USER='" + User.ID + "'";
+                    break;
+                case "Chưa hoàn thành":
+                    sQuery = "SELECT * FROM DEADLINE WHERE STATU < 100 AND ID_USER='" + User.ID + "'";
+                    break;
+                case "Đã quá hạn":
+                    sQuery = "SELECT * FROM DEADLINE WHERE GETDATE() > DATESUBMIT AND ID_USER='" + User.ID + "'"; ;
+                    break;
+                case "Chưa đến hạn":
+                    sQuery = "SELECT * FROM DEADLINE WHERE GETDATE() <= DATESUBMIT AND ID_USER='" + User.ID + "'"; ;
+                    break;
+                default:
+                    sQuery = "SELECT * FROM DEADLINE AND ID_USER='" + User.ID + "'";
+                    break;
+            }
+            GetDeadline(sQuery);
         }
         #endregion
 
