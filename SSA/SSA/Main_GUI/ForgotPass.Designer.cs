@@ -58,7 +58,7 @@ namespace StudentSupportApp
             this.tbNewPass2.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbNewPass2.LineIdleColor = System.Drawing.Color.Gray;
             this.tbNewPass2.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.tbNewPass2.LineThickness = 3;
+            this.tbNewPass2.LineThickness = 4;
             this.tbNewPass2.Name = "tbNewPass2";
             this.tbNewPass2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbNewPass2.OnValueChanged += new System.EventHandler(this.tbNewPass2_OnValueChanged);
@@ -137,7 +137,7 @@ namespace StudentSupportApp
             this.tbNewPass1.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbNewPass1.LineIdleColor = System.Drawing.Color.Gray;
             this.tbNewPass1.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.tbNewPass1.LineThickness = 3;
+            this.tbNewPass1.LineThickness = 4;
             this.tbNewPass1.Name = "tbNewPass1";
             this.tbNewPass1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbNewPass1.OnValueChanged += new System.EventHandler(this.tbNewPass1_OnValueChanged);
@@ -153,7 +153,7 @@ namespace StudentSupportApp
             this.tbEmail.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbEmail.LineIdleColor = System.Drawing.Color.Gray;
             this.tbEmail.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.tbEmail.LineThickness = 3;
+            this.tbEmail.LineThickness = 4;
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -175,7 +175,7 @@ namespace StudentSupportApp
             this.tbVerifyCode.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbVerifyCode.LineIdleColor = System.Drawing.Color.Gray;
             this.tbVerifyCode.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.tbVerifyCode.LineThickness = 3;
+            this.tbVerifyCode.LineThickness = 4;
             this.tbVerifyCode.Name = "tbVerifyCode";
             this.tbVerifyCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 

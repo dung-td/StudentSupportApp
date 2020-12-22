@@ -69,7 +69,7 @@ namespace StudentSupportApp
             this.bExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bExit.BackgroundImage")));
             this.bExit.ButtonText = "Thoát";
             this.bExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bExit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bExit.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bExit.ForeColor = System.Drawing.SystemColors.Highlight;
             this.bExit.IdleBorderThickness = 1;
             this.bExit.IdleCornerRadius = 20;
@@ -77,7 +77,7 @@ namespace StudentSupportApp
             this.bExit.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bExit.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.bExit.Location = new System.Drawing.Point(21, 420);
-            this.bExit.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bExit.Margin = new System.Windows.Forms.Padding(8);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(158, 62);
             this.bExit.TabIndex = 45;
@@ -88,11 +88,11 @@ namespace StudentSupportApp
             // 
             this.lbStatis.AutoSize = true;
             this.lbStatis.BackColor = System.Drawing.Color.Transparent;
-            this.lbStatis.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatis.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStatis.ForeColor = System.Drawing.Color.White;
             this.lbStatis.Location = new System.Drawing.Point(13, 224);
             this.lbStatis.Name = "lbStatis";
-            this.lbStatis.Size = new System.Drawing.Size(173, 129);
+            this.lbStatis.Size = new System.Drawing.Size(170, 138);
             this.lbStatis.TabIndex = 21;
             this.lbStatis.Text = "Thống kê\r\nĐiểm số\r\n\r\n";
             this.lbStatis.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

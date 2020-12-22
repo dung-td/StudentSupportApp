@@ -62,11 +62,11 @@ namespace StudentSupportApp
             // 
             this.lbTellUs.AutoSize = true;
             this.lbTellUs.BackColor = System.Drawing.Color.Transparent;
-            this.lbTellUs.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTellUs.Font = new System.Drawing.Font("Times New Roman", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTellUs.ForeColor = System.Drawing.Color.White;
             this.lbTellUs.Location = new System.Drawing.Point(12, 172);
             this.lbTellUs.Name = "lbTellUs";
-            this.lbTellUs.Size = new System.Drawing.Size(216, 58);
+            this.lbTellUs.Size = new System.Drawing.Size(226, 64);
             this.lbTellUs.TabIndex = 21;
             this.lbTellUs.Text = "Phản hồi";
             this.lbTellUs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -74,11 +74,11 @@ namespace StudentSupportApp
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.SystemColors.Highlight;
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(268, 49);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(546, 60);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(498, 66);
             this.bunifuCustomLabel1.TabIndex = 11;
             this.bunifuCustomLabel1.Text = "Mô tả vấn đề bạn đang gặp phải \r\nbằng việc cung cấp những thông tin sau đây\r\n";
             this.bunifuCustomLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -92,7 +92,7 @@ namespace StudentSupportApp
             this.labelWrong.ButtonText = "Chuyên mục bạn gặp lỗi";
             this.labelWrong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelWrong.DisabledColor = System.Drawing.Color.Transparent;
-            this.labelWrong.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWrong.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWrong.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.labelWrong.Iconcolor = System.Drawing.Color.Transparent;
             this.labelWrong.Iconimage = null;
@@ -107,23 +107,24 @@ namespace StudentSupportApp
             this.labelWrong.IconZoom = 60D;
             this.labelWrong.IsTab = false;
             this.labelWrong.Location = new System.Drawing.Point(250, 148);
-            this.labelWrong.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.labelWrong.Margin = new System.Windows.Forms.Padding(8);
             this.labelWrong.Name = "labelWrong";
             this.labelWrong.Normalcolor = System.Drawing.Color.Transparent;
             this.labelWrong.OnHovercolor = System.Drawing.Color.Transparent;
             this.labelWrong.OnHoverTextColor = System.Drawing.Color.Red;
             this.labelWrong.selected = false;
-            this.labelWrong.Size = new System.Drawing.Size(272, 48);
+            this.labelWrong.Size = new System.Drawing.Size(290, 48);
             this.labelWrong.TabIndex = 16;
             this.labelWrong.Text = "Chuyên mục bạn gặp lỗi";
             this.labelWrong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelWrong.Textcolor = System.Drawing.Color.SteelBlue;
-            this.labelWrong.TextFont = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWrong.TextFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWrong.Visible = false;
             // 
             // listType
             // 
-            this.listType.ItemHeight = 20;
+            this.listType.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listType.ItemHeight = 25;
             this.listType.Items.AddRange(new object[] {
             "Trang chủ",
             "Thời khóa biểu",
@@ -132,15 +133,15 @@ namespace StudentSupportApp
             "Cộng đồng",
             "Thông tin chung",
             "Cài đặt"});
-            this.listType.Location = new System.Drawing.Point(581, 148);
+            this.listType.Location = new System.Drawing.Point(601, 158);
             this.listType.Name = "listType";
-            this.listType.Size = new System.Drawing.Size(175, 44);
+            this.listType.Size = new System.Drawing.Size(175, 29);
             this.listType.TabIndex = 19;
             // 
             // tbxDetails
             // 
             this.tbxDetails.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxDetails.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxDetails.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbxDetails.HintForeColor = System.Drawing.Color.Empty;
             this.tbxDetails.HintText = "Mô tả chi tiết lỗi để chúng tôi có thể giúp bạn";
@@ -148,9 +149,9 @@ namespace StudentSupportApp
             this.tbxDetails.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbxDetails.LineIdleColor = System.Drawing.Color.Gray;
             this.tbxDetails.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.tbxDetails.LineThickness = 3;
+            this.tbxDetails.LineThickness = 4;
             this.tbxDetails.Location = new System.Drawing.Point(272, 209);
-            this.tbxDetails.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbxDetails.Margin = new System.Windows.Forms.Padding(6);
             this.tbxDetails.Name = "tbxDetails";
             this.tbxDetails.Size = new System.Drawing.Size(538, 103);
             this.tbxDetails.TabIndex = 20;
@@ -167,7 +168,7 @@ namespace StudentSupportApp
             this.bExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bExit.BackgroundImage")));
             this.bExit.ButtonText = "Thoát";
             this.bExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bExit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bExit.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bExit.ForeColor = System.Drawing.SystemColors.Highlight;
             this.bExit.IdleBorderThickness = 1;
             this.bExit.IdleCornerRadius = 20;
@@ -175,7 +176,7 @@ namespace StudentSupportApp
             this.bExit.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bExit.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.bExit.Location = new System.Drawing.Point(656, 335);
-            this.bExit.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bExit.Margin = new System.Windows.Forms.Padding(8);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(158, 62);
             this.bExit.TabIndex = 21;
@@ -193,7 +194,7 @@ namespace StudentSupportApp
             this.bSend.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bSend.BackgroundImage")));
             this.bSend.ButtonText = "Gửi";
             this.bSend.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bSend.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSend.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bSend.ForeColor = System.Drawing.SystemColors.Highlight;
             this.bSend.IdleBorderThickness = 1;
             this.bSend.IdleCornerRadius = 20;
@@ -201,7 +202,7 @@ namespace StudentSupportApp
             this.bSend.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bSend.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.bSend.Location = new System.Drawing.Point(494, 335);
-            this.bSend.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bSend.Margin = new System.Windows.Forms.Padding(8);
             this.bSend.Name = "bSend";
             this.bSend.Size = new System.Drawing.Size(158, 62);
             this.bSend.TabIndex = 22;

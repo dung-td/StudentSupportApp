@@ -35,6 +35,7 @@ namespace StudentSupportApp
             this.parent = parent;
             InitializeComponent();
             SetColor(Properties.Settings.Default.Color);
+            this.Size = new Size(900, 470);
         }
         public WriterRVForm(Form parent, int ID, string[] args, DateTime Date)
         {
@@ -49,6 +50,7 @@ namespace StudentSupportApp
             this.tbxSubID.Text = review._SubjectID;
             this.tbxSubName.Text = review._Subject;
             this.tbxDetails.Text = review._Details;
+            this.Size = new Size(900, 470);
         }
         private void btnMinimize_Click(object sender, EventArgs e)
         {
@@ -56,7 +58,8 @@ namespace StudentSupportApp
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            btnCancel_Click(sender, e);
+            this.Close();
+            //this.parent.Show();
         }
         private void btnUpload_Click(object sender, EventArgs e)
         {
@@ -82,12 +85,11 @@ namespace StudentSupportApp
                 review._Details = tbxDetails.Text;
                 review.ModifyReview();
             }
-            this.Close();
+            btnCancel_Click(sender, e);
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
-            this.parent.Show();
+            //btnExit_Click(sender, e);
         }
         void SetColor(Color x)
         {

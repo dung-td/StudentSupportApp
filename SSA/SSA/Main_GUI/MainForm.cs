@@ -75,7 +75,6 @@ namespace StudentSupportApp
         }
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
-
             Application.Exit();
         }
         private void btnCollapse_Click(object sender, EventArgs e)
@@ -105,6 +104,7 @@ namespace StudentSupportApp
                 this.dataGridViewTimetable.Width -= 200;
                 this.bunifuCardUserInfo.Width -= 200;
                 this.bunifuCardAcc.Width -= 200;
+                this.lbTimetable.Location = new Point(lbTimetable.Location.X - 40, lbTimetable.Location.Y);
                 btnChangeInfo.Location = new Point(btnChangeInfo.Location.X - 210, btnChangeInfo.Location.Y);
                 btnSaveInfo.Location = new Point(btnSaveInfo.Location.X - 210, btnSaveInfo.Location.Y);
                 btnCancelInfo.Location = new Point(btnCancelInfo.Location.X - 210, btnCancelInfo.Location.Y);
@@ -224,6 +224,7 @@ namespace StudentSupportApp
                 this.dataGridViewTimetable.Width += 200;
                 this.bunifuCardUserInfo.Width += 200;
                 this.bunifuCardAcc.Width += 200;
+                this.lbTimetable.Location = new Point(lbTimetable.Location.X + 40, lbTimetable.Location.Y);
                 btnChangeInfo.Location = new Point(btnChangeInfo.Location.X + 210, btnChangeInfo.Location.Y);
                 btnSaveInfo.Location = new Point(btnSaveInfo.Location.X + 210, btnSaveInfo.Location.Y);
                 btnCancelInfo.Location = new Point(btnCancelInfo.Location.X + 210, btnCancelInfo.Location.Y);
@@ -857,7 +858,7 @@ namespace StudentSupportApp
                     sQuery = "SELECT * FROM DEADLINE WHERE GETDATE() <= DATESUBMIT AND ID_USER='" + User.ID + "'"; ;
                     break;
                 default:
-                    sQuery = "SELECT * FROM DEADLINE AND ID_USER='" + User.ID + "'";
+                    sQuery = "SELECT * FROM DEADLINE WHERE ID_USER='" + User.ID + "'";
                     break;
             }
             GetDeadline(sQuery);
@@ -922,7 +923,6 @@ namespace StudentSupportApp
         private void btnReview_Click(object sender, EventArgs e)
         {
             ReviewForm ReviewForm = new ReviewForm(this.User.ID);
-            this.Hide();
             ReviewForm.Show();
         }
         private void btnWrite_Click(object sender, EventArgs e)

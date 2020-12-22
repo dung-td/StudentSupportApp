@@ -35,23 +35,25 @@ namespace StudentSupportApp
             InitializeComponent();
             selectedWeb = new Web(web);
             this.choice = choice;
-            this.lbWeb.Text = "Thông tin";
+            this.lbWeb.Text = "Thông\ntin";
             this.tbTitle.Text = web.Title;
             this.tbURL.Text = web.URL;
             SetColor(Properties.Settings.Default.Color);
             this.parent = parent;
             bAccess.Visible = true;
             bOK.ButtonText = "Cập nhật";
+            bAccess.BackColor = Color.Transparent;
         }
         public DiaWeb(MainForm parent, string id, string choice)
         {
             this.UserID = id;
             this.choice = choice;
             InitializeComponent();
-            this.lbWeb.Text = "Thêm 1 \ntrang web";
+            this.lbWeb.Text = "Thêm\nmột\ntrang\nweb";
             SetColor(Properties.Settings.Default.Color);
             this.parent = parent;
             bAccess.Visible = false;
+            bAccess.BackColor = Color.Transparent;
         }
 
         bool BlankData()
@@ -60,11 +62,11 @@ namespace StudentSupportApp
         }
         void SetColor(Color x)
         {
-            panel1.BackColor =
-            bOK.BackColor = bOK.ActiveFillColor = bOK.ForeColor = bOK.IdleForecolor = bOK.IdleLineColor =
-                 bExit.BackColor = bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleForecolor = bExit.IdleLineColor =
-                 bDelWeb.BackColor = bDelWeb.ActiveFillColor = bDelWeb.ForeColor = bDelWeb.IdleForecolor = bDelWeb.IdleLineColor =
-                 bAccess.ActiveFillColor = bAccess.ForeColor = bAccess.IdleForecolor = bAccess.IdleLineColor = bAccess.ActiveLineColor = x;
+            panel1.BackColor = tbTitle.LineMouseHoverColor = tbTitle.LineFocusedColor = tbURL.LineFocusedColor = tbURL.LineMouseHoverColor =
+            bOK.ActiveFillColor = bOK.ForeColor = bOK.IdleForecolor = bOK.IdleLineColor = bOK.ActiveLineColor =
+            bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleForecolor = bExit.IdleLineColor = bExit.ActiveLineColor =
+            bDelWeb.ActiveFillColor = bDelWeb.ForeColor = bDelWeb.IdleForecolor = bDelWeb.IdleLineColor = bDelWeb.ActiveLineColor =
+            bAccess.ActiveFillColor = bAccess.ForeColor = bAccess.IdleForecolor = bAccess.IdleLineColor = bAccess.ActiveLineColor = x;
         }
 
         private void bOK_Click(object sender, EventArgs e)

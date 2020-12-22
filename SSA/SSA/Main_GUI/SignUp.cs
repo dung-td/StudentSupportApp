@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing;
+using System.Data.SqlClient;
 
 namespace StudentSupportApp
 {
@@ -35,6 +36,7 @@ namespace StudentSupportApp
 
         LoginForm parent;
         EmailVerify EmailVerify;
+        bool IsCodeSent = false;
         public SignUp(LoginForm parent)
         {
             this.parent = parent;
@@ -45,11 +47,21 @@ namespace StudentSupportApp
 
             SetColor(Properties.Settings.Default.Color);
         }
+
         #region EventHandler
         private void bCancel_Click(object sender, EventArgs e)
         {
             this.parent.Show();
             this.Close();
+        }
+        private int CheckFullInfo()
+        {
+            if (tbxID.Text == "" || tbxName.Text == "" || tbxPass.Text == "" || tbxGender.Text == "" || tbxCode.Text == ""
+                || tbxConfirmPass.Text == "" || tbxClass.Text == "")
+            {
+                return 0;
+            }
+            return 1;
         }
         private int CheckPassword()
         {
@@ -59,7 +71,9 @@ namespace StudentSupportApp
         }
         private int CheckCode()
         {
-            if (this.EmailVerify.GetCode != tbxCode.Text)
+            if (IsCodeSent == false)
+                return 0;
+            else if (IsCodeSent == true && this.EmailVerify.GetCode != tbxCode.Text)
                 return 0;
             else return 1;
         }
@@ -69,52 +83,100 @@ namespace StudentSupportApp
                 return 0;
             return 1;
         }
+        private int CheckExistID()
+        {
+            Connect connection = new Connect();
+            try
+            {
+                connection.OpenConnection();
+
+                SqlCommand command = connection.CreateSQLCmd("select ID_USER from USERS");
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    if (reader.GetString(0) == tbxID.Text) return 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+            }
+            finally
+            {
+                connection.CloseConnection();
+            }
+            return 0;
+        }
         private void bSignUp_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons buttons = MessageBoxButtons.OK;
-            if (CheckPassword() == 1 && CheckCode() == 1)
+            try
             {
-                USER user = new USER();
-                user.ID = tbxID.Text;
-                MD5Encoder PasswordEncoder = new MD5Encoder();
-                user.Password = PasswordEncoder.FromString(tbxPass.Text);
-                user.Birthday = dateBirth.Value;
-                user.Email = tbxEmail.Text;
-                user.Name = tbxName.Text;
-                user.Class = tbxClass.Text;
-                user.Gender = tbxGender.Text;
-                this.EmailVerify = new EmailVerify(user.Email);
-                user.AddUserToDatabase();
-                MessageBox.Show("Đăng ký thành công!", "StudentSupportApp", buttons);
-                this.Close();
-                this.parent.Show();
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                if (CheckPassword() == 1 && CheckCode() == 1 && CheckFullInfo() == 1 && CheckExistID() == 0)
+                {
+                    USER user = new USER();
+                    user.ID = tbxID.Text;
+                    MD5Encoder PasswordEncoder = new MD5Encoder();
+                    user.Password = PasswordEncoder.FromString(tbxPass.Text);
+                    user.Birthday = dateBirth.Value;
+                    user.Email = tbxEmail.Text;
+                    user.Name = tbxName.Text;
+                    user.Class = tbxClass.Text;
+                    user.Gender = tbxGender.Text;
+                    this.EmailVerify = new EmailVerify(user.Email);
+                    user.AddUserToDatabase();
+                    MessageBox.Show("Đăng ký thành công!", "StudentSupportApp", buttons);
+                    this.Close();
+                    this.parent.Show();
+                }
+                else if (CheckCode() == 0)
+                {
+                    MessageBox.Show("Mã xác nhận không đúng! Vui lòng thử lại!", "StudentSupportApp", buttons);
+                    lbCodeSent.Hide();
+                }
+                else if (CheckPassword() == 2) lbShortPass.Visible = true;
+                else if (CheckPassword() == 3) lbConfirmWrong.Visible = true;
+                else if (CheckExistID() == 1) lbUsedID.Visible = true;
             }
-            else if (CheckCode() == 0)
+            catch (Exception ex)
             {
-                MessageBox.Show("Mật mã không đúng! Vui lòng thử lại!", "StudentSupportApp", buttons);
-                lbCodeSent.Hide();
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
-            else if (CheckPassword() == 2) lbShortPass.Visible = true;
-            else if (CheckPassword() == 3) lbConfirmWrong.Visible = true;
         }
         private void bSendCode_Click(object sender, EventArgs e)
         {
-            USER temp = new USER();
-            temp.Email = this.tbxEmail.Text;
-            if (CheckEmail() == 0)
+            try
             {
-                lbValidEmail.Show();
+                USER temp = new USER();
+                temp.Email = this.tbxEmail.Text;
+                if (CheckEmail() == 0)
+                {
+                    lbValidEmail.Show();
+                }
+                else if (temp.CheckEmail() == 1)
+                {
+                    this.EmailVerify = new EmailVerify(tbxEmail.Text);
+                    this.EmailVerify.GetRandomCode();
+                    this.EmailVerify.SendMail();
+                    lbCodeSent.Show();
+                    this.IsCodeSent = true;
+                }
+                else
+                {
+                    lbUsedMail.Show();
+                }
             }
-            else if (temp.CheckEmail() == 1)
+            catch (Exception ex)
             {
-                this.EmailVerify = new EmailVerify(tbxEmail.Text);
-                this.EmailVerify.GetRandomCode();
-                this.EmailVerify.SendMail();
-                lbCodeSent.Show();
-            }
-            else
-            {
-                lbUsedMail.Show();
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
         }
         private void tbxPass_OnValueChanged(object sender, EventArgs e)
@@ -128,6 +190,10 @@ namespace StudentSupportApp
             lbConfirmWrong.Visible = false;
             tbxConfirmPass.isPassword = true;
         }
+        private void tbxID_OnValueChanged(object sender, EventArgs e)
+        {
+            lbUsedID.Visible = false;
+        }
         private void tbxEmail_OnValueChanged(object sender, EventArgs e)
         {
             lbUsedMail.Hide();
@@ -136,6 +202,53 @@ namespace StudentSupportApp
         private void SignUp_MouseMove(object sender, MouseEventArgs e)
         {
             OnMouseDown(e);
+        }
+        private void tbxID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                tbxPass.Focus();
+        }
+        private void tbxPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                tbxConfirmPass.Focus();
+        }
+        private void tbxConfirmPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                tbxEmail.Focus();
+        }
+        private void tbxEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                bSendCode.Focus();
+        }
+        private void tbxCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                tbxName.Focus();
+        }
+        private void dateBirth_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                tbxGender.Focus();
+        }
+        private void tbxClass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                bSignUp_Click(sender, e);
+        }
+        private void tbxGender_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                tbxClass.Focus();
+        }
+        private void tbxName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Char.IsLetter(e.KeyChar) == false && (e.KeyChar != (char)Keys.Space) && e.KeyChar != (char)Keys.Back))
+                e.Handled = true;
+            if (e.KeyChar == (char)Keys.Enter)
+                dateBirth.Focus();
         }
         #endregion
 
@@ -159,7 +272,6 @@ namespace StudentSupportApp
               tbxName.LineFocusedColor = tbxName.LineMouseHoverColor =
               tbxGender.LineFocusedColor = tbxGender.LineMouseHoverColor =
               tbxClass.LineFocusedColor = tbxClass.LineMouseHoverColor = x;
-
         }
     }
 }
