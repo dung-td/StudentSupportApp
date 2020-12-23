@@ -23,6 +23,8 @@ namespace StudentSupportApp
         MainForm parent;
         private string sUserID;
         private string[] sOldInfo;
+        private bool IsTimeChanged;
+        private bool IsNameIDChanged;
 
         public ModLessonForm()
         {
@@ -78,21 +80,29 @@ namespace StudentSupportApp
 
         private void btnSaveML_Click(object sender, EventArgs e)
         {
-            List<string> sDayInWeek = new List<string> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-
+            Timetable lesson = new Timetable(this.sUserID);
             try
             {
                 if (cbxDIWML.Text != "" && cbxTimeOrderM.Text != "" && tbxSemNaML.Text != "" && tbxSubIDML.Text != "" && tbxSubNaML.Text != "")
                 {
-                    Timetable lesson = new Timetable();
-                    if (lesson.CheckExistLesson(tbxSemNaML.Text, cbxDIWML.Text, cbxTimeOrderM.Text, this.sUserID) == false)
+                    if (this.IsTimeChanged == true)
                     {
-                        string[] sData = new string[] { sDayInWeek[cbxDIWML.SelectedIndex], cbxTimeOrderM.Text, tbxSubIDML.Text.Remove(0, 1), tbxSubNaML.Text, tbxSemNaML.Text, this.sUserID };
+                        if (lesson.CheckExistLesson(tbxSemNaML.Text, cbxDIWML.Text, cbxTimeOrderM.Text, cbxTimeOrderM.Text, this.sUserID) == false)
+                        {
+                            string[] sData = new string[] { lesson.SwitchDayToNumber(cbxDIWML.Text).ToString(), cbxTimeOrderM.Text, tbxSubIDML.Text.Remove(0, 1), tbxSubNaML.Text, tbxSemNaML.Text, this.sUserID };
+                            if (lesson.UpdateLessonInfo(sOldInfo, sData) == 1)
+                                MessageBox.Show("Chỉnh sửa thành công!", "Chỉnh sửa thông tin tiết học");
+                            else MessageBox.Show("Chỉnh sửa thất bại. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin tiết học");
+                        }
+                        else MessageBox.Show("Thời gian muốn sửa đã có tiết học. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin tiết học");
+                    }
+                    else if (this.IsTimeChanged == false && this.IsNameIDChanged == true)
+                    {
+                        string[] sData = new string[] { lesson.SwitchDayToNumber(cbxDIWML.Text).ToString(), cbxTimeOrderM.Text, tbxSubIDML.Text.Remove(0, 1), tbxSubNaML.Text, tbxSemNaML.Text, this.sUserID };
                         if (lesson.UpdateLessonInfo(sOldInfo, sData) == 1)
                             MessageBox.Show("Chỉnh sửa thành công!", "Chỉnh sửa thông tin tiết học");
                         else MessageBox.Show("Chỉnh sửa thất bại. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin tiết học");
                     }
-                    else MessageBox.Show("Thời gian muốn sửa đã có tiết học. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin tiết học");
                 }
                 else if (cbxDIWML.Text == "" || cbxTimeOrderM.Text == "" || tbxSemNaML.Text == "" || tbxSubIDML.Text == "" || tbxSubNaML.Text == "")
                 {
@@ -136,17 +146,46 @@ namespace StudentSupportApp
             if (e.KeyCode == Keys.Enter)
                 btnSaveML_Click(sender, e);
         }
-#endregion
+
+        private void cbxDIWML_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxDIWML.SelectedItem.ToString() != this.sOldInfo[1])
+                IsTimeChanged = true;
+            else IsTimeChanged = false;
+        }
+
+        private void cbxTimeOrderM_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxTimeOrderM.SelectedItem.ToString() != this.sOldInfo[4])
+                IsTimeChanged = true;
+            else IsTimeChanged = false;
+        }
+
+        private void tbxSubNaML_OnValueChanged(object sender, EventArgs e)
+        {
+            if (tbxSubNaML.Text != this.sOldInfo[2])
+                this.IsNameIDChanged = true;
+            else this.IsNameIDChanged = false;
+        }
+
+        private void tbxSubIDML_OnValueChanged(object sender, EventArgs e)
+        {
+            if (tbxSubIDML.Text != this.sOldInfo[3])
+                this.IsNameIDChanged = true;
+            else this.IsNameIDChanged = false;
+        }
+
+        #endregion
 
         void SetColor(Color x)
         {
-            btnExitML.ActiveFillColor = btnExitML.ForeColor = btnExitML.IdleLineColor = btnExitML.IdleForecolor = btnExitML.ActiveLineColor = 
+            btnExitML.ActiveFillColor = btnExitML.ForeColor = btnExitML.IdleLineColor = btnExitML.IdleForecolor = btnExitML.ActiveLineColor =
                   btnSaveML.ActiveFillColor = btnSaveML.ForeColor = btnSaveML.IdleLineColor = btnSaveML.IdleForecolor = btnSaveML.ActiveLineColor =
                   GradientPanelAddLesson.BackColor = GradientPanelAddLesson.GradientTopLeft = GradientPanelAddLesson.GradientTopRight = GradientPanelAddLesson.GradientBottomLeft = GradientPanelAddLesson.GradientBottomRight =
                   tbxSemNaML.LineFocusedColor = tbxSemNaML.LineMouseHoverColor =
                   tbxSubIDML.LineMouseHoverColor = tbxSubIDML.LineFocusedColor =
                   tbxSubNaML.LineFocusedColor = tbxSubNaML.LineMouseHoverColor = x;
-            
+
         }
     }
 }

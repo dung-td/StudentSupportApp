@@ -39,13 +39,15 @@ namespace StudentSupportApp
             this.tbxSubIDAL = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.tbxSubNaAL = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.tbxSemNaAL = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.cbxTimeOrder = new System.Windows.Forms.ComboBox();
+            this.cbxTimeOrderBegin = new System.Windows.Forms.ComboBox();
             this.cbxDIWAL = new System.Windows.Forms.ComboBox();
             this.lbTimeOrAL = new System.Windows.Forms.Label();
             this.lbSubIDAL = new System.Windows.Forms.Label();
             this.lbSubNameAL = new System.Windows.Forms.Label();
             this.lbDIWAL = new System.Windows.Forms.Label();
             this.lbSemAL = new System.Windows.Forms.Label();
+            this.cbxTimeOrderEnd = new System.Windows.Forms.ComboBox();
+            this.lbFromTo = new System.Windows.Forms.Label();
             this.GradientPanelAddLesson.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -196,13 +198,13 @@ namespace StudentSupportApp
             this.tbxSemNaAL.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbxSemNaAL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxSemNaAL_KeyDown);
             // 
-            // cbxTimeOrder
+            // cbxTimeOrderBegin
             // 
-            this.cbxTimeOrder.BackColor = System.Drawing.Color.White;
-            this.cbxTimeOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxTimeOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTimeOrder.FormattingEnabled = true;
-            this.cbxTimeOrder.Items.AddRange(new object[] {
+            this.cbxTimeOrderBegin.BackColor = System.Drawing.Color.White;
+            this.cbxTimeOrderBegin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTimeOrderBegin.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTimeOrderBegin.FormattingEnabled = true;
+            this.cbxTimeOrderBegin.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -213,11 +215,12 @@ namespace StudentSupportApp
             "8",
             "9",
             "10"});
-            this.cbxTimeOrder.Location = new System.Drawing.Point(386, 418);
-            this.cbxTimeOrder.Name = "cbxTimeOrder";
-            this.cbxTimeOrder.Size = new System.Drawing.Size(344, 35);
-            this.cbxTimeOrder.TabIndex = 40;
-            this.cbxTimeOrder.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxTimeOrder_KeyDown);
+            this.cbxTimeOrderBegin.Location = new System.Drawing.Point(386, 418);
+            this.cbxTimeOrderBegin.Name = "cbxTimeOrderBegin";
+            this.cbxTimeOrderBegin.Size = new System.Drawing.Size(96, 35);
+            this.cbxTimeOrderBegin.TabIndex = 40;
+            this.cbxTimeOrderBegin.SelectedIndexChanged += new System.EventHandler(this.cbxTimeOrderBegin_SelectedIndexChanged);
+            this.cbxTimeOrderBegin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxTimeOrderBegin_KeyDown);
             // 
             // cbxDIWAL
             // 
@@ -299,18 +302,55 @@ namespace StudentSupportApp
             this.lbSemAL.TabIndex = 34;
             this.lbSemAL.Text = "Tên học kì";
             // 
+            // cbxTimeOrderEnd
+            // 
+            this.cbxTimeOrderEnd.BackColor = System.Drawing.Color.White;
+            this.cbxTimeOrderEnd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTimeOrderEnd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTimeOrderEnd.FormattingEnabled = true;
+            this.cbxTimeOrderEnd.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.cbxTimeOrderEnd.Location = new System.Drawing.Point(604, 417);
+            this.cbxTimeOrderEnd.Name = "cbxTimeOrderEnd";
+            this.cbxTimeOrderEnd.Size = new System.Drawing.Size(96, 35);
+            this.cbxTimeOrderEnd.TabIndex = 47;
+            this.cbxTimeOrderEnd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxTimeOrderEnd_KeyDown);
+            // 
+            // lbFromTo
+            // 
+            this.lbFromTo.AutoSize = true;
+            this.lbFromTo.BackColor = System.Drawing.Color.Transparent;
+            this.lbFromTo.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFromTo.ForeColor = System.Drawing.Color.Black;
+            this.lbFromTo.Location = new System.Drawing.Point(516, 423);
+            this.lbFromTo.Name = "lbFromTo";
+            this.lbFromTo.Size = new System.Drawing.Size(51, 29);
+            this.lbFromTo.TabIndex = 48;
+            this.lbFromTo.Text = "đến";
+            // 
             // AddLessonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 569);
+            this.Controls.Add(this.lbFromTo);
+            this.Controls.Add(this.cbxTimeOrderEnd);
             this.Controls.Add(this.GradientPanelAddLesson);
             this.Controls.Add(this.btnAddAL);
             this.Controls.Add(this.btnExitAL);
             this.Controls.Add(this.tbxSubIDAL);
             this.Controls.Add(this.tbxSubNaAL);
             this.Controls.Add(this.tbxSemNaAL);
-            this.Controls.Add(this.cbxTimeOrder);
+            this.Controls.Add(this.cbxTimeOrderBegin);
             this.Controls.Add(this.cbxDIWAL);
             this.Controls.Add(this.lbTimeOrAL);
             this.Controls.Add(this.lbSubIDAL);
@@ -337,12 +377,14 @@ namespace StudentSupportApp
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbxSubIDAL;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbxSubNaAL;
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbxSemNaAL;
-        private System.Windows.Forms.ComboBox cbxTimeOrder;
+        private System.Windows.Forms.ComboBox cbxTimeOrderBegin;
         private System.Windows.Forms.ComboBox cbxDIWAL;
         private System.Windows.Forms.Label lbTimeOrAL;
         private System.Windows.Forms.Label lbSubIDAL;
         private System.Windows.Forms.Label lbSubNameAL;
         private System.Windows.Forms.Label lbDIWAL;
         private System.Windows.Forms.Label lbSemAL;
+        private System.Windows.Forms.ComboBox cbxTimeOrderEnd;
+        private System.Windows.Forms.Label lbFromTo;
     }
 }
