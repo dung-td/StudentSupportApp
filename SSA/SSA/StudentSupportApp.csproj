@@ -46,6 +46,7 @@
       <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
@@ -69,6 +70,10 @@
     </Compile>
     <Compile Include="Deadline\AddDeadline.Designer.cs">
       <DependentUpon>AddDeadline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deadline\DeadlineStatistic.cs" />
+    <Compile Include="Deadline\DeadlineStatistic.Designer.cs">
+      <DependentUpon>DeadlineStatistic.cs</DependentUpon>
     </Compile>
     <Compile Include="Main_GUI\ForgotPass.cs">
       <SubType>Form</SubType>
@@ -211,6 +216,9 @@
     <Compile Include="TimeTable\Timetable.cs" />
     <EmbeddedResource Include="Deadline\AddDeadline.resx">
       <DependentUpon>AddDeadline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deadline\DeadlineStatistic.resx">
+      <DependentUpon>DeadlineStatistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_GUI\ForgotPass.aa.resx">
       <DependentUpon>ForgotPass.cs</DependentUpon>

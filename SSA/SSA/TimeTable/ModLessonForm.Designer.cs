@@ -124,6 +124,7 @@ namespace StudentSupportApp
             this.tbxSubIDML.Size = new System.Drawing.Size(348, 70);
             this.tbxSubIDML.TabIndex = 57;
             this.tbxSubIDML.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbxSubIDML.OnValueChanged += new System.EventHandler(this.tbxSubIDML_OnValueChanged);
             this.tbxSubIDML.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxSubIDML_KeyDown);
             // 
             // tbxSubNaML
@@ -144,6 +145,7 @@ namespace StudentSupportApp
             this.tbxSubNaML.Size = new System.Drawing.Size(348, 71);
             this.tbxSubNaML.TabIndex = 56;
             this.tbxSubNaML.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbxSubNaML.OnValueChanged += new System.EventHandler(this.tbxSubNaML_OnValueChanged);
             this.tbxSubNaML.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxSubNaML_KeyDown);
             // 
             // tbxSemNaML
@@ -189,6 +191,7 @@ namespace StudentSupportApp
             this.cbxTimeOrderM.Name = "cbxTimeOrderM";
             this.cbxTimeOrderM.Size = new System.Drawing.Size(344, 35);
             this.cbxTimeOrderM.TabIndex = 54;
+            this.cbxTimeOrderM.SelectedIndexChanged += new System.EventHandler(this.cbxTimeOrderM_SelectedIndexChanged);
             this.cbxTimeOrderM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxTimeOrderM_KeyDown);
             // 
             // cbxDIWML
@@ -210,6 +213,7 @@ namespace StudentSupportApp
             this.cbxDIWML.Name = "cbxDIWML";
             this.cbxDIWML.Size = new System.Drawing.Size(344, 35);
             this.cbxDIWML.TabIndex = 53;
+            this.cbxDIWML.SelectedIndexChanged += new System.EventHandler(this.cbxDIWML_SelectedIndexChanged);
             this.cbxDIWML.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxDIWML_KeyDown);
             // 
             // lbTimeOrML
