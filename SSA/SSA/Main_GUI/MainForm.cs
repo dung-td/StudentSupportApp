@@ -514,6 +514,19 @@ namespace StudentSupportApp
             ProcessStartInfo sInfo = new ProcessStartInfo("https://mail.google.com/mail/u/0/#inbox?compose=new");
             Process.Start(sInfo);
         }
+
+        private void dataDeadline_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == 7)
+                    bEdit_Click(sender, e);
+                if (e.ColumnIndex == 8)
+                    bDelete_Click(sender, e);
+            }
+        }
     }
 }
 
@@ -815,6 +828,8 @@ namespace StudentSupportApp
         }
         private void dataDeadline_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+                return;
             try
             {
                 if (dataDeadline.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
@@ -877,7 +892,7 @@ namespace StudentSupportApp
                 case "Đã hoàn thành":
                     sQuery = "SELECT * FROM DEADLINE WHERE STATU = 100 AND ID_USER='" + User.ID + "'";
                     break;
-                case "Chưa hoàn thành":
+                case "Chưa hoàn thành (Mặc định)":
                     sQuery = "SELECT * FROM DEADLINE WHERE STATU < 100 AND ID_USER='" + User.ID + "'";
                     break;
                 case "Đã quá hạn":

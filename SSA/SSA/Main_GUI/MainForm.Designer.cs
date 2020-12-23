@@ -64,13 +64,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            AnimatorNS.Animation animation2 = new AnimatorNS.Animation();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            AnimatorNS.Animation animation2 = new AnimatorNS.Animation();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.header = new System.Windows.Forms.Panel();
             this.btnMinimize = new Bunifu.Framework.UI.BunifuImageButton();
@@ -223,13 +223,6 @@
             this.bAdd = new Bunifu.Framework.UI.BunifuThinButton2();
             this.labelDeadline = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dataDeadline = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.cID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cSubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTimeSubmit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cProgress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bRefresh = new Bunifu.Framework.UI.BunifuThinButton2();
             this.animation1 = new AnimatorNS.Animator(this.components);
             this.panelTimetable = new System.Windows.Forms.Panel();
@@ -290,6 +283,15 @@
             this.clEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbxFind = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lbOthers = new System.Windows.Forms.Label();
+            this.cID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cSubjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cTimeSubmit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cProgress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -3258,7 +3260,7 @@
             this.btnStatistic.IdleFillColor = System.Drawing.Color.White;
             this.btnStatistic.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnStatistic.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.btnStatistic.Location = new System.Drawing.Point(679, 226);
+            this.btnStatistic.Location = new System.Drawing.Point(342, 227);
             this.btnStatistic.Margin = new System.Windows.Forms.Padding(4);
             this.btnStatistic.Name = "btnStatistic";
             this.btnStatistic.Size = new System.Drawing.Size(97, 45);
@@ -3272,14 +3274,15 @@
             this.cbView.FormattingEnabled = true;
             this.cbView.Items.AddRange(new object[] {
             "Đã hoàn thành",
-            "Chưa hoàn thành",
+            "Chưa hoàn thành (Mặc định)",
             "Đã quá hạn",
             "Chưa đến hạn",
-            "Tất cả"});
-            this.cbView.Location = new System.Drawing.Point(592, 9);
+            "Tất cả "});
+            this.cbView.Location = new System.Drawing.Point(595, 238);
             this.cbView.Name = "cbView";
             this.cbView.Size = new System.Drawing.Size(192, 21);
             this.cbView.TabIndex = 8;
+            this.cbView.Text = "Chưa hoàn thành (Mặc định)";
             this.cbView.SelectedIndexChanged += new System.EventHandler(this.cbView_SelectedIndexChanged);
             // 
             // bEdit
@@ -3355,7 +3358,7 @@
             this.bAdd.IdleFillColor = System.Drawing.Color.White;
             this.bAdd.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bAdd.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.bAdd.Location = new System.Drawing.Point(3, 227);
+            this.bAdd.Location = new System.Drawing.Point(6, 225);
             this.bAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bAdd.Name = "bAdd";
             this.bAdd.Size = new System.Drawing.Size(81, 45);
@@ -3402,7 +3405,9 @@
             this.cDetails,
             this.cTimeSubmit,
             this.cStatus,
-            this.cProgress});
+            this.cProgress,
+            this.btnEdit,
+            this.btnDelete});
             this.animation1.SetDecoration(this.dataDeadline, AnimatorNS.DecorationType.None);
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
@@ -3435,74 +3440,7 @@
             this.dataDeadline.Size = new System.Drawing.Size(785, 188);
             this.dataDeadline.TabIndex = 1;
             this.dataDeadline.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDeadline_CellClick);
-            // 
-            // cID
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cID.DefaultCellStyle = dataGridViewCellStyle3;
-            this.cID.HeaderText = "ID";
-            this.cID.MinimumWidth = 8;
-            this.cID.Name = "cID";
-            this.cID.ReadOnly = true;
-            this.cID.Width = 150;
-            // 
-            // cSubjectID
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cSubjectID.DefaultCellStyle = dataGridViewCellStyle4;
-            this.cSubjectID.HeaderText = "ID môn học";
-            this.cSubjectID.MinimumWidth = 8;
-            this.cSubjectID.Name = "cSubjectID";
-            this.cSubjectID.ReadOnly = true;
-            this.cSubjectID.Width = 150;
-            // 
-            // cSubject
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cSubject.DefaultCellStyle = dataGridViewCellStyle5;
-            this.cSubject.HeaderText = "Môn học";
-            this.cSubject.MinimumWidth = 8;
-            this.cSubject.Name = "cSubject";
-            this.cSubject.ReadOnly = true;
-            this.cSubject.Width = 180;
-            // 
-            // cDetails
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cDetails.DefaultCellStyle = dataGridViewCellStyle6;
-            this.cDetails.HeaderText = "Chi tiết";
-            this.cDetails.MinimumWidth = 8;
-            this.cDetails.Name = "cDetails";
-            this.cDetails.ReadOnly = true;
-            this.cDetails.Width = 200;
-            // 
-            // cTimeSubmit
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cTimeSubmit.DefaultCellStyle = dataGridViewCellStyle7;
-            this.cTimeSubmit.HeaderText = "Giờ nộp bài";
-            this.cTimeSubmit.MinimumWidth = 8;
-            this.cTimeSubmit.Name = "cTimeSubmit";
-            this.cTimeSubmit.ReadOnly = true;
-            this.cTimeSubmit.Width = 150;
-            // 
-            // cStatus
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cStatus.DefaultCellStyle = dataGridViewCellStyle8;
-            this.cStatus.HeaderText = "Trạng thái";
-            this.cStatus.MinimumWidth = 8;
-            this.cStatus.Name = "cStatus";
-            this.cStatus.ReadOnly = true;
-            this.cStatus.Width = 150;
-            // 
-            // cProgress
-            // 
-            this.cProgress.HeaderText = "Tiến độ";
-            this.cProgress.MinimumWidth = 8;
-            this.cProgress.Name = "cProgress";
-            this.cProgress.ReadOnly = true;
-            this.cProgress.Width = 150;
+            this.dataDeadline.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDeadline_CellContentClick);
             // 
             // bRefresh
             // 
@@ -3523,7 +3461,7 @@
             this.bRefresh.IdleFillColor = System.Drawing.Color.White;
             this.bRefresh.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bRefresh.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.bRefresh.Location = new System.Drawing.Point(592, 226);
+            this.bRefresh.Location = new System.Drawing.Point(442, 225);
             this.bRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bRefresh.Name = "bRefresh";
             this.bRefresh.Size = new System.Drawing.Size(81, 45);
@@ -4757,6 +4695,91 @@
             this.lbOthers.TabIndex = 1;
             this.lbOthers.Text = "Community";
             // 
+            // cID
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.cID.HeaderText = "ID";
+            this.cID.MinimumWidth = 8;
+            this.cID.Name = "cID";
+            this.cID.ReadOnly = true;
+            this.cID.Visible = false;
+            this.cID.Width = 50;
+            // 
+            // cSubjectID
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cSubjectID.DefaultCellStyle = dataGridViewCellStyle4;
+            this.cSubjectID.HeaderText = "ID môn học";
+            this.cSubjectID.MinimumWidth = 8;
+            this.cSubjectID.Name = "cSubjectID";
+            this.cSubjectID.ReadOnly = true;
+            this.cSubjectID.Width = 120;
+            // 
+            // cSubject
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cSubject.DefaultCellStyle = dataGridViewCellStyle5;
+            this.cSubject.HeaderText = "Môn học";
+            this.cSubject.MinimumWidth = 8;
+            this.cSubject.Name = "cSubject";
+            this.cSubject.ReadOnly = true;
+            this.cSubject.Width = 180;
+            // 
+            // cDetails
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cDetails.DefaultCellStyle = dataGridViewCellStyle6;
+            this.cDetails.HeaderText = "Chi tiết";
+            this.cDetails.MinimumWidth = 8;
+            this.cDetails.Name = "cDetails";
+            this.cDetails.ReadOnly = true;
+            this.cDetails.Width = 200;
+            // 
+            // cTimeSubmit
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cTimeSubmit.DefaultCellStyle = dataGridViewCellStyle7;
+            this.cTimeSubmit.HeaderText = "Giờ nộp bài";
+            this.cTimeSubmit.MinimumWidth = 8;
+            this.cTimeSubmit.Name = "cTimeSubmit";
+            this.cTimeSubmit.ReadOnly = true;
+            this.cTimeSubmit.Width = 150;
+            // 
+            // cStatus
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cStatus.DefaultCellStyle = dataGridViewCellStyle8;
+            this.cStatus.HeaderText = "Trạng thái";
+            this.cStatus.MinimumWidth = 8;
+            this.cStatus.Name = "cStatus";
+            this.cStatus.ReadOnly = true;
+            this.cStatus.Width = 150;
+            // 
+            // cProgress
+            // 
+            this.cProgress.HeaderText = "Tiến độ";
+            this.cProgress.MinimumWidth = 8;
+            this.cProgress.Name = "cProgress";
+            this.cProgress.ReadOnly = true;
+            this.cProgress.Width = 150;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.HeaderText = "";
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.ReadOnly = true;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.UseColumnTextForButtonValue = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.HeaderText = "";
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ReadOnly = true;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseColumnTextForButtonValue = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5064,6 +5087,8 @@
         private Bunifu.Framework.UI.BunifuThinButton2 bExitScore;
         private System.Windows.Forms.Label labelFinish;
         private Bunifu.Framework.UI.BunifuSlider sliderProgress;
+        private System.Windows.Forms.ComboBox cbView;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnStatistic;
         private System.Windows.Forms.DataGridViewTextBoxColumn cID;
         private System.Windows.Forms.DataGridViewTextBoxColumn cSubjectID;
         private System.Windows.Forms.DataGridViewTextBoxColumn cSubject;
@@ -5071,7 +5096,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cTimeSubmit;
         private System.Windows.Forms.DataGridViewTextBoxColumn cStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn cProgress;
-        private System.Windows.Forms.ComboBox cbView;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnStatistic;
+        private System.Windows.Forms.DataGridViewButtonColumn btnEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn btnDelete;
     }
 }
