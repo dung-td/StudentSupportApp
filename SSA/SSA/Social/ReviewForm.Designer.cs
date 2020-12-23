@@ -64,6 +64,7 @@ namespace StudentSupportApp
             this.label2 = new System.Windows.Forms.Label();
             this.pLogo = new System.Windows.Forms.PictureBox();
             this.btnWrite = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnEdit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.grbPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrev)).BeginInit();
@@ -101,9 +102,9 @@ namespace StudentSupportApp
             this.grbPost.Controls.Add(this.groupBox1);
             this.grbPost.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbPost.Location = new System.Drawing.Point(11, 48);
-            this.grbPost.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbPost.Margin = new System.Windows.Forms.Padding(2);
             this.grbPost.Name = "grbPost";
-            this.grbPost.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbPost.Padding = new System.Windows.Forms.Padding(2);
             this.grbPost.Size = new System.Drawing.Size(805, 526);
             this.grbPost.TabIndex = 5;
             this.grbPost.TabStop = false;
@@ -122,7 +123,7 @@ namespace StudentSupportApp
             this.tbxKeyWord.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbxKeyWord.LineThickness = 4;
             this.tbxKeyWord.Location = new System.Drawing.Point(191, 19);
-            this.tbxKeyWord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxKeyWord.Margin = new System.Windows.Forms.Padding(4);
             this.tbxKeyWord.Name = "tbxKeyWord";
             this.tbxKeyWord.Size = new System.Drawing.Size(318, 38);
             this.tbxKeyWord.TabIndex = 22;
@@ -263,7 +264,7 @@ namespace StudentSupportApp
             "Người viết",
             "Tất cả"});
             this.cbbCate.Location = new System.Drawing.Point(515, 32);
-            this.cbbCate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbCate.Margin = new System.Windows.Forms.Padding(2);
             this.cbbCate.Name = "cbbCate";
             this.cbbCate.Size = new System.Drawing.Size(125, 25);
             this.cbbCate.TabIndex = 11;
@@ -286,9 +287,9 @@ namespace StudentSupportApp
             this.groupBox2.Controls.Add(this.tbxDetails);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(13, 146);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(722, 345);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
@@ -300,7 +301,7 @@ namespace StudentSupportApp
             this.tbxDetails.Enabled = false;
             this.tbxDetails.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxDetails.Location = new System.Drawing.Point(2, 24);
-            this.tbxDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxDetails.Margin = new System.Windows.Forms.Padding(2);
             this.tbxDetails.Name = "tbxDetails";
             this.tbxDetails.Size = new System.Drawing.Size(718, 319);
             this.tbxDetails.TabIndex = 0;
@@ -318,9 +319,9 @@ namespace StudentSupportApp
             this.groupBox1.Controls.Add(this.lbWriter);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(13, 55);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(788, 87);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
@@ -329,7 +330,7 @@ namespace StudentSupportApp
             // lSubName
             // 
             this.lSubName.AutoSize = true;
-            this.lSubName.Location = new System.Drawing.Point(469, 47);
+            this.lSubName.Location = new System.Drawing.Point(469, 55);
             this.lSubName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lSubName.Name = "lSubName";
             this.lSubName.Size = new System.Drawing.Size(136, 19);
@@ -339,7 +340,7 @@ namespace StudentSupportApp
             // lDate
             // 
             this.lDate.AutoSize = true;
-            this.lDate.Location = new System.Drawing.Point(469, 19);
+            this.lDate.Location = new System.Drawing.Point(469, 21);
             this.lDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lDate.Name = "lDate";
             this.lDate.Size = new System.Drawing.Size(173, 19);
@@ -349,7 +350,7 @@ namespace StudentSupportApp
             // lSubID
             // 
             this.lSubID.AutoSize = true;
-            this.lSubID.Location = new System.Drawing.Point(167, 47);
+            this.lSubID.Location = new System.Drawing.Point(167, 55);
             this.lSubID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lSubID.Name = "lSubID";
             this.lSubID.Size = new System.Drawing.Size(49, 19);
@@ -359,7 +360,7 @@ namespace StudentSupportApp
             // lWriter
             // 
             this.lWriter.AutoSize = true;
-            this.lWriter.Location = new System.Drawing.Point(167, 18);
+            this.lWriter.Location = new System.Drawing.Point(167, 20);
             this.lWriter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lWriter.Name = "lWriter";
             this.lWriter.Size = new System.Drawing.Size(73, 19);
@@ -369,7 +370,7 @@ namespace StudentSupportApp
             // lbSubName
             // 
             this.lbSubName.AutoSize = true;
-            this.lbSubName.Location = new System.Drawing.Point(289, 47);
+            this.lbSubName.Location = new System.Drawing.Point(289, 55);
             this.lbSubName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSubName.Name = "lbSubName";
             this.lbSubName.Size = new System.Drawing.Size(99, 19);
@@ -379,7 +380,7 @@ namespace StudentSupportApp
             // lbDate
             // 
             this.lbDate.AutoSize = true;
-            this.lbDate.Location = new System.Drawing.Point(289, 19);
+            this.lbDate.Location = new System.Drawing.Point(289, 21);
             this.lbDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(149, 19);
@@ -389,7 +390,7 @@ namespace StudentSupportApp
             // lbIDSub
             // 
             this.lbIDSub.AutoSize = true;
-            this.lbIDSub.Location = new System.Drawing.Point(51, 47);
+            this.lbIDSub.Location = new System.Drawing.Point(51, 55);
             this.lbIDSub.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbIDSub.Name = "lbIDSub";
             this.lbIDSub.Size = new System.Drawing.Size(91, 19);
@@ -399,7 +400,7 @@ namespace StudentSupportApp
             // lbWriter
             // 
             this.lbWriter.AutoSize = true;
-            this.lbWriter.Location = new System.Drawing.Point(51, 18);
+            this.lbWriter.Location = new System.Drawing.Point(51, 20);
             this.lbWriter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbWriter.Name = "lbWriter";
             this.lbWriter.Size = new System.Drawing.Size(86, 19);
@@ -412,9 +413,9 @@ namespace StudentSupportApp
             this.grbTop.Controls.Add(this.bunifuCards1);
             this.grbTop.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbTop.Location = new System.Drawing.Point(820, 48);
-            this.grbTop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbTop.Margin = new System.Windows.Forms.Padding(2);
             this.grbTop.Name = "grbTop";
-            this.grbTop.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbTop.Padding = new System.Windows.Forms.Padding(2);
             this.grbTop.Size = new System.Drawing.Size(236, 363);
             this.grbTop.TabIndex = 6;
             this.grbTop.TabStop = false;
@@ -564,7 +565,7 @@ namespace StudentSupportApp
             this.btnWrite.IconVisible = true;
             this.btnWrite.IconZoom = 90D;
             this.btnWrite.IsTab = false;
-            this.btnWrite.Location = new System.Drawing.Point(840, 462);
+            this.btnWrite.Location = new System.Drawing.Point(840, 435);
             this.btnWrite.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnWrite.Name = "btnWrite";
             this.btnWrite.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
@@ -579,11 +580,49 @@ namespace StudentSupportApp
             this.btnWrite.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Activecolor = System.Drawing.Color.Transparent;
+            this.btnEdit.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEdit.BorderRadius = 0;
+            this.btnEdit.ButtonText = "Chỉnh sửa đánh giá";
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.DisabledColor = System.Drawing.Color.FloralWhite;
+            this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnEdit.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnEdit.Iconimage")));
+            this.btnEdit.Iconimage_right = null;
+            this.btnEdit.Iconimage_right_Selected = null;
+            this.btnEdit.Iconimage_Selected = null;
+            this.btnEdit.IconMarginLeft = 0;
+            this.btnEdit.IconMarginRight = 0;
+            this.btnEdit.IconRightVisible = true;
+            this.btnEdit.IconRightZoom = 0D;
+            this.btnEdit.IconVisible = true;
+            this.btnEdit.IconZoom = 90D;
+            this.btnEdit.IsTab = false;
+            this.btnEdit.Location = new System.Drawing.Point(840, 492);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnEdit.OnHovercolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnEdit.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnEdit.selected = false;
+            this.btnEdit.Size = new System.Drawing.Size(196, 47);
+            this.btnEdit.TabIndex = 19;
+            this.btnEdit.Text = "Chỉnh sửa đánh giá";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEdit.Textcolor = System.Drawing.Color.Black;
+            this.btnEdit.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // ReviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 585);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnWrite);
             this.Controls.Add(this.header);
             this.Controls.Add(this.grbTop);
@@ -652,5 +691,6 @@ namespace StudentSupportApp
         private Bunifu.Framework.UI.BunifuMaterialTextbox tbxKeyWord;
         private Bunifu.Framework.UI.BunifuImageButton btnMinimize;
         private Bunifu.Framework.UI.BunifuImageButton btnExit;
+        private Bunifu.Framework.UI.BunifuFlatButton btnEdit;
     }
 }

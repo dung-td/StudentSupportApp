@@ -68,9 +68,8 @@ namespace StudentSupportApp
             this.header.Controls.Add(this.pLogo);
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
-            this.header.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(1357, 58);
+            this.header.Size = new System.Drawing.Size(905, 38);
             this.header.TabIndex = 21;
             // 
             // btnMinimize
@@ -78,10 +77,9 @@ namespace StudentSupportApp
             this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
             this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
             this.btnMinimize.ImageActive = null;
-            this.btnMinimize.Location = new System.Drawing.Point(1225, -2);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnMinimize.Location = new System.Drawing.Point(817, -1);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(66, 60);
+            this.btnMinimize.Size = new System.Drawing.Size(44, 39);
             this.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMinimize.TabIndex = 25;
             this.btnMinimize.TabStop = false;
@@ -93,10 +91,9 @@ namespace StudentSupportApp
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageActive = null;
-            this.btnExit.Location = new System.Drawing.Point(1281, -2);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExit.Location = new System.Drawing.Point(854, -1);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(66, 60);
+            this.btnExit.Size = new System.Drawing.Size(44, 39);
             this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnExit.TabIndex = 24;
             this.btnExit.TabStop = false;
@@ -110,12 +107,11 @@ namespace StudentSupportApp
             this.bunifuCards2.BottomSahddow = true;
             this.bunifuCards2.color = System.Drawing.Color.Tomato;
             this.bunifuCards2.LeftSahddow = false;
-            this.bunifuCards2.Location = new System.Drawing.Point(450, 68);
-            this.bunifuCards2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuCards2.Location = new System.Drawing.Point(300, 44);
             this.bunifuCards2.Name = "bunifuCards2";
             this.bunifuCards2.RightSahddow = true;
             this.bunifuCards2.ShadowDepth = 20;
-            this.bunifuCards2.Size = new System.Drawing.Size(435, 246);
+            this.bunifuCards2.Size = new System.Drawing.Size(290, 160);
             this.bunifuCards2.TabIndex = 23;
             // 
             // label7
@@ -123,19 +119,19 @@ namespace StudentSupportApp
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(45, 9);
+            this.label7.Location = new System.Drawing.Point(30, 6);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(315, 41);
+            this.label7.Size = new System.Drawing.Size(212, 27);
             this.label7.TabIndex = 8;
             this.label7.Text = "Student Support App";
             // 
             // pLogo
             // 
             this.pLogo.Image = ((System.Drawing.Image)(resources.GetObject("pLogo.Image")));
-            this.pLogo.Location = new System.Drawing.Point(6, 5);
-            this.pLogo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pLogo.Location = new System.Drawing.Point(4, 3);
             this.pLogo.Name = "pLogo";
-            this.pLogo.Size = new System.Drawing.Size(32, 40);
+            this.pLogo.Size = new System.Drawing.Size(21, 26);
             this.pLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pLogo.TabIndex = 2;
             this.pLogo.TabStop = false;
@@ -148,21 +144,21 @@ namespace StudentSupportApp
             this.bunifuCards3.color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bunifuCards3.Controls.Add(this.label6);
             this.bunifuCards3.LeftSahddow = false;
-            this.bunifuCards3.Location = new System.Drawing.Point(447, 68);
-            this.bunifuCards3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuCards3.Location = new System.Drawing.Point(298, 44);
             this.bunifuCards3.Name = "bunifuCards3";
             this.bunifuCards3.RightSahddow = true;
             this.bunifuCards3.ShadowDepth = 20;
-            this.bunifuCards3.Size = new System.Drawing.Size(556, 246);
+            this.bunifuCards3.Size = new System.Drawing.Size(371, 160);
             this.bunifuCards3.TabIndex = 23;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 17);
+            this.label6.Location = new System.Drawing.Point(4, 11);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(244, 33);
+            this.label6.Size = new System.Drawing.Size(169, 21);
             this.label6.TabIndex = 13;
             this.label6.Text = "CÀI ĐẶT BÀI VIẾT";
             // 
@@ -175,30 +171,31 @@ namespace StudentSupportApp
             this.bunifuCards4.Controls.Add(this.label2);
             this.bunifuCards4.Controls.Add(this.tbxDetails);
             this.bunifuCards4.LeftSahddow = false;
-            this.bunifuCards4.Location = new System.Drawing.Point(0, 323);
-            this.bunifuCards4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuCards4.Location = new System.Drawing.Point(0, 210);
             this.bunifuCards4.Name = "bunifuCards4";
             this.bunifuCards4.RightSahddow = true;
             this.bunifuCards4.ShadowDepth = 20;
-            this.bunifuCards4.Size = new System.Drawing.Size(1336, 369);
+            this.bunifuCards4.Size = new System.Drawing.Size(891, 240);
             this.bunifuCards4.TabIndex = 24;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 14);
+            this.label2.Location = new System.Drawing.Point(10, 9);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(269, 33);
+            this.label2.Size = new System.Drawing.Size(184, 21);
             this.label2.TabIndex = 5;
             this.label2.Text = "NỘI DUNG BÀI VIẾT";
             // 
             // tbxDetails
             // 
             this.tbxDetails.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxDetails.Location = new System.Drawing.Point(0, 65);
+            this.tbxDetails.Location = new System.Drawing.Point(0, 42);
+            this.tbxDetails.Margin = new System.Windows.Forms.Padding(2);
             this.tbxDetails.Name = "tbxDetails";
-            this.tbxDetails.Size = new System.Drawing.Size(1334, 299);
+            this.tbxDetails.Size = new System.Drawing.Size(891, 196);
             this.tbxDetails.TabIndex = 4;
             this.tbxDetails.Text = "";
             // 
@@ -224,14 +221,14 @@ namespace StudentSupportApp
             this.btnUpload.IconVisible = true;
             this.btnUpload.IconZoom = 90D;
             this.btnUpload.IsTab = false;
-            this.btnUpload.Location = new System.Drawing.Point(1034, 111);
-            this.btnUpload.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.btnUpload.Location = new System.Drawing.Point(689, 72);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Normalcolor = System.Drawing.Color.Silver;
             this.btnUpload.OnHovercolor = System.Drawing.Color.Silver;
             this.btnUpload.OnHoverTextColor = System.Drawing.Color.Black;
             this.btnUpload.selected = false;
-            this.btnUpload.Size = new System.Drawing.Size(285, 60);
+            this.btnUpload.Size = new System.Drawing.Size(190, 39);
             this.btnUpload.TabIndex = 25;
             this.btnUpload.Text = "Đăng tải";
             this.btnUpload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -261,14 +258,14 @@ namespace StudentSupportApp
             this.btnCancel.IconVisible = true;
             this.btnCancel.IconZoom = 90D;
             this.btnCancel.IsTab = false;
-            this.btnCancel.Location = new System.Drawing.Point(1034, 189);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.btnCancel.Location = new System.Drawing.Point(689, 123);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Normalcolor = System.Drawing.Color.Silver;
             this.btnCancel.OnHovercolor = System.Drawing.Color.Silver;
             this.btnCancel.OnHoverTextColor = System.Drawing.Color.Black;
             this.btnCancel.selected = false;
-            this.btnCancel.Size = new System.Drawing.Size(285, 58);
+            this.btnCancel.Size = new System.Drawing.Size(190, 38);
             this.btnCancel.TabIndex = 26;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -288,12 +285,11 @@ namespace StudentSupportApp
             this.bunifuCards5.Controls.Add(this.lbSubID);
             this.bunifuCards5.Controls.Add(this.label1);
             this.bunifuCards5.LeftSahddow = false;
-            this.bunifuCards5.Location = new System.Drawing.Point(3, 68);
-            this.bunifuCards5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuCards5.Location = new System.Drawing.Point(2, 44);
             this.bunifuCards5.Name = "bunifuCards5";
             this.bunifuCards5.RightSahddow = true;
             this.bunifuCards5.ShadowDepth = 20;
-            this.bunifuCards5.Size = new System.Drawing.Size(435, 246);
+            this.bunifuCards5.Size = new System.Drawing.Size(290, 160);
             this.bunifuCards5.TabIndex = 24;
             // 
             // tbxSubID
@@ -308,10 +304,10 @@ namespace StudentSupportApp
             this.tbxSubID.LineIdleColor = System.Drawing.Color.Gray;
             this.tbxSubID.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbxSubID.LineThickness = 3;
-            this.tbxSubID.Location = new System.Drawing.Point(135, 123);
-            this.tbxSubID.Margin = new System.Windows.Forms.Padding(6);
+            this.tbxSubID.Location = new System.Drawing.Point(90, 80);
+            this.tbxSubID.Margin = new System.Windows.Forms.Padding(4);
             this.tbxSubID.Name = "tbxSubID";
-            this.tbxSubID.Size = new System.Drawing.Size(294, 65);
+            this.tbxSubID.Size = new System.Drawing.Size(196, 42);
             this.tbxSubID.TabIndex = 14;
             this.tbxSubID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -327,10 +323,10 @@ namespace StudentSupportApp
             this.tbxSubName.LineIdleColor = System.Drawing.Color.Gray;
             this.tbxSubName.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbxSubName.LineThickness = 3;
-            this.tbxSubName.Location = new System.Drawing.Point(135, 56);
-            this.tbxSubName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbxSubName.Location = new System.Drawing.Point(90, 36);
+            this.tbxSubName.Margin = new System.Windows.Forms.Padding(4);
             this.tbxSubName.Name = "tbxSubName";
-            this.tbxSubName.Size = new System.Drawing.Size(294, 55);
+            this.tbxSubName.Size = new System.Drawing.Size(196, 36);
             this.tbxSubName.TabIndex = 13;
             this.tbxSubName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -339,9 +335,10 @@ namespace StudentSupportApp
             this.lbSubName.AutoSize = true;
             this.lbSubName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSubName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbSubName.Location = new System.Drawing.Point(3, 161);
+            this.lbSubName.Location = new System.Drawing.Point(2, 105);
+            this.lbSubName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSubName.Name = "lbSubName";
-            this.lbSubName.Size = new System.Drawing.Size(98, 27);
+            this.lbSubName.Size = new System.Drawing.Size(64, 19);
             this.lbSubName.TabIndex = 12;
             this.lbSubName.Text = "Môn học";
             // 
@@ -350,9 +347,10 @@ namespace StudentSupportApp
             this.lbSubID.AutoSize = true;
             this.lbSubID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSubID.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbSubID.Location = new System.Drawing.Point(3, 84);
+            this.lbSubID.Location = new System.Drawing.Point(2, 55);
+            this.lbSubID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSubID.Name = "lbSubID";
-            this.lbSubID.Size = new System.Drawing.Size(129, 27);
+            this.lbSubID.Size = new System.Drawing.Size(84, 19);
             this.lbSubID.TabIndex = 10;
             this.lbSubID.Text = "ID Môn học";
             // 
@@ -360,17 +358,18 @@ namespace StudentSupportApp
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 17);
+            this.label1.Location = new System.Drawing.Point(9, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(280, 33);
+            this.label1.Size = new System.Drawing.Size(195, 21);
             this.label1.TabIndex = 2;
             this.label1.Text = "THÔNG TIN BÀI VIẾT";
             // 
             // WriterRVForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1357, 714);
+            this.ClientSize = new System.Drawing.Size(905, 464);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.bunifuCards3);
@@ -378,9 +377,9 @@ namespace StudentSupportApp
             this.Controls.Add(this.bunifuCards5);
             this.Controls.Add(this.bunifuCards4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "WriterRVForm";
             this.Text = "WriterRVForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WriterRVForm_FormClosing);
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();

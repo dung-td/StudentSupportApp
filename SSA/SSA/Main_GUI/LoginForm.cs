@@ -50,6 +50,7 @@ namespace StudentSupportApp
         }
         private void bExit_Click(object sender, EventArgs e)
         {
+            Dispose();
             Application.Exit();
         }
         private void bLogin_Click(object sender, EventArgs e)

@@ -140,12 +140,12 @@ namespace StudentSupportApp
                 Connection.CloseConnection();
             }
         }
-        public void UpdateLike()
+        public void SetLike()
         {
             try
             {
                 Connection.OpenConnection();
-                string Query = @"UPDATE REVIEW SET Likes = Likes + 1 WHERE ID=" + ID.ToString();
+                string Query = @"UPDATE REVIEW_DETAIL SET STAT = 1 WHERE RV_ID=" + ID.ToString();
                 SqlCommand cmd = Connection.CreateSQLCmd(Query);
                 cmd.ExecuteNonQuery();
             }
@@ -160,12 +160,32 @@ namespace StudentSupportApp
                 Connection.CloseConnection();
             }
         }
-        public void UpdateDislike()
+        public void SetDislike()
         {
             try
             {
                 Connection.OpenConnection();
-                string Query = @"UPDATE REVIEW SET Dislikes= Dislikes + 1 WHERE ID=" + ID.ToString();
+                string Query = @"UPDATE REVIEW_DETAIL SET STAT = 2 WHERE RV_ID=" + ID.ToString();
+                SqlCommand cmd = Connection.CreateSQLCmd(Query);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                Connection.CloseConnection();
+            }
+        }
+        public void SetReset()
+        {
+            try
+            {
+                Connection.OpenConnection();
+                string Query = @"UPDATE REVIEW_DETAIL SET STAT = 0 WHERE RV_ID=" + ID.ToString();
                 SqlCommand cmd = Connection.CreateSQLCmd(Query);
                 cmd.ExecuteNonQuery();
             }
@@ -186,6 +206,26 @@ namespace StudentSupportApp
             {
                 Connection.OpenConnection();
                 string Query = @"UPDATE REVIEW SET Reports= Reports + 1 WHERE ID=" + ID.ToString();
+                SqlCommand cmd = Connection.CreateSQLCmd(Query);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                Connection.CloseConnection();
+            }
+        }
+        public void FirstReact(string ID_User, int i)
+        {
+            try
+            {
+                Connection.OpenConnection();
+                string Query = "INSERT INTO REVIEW_DETAIL VALUES(" + ID.ToString() +",'" + ID_User + "', " + i.ToString() + ")";
                 SqlCommand cmd = Connection.CreateSQLCmd(Query);
                 cmd.ExecuteNonQuery();
             }
@@ -227,12 +267,13 @@ namespace StudentSupportApp
         }
         public void ModifyReview()
         {
-            string Query = "UPDATE REVIEW SET SujectID='" + SubjectID + "' Subject='" + Subject + "' Details='" + Details + "' Date_='" + Date + "' WHERE ID='" + ID + "'";
+            string Query = "UPDATE REVIEW SET SubjectID='" + SubjectID + "', Subject_='" + Subject + "', Details='" + Details + "', Date_='" + Date + "' WHERE ID='" + ID + "'";
             try
             {
                 this.Connection.OpenConnection();
                 SqlCommand command = this.Connection.CreateSQLCmd(Query);
                 command.ExecuteNonQuery();
+                MessageBox.Show("Chỉnh sửa thành công!");
             }
             catch (Exception ex)
             {
@@ -245,38 +286,32 @@ namespace StudentSupportApp
                 this.Connection.CloseConnection();
             }
         }
-        //public void GetReviewInfomation()
-        //{
-        //    try
-        //    {
-        //        Connection.OpenConnection();
-        //        string Query = "";
-        //        SqlCommand cmd = Connection.CreateSQLCmd(Query);
-        //        SqlDataReader reader = cmd.ExecuteReader();
-        //        while (reader.HasRows)
-        //        {
-        //            if (!reader.Read())
-        //            {
-        //                ID = reader.GetInt32(0);
-        //                SubjectID = reader.GetString(1);
-        //                Subject = reader.GetString(2);
-        //                ID_User = reader.GetString(3);
-        //                Details = reader.GetString(4);
-        //                Like = reader.GetInt32(5);
-        //                Dislike = reader.GetInt32(6);
-        //                Report = reader.GetInt32(7);
-        //                Date = reader.GetDateTime(8);
-        //            }
-        //        }
-        //    }
-        //    catch
-        //    {
-
-        //    }
-        //    finally
-        //    {
-        //        Connection.CloseConnection();
-        //    }
-        //}
+        public int CheckStatus(string ID_User)
+        {
+            int temp = -1;
+            string Query = "SELECT * FROM REVIEW_DETAIL WHERE RV_ID=" + ID.ToString() + "AND ID_User = '" + ID_User + "'";
+            try
+            {
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(Query);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.HasRows)
+                {
+                    if (reader.Read() == false) break;
+                    temp = reader.GetInt32(2);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
+            return temp;
+        }
     }
 }

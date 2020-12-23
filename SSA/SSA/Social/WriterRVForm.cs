@@ -11,7 +11,8 @@ namespace StudentSupportApp
 {
     public partial class WriterRVForm : Form
     {
-        Form parent;
+        MainForm parent1;
+        ReviewForm parent2;
         Review review;
         int temp = 0;
         [DllImport("user32")]
@@ -27,17 +28,27 @@ namespace StudentSupportApp
                 SendMessage(Handle, 161, 2, 0);
             }
         }
-        public WriterRVForm(Form parent, string ID_User)
+        public WriterRVForm(ReviewForm parent, string ID_User)
         {
             temp = 1;
             review = new Review();
             this.review._ID_User = ID_User;
-            this.parent = parent;
+            this.parent2 = parent;
             InitializeComponent();
             SetColor(Properties.Settings.Default.Color);
             this.Size = new Size(900, 470);
         }
-        public WriterRVForm(Form parent, int ID, string[] args, DateTime Date)
+        public WriterRVForm(MainForm parent, string ID_User)
+        {
+            temp = 1;
+            review = new Review();
+            this.review._ID_User = ID_User;
+            this.parent1 = parent;
+            InitializeComponent();
+            SetColor(Properties.Settings.Default.Color);
+            this.Size = new Size(900, 470);
+        }
+        public WriterRVForm(ReviewForm parent, int ID, string[] args, DateTime Date)
         {
             temp = -1;
             review = new Review();
@@ -51,6 +62,7 @@ namespace StudentSupportApp
             this.tbxSubName.Text = review._Subject;
             this.tbxDetails.Text = review._Details;
             this.Size = new Size(900, 470);
+            this.parent2 = parent;
         }
         private void btnMinimize_Click(object sender, EventArgs e)
         {
@@ -59,7 +71,6 @@ namespace StudentSupportApp
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            //this.parent.Show();
         }
         private void btnUpload_Click(object sender, EventArgs e)
         {
@@ -85,17 +96,23 @@ namespace StudentSupportApp
                 review._Details = tbxDetails.Text;
                 review.ModifyReview();
             }
-            btnCancel_Click(sender, e);
+            this.Close();
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //btnExit_Click(sender, e);
+            this.Close();
         }
         void SetColor(Color x)
         {
             tbxSubID.LineFocusedColor = tbxSubID.LineMouseHoverColor =
                 tbxSubName.LineMouseHoverColor = tbxSubName.LineFocusedColor =
                     header.BackColor = x;
+        }
+
+        private void WriterRVForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
         }
     }
 }

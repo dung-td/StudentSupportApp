@@ -111,15 +111,75 @@ namespace StudentSupportApp
         }
         private void btnLike_Click(object sender, EventArgs e)
         {
-            Reviews[temp].UpdateLike();
-            this.lbLike.Text = (int.Parse(this.lbLike.Text) + 1).ToString();
-            Reviews[temp]._Like += 1;
+            int i = Reviews[temp].CheckStatus(this.ID_User);
+            if (i == -1)
+            {
+                Reviews[temp].FirstReact(ID_User, 0);
+                this.lbLike.Text = (int.Parse(this.lbLike.Text) + 1).ToString();
+                this.lbLike.ForeColor = Color.Red;
+                Reviews[temp]._Like += 1;
+                Reviews[temp].SetLike();
+            }
+            else if (i == 1)
+            {
+                this.lbLike.Text = (int.Parse(this.lbLike.Text) - 1).ToString();
+                Reviews[temp]._Like -= 1;
+                Reviews[temp].SetReset();
+                this.lbLike.ForeColor = Color.Black;
+            }
+            else if (i == 2)
+            {
+                this.lbLike.Text = (int.Parse(this.lbLike.Text) + 1).ToString();
+                Reviews[temp]._Like += 1;
+                this.lbDislike.Text = (int.Parse(this.lbDislike.Text) - 1).ToString();
+                Reviews[temp]._Dislike -= 1;
+                Reviews[temp].SetLike();
+                this.lbLike.ForeColor = Color.Red;
+                this.lbDislike.ForeColor = Color.Black;
+            }
+            else if (i == 0)
+            {
+                this.lbLike.Text = (int.Parse(this.lbLike.Text) + 1).ToString();
+                Reviews[temp]._Like += 1;
+                Reviews[temp].SetLike();
+                this.lbLike.ForeColor = Color.Red;
+            }
         }
         private void btnDislike_Click(object sender, EventArgs e)
         {
-            Reviews[temp].UpdateDislike();
-            this.lbDislike.Text = (int.Parse(this.lbDislike.Text) + 1).ToString();
-            Reviews[temp]._Dislike += 1;
+            int i = Reviews[temp].CheckStatus(this.ID_User);
+            if (i == -1)
+            {
+                Reviews[temp].FirstReact(ID_User, 2);
+                Reviews[temp].SetDislike();
+                this.lbDislike.Text = (int.Parse(this.lbDislike.Text) + 1).ToString();
+                Reviews[temp]._Dislike += 1;
+                this.lbDislike.ForeColor = Color.Red;
+            }
+            else if (i == 2)
+            {
+                Reviews[temp].SetReset();
+                this.lbDislike.Text = (int.Parse(this.lbDislike.Text) - 1).ToString();
+                Reviews[temp]._Dislike -= 1;
+                this.lbDislike.ForeColor = Color.Black;
+            }
+            else if (i == 1)
+            {
+                Reviews[temp].SetDislike();
+                this.lbDislike.Text = (int.Parse(this.lbDislike.Text) + 1).ToString();
+                Reviews[temp]._Dislike += 1;
+                this.lbLike.Text = (int.Parse(this.lbLike.Text) - 1).ToString();
+                Reviews[temp]._Like -= 1;
+                this.lbDislike.ForeColor = Color.Red;
+                this.lbLike.ForeColor = Color.Black;
+            }
+            else if (i == 0)
+            {
+                Reviews[temp].SetDislike();
+                this.lbDislike.Text = (int.Parse(this.lbDislike.Text) + 1).ToString();
+                Reviews[temp]._Dislike += 1;
+                this.lbDislike.ForeColor = Color.Red;
+            }
         }
         private void btnReport_Click(object sender, EventArgs e)
         {
@@ -160,7 +220,6 @@ namespace StudentSupportApp
         {
             OnMouseDown(e);
         }
-
         private void btnWrite_Click(object sender, EventArgs e)
         {
             WriterRVForm Writer = new WriterRVForm(this, ID_User);
