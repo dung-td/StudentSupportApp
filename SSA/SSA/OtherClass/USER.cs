@@ -40,6 +40,7 @@ namespace StudentSupportApp
                     this.sName = reader.GetString(0);
                     this.sEmail = reader.GetString(1);
                 }
+                reader.Close();
             }
             catch (Exception ex)
             {
@@ -141,9 +142,15 @@ namespace StudentSupportApp
                 SqlCommand command = this.Connection.CreateSQLCmd(sCheckLogin);
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.HasRows)
+                {
+                    reader.Close();
                     return 0;
+                }
                 else
+                {
+                    reader.Close();
                     return 1;
+                }
             }
             catch (Exception ex)
             {
@@ -172,8 +179,10 @@ namespace StudentSupportApp
                     if (reader.GetString(0) == PasswordEncoder.FromString(this.sPassword))
                     {
                         this.Connection.CloseConnection();
+                        reader.Close();
                         return 1;
                     }
+                    reader.Close();
                     this.Connection.CloseConnection();
                     return -1;
                 }
@@ -202,12 +211,13 @@ namespace StudentSupportApp
                 {
                     if (reader.Read() == false) break;
                     this.Email = reader.GetString(1);
-                    //this.Birthday = reader.GetString(2);
+                    this.Birthday = reader.GetDateTime(2);
                     this.Password = reader.GetString(3);
                     this.Name = reader.GetString(4);
                     this.Class = reader.GetString(5);
                     this.Gender = reader.GetString(6);
                 }
+                reader.Close();
             }
             catch (Exception ex)
             {
@@ -283,6 +293,7 @@ namespace StudentSupportApp
                     if (reader.Read() == false) break;
                     i = (int.Parse(reader.GetString(0)) + 1).ToString();
                 }
+                reader.Close();
             }
             catch (Exception ex)
             {

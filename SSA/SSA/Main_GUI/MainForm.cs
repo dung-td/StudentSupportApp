@@ -531,6 +531,7 @@ namespace StudentSupportApp
 }
 
 //Dung
+#region Dung
 namespace StudentSupportApp
 {
     public partial class MainForm
@@ -792,30 +793,35 @@ namespace StudentSupportApp
         }
         private void bDelete_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons button = MessageBoxButtons.OK;
-            MessageBox.Show(" All selected items will be delete!", "WARNING!", button);
-            foreach (DataGridViewRow row in dataDeadline.SelectedRows)
-            {
-                try
-                {
-                    this.Connection.OpenConnection();
-                    string Query = "DELETE FROM DEADLINE WHERE ID ='" + row.Cells[0].Value + "'";
-                    SqlCommand command = this.Connection.CreateSQLCmd(Query);
-                    dataDeadline.Rows.RemoveAt(row.Index);
-                    command.ExecuteNonQuery();
+            const string message = "Bạn chắc chắn muốn xóa các mục đã chọn?";
+            const string caption = "Xóa hoạt động";
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                }
-                catch (Exception ex)
+            if (result == DialogResult.Yes)
+            {
+                foreach (DataGridViewRow row in dataDeadline.SelectedRows)
                 {
-                    MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                    ReportError rp = new ReportError(this, ex);
-                    rp.Show();
-                    this.Hide();
-                }
-                finally
-                {
-                    this.Connection.CloseConnection();
-                    NearestDeadline();
+                    try
+                    {
+                        this.Connection.OpenConnection();
+                        string Query = "DELETE FROM DEADLINE WHERE ID ='" + row.Cells[0].Value + "'";
+                        SqlCommand command = this.Connection.CreateSQLCmd(Query);
+                        dataDeadline.Rows.RemoveAt(row.Index);
+                        command.ExecuteNonQuery();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                        ReportError rp = new ReportError(this, ex);
+                        rp.Show();
+                        this.Hide();
+                    }
+                    finally
+                    {
+                        this.Connection.CloseConnection();
+                        NearestDeadline();
+                    }
                 }
             }
         }
@@ -983,6 +989,7 @@ namespace StudentSupportApp
         #endregion
     }
 }
+#endregion
 
 //Danh
 #region Danh
@@ -1039,7 +1046,7 @@ namespace StudentSupportApp
             }
         }
 
-        private void ReadSchedulesSemesterComboboxItems()
+        public void ReadSchedulesSemesterComboboxItems()
         {
             try
             {
@@ -1202,24 +1209,67 @@ namespace StudentSupportApp
 
         private void btnRemoveLess_Click(object sender, EventArgs e)
         {
-            try
+            const string message = "Bạn chắc chắn muốn xóa tiết học đã chọn?";
+            const string caption = "Xóa tiết học";
+            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                Timetable ti = new Timetable();
-                if (this.dataGridViewTimetable.CurrentCell.Selected == true && this.dataGridViewTimetable.CurrentCell.Value.ToString() != "")
+                try
                 {
-                    int iSubID = this.dataGridViewTimetable.CurrentCell.Value.ToString().IndexOf("\n");
-                    int iCellValueLength = this.dataGridViewTimetable.CurrentCell.Value.ToString().Length;
-                    List<string> sLessonData = new List<string> { cbxSem.Text, ti.SwitchDayWithNumberToNumber(this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].HeaderText).ToString(),
+                    Timetable ti = new Timetable();
+                    if (this.dataGridViewTimetable.CurrentCell.Selected == true && this.dataGridViewTimetable.CurrentCell.Value.ToString() != "")
+                    {
+                        int iSubID = this.dataGridViewTimetable.CurrentCell.Value.ToString().IndexOf("\n");
+                        int iCellValueLength = this.dataGridViewTimetable.CurrentCell.Value.ToString().Length;
+                        List<string> sLessonData = new List<string> { cbxSem.Text, ti.SwitchDayWithNumberToNumber(this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].HeaderText).ToString(),
                                                                   this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(0, iSubID),
                                                                   this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(iSubID, iCellValueLength - iSubID),
                                                                   (this.dataGridViewTimetable.CurrentCell.RowIndex + 1).ToString(), this.User.ID };
-                    Timetable Lesson = new Timetable(this.User.ID);
-                    if (Lesson.RemoveLesson(sLessonData) == 1)
-                    {
-                        MessageBox.Show("Xóa tiết học thành công!", "Xóa tiết học");
-                        this.dataGridViewTimetable.CurrentCell.Value = "";
+                        Timetable Lesson = new Timetable(this.User.ID);
+                        if (Lesson.RemoveLesson(sLessonData) == 1)
+                        {
+                            MessageBox.Show("Xóa tiết học thành công!", "Xóa tiết học");
+                            this.dataGridViewTimetable.CurrentCell.Value = "";
+                        }
+                        else MessageBox.Show("Xóa tiết học thất bại!", "Xóa tiết học");
                     }
-                    else MessageBox.Show("Xóa tiết học thất bại!", "Xóa tiết học");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                    ReportError rp = new ReportError(this, ex);
+                    rp.Show();
+                }
+            }
+        }
+
+        private void btnDeleteTT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                const string message = "Bạn chắc chắn muốn xóa TKB đã chọn?";
+                const string caption = "Xóa TKB";
+                var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    Timetable ti = new Timetable(this.User.ID, this.cbxSem.Text);
+                    if (ti.RemoveTimetable() == 1)
+                    {
+                        this.dataGridViewTimetable.Rows.Clear();
+                        if (Properties.Settings.Default.Text == cbxSem.Text)
+                        {
+                            this.dataGridViewHomeTimeTB.Rows.Clear();
+                            Properties.Settings.Default.Text = "";
+                            Properties.Settings.Default.Save();
+                        }
+                        this.cbxSem.Items.Clear();
+                        AddRowsToTimetableDataGridViews();
+                        ReadSchedulesSemesterComboboxItems();
+                        MessageBox.Show("Xóa TKB thành công", "Xóa TKB");
+
+                    }
+                    else MessageBox.Show("Xóa TKB thất bại", "Xóa TKB");
                 }
             }
             catch (Exception ex)
@@ -1228,27 +1278,6 @@ namespace StudentSupportApp
                 ReportError rp = new ReportError(this, ex);
                 rp.Show();
             }
-        }
-
-        private void btnDeleteTT_Click(object sender, EventArgs e)
-        {
-            Timetable ti = new Timetable(this.User.ID, this.cbxSem.Text);
-            if (ti.RemoveTimetable() == 1)
-            {
-                this.dataGridViewTimetable.Rows.Clear();
-                if (Properties.Settings.Default.Text == cbxSem.Text)
-                {
-                    this.dataGridViewHomeTimeTB.Rows.Clear();
-                    Properties.Settings.Default.Text = "";
-                    Properties.Settings.Default.Save();
-                }
-                this.cbxSem.Items.Clear();
-                AddRowsToTimetableDataGridViews();
-                ReadSchedulesSemesterComboboxItems();
-                MessageBox.Show("Xóa TKB thành công", "Xóa TKB");
-
-            }
-            else MessageBox.Show("Xóa TKB thất bại", "Xóa TKB");
         }
 
         private void cbxSem_SelectedIndexChanged(object sender, EventArgs e)
@@ -1265,47 +1294,25 @@ namespace StudentSupportApp
         {
             Properties.Settings.Default.Text = cbxSem.Text;
             Properties.Settings.Default.Save();
-            MessageBox.Show("Đã lưu!", "Đặt học kỳ mặc định");
+            MessageBox.Show("Đã lưu học kỳ mặc định!");
         }
         #endregion
 
         #region Information Tab
         private void LoadInformationTab()
         {
-            Connect Info = new Connect();
-            try
-            {
-                Info.OpenConnection();
+            this.User.LoadUserInfo();
+            List<string> sInfo = new List<string> { };
+            sInfo.Add(this.User.ID);
+            sInfo.Add(this.User.Email);
+            int endIndexOfDate = this.User.Birthday.ToString().IndexOf(" ");
+            sInfo.Add(this.User.Birthday.ToString().Substring(0, endIndexOfDate));
+            sInfo.Add("");
+            sInfo.Add(this.User.Name);
+            sInfo.Add(this.User.Class);
+            sInfo.Add(this.User.Gender);
 
-                List<string> sData = new List<string>();
-
-                SqlCommand command = Info.CreateSQLCmd("select * from USERS where ID_USER='" + this.User.ID + "'");
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.HasRows)
-                {
-                    if (reader.Read() == false) break;
-                    sData.Add(reader.GetString(0));
-                    sData.Add(reader.GetString(1));
-                    sData.Add(reader.GetDateTime(2).ToString().Substring(0, 10));
-                    sData.Add(reader.GetString(3));
-                    sData.Add(reader.GetString(4));
-                    sData.Add(reader.GetString(5));
-                    sData.Add(reader.GetString(6));
-                }
-
-                ShowUserInformation(sData);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                ReportError rp = new ReportError(this, ex);
-                rp.Show();
-            }
-            finally
-            {
-                Info.CloseConnection();
-            }
+            ShowUserInformation(sInfo);
         }
 
         private void ShowUserInformation(List<string> data)
@@ -1439,13 +1446,29 @@ namespace StudentSupportApp
         #region Note
         private void btnDelNote_Click(object sender, EventArgs e)
         {
-            if (dataGridViewNote.SelectedCells.Count > 0)
+            try
             {
-                DeleleNoteFromDatabase(dataGridViewNote.SelectedCells[0].Value.ToString());
-            }
+                const string message = "Bạn chắc chắn muốn xóa các ghi chú đã chọn?";
+                const string caption = "Xóa ghi chú";
+                var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    if (dataGridViewNote.SelectedCells.Count > 0)
+                    {
+                        foreach (DataGridViewCell cell in dataGridViewNote.SelectedCells)
+                            DeleleNoteFromDatabase(cell.Value.ToString());
+                    }
 
-            dataGridViewNote.Rows.Clear();
-            LoadNotes();
+                    dataGridViewNote.Rows.Clear();
+                    LoadNotes();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
+            }
         }
 
         private void btnAddNote_Click(object sender, EventArgs e)
