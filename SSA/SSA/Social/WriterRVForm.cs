@@ -76,7 +76,6 @@ namespace StudentSupportApp
         {
             if (temp == 1)
             {
-                review = new Review();
                 review.GetReviewID(ref temp);
                 review._ID = temp;
                 review._Like = 0;

@@ -53,11 +53,6 @@ namespace StudentSupportApp
             this.lbDate = new System.Windows.Forms.Label();
             this.lbIDSub = new System.Windows.Forms.Label();
             this.lbWriter = new System.Windows.Forms.Label();
-            this.grbTop = new System.Windows.Forms.GroupBox();
-            this.bunifuCards3 = new Bunifu.Framework.UI.BunifuCards();
-            this.bunifuCards4 = new Bunifu.Framework.UI.BunifuCards();
-            this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
-            this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
             this.header = new System.Windows.Forms.Panel();
             this.btnMinimize = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnExit = new Bunifu.Framework.UI.BunifuImageButton();
@@ -73,9 +68,6 @@ namespace StudentSupportApp
             ((System.ComponentModel.ISupportInitialize)(this.btnLike)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.grbTop.SuspendLayout();
-            this.bunifuCards3.SuspendLayout();
-            this.bunifuCards1.SuspendLayout();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
@@ -87,6 +79,8 @@ namespace StudentSupportApp
             this.grbPost.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbPost.Controls.Add(this.btnEdit);
+            this.grbPost.Controls.Add(this.btnWrite);
             this.grbPost.Controls.Add(this.tbxKeyWord);
             this.grbPost.Controls.Add(this.lbDislike);
             this.grbPost.Controls.Add(this.btnFind);
@@ -105,7 +99,7 @@ namespace StudentSupportApp
             this.grbPost.Margin = new System.Windows.Forms.Padding(2);
             this.grbPost.Name = "grbPost";
             this.grbPost.Padding = new System.Windows.Forms.Padding(2);
-            this.grbPost.Size = new System.Drawing.Size(805, 526);
+            this.grbPost.Size = new System.Drawing.Size(1045, 526);
             this.grbPost.TabIndex = 5;
             this.grbPost.TabStop = false;
             this.grbPost.Text = "Bài viết";
@@ -133,7 +127,7 @@ namespace StudentSupportApp
             // lbDislike
             // 
             this.lbDislike.AutoSize = true;
-            this.lbDislike.Location = new System.Drawing.Point(756, 339);
+            this.lbDislike.Location = new System.Drawing.Point(988, 323);
             this.lbDislike.Name = "lbDislike";
             this.lbDislike.Size = new System.Drawing.Size(20, 22);
             this.lbDislike.TabIndex = 21;
@@ -160,14 +154,14 @@ namespace StudentSupportApp
             this.btnFind.IconVisible = true;
             this.btnFind.IconZoom = 90D;
             this.btnFind.IsTab = false;
-            this.btnFind.Location = new System.Drawing.Point(648, 23);
+            this.btnFind.Location = new System.Drawing.Point(648, 24);
             this.btnFind.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnFind.Name = "btnFind";
             this.btnFind.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
             this.btnFind.OnHovercolor = System.Drawing.SystemColors.ButtonShadow;
             this.btnFind.OnHoverTextColor = System.Drawing.Color.White;
             this.btnFind.selected = false;
-            this.btnFind.Size = new System.Drawing.Size(149, 30);
+            this.btnFind.Size = new System.Drawing.Size(159, 30);
             this.btnFind.TabIndex = 17;
             this.btnFind.Text = "Tìm kiếm";
             this.btnFind.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -178,7 +172,7 @@ namespace StudentSupportApp
             // lbLike
             // 
             this.lbLike.AutoSize = true;
-            this.lbLike.Location = new System.Drawing.Point(756, 240);
+            this.lbLike.Location = new System.Drawing.Point(988, 224);
             this.lbLike.Name = "lbLike";
             this.lbLike.Size = new System.Drawing.Size(20, 22);
             this.lbLike.TabIndex = 20;
@@ -189,7 +183,7 @@ namespace StudentSupportApp
             this.btnNext.BackColor = System.Drawing.Color.Transparent;
             this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
             this.btnNext.ImageActive = null;
-            this.btnNext.Location = new System.Drawing.Point(413, 490);
+            this.btnNext.Location = new System.Drawing.Point(562, 490);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(40, 31);
             this.btnNext.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -203,7 +197,7 @@ namespace StudentSupportApp
             this.btnPrev.BackColor = System.Drawing.Color.Transparent;
             this.btnPrev.Image = ((System.Drawing.Image)(resources.GetObject("btnPrev.Image")));
             this.btnPrev.ImageActive = null;
-            this.btnPrev.Location = new System.Drawing.Point(367, 490);
+            this.btnPrev.Location = new System.Drawing.Point(516, 490);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(40, 31);
             this.btnPrev.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -217,7 +211,7 @@ namespace StudentSupportApp
             this.btnReport.BackColor = System.Drawing.Color.Transparent;
             this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.ImageActive = null;
-            this.btnReport.Location = new System.Drawing.Point(740, 447);
+            this.btnReport.Location = new System.Drawing.Point(972, 431);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(47, 42);
             this.btnReport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -231,7 +225,7 @@ namespace StudentSupportApp
             this.btnDislike.BackColor = System.Drawing.Color.Transparent;
             this.btnDislike.Image = ((System.Drawing.Image)(resources.GetObject("btnDislike.Image")));
             this.btnDislike.ImageActive = null;
-            this.btnDislike.Location = new System.Drawing.Point(738, 294);
+            this.btnDislike.Location = new System.Drawing.Point(970, 278);
             this.btnDislike.Name = "btnDislike";
             this.btnDislike.Size = new System.Drawing.Size(59, 42);
             this.btnDislike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -245,7 +239,7 @@ namespace StudentSupportApp
             this.btnLike.BackColor = System.Drawing.Color.Transparent;
             this.btnLike.Image = ((System.Drawing.Image)(resources.GetObject("btnLike.Image")));
             this.btnLike.ImageActive = null;
-            this.btnLike.Location = new System.Drawing.Point(740, 195);
+            this.btnLike.Location = new System.Drawing.Point(972, 179);
             this.btnLike.Name = "btnLike";
             this.btnLike.Size = new System.Drawing.Size(57, 42);
             this.btnLike.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -290,7 +284,7 @@ namespace StudentSupportApp
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(722, 345);
+            this.groupBox2.Size = new System.Drawing.Size(952, 345);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nội dung";
@@ -303,7 +297,7 @@ namespace StudentSupportApp
             this.tbxDetails.Location = new System.Drawing.Point(2, 24);
             this.tbxDetails.Margin = new System.Windows.Forms.Padding(2);
             this.tbxDetails.Name = "tbxDetails";
-            this.tbxDetails.Size = new System.Drawing.Size(718, 319);
+            this.tbxDetails.Size = new System.Drawing.Size(948, 319);
             this.tbxDetails.TabIndex = 0;
             this.tbxDetails.Text = "";
             // 
@@ -322,7 +316,7 @@ namespace StudentSupportApp
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(788, 87);
+            this.groupBox1.Size = new System.Drawing.Size(794, 87);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin bài viết";
@@ -330,7 +324,7 @@ namespace StudentSupportApp
             // lSubName
             // 
             this.lSubName.AutoSize = true;
-            this.lSubName.Location = new System.Drawing.Point(469, 55);
+            this.lSubName.Location = new System.Drawing.Point(567, 55);
             this.lSubName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lSubName.Name = "lSubName";
             this.lSubName.Size = new System.Drawing.Size(136, 19);
@@ -340,7 +334,7 @@ namespace StudentSupportApp
             // lDate
             // 
             this.lDate.AutoSize = true;
-            this.lDate.Location = new System.Drawing.Point(469, 21);
+            this.lDate.Location = new System.Drawing.Point(567, 21);
             this.lDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lDate.Name = "lDate";
             this.lDate.Size = new System.Drawing.Size(173, 19);
@@ -370,7 +364,7 @@ namespace StudentSupportApp
             // lbSubName
             // 
             this.lbSubName.AutoSize = true;
-            this.lbSubName.Location = new System.Drawing.Point(289, 55);
+            this.lbSubName.Location = new System.Drawing.Point(387, 55);
             this.lbSubName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSubName.Name = "lbSubName";
             this.lbSubName.Size = new System.Drawing.Size(99, 19);
@@ -380,7 +374,7 @@ namespace StudentSupportApp
             // lbDate
             // 
             this.lbDate.AutoSize = true;
-            this.lbDate.Location = new System.Drawing.Point(289, 21);
+            this.lbDate.Location = new System.Drawing.Point(387, 21);
             this.lbDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(149, 19);
@@ -406,78 +400,6 @@ namespace StudentSupportApp
             this.lbWriter.Size = new System.Drawing.Size(86, 19);
             this.lbWriter.TabIndex = 0;
             this.lbWriter.Text = "Người viết:";
-            // 
-            // grbTop
-            // 
-            this.grbTop.Controls.Add(this.bunifuCards3);
-            this.grbTop.Controls.Add(this.bunifuCards1);
-            this.grbTop.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbTop.Location = new System.Drawing.Point(820, 48);
-            this.grbTop.Margin = new System.Windows.Forms.Padding(2);
-            this.grbTop.Name = "grbTop";
-            this.grbTop.Padding = new System.Windows.Forms.Padding(2);
-            this.grbTop.Size = new System.Drawing.Size(236, 363);
-            this.grbTop.TabIndex = 6;
-            this.grbTop.TabStop = false;
-            this.grbTop.Text = "Hôm nay có gì mới?";
-            // 
-            // bunifuCards3
-            // 
-            this.bunifuCards3.BackColor = System.Drawing.Color.White;
-            this.bunifuCards3.BorderRadius = 5;
-            this.bunifuCards3.BottomSahddow = true;
-            this.bunifuCards3.color = System.Drawing.Color.Tomato;
-            this.bunifuCards3.Controls.Add(this.bunifuCards4);
-            this.bunifuCards3.LeftSahddow = false;
-            this.bunifuCards3.Location = new System.Drawing.Point(5, 192);
-            this.bunifuCards3.Name = "bunifuCards3";
-            this.bunifuCards3.RightSahddow = true;
-            this.bunifuCards3.ShadowDepth = 20;
-            this.bunifuCards3.Size = new System.Drawing.Size(226, 157);
-            this.bunifuCards3.TabIndex = 2;
-            // 
-            // bunifuCards4
-            // 
-            this.bunifuCards4.BackColor = System.Drawing.Color.White;
-            this.bunifuCards4.BorderRadius = 5;
-            this.bunifuCards4.BottomSahddow = true;
-            this.bunifuCards4.color = System.Drawing.Color.Tomato;
-            this.bunifuCards4.LeftSahddow = false;
-            this.bunifuCards4.Location = new System.Drawing.Point(0, 163);
-            this.bunifuCards4.Name = "bunifuCards4";
-            this.bunifuCards4.RightSahddow = true;
-            this.bunifuCards4.ShadowDepth = 20;
-            this.bunifuCards4.Size = new System.Drawing.Size(226, 157);
-            this.bunifuCards4.TabIndex = 1;
-            // 
-            // bunifuCards1
-            // 
-            this.bunifuCards1.BackColor = System.Drawing.Color.White;
-            this.bunifuCards1.BorderRadius = 5;
-            this.bunifuCards1.BottomSahddow = true;
-            this.bunifuCards1.color = System.Drawing.Color.Tomato;
-            this.bunifuCards1.Controls.Add(this.bunifuCards2);
-            this.bunifuCards1.LeftSahddow = false;
-            this.bunifuCards1.Location = new System.Drawing.Point(5, 32);
-            this.bunifuCards1.Name = "bunifuCards1";
-            this.bunifuCards1.RightSahddow = true;
-            this.bunifuCards1.ShadowDepth = 20;
-            this.bunifuCards1.Size = new System.Drawing.Size(226, 157);
-            this.bunifuCards1.TabIndex = 0;
-            // 
-            // bunifuCards2
-            // 
-            this.bunifuCards2.BackColor = System.Drawing.Color.White;
-            this.bunifuCards2.BorderRadius = 5;
-            this.bunifuCards2.BottomSahddow = true;
-            this.bunifuCards2.color = System.Drawing.Color.Tomato;
-            this.bunifuCards2.LeftSahddow = false;
-            this.bunifuCards2.Location = new System.Drawing.Point(0, 163);
-            this.bunifuCards2.Name = "bunifuCards2";
-            this.bunifuCards2.RightSahddow = true;
-            this.bunifuCards2.ShadowDepth = 20;
-            this.bunifuCards2.Size = new System.Drawing.Size(226, 157);
-            this.bunifuCards2.TabIndex = 1;
             // 
             // header
             // 
@@ -565,7 +487,7 @@ namespace StudentSupportApp
             this.btnWrite.IconVisible = true;
             this.btnWrite.IconZoom = 90D;
             this.btnWrite.IsTab = false;
-            this.btnWrite.Location = new System.Drawing.Point(840, 435);
+            this.btnWrite.Location = new System.Drawing.Point(841, 24);
             this.btnWrite.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnWrite.Name = "btnWrite";
             this.btnWrite.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
@@ -602,7 +524,7 @@ namespace StudentSupportApp
             this.btnEdit.IconVisible = true;
             this.btnEdit.IconZoom = 90D;
             this.btnEdit.IsTab = false;
-            this.btnEdit.Location = new System.Drawing.Point(840, 492);
+            this.btnEdit.Location = new System.Drawing.Point(841, 95);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
@@ -622,10 +544,7 @@ namespace StudentSupportApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 585);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnWrite);
             this.Controls.Add(this.header);
-            this.Controls.Add(this.grbTop);
             this.Controls.Add(this.grbPost);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1067, 585);
@@ -643,9 +562,6 @@ namespace StudentSupportApp
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.grbTop.ResumeLayout(false);
-            this.bunifuCards3.ResumeLayout(false);
-            this.bunifuCards1.ResumeLayout(false);
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
@@ -671,14 +587,9 @@ namespace StudentSupportApp
         private System.Windows.Forms.Label lbIDSub;
         private System.Windows.Forms.Label lbWriter;
         private System.Windows.Forms.Label lbKeyword;
-        private System.Windows.Forms.GroupBox grbTop;
         private System.Windows.Forms.Panel header;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pLogo;
-        private Bunifu.Framework.UI.BunifuCards bunifuCards3;
-        private Bunifu.Framework.UI.BunifuCards bunifuCards4;
-        private Bunifu.Framework.UI.BunifuCards bunifuCards1;
-        private Bunifu.Framework.UI.BunifuCards bunifuCards2;
         private Bunifu.Framework.UI.BunifuImageButton btnLike;
         private Bunifu.Framework.UI.BunifuImageButton btnNext;
         private Bunifu.Framework.UI.BunifuImageButton btnPrev;

@@ -69,7 +69,7 @@ namespace StudentSupportApp
             this.bExit.ActiveFillColor = System.Drawing.SystemColors.Highlight;
             this.bExit.ActiveForecolor = System.Drawing.Color.White;
             this.bExit.ActiveLineColor = System.Drawing.Color.Transparent;
-            this.bExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.bExit.BackColor = System.Drawing.Color.Transparent;
             this.bExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bExit.BackgroundImage")));
             this.bExit.ButtonText = "Thoát";
             this.bExit.Cursor = System.Windows.Forms.Cursors.Hand;

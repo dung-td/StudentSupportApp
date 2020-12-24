@@ -316,6 +316,7 @@ namespace StudentSupportApp
                         return 1;
                     }
                 }
+                reader.Close();
             }
             catch (Exception ex)
             {

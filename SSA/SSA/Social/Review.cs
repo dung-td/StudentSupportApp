@@ -84,7 +84,7 @@ namespace StudentSupportApp
             try
             {
                 Connection.OpenConnection();
-                string Query = "INSERT INTO REVIEW VALUES(" + ID.ToString() + ", '" + SubjectID + "', '" + Subject + "', '" + ID_User + "', '" + Details + "', " + Like + ", " + Dislike + ", " + Report + ", '" + Date + "')";
+                string Query = "INSERT INTO REVIEW VALUES(" + ID.ToString() + ", '" + SubjectID + "', N'" + Subject + "', '" + ID_User + "', N'" + Details + "', " + Like + ", " + Dislike + ", " + Report + ", '" + Date + "')";
                 SqlCommand cmd = Connection.CreateSQLCmd(Query);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Thêm bài viết thành công!");
@@ -125,7 +125,7 @@ namespace StudentSupportApp
             try
             {
                 Connection.OpenConnection();
-                string Query = @"UPDATE REVIEW SET SubjectID='" + SubjectID + "', Subject='" + Subject + "', Details='" + Details + "', Date_ ='" + Date + "' WHERE ID=" + ID.ToString();
+                string Query = @"UPDATE REVIEW SET SubjectID='" + SubjectID + "', Subject=N'" + Subject + "', Details=N'" + Details + "', Date_ ='" + Date + "' WHERE ID=" + ID.ToString();
                 SqlCommand cmd = Connection.CreateSQLCmd(Query);
                 cmd.ExecuteNonQuery();
             }

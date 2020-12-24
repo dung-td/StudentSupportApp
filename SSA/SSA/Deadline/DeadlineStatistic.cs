@@ -58,7 +58,7 @@ namespace StudentSupportApp
                 int style = NativeWinAPI.GetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE);
                 style |= NativeWinAPI.WS_EX_COMPOSITED;
                 NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
-
+                bExit.BackColor = Color.Transparent;
             }
             catch (Exception ex)
             {

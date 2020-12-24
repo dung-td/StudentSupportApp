@@ -128,20 +128,18 @@ Bên cạnh đó còn cung cấp một số tính năng mang tính cộng đồn
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bExit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAJ4AAAA+CAYAAADamaKVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAKzSURBVHhe7d2xaxNhGMfxjm6Obo6Obm666aaTuKj/hLgU
-        ERQRHFwEoaIiFrHq4FCxqOjgIFRUqBCwGiUxiWmTxjRN1cyP/O7o1ZDH0updn+U7fCDDm+vy5e69FN5n
-        rN/vG7DdCA8hCA8hCA8hCA8hCA8hNgyv3V2xW7MtO3qnZvsnKrb70mcbG/8IuNSHOjl8u2YTr1pWX+q5
-        Xclfw3s4104udOxuwybfdOzZfM/mF1ZtMBgALvWhTh7MfbeT9xtJPwrQ62skPFV6fKpmh27WrLr0w/0D
-        wGYs9n4mAR688dXKzeWhzobCU3R7r1Ts+mzHvRDwL6ZLXdt3tWKl+np8Q+HpTkd0KIIewdr/jYSnPZ0e
-        r96XgDycfrxg554218PT26s2guzpUKTl1V/JVu5tpZuGpzcPbQK9xUCeLjxv2alH39Lw9LuLXoG9hUCe
-        XldXkrteEt6ey1/sfYPf6FA8PW53nP2UhrfzfDn5zcVbCOQt+U+HwtMHbwFQBMJDCMJDCMJDCMJDCMJD
-        CMJDCMJDCMJDCMJDCMJDCMJDCMJDCMJDCMJDCMJDCMJDCMJDCMJDCMJDCMJDCMJDCMJDCMJDCMJDCMJD
-        CMJDCMJDCMJDiCw8HRul46O8RUDesvB0DC0zLLBdsvA0h2C61HUXAXnSAaA6CDQJTydx60RubyGQJ42z
-        OHGvnoanwReqkH0einZksm5T79ppeDI+07QzTxbdxUAeNBNPAxnVWxaeZl0cuFa1l+We+yXgf2iGip6q
-        axMds/BEgy90FDwnwCNPik43tZlSJ2ttKDx58aGTxKdBGN5FgK3Q/BTd6f6MTkbCEz12NX1FleothFFT
-        2AqNrtB+TrOONbzHG5jshrdGlerVd9dFJnNj8zQ3RS8Rmu7udSUbhgcUhfAQgvAQgvAQgvAQoG+/Adf5
-        NeEpfrzyAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAAGkAAAAoCAYAAAD9htTzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJWSURBVHhe7Zq/S1tRFMcd3Ry7OTq6udlNN52ki/pPlC5B
+        BEWEDi5CwaIiSqk/BgdFUdHBoaCokEKg1iiJSRpNTGMSf2Q+8r0Pn4YcnZLcd+E7fCDDeS9wP9x7zrvn
+        NJVKJSHBhpIcgJIcgJIcgJIcgJIc4F1J2XxR5g4y0vcjIZ1TMWn9ei5Nob+kBmAtsaY98wmZ+pWR5E1B
+        dQDelLQazpoXffqZkoWjnOycFuT06k7K5TKpAVhLrOlK+L8MLqfMWkOW5qJKEoz2LyakezYh8Zt79Q9I
+        7bkuPBhZXTOXEk3fVjipkARB7ZMxmT7IqS8i9WctkpeObzGJJF9EVUjCDqIg++AYRL6qkoQchCNOe4g0
+        ni8bVzKynX6RhCoOiYs5KDjc3j2a1HMcy3uSUFUgaWnBxB5juxn5vP7Pk4RaHaWgFkjscRgvmt1kJLVN
+        XMjvFL+BggaOvObhM09Sy2jU1OlaILGLuaGAJPzQAoh9KMkBKMkBKMkBKMkBKMkBKMkBfEn4YMKHkxZE
+        7OJLwuUqu67BxJeEbuBaJK8GEXvgqg5XdkYS+hboX2iBxB5owA4sJT1JaNXCGPNSsOhdSMriSdaTBEKb
+        aRnaulaDSePBhBZG6eDGl4Tu7MfvcdmPFtSHSONAhxwn2/Msni8JoFWLJhN7S/aAIGyWzUjO91IhCez9
+        yRlRaN1qLyH1A91x7KDXgkCVJICjD711GEWFwQGV+oFmK/IPJoUxxqCNG6uSnoFRlIAfxjkDXi/QFUeB
+        gJl7zQF4VxIJBpTkAJTkAJTkAJQUeEryBC1jtgD3J59KAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="pLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -89,7 +89,7 @@ namespace StudentSupportApp
                 {
                     DateTime TempDateTime = new DateTime(bDateTime.Value.Year, bDateTime.Value.Month, bDateTime.Value.Day, hour, min, 0);
                     sTempString[4] = TempDateTime.ToString();
-                    sTempString[5] = "UNFINISHED";
+                    sTempString[5] = btbStatus.Text;
                     sTempString[6] = "0";
                     addItem(sTempString);
                     this.Hide();
@@ -112,7 +112,7 @@ namespace StudentSupportApp
                 bDateTime.BackColor =
                 btbDetails.LineFocusedColor = btbDetails.LineMouseHoverColor =
                  btbSubject.LineFocusedColor = btbSubject.LineMouseHoverColor =
-                  btbSubID.LineFocusedColor = btbSubID.LineMouseHoverColor =
+                  btbSubID.LineFocusedColor = btbSubID.LineMouseHoverColor = btbSubID.LineFocusedColor =
                    btbDetails.LineFocusedColor = btbDetails.LineMouseHoverColor =
                     btbHour.LineFocusedColor = btbHour.LineMouseHoverColor =
                      btbMinute.LineFocusedColor = btbMinute.LineMouseHoverColor =
@@ -120,6 +120,55 @@ namespace StudentSupportApp
 
                        tbAdd.ActiveFillColor = tbAdd.ForeColor = tbAdd.IdleLineColor = tbAdd.IdleForecolor = tbAdd.ActiveLineColor =
                         tbCancel.ActiveFillColor = tbCancel.ForeColor = tbCancel.IdleLineColor = tbCancel.IdleForecolor = tbCancel.ActiveLineColor = x;
+        }
+        private void btbSubID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                btbSubject.Focus();
+            }
+        }
+        private void btbSubject_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                btbDetails.Focus();
+            }
+        }
+        private void btbDetails_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                bDateTime.Focus();
+            }
+        }
+        private void btbHour_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                btbMinute.Focus();
+            }
+        }
+        private void btbMinute_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                btbStatus.Focus();
+            }
+        }
+        private void btbStatus_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                tbAdd_Click(sender, e);
+            }
+        }
+        private void bDateTime_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                btbStatus.Focus();
+            }
         }
         #endregion
     }

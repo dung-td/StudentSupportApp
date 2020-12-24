@@ -67,6 +67,9 @@ namespace StudentSupportApp
 
             this.theme = Properties.Settings.Default.Color;
             SetColorAll(this.theme);
+
+            animation1.AnimationType = new AnimatorNS.AnimationType();
+            animation1.AnimationType = AnimatorNS.AnimationType.Particles;
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -113,6 +116,10 @@ namespace StudentSupportApp
                 this.listViewProfile.Width -= 70;
                 this.btnFind.Location = new Point(this.btnFind.Location.X - 80, this.btnFind.Location.Y);
 
+                this.labelFinish.Location = new Point(this.btbStatus.Location.X + 155, this.labelFinish.Location.Y);
+                this.sliderProgress.Location = new Point(this.labelFinish.Location.X + 90, this.sliderProgress.Location.Y);
+                this.sliderProgress.Width -= 50;
+
                 //Danh
                 this.bCardTimetable.Width -= 200;
                 this.dataGridViewTimetable.Width -= 200;
@@ -152,8 +159,8 @@ namespace StudentSupportApp
                 this.lWeb.Location = new Point(this.lWeb.Location.X - 40, this.lWeb.Location.Y);
 
                 // AddScore
-                this.cardAddScore.Width -= 220;
-                this.cardSBoard.Width -= 220;
+                this.cardAddScore.Width -= 200;
+                this.cardSBoard.Width -= 200;
 
                 lSem.Location = new Point(lSem.Location.X - 100, lSem.Location.Y);
                 lAddScore.Location = new Point(lAddScore.Location.X - 100, lAddScore.Location.Y);
@@ -246,6 +253,10 @@ namespace StudentSupportApp
                 this.listViewProfile.Width += 70;
                 this.btnFind.Location = new Point(this.btnFind.Location.X + 80, this.btnFind.Location.Y);
 
+                this.labelFinish.Location = new Point(this.btbStatus.Location.X + 210, this.labelFinish.Location.Y);
+                this.sliderProgress.Location = new Point(this.labelFinish.Location.X + 90, this.sliderProgress.Location.Y);
+                this.sliderProgress.Width += 50;
+
                 //Danh
                 this.bCardTimetable.Width += 200;
                 this.dataGridViewTimetable.Width += 200;
@@ -274,8 +285,8 @@ namespace StudentSupportApp
                 //this.bunifuCardTodayTT.Location = new Point(this.bunifuCardTodayTT.Location.X + 50, this.bunifuCardTodayTT.Location.Y);
 
                 //Linh
-                this.cardAddScore.Width += 220;
-                this.cardSBoard.Width += 220;
+                this.cardAddScore.Width += 200;
+                this.cardSBoard.Width += 200;
                 //this.bunifuCards5.Width += 50;
                 //lbAvgScore.Location = new Point(this.lbAvgScore.Location.X + 25, this.lbAvgScore.Location.Y);
                 //lCreSum.Location = new Point(this.lCreSum.Location.X + 25, this.lCreSum.Location.Y);
@@ -703,9 +714,9 @@ namespace StudentSupportApp
                 temp[0] = "1";
                 User.GetDeadlineID(ref temp[0]);
                 temp[6] = "0";
-                this.dataDeadline.Rows.Add(temp[0], temp[2], temp[1], temp[3], temp[4], temp[5], temp[6]);
-                string Query = "INSERT INTO DEADLINE VALUES('" + temp[0] + "', '" + temp[1] + "', '" + temp[2] + "', '" +
-                                                                temp[3] + "', '" + temp[4] + "', '" + temp[5] + "', '" + this.User.ID + "', " + temp[6] + ")";
+                this.dataDeadline.Rows.Add(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6]);
+                string Query = "INSERT INTO DEADLINE VALUES('" + temp[0] + "', N'" + temp[1] + "', '" + temp[2] + "', N'" +
+                                                                temp[3] + "', '" + temp[4] + "', N'" + temp[5] + "', '" + this.User.ID + "', " + temp[6] + ")";
                 SqlCommand command = this.Connection.CreateSQLCmd(Query);
                 command.ExecuteNonQuery();
                 MessageBox.Show(" ADDED SUCCESSFULLY!");
@@ -842,13 +853,15 @@ namespace StudentSupportApp
         }
         private void bEditSave_Click(object sender, EventArgs e)
         {
+            if (dataDeadline.Rows.Count <= 1)
+                return;
             this.btbDetails.Enabled = false;
             this.btbStatus.Enabled = false;
             this.btbSubject.Enabled = false;
             this.bEditSave.Hide();
             try
             {
-                string Query = "UPDATE DEADLINE SET DETAIL='" + btbDetails.Text + "', DATESUBMIT='" + bdateTime.Value.ToString() + "', STAT='" + btbStatus.Text + "', SUB_NAME='" + btbSubject.Text + "' STATU=" + sliderProgress.Value.ToString()
+                string Query = "UPDATE DEADLINE SET DETAIL=N'" + btbDetails.Text + "', DATESUBMIT='" + bdateTime.Value.ToString() + "', STAT=N'" + btbStatus.Text + "', SUB_NAME=N'" + btbSubject.Text + "' STATU=N" + sliderProgress.Value.ToString()
                                                               + "' WHERE ID='" + labelID.Text + "'";
                 Connection.OpenConnection();
                 SqlCommand command = Connection.CreateSQLCmd(Query);

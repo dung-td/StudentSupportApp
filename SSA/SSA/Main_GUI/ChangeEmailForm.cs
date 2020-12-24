@@ -82,6 +82,7 @@ namespace StudentSupportApp
                         this.sPasswd = reader.GetString(0);
                     }
                 }
+                reader.Close();
             }
             catch (Exception ex)
             {
@@ -123,21 +124,30 @@ namespace StudentSupportApp
 
         private void btnSendCodeCE_Click(object sender, EventArgs e)
         {
-            USER temp = new USER();
-            temp.Email = this.tbxNewEmail.Text;
+            try
+            {
+                USER temp = new USER();
+                temp.Email = this.tbxNewEmail.Text;
 
-            if (CheckEmail() == 0)
-            {
-                lbInvalidEmailAddr.Visible = true;
+                if (CheckEmail() == 0)
+                {
+                    lbInvalidEmailAddr.Visible = true;
+                }
+                else if (temp.CheckEmail() == 1)
+                {
+                    this.emailVerify = new EmailVerify(tbxNewEmail.Text);
+                    this.emailVerify.GetRandomCode();
+                    this.emailVerify.SendMail();
+                    lbSentCode.Show();
+                }
+                else lbUsedEmail.Visible = true;
             }
-            else if (temp.CheckEmail() == 1)
+            catch (Exception ex)
             {
-                this.emailVerify = new EmailVerify(tbxNewEmail.Text);
-                this.emailVerify.GetRandomCode();
-                this.emailVerify.SendMail();
-                lbSentCode.Show();
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
-            else lbUsedEmail.Visible = true;
         }
 
         private void tbxNewEmail_OnValueChanged(object sender, EventArgs e)
@@ -155,7 +165,7 @@ namespace StudentSupportApp
             {
                 if (tbxCurPass.Text == "" | tbxChangeMailVC.Text == "" | tbxNewEmail.Text == "")
                 {
-                    MessageBox.Show("Don't leave your data blank! Please try again!", "Change Email");
+                    MessageBox.Show("vui lòng không để trống thông tin!", "Đổi email");
                 }
                 else
                 {
@@ -169,7 +179,7 @@ namespace StudentSupportApp
                             SqlCommand command = Connection.CreateSQLCmd(sql);
                             command.ExecuteNonQuery();
 
-                            MessageBox.Show("Changed new email succesfully!", "Change Email");
+                            MessageBox.Show("Đổi email thành công!", "Đổi email");
                         }
                         catch (Exception a)
                         {
@@ -195,9 +205,11 @@ namespace StudentSupportApp
                     }
                 }
             }
-            catch (Exception s)
+            catch (Exception ex)
             {
-                MessageBox.Show(s.Message);
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
         }
 
@@ -215,7 +227,8 @@ namespace StudentSupportApp
 
         private void tbxChangeMailVC_KeyDown(object sender, KeyEventArgs e)
         {
-            btnChangeEmailF_Click(sender, e);
+            if (e.KeyCode == Keys.Enter)
+                btnChangeEmailF_Click(sender, e);
         }
 
         private void ChangeEmailForm_MouseMove(object sender, MouseEventArgs e)
