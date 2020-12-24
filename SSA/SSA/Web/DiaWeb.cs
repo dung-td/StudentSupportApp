@@ -112,7 +112,7 @@ namespace StudentSupportApp
         {
             try
             {
-                selectedWeb.Access();
+                selectedWeb.Delete();
                 MessageBox.Show("Đã xoá!");
                 this.Close();
             }

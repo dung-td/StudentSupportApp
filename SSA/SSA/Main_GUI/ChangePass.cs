@@ -163,7 +163,7 @@ namespace StudentSupportApp
         {
             if (tbNewPass1.Text == "")
             {
-                tbNewPass1.Text = "Mật khẩu cũ";
+                tbNewPass1.Text = "Mật khẩu mới";
                 tbNewPass1.isPassword = false;
             }
         }

@@ -198,7 +198,7 @@ namespace StudentSupportApp
             this.tbNewPass1.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNewPass1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbNewPass1.HintForeColor = System.Drawing.Color.Empty;
-            this.tbNewPass1.HintText = "New password";
+            this.tbNewPass1.HintText = "Mật khẩu mới";
             this.tbNewPass1.isPassword = false;
             this.tbNewPass1.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbNewPass1.LineIdleColor = System.Drawing.Color.Gray;
@@ -209,7 +209,6 @@ namespace StudentSupportApp
             this.tbNewPass1.Name = "tbNewPass1";
             this.tbNewPass1.Size = new System.Drawing.Size(555, 68);
             this.tbNewPass1.TabIndex = 66;
-            this.tbNewPass1.Text = "Mật khẩu mới";
             this.tbNewPass1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbNewPass1.OnValueChanged += new System.EventHandler(this.tbNewPass1_OnValueChanged);
             this.tbNewPass1.Enter += new System.EventHandler(this.tbNewPass1_Enter);
@@ -221,7 +220,7 @@ namespace StudentSupportApp
             this.tbOldPass.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbOldPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbOldPass.HintForeColor = System.Drawing.Color.Empty;
-            this.tbOldPass.HintText = "Your old password";
+            this.tbOldPass.HintText = "Mật khẩu cũ";
             this.tbOldPass.isPassword = false;
             this.tbOldPass.LineFocusedColor = System.Drawing.Color.Blue;
             this.tbOldPass.LineIdleColor = System.Drawing.Color.Gray;
@@ -232,7 +231,6 @@ namespace StudentSupportApp
             this.tbOldPass.Name = "tbOldPass";
             this.tbOldPass.Size = new System.Drawing.Size(555, 68);
             this.tbOldPass.TabIndex = 65;
-            this.tbOldPass.Text = "Mật khẩu cũ";
             this.tbOldPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbOldPass.OnValueChanged += new System.EventHandler(this.tbOldPass_OnValueChanged);
             this.tbOldPass.Enter += new System.EventHandler(this.tbOldPass_Enter);

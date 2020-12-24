@@ -77,7 +77,7 @@ namespace StudentSupportApp
             this.bAccess.IdleFillColor = System.Drawing.Color.WhiteSmoke;
             this.bAccess.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bAccess.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.bAccess.Location = new System.Drawing.Point(46, 275);
+            this.bAccess.Location = new System.Drawing.Point(37, 336);
             this.bAccess.Margin = new System.Windows.Forms.Padding(8);
             this.bAccess.Name = "bAccess";
             this.bAccess.Size = new System.Drawing.Size(158, 62);
