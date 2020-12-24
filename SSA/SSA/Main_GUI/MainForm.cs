@@ -1591,6 +1591,7 @@ namespace StudentSupportApp
             this.tbSubID.Text = "ID môn học";
             this.tbSubName.Text = "Tên môn học";
 
+            tbCredit.Enabled = tbSubID.Enabled = tbSubName.Enabled = true;
             tbProVa.Text = tbMidVa.Text = tbPracVa.Text = tbFinVa.Text = "Điểm";
             tbProWei.Text = tbMidWei.Text = tbPracWei.Text = tbFinWei.Text = "Tỉ lệ";
         }
@@ -1655,7 +1656,10 @@ namespace StudentSupportApp
 
                         ShowScoresToListView(cbSemester.SelectedItem.ToString());
                     }
+
+                    bExitScore.Visible = false;
                     bAddScore.Visible = true;
+                    bModify.Visible = bDel.Visible = false;
                     tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
                 }
             }
@@ -1729,7 +1733,9 @@ namespace StudentSupportApp
                     lvScoreBoard.Items.Clear();
                     ShowScoresToListView(cbSemester.SelectedItem.ToString());
                 }
-                bAddScore.Enabled = true;
+                bExitScore.Visible = false;
+                bAddScore.Visible = true;
+                bModify.Visible = bDel.Visible = false;
                 tbSubID.Enabled = tbSubName.Enabled = tbCredit.Enabled = true;
             }
             catch (Exception err)
@@ -2013,6 +2019,7 @@ namespace StudentSupportApp
         {
             ResetTextbox();
             bAddScore.Visible = true;
+            bAddScore.Enabled = true;
             bExitScore.Visible = bModify.Visible = bDel.Visible = false;
         }
         #endregion
