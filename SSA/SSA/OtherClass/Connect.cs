@@ -11,7 +11,7 @@ namespace StudentSupportApp
         public Connect()
         {
             //String connString = ConfigurationManager.ConnectionStrings["SQLServer"].ConnectionString;
-            String connString = @"Server=CONGDANH;Database=SSATEST;User Id=sa;Password=c0ngdanh";
+            String connString = @"Server=LAPTOP-SJVI7FIS;Database=SSADATABASE;User Id=sa;Password=Dung2406";
             this.Connection = new SqlConnection(connString);
         }
         public void OpenConnection()

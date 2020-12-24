@@ -106,7 +106,8 @@ namespace StudentSupportApp
         {
             tbxSubID.LineFocusedColor = tbxSubID.LineMouseHoverColor =
                 tbxSubName.LineMouseHoverColor = tbxSubName.LineFocusedColor =
-                    header.BackColor = x;
+                    header.BackColor =
+                    cardRVDetail.color = cardRVInfo.color = cardRVSetting.color = x;
         }
 
         private void WriterRVForm_FormClosing(object sender, FormClosingEventArgs e)

@@ -107,6 +107,10 @@ namespace StudentSupportApp
                 this.tbxDetails.Text = Reviews[temp]._Details;
                 this.lbLike.Text = Reviews[temp]._Like.ToString();
                 this.lbDislike.Text = Reviews[temp]._Dislike.ToString();
+                if (Reviews[temp].CheckStatus(ID_User) == 1)
+                    lbLike.ForeColor = Color.Red;
+                else if (Reviews[temp].CheckStatus(ID_User) == 2)
+                    lbDislike.ForeColor = Color.Red;
             }
         }
         private void btnLike_Click(object sender, EventArgs e)
