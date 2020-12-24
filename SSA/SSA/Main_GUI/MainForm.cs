@@ -390,9 +390,8 @@ namespace StudentSupportApp
             if (cbxSem.Items.IndexOf(Properties.Settings.Default.Text) >= 0)
             {
                 cbxSem.SelectedItem = cbxSem.Items[cbxSem.Items.IndexOf(Properties.Settings.Default.Text)];
+                btnLoadTT_Click(sender, e);
             }
-
-            btnLoadTT_Click(sender, e);
         }
         private void btnInformation_Click(object sender, EventArgs e)
         {
@@ -435,22 +434,12 @@ namespace StudentSupportApp
                 //Danh
                 this.lbHello.Text += " " + this.User.Name + "! \nChúc một ngày tốt lành!";
                 dataGridViewHomeTimeTB.Columns[1].HeaderText = SwitchTodayToVNese(DateTime.Today.DayOfWeek.ToString());
-                string[] sRow = new string[] {"Tiết 1\n(7:30-8:15)", "Tiết 2\n(8:15-9:00)",
-                "Tiết 3\n(9:00 - 9:45)" , "Tiết 4\n(10:00-10:45)", "Tiết 5\n(10:45-11:30)",
-                "Tiết 6\n(13:00-13:45)", "Tiết 7\n(13:45-14:30)", "Tiết 8\n(14:30-15:15)",
-                "Tiết 9\n(15:30-16:15)", "Tiết 10\n(16:15-17:00)"};
-                for (int i = 0; i < sRow.Length; i++)
-                {
-                    dataGridViewTimetable.Rows.Add(sRow[i]);
-                    dataGridViewHomeTimeTB.Rows.Add(sRow[i]);
-                }
 
-                List<string> sLesson = new List<string> { };
-                LoadTodayTimetable(ref sLesson);
+                AddRowsToTimetableDataGridViews();
                 ReadSchedulesSemesterComboboxItems();
                 if (cbxSem.Items.IndexOf(Properties.Settings.Default.Text) >= 0)
                 {
-                    LoadTimetableToHomeDGV(dataGridViewHomeTimeTB, sLesson);
+                    LoadTodayTimetable();
                 }
                 dataGridViewTimetable.CurrentCell.Selected = !dataGridViewTimetable.CurrentCell.Selected;
                 btnHome_Click(sender, e);
@@ -991,6 +980,19 @@ namespace StudentSupportApp
         #region Timetable
         string Semester;
 
+        private void AddRowsToTimetableDataGridViews()
+        {
+            string[] sRow = new string[] {"Tiết 1\n(7:30-8:15)", "Tiết 2\n(8:15-9:00)",
+                "Tiết 3\n(9:00 - 9:45)" , "Tiết 4\n(10:00-10:45)", "Tiết 5\n(10:45-11:30)",
+                "Tiết 6\n(13:00-13:45)", "Tiết 7\n(13:45-14:30)", "Tiết 8\n(14:30-15:15)",
+                "Tiết 9\n(15:30-16:15)", "Tiết 10\n(16:15-17:00)"};
+            for (int i = 0; i < sRow.Length; i++)
+            {
+                dataGridViewTimetable.Rows.Add(sRow[i]);
+                dataGridViewHomeTimeTB.Rows.Add(sRow[i]);
+            }
+        }
+
         private string SwitchTodayToVNese(string today)
         {
             if (today == "Monday")
@@ -1055,62 +1057,11 @@ namespace StudentSupportApp
             }
         }
 
-        public void LoadTodayTimetable(ref List<string> Lesson)
+        public void LoadTodayTimetable()
         {
-            Connect loadHomeTimetable = new Connect();
-            try
-            {
-                loadHomeTimetable.OpenConnection();
-
-                string sWeekDay = DateTime.Today.DayOfWeek.ToString();
-                for (int i = 1; i <= 10; i++)
-                {
-                    string sLoadData = "select SUB_NAME from LESSON where ID_USER='" + this.User.ID
-                                        + "' AND DAYINWEEK='" + sWeekDay + "' AND SEM_NAME=N'" + Properties.Settings.Default.Text + "'"
-                                        + " AND TIMEORDER=" + i;
-                    SqlCommand loadDay = loadHomeTimetable.CreateSQLCmd(sLoadData);
-                    SqlDataReader reader = loadDay.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        if (reader.Read() == false)
-                        {
-                            break;
-                        }
-                        Lesson.Add(reader.GetString(0));
-                    }
-                    else Lesson.Add("");
-                    reader.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                ReportError rp = new ReportError(this, ex);
-                rp.Show();
-            }
-            finally
-            {
-                loadHomeTimetable.CloseConnection();
-            }
-        }
-
-        public void LoadTimetableToHomeDGV(DataGridView obj, List<string> Lesson)
-        {
-            try
-            {
-                int iLessonIndex = 0;
-                for (int i = 0; i < 10; i++)
-                {
-                    obj.Rows[i].Cells[1].Value = Lesson[iLessonIndex];
-                    iLessonIndex++;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                ReportError rp = new ReportError(this, ex);
-                rp.Show();
-            }
+            Timetable TodaySchedules = new Timetable(this.User.ID, Properties.Settings.Default.Text);
+            TodaySchedules.LoadTodayTimetable(this.dataGridViewHomeTimeTB.Columns[1].HeaderText);
+            TodaySchedules.LoadTimetableToHomeDGV(this.dataGridViewHomeTimeTB);
         }
 
         private void btnLoadTT_Click(object sender, EventArgs e)
@@ -1214,11 +1165,12 @@ namespace StudentSupportApp
         {
             try
             {
+                Timetable ti = new Timetable();
                 if (this.dataGridViewTimetable.CurrentCell.Selected == true && this.dataGridViewTimetable.CurrentCell.Value.ToString() != "")
                 {
                     int iSubID = this.dataGridViewTimetable.CurrentCell.Value.ToString().IndexOf("\n");
                     int iCellValueLength = this.dataGridViewTimetable.CurrentCell.Value.ToString().Length;
-                    List<string> sLessonData = new List<string> { cbxSem.Text, this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].Name,
+                    List<string> sLessonData = new List<string> { cbxSem.Text, ti.SwitchDayWithNumberToNumber(this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].HeaderText).ToString(),
                                                                   this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(0, iSubID),
                                                                   this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(iSubID, iCellValueLength - iSubID),
                                                                   (this.dataGridViewTimetable.CurrentCell.RowIndex + 1).ToString() };
@@ -1239,15 +1191,16 @@ namespace StudentSupportApp
         {
             try
             {
+                Timetable ti = new Timetable();
                 if (this.dataGridViewTimetable.CurrentCell.Selected == true && this.dataGridViewTimetable.CurrentCell.Value.ToString() != "")
                 {
                     int iSubID = this.dataGridViewTimetable.CurrentCell.Value.ToString().IndexOf("\n");
                     int iCellValueLength = this.dataGridViewTimetable.CurrentCell.Value.ToString().Length;
-                    List<string> sLessonData = new List<string> { cbxSem.Text, this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].Name,
+                    List<string> sLessonData = new List<string> { cbxSem.Text, ti.SwitchDayWithNumberToNumber(this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].HeaderText).ToString(),
                                                                   this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(0, iSubID),
                                                                   this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(iSubID, iCellValueLength - iSubID),
                                                                   (this.dataGridViewTimetable.CurrentCell.RowIndex + 1).ToString(), this.User.ID };
-                    Timetable Lesson = new Timetable();
+                    Timetable Lesson = new Timetable(this.User.ID);
                     if (Lesson.RemoveLesson(sLessonData) == 1)
                     {
                         MessageBox.Show("Xóa tiết học thành công!", "Xóa tiết học");
@@ -1262,6 +1215,27 @@ namespace StudentSupportApp
                 ReportError rp = new ReportError(this, ex);
                 rp.Show();
             }
+        }
+
+        private void btnDeleteTT_Click(object sender, EventArgs e)
+        {
+            Timetable ti = new Timetable(this.User.ID, this.cbxSem.Text);
+            if (ti.RemoveTimetable() == 1)
+            {
+                this.dataGridViewTimetable.Rows.Clear();
+                if (Properties.Settings.Default.Text == cbxSem.Text)
+                {
+                    this.dataGridViewHomeTimeTB.Rows.Clear();
+                    Properties.Settings.Default.Text = "";
+                    Properties.Settings.Default.Save();
+                }
+                this.cbxSem.Items.Clear();
+                AddRowsToTimetableDataGridViews();
+                ReadSchedulesSemesterComboboxItems();
+                MessageBox.Show("Xóa TKB thành công", "Xóa TKB");
+
+            }
+            else MessageBox.Show("Xóa TKB thất bại", "Xóa TKB");
         }
 
         private void cbxSem_SelectedIndexChanged(object sender, EventArgs e)
@@ -2096,7 +2070,7 @@ namespace StudentSupportApp
             dataHomeDeadline.HeaderBgColor =
             bunifuCardTodayTT.color = bunifuCards4.color =
             bunifuCards5.color = cardWeb.color =
-             bAddWeb.BackColor = bAddWeb.ActiveFillColor = bAddWeb.ForeColor = bAddWeb.IdleForecolor = bAddWeb.IdleLineColor =
+             bAddWeb.ActiveFillColor = bAddWeb.ForeColor = bAddWeb.IdleForecolor = bAddWeb.IdleLineColor =
              lWeb.ForeColor =
             x;
         }
@@ -2166,6 +2140,7 @@ namespace StudentSupportApp
             btnModifyLess.ActiveFillColor = btnModifyLess.ActiveLineColor = btnModifyLess.IdleLineColor = btnModifyLess.IdleForecolor =
             btnExportTT.ActiveFillColor = btnExportTT.ActiveLineColor = btnExportTT.IdleLineColor = btnExportTT.IdleForecolor =
             btnRemoveLess.ActiveFillColor = btnRemoveLess.ActiveLineColor = btnRemoveLess.IdleLineColor = btnRemoveLess.IdleForecolor =
+            btnDeleteTT.ActiveFillColor = btnDeleteTT.ActiveLineColor = btnDeleteTT.IdleLineColor = btnDeleteTT.IdleForecolor =
 
             bCardTimetable.color = lbTimetable.ForeColor = x;
         }

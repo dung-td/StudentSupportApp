@@ -51,19 +51,19 @@ namespace StudentSupportApp
 
             try
             {
-                if (cbxDIWAL.Text != "" && cbxTimeOrder.Text != "" && tbxSemNaAL.Text != "" && tbxSubIDAL.Text != "" && tbxSubNaAL.Text != "")
+                if (cbxDIWAL.Text != "" && cbxTimeOrderBegin.Text != "" && tbxSemNaAL.Text != "" && tbxSubIDAL.Text != "" && tbxSubNaAL.Text != "" && cbxTimeOrderEnd.Text != "")
                 {
-                    Timetable lesson = new Timetable();
-                    if (lesson.CheckExistLesson(tbxSemNaAL.Text, cbxDIWAL.Text, cbxTimeOrder.Text,  this.sUserID) == false)
+                    Timetable lesson = new Timetable(this.sUserID);
+                    if (lesson.CheckExistLesson(tbxSemNaAL.Text, cbxDIWAL.Text, cbxTimeOrderBegin.Text, cbxTimeOrderEnd.Text, this.sUserID) == false)
                     {
-                        string[] sData = new string[] { sDayInWeek[cbxDIWAL.SelectedIndex], cbxTimeOrder.Text, tbxSubIDAL.Text, tbxSubNaAL.Text, tbxSemNaAL.Text, this.sUserID };
+                        string[] sData = new string[] { cbxDIWAL.Items[cbxDIWAL.SelectedIndex].ToString(), cbxTimeOrderBegin.Text, cbxTimeOrderEnd.Text, tbxSubIDAL.Text, tbxSubNaAL.Text, tbxSemNaAL.Text, this.sUserID };
                         if (lesson.AddLessonToDatabase(sData) == 1)
                             MessageBox.Show("Thêm tiết học mới thành công!", "Thêm tiết học mới");
                         else MessageBox.Show("Thêm tiết học thất bại. Vui lòng kiểm tra và thử lại!", "Thêm tiết học mới");
                     }
                     else MessageBox.Show("Thời gian muốn thêm đã có tiết học. Vui lòng kiểm tra và thử lại!", "Thêm tiết học mới");
                 }
-                else if (cbxDIWAL.Text == "" || cbxTimeOrder.Text == "" || tbxSemNaAL.Text == "" || tbxSubIDAL.Text == "" || tbxSubNaAL.Text == "")
+                else if (cbxDIWAL.Text == "" || cbxTimeOrderBegin.Text == "" || tbxSemNaAL.Text == "" || tbxSubIDAL.Text == "" || tbxSubNaAL.Text == "" || cbxTimeOrderEnd.Text == "")
                 {
                     MessageBox.Show("Hãy điền đầy đủ thông tin và thử lại!", "Thêm tiết học mới");
                 }
@@ -109,10 +109,25 @@ namespace StudentSupportApp
         private void tbxSubIDAL_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                cbxTimeOrder.Focus();
+                cbxTimeOrderBegin.Focus();
         }
 
-        private void cbxTimeOrder_KeyDown(object sender, KeyEventArgs e)
+        private void cbxTimeOrderBegin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbxTimeOrderEnd.Items.Clear();
+            for (int i = cbxTimeOrderBegin.SelectedIndex + 1; i <= 10; i++)
+            {
+                cbxTimeOrderEnd.Items.Add(i);
+            }
+        }
+
+        private void cbxTimeOrderBegin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                cbxTimeOrderEnd.Focus();
+        }
+
+        private void cbxTimeOrderEnd_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 btnAddAL_Click(sender, e);
@@ -127,9 +142,9 @@ namespace StudentSupportApp
                 tbxSubNaAL.LineFocusedColor = tbxSubNaAL.LineMouseHoverColor =
                 tbxSubIDAL.LineFocusedColor = tbxSubIDAL.LineMouseHoverColor =
 
-                  btnAddAL.ActiveFillColor = btnAddAL.ForeColor = btnAddAL.IdleLineColor = btnAddAL.IdleForecolor = btnAddAL.ActiveLineColor = 
+                  btnAddAL.ActiveFillColor = btnAddAL.ForeColor = btnAddAL.IdleLineColor = btnAddAL.IdleForecolor = btnAddAL.ActiveLineColor =
                     btnExitAL.ActiveFillColor = btnExitAL.ForeColor = btnExitAL.IdleLineColor = btnExitAL.IdleForecolor = btnExitAL.ActiveLineColor = x;
-        }     
+        }
     }
 }
 
