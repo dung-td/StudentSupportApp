@@ -234,7 +234,7 @@ namespace StudentSupportApp
                 this.btbDetails.Width += 100;
                 this.btbSubject.Width += 100;
                 this.bdateTime.Width += 100;
-                this.btbStatus.Width += 100;
+                this.btbStatus.Width += 70;
                 this.dataDeadline.Width += 208;
                 this.bunifuCards4.Width += 105;
                 this.bEditSave.Location = new Point(this.bRefresh.Location.X + 620, this.bRefresh.Location.Y);
@@ -254,7 +254,7 @@ namespace StudentSupportApp
                 this.listViewProfile.Width += 70;
                 this.btnFind.Location = new Point(this.btnFind.Location.X + 80, this.btnFind.Location.Y);
 
-                this.labelFinish.Location = new Point(this.btbStatus.Location.X + 210, this.labelFinish.Location.Y);
+                this.labelFinish.Location = new Point(this.btbStatus.Location.X + 220, this.labelFinish.Location.Y);
                 this.sliderProgress.Location = new Point(this.labelFinish.Location.X + 90, this.sliderProgress.Location.Y);
                 this.sliderProgress.Width += 50;
 
@@ -710,6 +710,7 @@ namespace StudentSupportApp
                 this.Connection.CloseConnection();
             }
         }
+        #region EventHandler
         private void bAdd_Click(object sender, EventArgs e)
         {
             AddDeadline add = new AddDeadline(this);
@@ -908,10 +909,10 @@ namespace StudentSupportApp
                     sQuery = "SELECT * FROM DEADLINE WHERE STATU < 100 AND ID_USER='" + User.ID + "'";
                     break;
                 case "Đã quá hạn":
-                    sQuery = "SELECT * FROM DEADLINE WHERE GETDATE() > DATESUBMIT AND ID_USER='" + User.ID + "'"; ;
+                    sQuery = "SELECT * FROM DEADLINE WHERE GETDATE() > DATESUBMIT AND ID_USER='" + User.ID + "'";
                     break;
                 case "Chưa đến hạn":
-                    sQuery = "SELECT * FROM DEADLINE WHERE GETDATE() <= DATESUBMIT AND ID_USER='" + User.ID + "'"; ;
+                    sQuery = "SELECT * FROM DEADLINE WHERE GETDATE() <= DATESUBMIT AND ID_USER='" + User.ID + "'";
                     break;
                 default:
                     sQuery = "SELECT * FROM DEADLINE WHERE ID_USER='" + User.ID + "'";
@@ -936,8 +937,8 @@ namespace StudentSupportApp
                     bDelete_Click(sender, e);
             }
         }
-        #region EventHandler
         #endregion
+
         #endregion
 
         #region Community

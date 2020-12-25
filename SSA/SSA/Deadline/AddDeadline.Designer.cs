@@ -35,7 +35,6 @@ namespace StudentSupportApp
             this.comboBoxTime = new System.Windows.Forms.ComboBox();
             this.btbMinute = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.btbHour = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.labelTimeSubmit = new System.Windows.Forms.Label();
             this.btbSubID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.labelSubID = new System.Windows.Forms.Label();
             this.btbSubject = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -52,6 +51,8 @@ namespace StudentSupportApp
             this.GradientPanelAddDeadline = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.lbAddLesson = new System.Windows.Forms.Label();
             this.labelTimeFormat = new System.Windows.Forms.Label();
+            this.labelTimeSubmit = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.GradientPanelAddDeadline.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,7 +90,7 @@ namespace StudentSupportApp
             this.btbMinute.Location = new System.Drawing.Point(339, 247);
             this.btbMinute.Margin = new System.Windows.Forms.Padding(4);
             this.btbMinute.Name = "btbMinute";
-            this.btbMinute.Size = new System.Drawing.Size(26, 45);
+            this.btbMinute.Size = new System.Drawing.Size(50, 45);
             this.btbMinute.TabIndex = 23;
             this.btbMinute.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btbMinute.OnValueChanged += new System.EventHandler(this.btbMinute_OnValueChanged);
@@ -110,22 +111,11 @@ namespace StudentSupportApp
             this.btbHour.Location = new System.Drawing.Point(262, 247);
             this.btbHour.Margin = new System.Windows.Forms.Padding(4);
             this.btbHour.Name = "btbHour";
-            this.btbHour.Size = new System.Drawing.Size(26, 45);
+            this.btbHour.Size = new System.Drawing.Size(46, 45);
             this.btbHour.TabIndex = 22;
             this.btbHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btbHour.OnValueChanged += new System.EventHandler(this.btbHour_OnValueChanged);
             this.btbHour.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btbHour_KeyDown);
-            // 
-            // labelTimeSubmit
-            // 
-            this.labelTimeSubmit.AutoSize = true;
-            this.labelTimeSubmit.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTimeSubmit.Location = new System.Drawing.Point(154, 276);
-            this.labelTimeSubmit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTimeSubmit.Name = "labelTimeSubmit";
-            this.labelTimeSubmit.Size = new System.Drawing.Size(68, 20);
-            this.labelTimeSubmit.TabIndex = 21;
-            this.labelTimeSubmit.Text = "Giờ nộp";
             // 
             // btbSubID
             // 
@@ -385,11 +375,34 @@ namespace StudentSupportApp
             this.labelTimeFormat.Text = "Sai định dạng giờ!";
             this.labelTimeFormat.Visible = false;
             // 
+            // labelTimeSubmit
+            // 
+            this.labelTimeSubmit.AutoSize = true;
+            this.labelTimeSubmit.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTimeSubmit.Location = new System.Drawing.Point(154, 276);
+            this.labelTimeSubmit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTimeSubmit.Name = "labelTimeSubmit";
+            this.labelTimeSubmit.Size = new System.Drawing.Size(68, 20);
+            this.labelTimeSubmit.TabIndex = 21;
+            this.labelTimeSubmit.Text = "Giờ nộp";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(314, 267);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 20);
+            this.label1.TabIndex = 49;
+            this.label1.Text = ":";
+            // 
             // AddDeadline
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 434);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelTimeFormat);
             this.Controls.Add(this.GradientPanelAddDeadline);
             this.Controls.Add(this.labelStatus);
@@ -435,7 +448,6 @@ namespace StudentSupportApp
         private Bunifu.Framework.UI.BunifuMaterialTextbox btbSubID;
         private System.Windows.Forms.Label labelSubID;
         private Bunifu.Framework.UI.BunifuMaterialTextbox btbHour;
-        private System.Windows.Forms.Label labelTimeSubmit;
         private Bunifu.Framework.UI.BunifuThinButton2 tbCancel;
         private Bunifu.Framework.UI.BunifuThinButton2 tbAdd;
         private Bunifu.Framework.UI.BunifuMaterialTextbox btbMinute;
@@ -443,5 +455,7 @@ namespace StudentSupportApp
         private Bunifu.Framework.UI.BunifuGradientPanel GradientPanelAddDeadline;
         private System.Windows.Forms.Label lbAddLesson;
         private System.Windows.Forms.Label labelTimeFormat;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelTimeSubmit;
     }
 }

@@ -167,9 +167,9 @@ namespace StudentSupportApp
                 bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleLineColor = bExit.IdleForecolor = bExit.ActiveLineColor = x;
         }
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-            OnMouseDown(e);
+                OnMouseDown(e);
         }
     }
 }
