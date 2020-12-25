@@ -93,14 +93,19 @@ namespace StudentSupportApp
 
         private void btnSaveNote_Click(object sender, EventArgs e)
         {
-            Note note = new Note(UserID);
-            note.Name = tbxNoteName.Text;
-            note.Detail = rtbDetail.Text;
-            note.Width = this.Size.Width;
-            note.Height = this.Size.Height;
-            if (this.oldName == "")
-                note.AddNoteToDatabase();
-            else note.UpdateNoteInfo(this.oldName);
+            if (tbxNoteName.Text != "")
+            {
+                Note note = new Note(UserID);
+                note.Name = tbxNoteName.Text;
+                note.Detail = rtbDetail.Text;
+                note.Width = this.Size.Width;
+                note.Height = this.Size.Height;
+                if (this.oldName == "")
+                    note.AddNoteToDatabase();
+                else note.UpdateNoteInfo(this.oldName);
+            }
+            else
+                MessageBox.Show("Hãy điền tên ghi chú và thử lại!", "Ghi chú");
         }
 
         private void NoteForm_Load(object sender, EventArgs e)
