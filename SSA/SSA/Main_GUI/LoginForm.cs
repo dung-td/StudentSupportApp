@@ -126,5 +126,11 @@ namespace StudentSupportApp
                    bExit.ActiveFillColor = bExit.ForeColor = bExit.IdleLineColor = bExit.IdleForecolor = bExit.ActiveLineColor = 
                    bID.OnHoverTextColor = bPassword.OnHoverTextColor = bForgot.OnHoverTextColor = x;
         }
+
+        private void tbxID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                tbxPass.Focus();
+        }
     }
 }

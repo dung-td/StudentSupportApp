@@ -62,6 +62,7 @@ namespace StudentSupportApp
             // 
             // comboBoxTime
             // 
+            this.comboBoxTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTime.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTime.FormattingEnabled = true;
             this.comboBoxTime.Items.AddRange(new object[] {

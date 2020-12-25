@@ -515,17 +515,14 @@ namespace StudentSupportApp
             Process.Start(sInfo);
         }
 
-        private void dataDeadline_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void labelID_Click(object sender, EventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
-            {
-                if (e.ColumnIndex == 7)
-                    bEdit_Click(sender, e);
-                if (e.ColumnIndex == 8)
-                    bDelete_Click(sender, e);
-            }
+        }
+
+        private void labelSubject_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
@@ -547,7 +544,7 @@ namespace StudentSupportApp
             try
             {
                 this.Connection.OpenConnection();
-                string Query = "SELECT COUNT(ID) FROM DEADLINE WHERE GETDATE() <= DATESUBMIT AND ID_USER ='" + this.User.ID + "'";
+                string Query = "SELECT COUNT(ID) FROM DEADLINE WHERE GETDATE() <= DATESUBMIT AND ID_USER ='" + this.User.ID + "' AND STATU < 100";
                 SqlCommand command = this.Connection.CreateSQLCmd(Query);
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.HasRows)
@@ -571,7 +568,7 @@ namespace StudentSupportApp
             try
             {
                 this.Connection.OpenConnection();
-                string Query = "SELECT TOP 1 DATESUBMIT FROM DEADLINE WHERE GETDATE() <= DATESUBMIT AND ID_USER ='" + this.User.ID + "'" + "ORDER BY DATESUBMIT DESC";
+                string Query = "SELECT TOP 1 DATESUBMIT FROM DEADLINE WHERE GETDATE() <= DATESUBMIT AND STATU < 100 AND ID_USER ='" + this.User.ID + "'" + "ORDER BY DATESUBMIT DESC";
                 SqlCommand command = this.Connection.CreateSQLCmd(Query);
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.HasRows)
@@ -601,18 +598,20 @@ namespace StudentSupportApp
                 SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
                 SqlDataReader reader = command.ExecuteReader();
                 int temp = 0;
-                string[] args = new string[6];
+                string[] args = new string[8];
                 while (reader.HasRows)
                 {
                     if (reader.Read() == false) break;
                     args[0] = reader.GetString(0);
-                    args[1] = reader.GetString(1);
-                    args[2] = reader.GetString(2);
+                    args[1] = reader.GetString(2);
+                    args[2] = reader.GetString(1);
                     args[3] = reader.GetString(3);
                     DateTime temp1 = reader.GetDateTime(4);
-                    args[4] = reader.GetString(5);
-                    args[5] = reader.GetInt32(7).ToString();
-                    ListDeadline[temp] = new Deadlines(args, temp1);
+                    args[4] = temp1.ToString();
+                    args[5] = reader.GetString(5);
+                    args[6] = reader.GetString(6);
+                    args[7] = reader.GetInt32(7).ToString();
+                    ListDeadline[temp] = new Deadlines(args);
                     temp++;
                 }
                 foreach (Deadlines DL in ListDeadline)
@@ -639,29 +638,32 @@ namespace StudentSupportApp
             try
             {
                 Deadlines[] ListDeadline = new Deadlines[1000];
-                string sQuery = "SELECT * FROM DEADLINE WHERE YEAR(DATESUBMIT) = YEAR(GETDATE()) AND MONTH(DATESUBMIT) = MONTH(GETDATE()) AND DAY(DATESUBMIT) = DAY(GETDATE()) AND STATU='1' AND ID_USER = '" + this.User.ID + "'";
+                string sQuery = "SELECT * FROM DEADLINE WHERE YEAR(DATESUBMIT) = YEAR(GETDATE()) AND MONTH(DATESUBMIT) = MONTH(GETDATE()) AND DAY(DATESUBMIT) = DAY(GETDATE()) AND GETDATE() < DATESUBMIT AND STATU < 100 AND ID_USER = '" + this.User.ID + "'";
                 this.Connection.OpenConnection();
                 SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
                 SqlDataReader reader = command.ExecuteReader();
                 int temp = 0;
-                string[] args = new string[5];
+                string[] args = new string[8];
                 while (reader.HasRows)
                 {
                     if (reader.Read() == false) break;
                     args[0] = reader.GetString(0);
-                    args[1] = reader.GetString(1);
-                    args[2] = reader.GetString(2);
+                    args[1] = reader.GetString(2);
+                    args[2] = reader.GetString(1);
                     args[3] = reader.GetString(3);
                     DateTime temp1 = reader.GetDateTime(4);
-                    args[4] = reader.GetString(5);
-                    ListDeadline[temp] = new Deadlines(args, temp1);
+                    args[4] = temp1.ToString();
+                    args[5] = reader.GetString(5);
+                    args[6] = reader.GetString(6);
+                    args[7] = reader.GetInt32(7).ToString();
+                    ListDeadline[temp] = new Deadlines(args);
                     temp++;
                 }
                 foreach (Deadlines DL in ListDeadline)
                 {
                     if (DL == null)
                         break;
-                    this.Alert(DL.SubjectCode + " | " + DL.Details + " | Today: " + DL.TimeSubmit.TimeOfDay);
+                    this.Alert(DL.SubjectCode + " | " + DL.Details + " | Hạn nộp hôm nay: " + DL.TimeSubmit.TimeOfDay);
                 }
             }
             catch (Exception ex)
@@ -691,7 +693,7 @@ namespace StudentSupportApp
                     {
                         break;
                     }
-                    dataHomeDeadline.Rows.Add(reader.GetString(1), reader.GetDateTime(4).ToString(), false);
+                    dataHomeDeadline.Rows.Add(reader.GetString(1), reader.GetDateTime(4).ToString());
                 }
                 reader.Close();
             }
@@ -707,20 +709,22 @@ namespace StudentSupportApp
                 this.Connection.CloseConnection();
             }
         }
+        private void bAdd_Click(object sender, EventArgs e)
+        {
+            AddDeadline add = new AddDeadline(this);
+            add.addItem = new AddDeadline.AddItem(addDeadline);
+            this.Hide();
+            add.Show();
+        }
         private void addDeadline(string[] temp)
         {
             try
             {
-                this.Connection.OpenConnection();
-                temp[0] = "1";
-                User.GetDeadlineID(ref temp[0]);
-                temp[6] = "0";
-                this.dataDeadline.Rows.Add(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6]);
-                string Query = "INSERT INTO DEADLINE VALUES('" + temp[0] + "', N'" + temp[1] + "', '" + temp[2] + "', N'" +
-                                                                temp[3] + "', '" + temp[4] + "', N'" + temp[5] + "', '" + this.User.ID + "', " + temp[6] + ")";
-                SqlCommand command = this.Connection.CreateSQLCmd(Query);
-                command.ExecuteNonQuery();
-                MessageBox.Show(" ADDED SUCCESSFULLY!");
+                temp[6] = this.User.ID;
+                Deadlines dl = new Deadlines(temp);
+                dl.AddDeadline();
+                this.dataDeadline.Rows.Add(dl.ID, dl.SubjectCode, dl.Subject, dl.Details, dl.TimeSubmit, dl.Status, dl.Progress);
+                MessageBox.Show(" Thêm thành công!");
             }
             catch (Exception ex)
             {
@@ -734,7 +738,6 @@ namespace StudentSupportApp
                 this.Connection.CloseConnection();
             }
         }
-        #region EventHandler
         private void bEdit_Click(object sender, EventArgs e)
         {
             this.bEditSave.Visible = true;
@@ -757,18 +760,20 @@ namespace StudentSupportApp
                 SqlCommand command = this.Connection.CreateSQLCmd(sQuery);
                 SqlDataReader reader = command.ExecuteReader();
                 int temp = 0;
-                string[] args = new string[6];
+                string[] args = new string[8];
                 while (reader.HasRows)
                 {
                     if (reader.Read() == false) break;
                     args[0] = reader.GetString(0);
-                    args[1] = reader.GetString(1);
-                    args[2] = reader.GetString(2);
+                    args[1] = reader.GetString(2);
+                    args[2] = reader.GetString(1);
                     args[3] = reader.GetString(3);
                     DateTime temp1 = reader.GetDateTime(4);
-                    args[4] = reader.GetString(5);
-                    args[5] = reader.GetInt32(7).ToString();
-                    ListDeadline[temp] = new Deadlines(args, temp1);
+                    args[4] = temp1.ToString();
+                    args[5] = reader.GetString(5);
+                    args[6] = reader.GetString(6);
+                    args[7] = reader.GetInt32(7).ToString();
+                    ListDeadline[temp] = new Deadlines(args);
                     temp++;
                 }
                 foreach (Deadlines DL in ListDeadline)
@@ -789,7 +794,6 @@ namespace StudentSupportApp
             {
                 this.Connection.CloseConnection();
             }
-
         }
         private void bDelete_Click(object sender, EventArgs e)
         {
@@ -803,12 +807,15 @@ namespace StudentSupportApp
                 {
                     try
                     {
-                        this.Connection.OpenConnection();
-                        string Query = "DELETE FROM DEADLINE WHERE ID ='" + row.Cells[0].Value + "'";
-                        SqlCommand command = this.Connection.CreateSQLCmd(Query);
+                        Deadlines temp = new Deadlines();
+                        temp.ID = row.Cells[0].Value.ToString();
+                        temp.Delete();
                         dataDeadline.Rows.RemoveAt(row.Index);
-                        command.ExecuteNonQuery();
-
+                        btbSubID.Text = "";
+                        btbSubject.Text = "";
+                        btbDetails.Text = "";
+                        btbStatus.Text = "";
+                        sliderProgress.Value = 0;
                     }
                     catch (Exception ex)
                     {
@@ -819,18 +826,10 @@ namespace StudentSupportApp
                     }
                     finally
                     {
-                        this.Connection.CloseConnection();
                         NearestDeadline();
                     }
                 }
             }
-        }
-        private void bAdd_Click(object sender, EventArgs e)
-        {
-            AddDeadline add = new AddDeadline(this);
-            add.addItem = new AddDeadline.AddItem(addDeadline);
-            this.Hide();
-            add.Show();
         }
         private void dataDeadline_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -842,6 +841,7 @@ namespace StudentSupportApp
                 {
                     dataDeadline.CurrentRow.Selected = true;
                     labelID.Text = dataDeadline.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    btbSubID.Text = dataDeadline.Rows[e.RowIndex].Cells[1].Value.ToString();
                     btbSubject.Text = dataDeadline.Rows[e.RowIndex].Cells[2].Value.ToString();
                     btbDetails.Text = dataDeadline.Rows[e.RowIndex].Cells[3].Value.ToString();
                     bdateTime.Value = DateTime.Parse(dataDeadline.Rows[e.RowIndex].Cells[4].Value.ToString());
@@ -864,10 +864,13 @@ namespace StudentSupportApp
             this.btbDetails.Enabled = false;
             this.btbStatus.Enabled = false;
             this.btbSubject.Enabled = false;
+            this.btbSubID.Enabled = false;
             this.bEditSave.Hide();
+            if (btbSubID.Text == "")
+                return;
             try
             {
-                string Query = "UPDATE DEADLINE SET DETAIL=N'" + btbDetails.Text + "', DATESUBMIT='" + bdateTime.Value.ToString() + "', STAT=N'" + btbStatus.Text + "', SUB_NAME=N'" + btbSubject.Text + "' STATU=N" + sliderProgress.Value.ToString()
+                string Query = "UPDATE DEADLINE SET SUB_ID ='" + btbSubID.Text + "', DETAIL=N'" + btbDetails.Text + "', DATESUBMIT='" + bdateTime.Value.ToString() + "', STAT=N'" + btbStatus.Text + "', SUB_NAME=N'" + btbSubject.Text + "', STATU=N'" + sliderProgress.Value.ToString()
                                                               + "' WHERE ID='" + labelID.Text + "'";
                 Connection.OpenConnection();
                 SqlCommand command = Connection.CreateSQLCmd(Query);
@@ -920,6 +923,19 @@ namespace StudentSupportApp
             DeadlineStatistic deadlineStatistic = new DeadlineStatistic(this, User.ID);
             deadlineStatistic.Show();
         }
+        private void dataDeadline_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == 7)
+                    bEdit_Click(sender, e);
+                if (e.ColumnIndex == 8)
+                    bDelete_Click(sender, e);
+            }
+        }
+        #region EventHandler
         #endregion
         #endregion
 
@@ -1064,6 +1080,7 @@ namespace StudentSupportApp
                 }
                 foreach (var sem in sItem)
                     cbxSem.Items.Add(sem);
+                reader.Close();
             }
             catch (Exception ex)
             {
@@ -1209,22 +1226,23 @@ namespace StudentSupportApp
 
         private void btnRemoveLess_Click(object sender, EventArgs e)
         {
-            const string message = "Bạn chắc chắn muốn xóa tiết học đã chọn?";
-            const string caption = "Xóa tiết học";
-            var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            try
             {
-                try
+                if (this.dataGridViewTimetable.CurrentCell.Selected == true && this.dataGridViewTimetable.CurrentCell.Value.ToString() != ""
+                    && this.dataGridViewTimetable.CurrentCell.ColumnIndex != 0)
                 {
-                    Timetable ti = new Timetable();
-                    if (this.dataGridViewTimetable.CurrentCell.Selected == true && this.dataGridViewTimetable.CurrentCell.Value.ToString() != "")
+                    const string message = "Bạn chắc chắn muốn xóa tiết học đã chọn?";
+                    const string caption = "Xóa tiết học";
+                    var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
                     {
+                        Timetable ti = new Timetable();
                         int iSubID = this.dataGridViewTimetable.CurrentCell.Value.ToString().IndexOf("\n");
                         int iCellValueLength = this.dataGridViewTimetable.CurrentCell.Value.ToString().Length;
                         List<string> sLessonData = new List<string> { cbxSem.Text, ti.SwitchDayWithNumberToNumber(this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].HeaderText).ToString(),
-                                                                  this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(0, iSubID),
-                                                                  this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(iSubID, iCellValueLength - iSubID),
-                                                                  (this.dataGridViewTimetable.CurrentCell.RowIndex + 1).ToString(), this.User.ID };
+                                                                    this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(0, iSubID),
+                                                                    this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(iSubID, iCellValueLength - iSubID),
+                                                                    (this.dataGridViewTimetable.CurrentCell.RowIndex + 1).ToString(), this.User.ID };
                         Timetable Lesson = new Timetable(this.User.ID);
                         if (Lesson.RemoveLesson(sLessonData) == 1)
                         {
@@ -1234,12 +1252,12 @@ namespace StudentSupportApp
                         else MessageBox.Show("Xóa tiết học thất bại!", "Xóa tiết học");
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                    ReportError rp = new ReportError(this, ex);
-                    rp.Show();
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(this, ex);
+                rp.Show();
             }
         }
 
@@ -1284,12 +1302,6 @@ namespace StudentSupportApp
         {
             btnLoadTT.Visible = true;
         }
-        //private void MainForm_VisibleChanged(object sender, EventArgs e)
-        //{
-        //    ReadSchedulesSemesterComboboxItems();
-        //    cbxSem.Text = this.Semester;
-        //    LoadInformationTab();
-        //}
         private void btnSetDefault_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Text = cbxSem.Text;
@@ -1473,7 +1485,7 @@ namespace StudentSupportApp
 
         private void btnAddNote_Click(object sender, EventArgs e)
         {
-            NoteForm noteForm = new NoteForm(this.User.ID);
+            NoteForm noteForm = new NoteForm(this, this.User.ID);
             noteForm.Show();
         }
 
@@ -1484,14 +1496,14 @@ namespace StudentSupportApp
             note.UserID = this.User.ID;
             note.LoadNoteData();
 
-            NoteForm noteForm = new NoteForm(this.User.ID, note.Name, note.Detail);
+            NoteForm noteForm = new NoteForm(this, this.User.ID, note.Name, note.Detail);
             noteForm.Width = note.Width;
             noteForm.Height = note.Height;
 
             noteForm.Show();
         }
 
-        private void LoadNotes()
+        public void LoadNotes()
         {
             try
             {
@@ -1722,12 +1734,14 @@ namespace StudentSupportApp
 
                 if (result == DialogResult.Yes)
                 {
-                    Connection.OpenConnection();
-                    string sql = @"Delete FROM TableScore WHERE(SUB_ID= '" + tbSubID.Text + "')";
-                    sql += @"Delete From Subjects where(SUB_ID= '" + tbSubID.Text + "' and ID ='" + this.User.ID + "')";
-                    SqlCommand command = Connection.CreateSQLCmd(sql);
-                    command.ExecuteNonQuery();
-                    Connection.CloseConnection();
+                    Subject sub = new Subject(tbSubID.Text, tbSubName.Text, int.Parse(tbCredit.Text));
+                    CScore s1 = new CScore(float.Parse(tbProVa.Text), float.Parse(tbProWei.Text));
+                    CScore s2 = new CScore(float.Parse(tbMidVa.Text), float.Parse(tbMidWei.Text));
+                    CScore s3 = new CScore(float.Parse(tbPracVa.Text), float.Parse(tbPracWei.Text));
+                    CScore s4 = new CScore(float.Parse(tbFinVa.Text), float.Parse(tbFinWei.Text));
+
+                    ScoreOfSub scTmp = new ScoreOfSub(sub, s1, s2, s3, s4);
+                    scTmp.Delete(this.User.ID);
                     MessageBox.Show("Đã xoá!", caption);
 
                     lvScoreBoard.Items.Clear();

@@ -58,9 +58,10 @@ namespace StudentSupportApp
             this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.Tomato;
             this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.OrangeRed;
             this.bunifuGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.bunifuGradientPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
             this.bunifuGradientPanel1.Quality = 10;
-            this.bunifuGradientPanel1.Size = new System.Drawing.Size(532, 109);
+            this.bunifuGradientPanel1.Size = new System.Drawing.Size(355, 71);
             this.bunifuGradientPanel1.TabIndex = 3;
             // 
             // labelText
@@ -69,9 +70,10 @@ namespace StudentSupportApp
             this.labelText.BackColor = System.Drawing.Color.Transparent;
             this.labelText.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelText.ForeColor = System.Drawing.Color.White;
-            this.labelText.Location = new System.Drawing.Point(6, 60);
+            this.labelText.Location = new System.Drawing.Point(4, 39);
+            this.labelText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelText.Name = "labelText";
-            this.labelText.Size = new System.Drawing.Size(341, 25);
+            this.labelText.Size = new System.Drawing.Size(233, 17);
             this.labelText.TabIndex = 2;
             this.labelText.Text = "Bạn đang có những hoạt động sắp tới!";
             // 
@@ -80,9 +82,10 @@ namespace StudentSupportApp
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageActive = null;
-            this.btnClose.Location = new System.Drawing.Point(476, 25);
+            this.btnClose.Location = new System.Drawing.Point(317, 16);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(40, 58);
+            this.btnClose.Size = new System.Drawing.Size(27, 38);
             this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnClose.TabIndex = 1;
             this.btnClose.TabStop = false;
@@ -111,17 +114,17 @@ namespace StudentSupportApp
             this.btnAlert.IconVisible = true;
             this.btnAlert.IconZoom = 60D;
             this.btnAlert.IsTab = false;
-            this.btnAlert.Location = new System.Drawing.Point(174, 0);
-            this.btnAlert.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            this.btnAlert.Location = new System.Drawing.Point(97, 0);
+            this.btnAlert.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnAlert.Name = "btnAlert";
             this.btnAlert.Normalcolor = System.Drawing.Color.Transparent;
             this.btnAlert.OnHovercolor = System.Drawing.Color.Transparent;
             this.btnAlert.OnHoverTextColor = System.Drawing.Color.White;
             this.btnAlert.selected = false;
-            this.btnAlert.Size = new System.Drawing.Size(192, 58);
+            this.btnAlert.Size = new System.Drawing.Size(163, 38);
             this.btnAlert.TabIndex = 0;
             this.btnAlert.Text = "Thông báo!";
-            this.btnAlert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAlert.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlert.Textcolor = System.Drawing.Color.White;
             this.btnAlert.TextFont = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
@@ -131,11 +134,12 @@ namespace StudentSupportApp
             // 
             // Notifi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 109);
+            this.ClientSize = new System.Drawing.Size(355, 71);
             this.Controls.Add(this.bunifuGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Notifi";
             this.Text = "Noti";
             this.bunifuGradientPanel1.ResumeLayout(false);

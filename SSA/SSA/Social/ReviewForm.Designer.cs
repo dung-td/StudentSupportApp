@@ -31,6 +31,8 @@ namespace StudentSupportApp
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReviewForm));
             this.grbPost = new System.Windows.Forms.GroupBox();
+            this.btnEdit = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnWrite = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tbxKeyWord = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.lbDislike = new System.Windows.Forms.Label();
             this.btnFind = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -58,8 +60,7 @@ namespace StudentSupportApp
             this.btnExit = new Bunifu.Framework.UI.BunifuImageButton();
             this.label2 = new System.Windows.Forms.Label();
             this.pLogo = new System.Windows.Forms.PictureBox();
-            this.btnWrite = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnEdit = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnDelete = new Bunifu.Framework.UI.BunifuFlatButton();
             this.grbPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrev)).BeginInit();
@@ -79,6 +80,7 @@ namespace StudentSupportApp
             this.grbPost.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbPost.Controls.Add(this.btnDelete);
             this.grbPost.Controls.Add(this.btnEdit);
             this.grbPost.Controls.Add(this.btnWrite);
             this.grbPost.Controls.Add(this.tbxKeyWord);
@@ -103,6 +105,80 @@ namespace StudentSupportApp
             this.grbPost.TabIndex = 5;
             this.grbPost.TabStop = false;
             this.grbPost.Text = "Bài viết";
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Activecolor = System.Drawing.Color.Transparent;
+            this.btnEdit.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEdit.BorderRadius = 0;
+            this.btnEdit.ButtonText = "Chỉnh sửa bài viết";
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.DisabledColor = System.Drawing.Color.FloralWhite;
+            this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnEdit.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnEdit.Iconimage")));
+            this.btnEdit.Iconimage_right = null;
+            this.btnEdit.Iconimage_right_Selected = null;
+            this.btnEdit.Iconimage_Selected = null;
+            this.btnEdit.IconMarginLeft = 0;
+            this.btnEdit.IconMarginRight = 0;
+            this.btnEdit.IconRightVisible = true;
+            this.btnEdit.IconRightZoom = 0D;
+            this.btnEdit.IconVisible = true;
+            this.btnEdit.IconZoom = 80D;
+            this.btnEdit.IsTab = false;
+            this.btnEdit.Location = new System.Drawing.Point(841, 67);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnEdit.OnHovercolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnEdit.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnEdit.selected = false;
+            this.btnEdit.Size = new System.Drawing.Size(188, 33);
+            this.btnEdit.TabIndex = 19;
+            this.btnEdit.Text = "Chỉnh sửa bài viết";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEdit.Textcolor = System.Drawing.Color.Black;
+            this.btnEdit.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnWrite
+            // 
+            this.btnWrite.Activecolor = System.Drawing.Color.Transparent;
+            this.btnWrite.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnWrite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnWrite.BorderRadius = 0;
+            this.btnWrite.ButtonText = "Viết bài viết";
+            this.btnWrite.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWrite.DisabledColor = System.Drawing.Color.FloralWhite;
+            this.btnWrite.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWrite.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnWrite.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnWrite.Iconimage")));
+            this.btnWrite.Iconimage_right = null;
+            this.btnWrite.Iconimage_right_Selected = null;
+            this.btnWrite.Iconimage_Selected = null;
+            this.btnWrite.IconMarginLeft = 0;
+            this.btnWrite.IconMarginRight = 0;
+            this.btnWrite.IconRightVisible = true;
+            this.btnWrite.IconRightZoom = 0D;
+            this.btnWrite.IconVisible = true;
+            this.btnWrite.IconZoom = 80D;
+            this.btnWrite.IsTab = false;
+            this.btnWrite.Location = new System.Drawing.Point(841, 24);
+            this.btnWrite.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.btnWrite.Name = "btnWrite";
+            this.btnWrite.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnWrite.OnHovercolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnWrite.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnWrite.selected = false;
+            this.btnWrite.Size = new System.Drawing.Size(188, 33);
+            this.btnWrite.TabIndex = 18;
+            this.btnWrite.Text = "Viết bài viết";
+            this.btnWrite.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnWrite.Textcolor = System.Drawing.Color.Black;
+            this.btnWrite.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
             // 
             // tbxKeyWord
             // 
@@ -152,7 +228,7 @@ namespace StudentSupportApp
             this.btnFind.IconRightVisible = true;
             this.btnFind.IconRightZoom = 0D;
             this.btnFind.IconVisible = true;
-            this.btnFind.IconZoom = 90D;
+            this.btnFind.IconZoom = 80D;
             this.btnFind.IsTab = false;
             this.btnFind.Location = new System.Drawing.Point(648, 24);
             this.btnFind.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -250,19 +326,19 @@ namespace StudentSupportApp
             // 
             // cbbCate
             // 
+            this.cbbCate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCate.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbCate.FormattingEnabled = true;
             this.cbbCate.Items.AddRange(new object[] {
-            "ID môn học",
-            "Môn học",
             "Người viết",
+            "ID Môn học/ Chủ đề",
+            "Môn học/ Tiêu đề",
             "Tất cả"});
             this.cbbCate.Location = new System.Drawing.Point(515, 32);
             this.cbbCate.Margin = new System.Windows.Forms.Padding(2);
             this.cbbCate.Name = "cbbCate";
             this.cbbCate.Size = new System.Drawing.Size(125, 25);
             this.cbbCate.TabIndex = 11;
-            this.cbbCate.Text = "Loại tìm kiếm";
             this.cbbCate.SelectedIndexChanged += new System.EventHandler(this.cbbCate_SelectedIndexChanged);
             // 
             // lbKeyword
@@ -465,79 +541,42 @@ namespace StudentSupportApp
             this.pLogo.TabIndex = 2;
             this.pLogo.TabStop = false;
             // 
-            // btnWrite
+            // btnDelete
             // 
-            this.btnWrite.Activecolor = System.Drawing.Color.Transparent;
-            this.btnWrite.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnWrite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnWrite.BorderRadius = 0;
-            this.btnWrite.ButtonText = "Viết đánh giá";
-            this.btnWrite.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWrite.DisabledColor = System.Drawing.Color.FloralWhite;
-            this.btnWrite.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnWrite.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnWrite.Iconimage")));
-            this.btnWrite.Iconimage_right = null;
-            this.btnWrite.Iconimage_right_Selected = null;
-            this.btnWrite.Iconimage_Selected = null;
-            this.btnWrite.IconMarginLeft = 0;
-            this.btnWrite.IconMarginRight = 0;
-            this.btnWrite.IconRightVisible = true;
-            this.btnWrite.IconRightZoom = 0D;
-            this.btnWrite.IconVisible = true;
-            this.btnWrite.IconZoom = 90D;
-            this.btnWrite.IsTab = false;
-            this.btnWrite.Location = new System.Drawing.Point(841, 24);
-            this.btnWrite.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.btnWrite.Name = "btnWrite";
-            this.btnWrite.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnWrite.OnHovercolor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnWrite.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnWrite.selected = false;
-            this.btnWrite.Size = new System.Drawing.Size(196, 47);
-            this.btnWrite.TabIndex = 18;
-            this.btnWrite.Text = "Viết đánh giá";
-            this.btnWrite.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnWrite.Textcolor = System.Drawing.Color.Black;
-            this.btnWrite.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Activecolor = System.Drawing.Color.Transparent;
-            this.btnEdit.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEdit.BorderRadius = 0;
-            this.btnEdit.ButtonText = "Chỉnh sửa đánh giá";
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.DisabledColor = System.Drawing.Color.FloralWhite;
-            this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnEdit.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnEdit.Iconimage")));
-            this.btnEdit.Iconimage_right = null;
-            this.btnEdit.Iconimage_right_Selected = null;
-            this.btnEdit.Iconimage_Selected = null;
-            this.btnEdit.IconMarginLeft = 0;
-            this.btnEdit.IconMarginRight = 0;
-            this.btnEdit.IconRightVisible = true;
-            this.btnEdit.IconRightZoom = 0D;
-            this.btnEdit.IconVisible = true;
-            this.btnEdit.IconZoom = 90D;
-            this.btnEdit.IsTab = false;
-            this.btnEdit.Location = new System.Drawing.Point(841, 95);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnEdit.OnHovercolor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnEdit.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnEdit.selected = false;
-            this.btnEdit.Size = new System.Drawing.Size(196, 47);
-            this.btnEdit.TabIndex = 19;
-            this.btnEdit.Text = "Chỉnh sửa đánh giá";
-            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnEdit.Textcolor = System.Drawing.Color.Black;
-            this.btnEdit.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnDelete.Activecolor = System.Drawing.Color.Transparent;
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDelete.BorderRadius = 0;
+            this.btnDelete.ButtonText = "Xóa bài viết";
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.DisabledColor = System.Drawing.Color.FloralWhite;
+            this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnDelete.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnDelete.Iconimage")));
+            this.btnDelete.Iconimage_right = null;
+            this.btnDelete.Iconimage_right_Selected = null;
+            this.btnDelete.Iconimage_Selected = null;
+            this.btnDelete.IconMarginLeft = 0;
+            this.btnDelete.IconMarginRight = 0;
+            this.btnDelete.IconRightVisible = true;
+            this.btnDelete.IconRightZoom = 0D;
+            this.btnDelete.IconVisible = true;
+            this.btnDelete.IconZoom = 80D;
+            this.btnDelete.IsTab = false;
+            this.btnDelete.Location = new System.Drawing.Point(841, 109);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnDelete.OnHovercolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnDelete.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnDelete.selected = false;
+            this.btnDelete.Size = new System.Drawing.Size(188, 33);
+            this.btnDelete.TabIndex = 23;
+            this.btnDelete.Text = "Xóa bài viết";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDelete.Textcolor = System.Drawing.Color.Black;
+            this.btnDelete.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // ReviewForm
             // 
@@ -603,5 +642,6 @@ namespace StudentSupportApp
         private Bunifu.Framework.UI.BunifuImageButton btnMinimize;
         private Bunifu.Framework.UI.BunifuImageButton btnExit;
         private Bunifu.Framework.UI.BunifuFlatButton btnEdit;
+        private Bunifu.Framework.UI.BunifuFlatButton btnDelete;
     }
 }

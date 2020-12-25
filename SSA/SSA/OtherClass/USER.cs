@@ -280,32 +280,6 @@ namespace StudentSupportApp
                 this.Connection.CloseConnection();
             }
         }
-        public void GetDeadlineID(ref string i)
-        {
-            string Query = "SELECT TOP (1) * FROM DEADLINE ORDER BY ID DESC";
-            try
-            {
-                this.Connection.OpenConnection();
-                SqlCommand command = this.Connection.CreateSQLCmd(Query);
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.HasRows)
-                {
-                    if (reader.Read() == false) break;
-                    i = (int.Parse(reader.GetString(0)) + 1).ToString();
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                ReportError rp = new ReportError(ex);
-                rp.Show();
-            }
-            finally
-            {
-                this.Connection.CloseConnection();
-            }
-        }
         public void SetDataDefault()
         {
             try

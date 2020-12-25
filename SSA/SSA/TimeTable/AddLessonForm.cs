@@ -80,11 +80,13 @@ namespace StudentSupportApp
         {
             this.Hide();
             this.parent.Show();
+            this.parent.ReadSchedulesSemesterComboboxItems();
         }
 
         private void AddLessonForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.parent.Show();
+            this.parent.ReadSchedulesSemesterComboboxItems();
             this.Hide();
         }
 

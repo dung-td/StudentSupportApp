@@ -60,10 +60,11 @@ namespace StudentSupportApp
             this.GradientPanelNote.GradientTopLeft = System.Drawing.SystemColors.Highlight;
             this.GradientPanelNote.GradientTopRight = System.Drawing.SystemColors.Highlight;
             this.GradientPanelNote.Location = new System.Drawing.Point(0, 0);
-            this.GradientPanelNote.MinimumSize = new System.Drawing.Size(206, 692);
+            this.GradientPanelNote.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GradientPanelNote.MinimumSize = new System.Drawing.Size(137, 450);
             this.GradientPanelNote.Name = "GradientPanelNote";
             this.GradientPanelNote.Quality = 10;
-            this.GradientPanelNote.Size = new System.Drawing.Size(206, 692);
+            this.GradientPanelNote.Size = new System.Drawing.Size(137, 450);
             this.GradientPanelNote.TabIndex = 49;
             // 
             // btnExitNote
@@ -84,10 +85,10 @@ namespace StudentSupportApp
             this.btnExitNote.IdleFillColor = System.Drawing.Color.White;
             this.btnExitNote.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnExitNote.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.btnExitNote.Location = new System.Drawing.Point(32, 460);
-            this.btnExitNote.Margin = new System.Windows.Forms.Padding(8);
+            this.btnExitNote.Location = new System.Drawing.Point(21, 299);
+            this.btnExitNote.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnExitNote.Name = "btnExitNote";
-            this.btnExitNote.Size = new System.Drawing.Size(143, 88);
+            this.btnExitNote.Size = new System.Drawing.Size(95, 57);
             this.btnExitNote.TabIndex = 54;
             this.btnExitNote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnExitNote.Click += new System.EventHandler(this.btnExitNote_Click);
@@ -110,10 +111,10 @@ namespace StudentSupportApp
             this.btnSaveNote.IdleFillColor = System.Drawing.Color.White;
             this.btnSaveNote.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnSaveNote.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.btnSaveNote.Location = new System.Drawing.Point(32, 357);
-            this.btnSaveNote.Margin = new System.Windows.Forms.Padding(8);
+            this.btnSaveNote.Location = new System.Drawing.Point(21, 232);
+            this.btnSaveNote.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnSaveNote.Name = "btnSaveNote";
-            this.btnSaveNote.Size = new System.Drawing.Size(143, 88);
+            this.btnSaveNote.Size = new System.Drawing.Size(95, 57);
             this.btnSaveNote.TabIndex = 53;
             this.btnSaveNote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSaveNote.Click += new System.EventHandler(this.btnSaveNote_Click);
@@ -124,9 +125,10 @@ namespace StudentSupportApp
             this.lbYourNote.BackColor = System.Drawing.Color.Transparent;
             this.lbYourNote.Font = new System.Drawing.Font("Times New Roman", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbYourNote.ForeColor = System.Drawing.Color.White;
-            this.lbYourNote.Location = new System.Drawing.Point(42, 146);
+            this.lbYourNote.Location = new System.Drawing.Point(28, 95);
+            this.lbYourNote.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbYourNote.Name = "lbYourNote";
-            this.lbYourNote.Size = new System.Drawing.Size(111, 128);
+            this.lbYourNote.Size = new System.Drawing.Size(76, 86);
             this.lbYourNote.TabIndex = 18;
             this.lbYourNote.Text = "Ghi\r\nchú";
             this.lbYourNote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -143,10 +145,10 @@ namespace StudentSupportApp
             this.tbxNoteName.LineIdleColor = System.Drawing.Color.DimGray;
             this.tbxNoteName.LineMouseHoverColor = System.Drawing.SystemColors.Highlight;
             this.tbxNoteName.LineThickness = 4;
-            this.tbxNoteName.Location = new System.Drawing.Point(224, 0);
-            this.tbxNoteName.Margin = new System.Windows.Forms.Padding(6);
+            this.tbxNoteName.Location = new System.Drawing.Point(149, 0);
+            this.tbxNoteName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxNoteName.Name = "tbxNoteName";
-            this.tbxNoteName.Size = new System.Drawing.Size(356, 78);
+            this.tbxNoteName.Size = new System.Drawing.Size(237, 51);
             this.tbxNoteName.TabIndex = 52;
             this.tbxNoteName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -155,24 +157,25 @@ namespace StudentSupportApp
             this.rtbDetail.AcceptsTab = true;
             this.rtbDetail.EnableAutoDragDrop = true;
             this.rtbDetail.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbDetail.Location = new System.Drawing.Point(206, 89);
-            this.rtbDetail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rtbDetail.Location = new System.Drawing.Point(137, 58);
             this.rtbDetail.Name = "rtbDetail";
-            this.rtbDetail.Size = new System.Drawing.Size(652, 495);
+            this.rtbDetail.Size = new System.Drawing.Size(436, 323);
             this.rtbDetail.TabIndex = 51;
             this.rtbDetail.Text = "";
             // 
             // NoteForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 584);
+            this.ClientSize = new System.Drawing.Size(572, 380);
             this.ControlBox = false;
             this.Controls.Add(this.tbxNoteName);
             this.Controls.Add(this.rtbDetail);
             this.Controls.Add(this.GradientPanelNote);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "NoteForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NoteForm_FormClosed);
             this.Load += new System.EventHandler(this.NoteForm_Load);
             this.SizeChanged += new System.EventHandler(this.NoteForm_SizeChanged);
             this.GradientPanelNote.ResumeLayout(false);

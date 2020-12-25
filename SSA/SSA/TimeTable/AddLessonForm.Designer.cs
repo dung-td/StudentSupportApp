@@ -68,9 +68,10 @@ namespace StudentSupportApp
             this.GradientPanelAddLesson.GradientTopLeft = System.Drawing.SystemColors.Highlight;
             this.GradientPanelAddLesson.GradientTopRight = System.Drawing.SystemColors.Highlight;
             this.GradientPanelAddLesson.Location = new System.Drawing.Point(0, 0);
+            this.GradientPanelAddLesson.Margin = new System.Windows.Forms.Padding(2);
             this.GradientPanelAddLesson.Name = "GradientPanelAddLesson";
             this.GradientPanelAddLesson.Quality = 10;
-            this.GradientPanelAddLesson.Size = new System.Drawing.Size(165, 569);
+            this.GradientPanelAddLesson.Size = new System.Drawing.Size(110, 370);
             this.GradientPanelAddLesson.TabIndex = 46;
             // 
             // lbAddLesson
@@ -79,9 +80,10 @@ namespace StudentSupportApp
             this.lbAddLesson.BackColor = System.Drawing.Color.Transparent;
             this.lbAddLesson.Font = new System.Drawing.Font("Times New Roman", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAddLesson.ForeColor = System.Drawing.Color.White;
-            this.lbAddLesson.Location = new System.Drawing.Point(-10, 195);
+            this.lbAddLesson.Location = new System.Drawing.Point(-7, 127);
+            this.lbAddLesson.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbAddLesson.Name = "lbAddLesson";
-            this.lbAddLesson.Size = new System.Drawing.Size(191, 180);
+            this.lbAddLesson.Size = new System.Drawing.Size(129, 120);
             this.lbAddLesson.TabIndex = 18;
             this.lbAddLesson.Text = "Thêm\r\ntiết học \r\nmới\r\n";
             this.lbAddLesson.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -104,10 +106,10 @@ namespace StudentSupportApp
             this.btnAddAL.IdleFillColor = System.Drawing.Color.White;
             this.btnAddAL.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnAddAL.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.btnAddAL.Location = new System.Drawing.Point(286, 485);
-            this.btnAddAL.Margin = new System.Windows.Forms.Padding(8);
+            this.btnAddAL.Location = new System.Drawing.Point(191, 315);
+            this.btnAddAL.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddAL.Name = "btnAddAL";
-            this.btnAddAL.Size = new System.Drawing.Size(158, 62);
+            this.btnAddAL.Size = new System.Drawing.Size(105, 40);
             this.btnAddAL.TabIndex = 45;
             this.btnAddAL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAddAL.Click += new System.EventHandler(this.btnAddAL_Click);
@@ -130,10 +132,10 @@ namespace StudentSupportApp
             this.btnExitAL.IdleFillColor = System.Drawing.Color.White;
             this.btnExitAL.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnExitAL.IdleLineColor = System.Drawing.SystemColors.Highlight;
-            this.btnExitAL.Location = new System.Drawing.Point(542, 485);
-            this.btnExitAL.Margin = new System.Windows.Forms.Padding(8);
+            this.btnExitAL.Location = new System.Drawing.Point(361, 315);
+            this.btnExitAL.Margin = new System.Windows.Forms.Padding(5);
             this.btnExitAL.Name = "btnExitAL";
-            this.btnExitAL.Size = new System.Drawing.Size(158, 62);
+            this.btnExitAL.Size = new System.Drawing.Size(105, 40);
             this.btnExitAL.TabIndex = 44;
             this.btnExitAL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnExitAL.Click += new System.EventHandler(this.btnExitAL_Click);
@@ -150,10 +152,10 @@ namespace StudentSupportApp
             this.tbxSubIDAL.LineIdleColor = System.Drawing.Color.DimGray;
             this.tbxSubIDAL.LineMouseHoverColor = System.Drawing.SystemColors.Highlight;
             this.tbxSubIDAL.LineThickness = 4;
-            this.tbxSubIDAL.Location = new System.Drawing.Point(382, 283);
-            this.tbxSubIDAL.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.tbxSubIDAL.Location = new System.Drawing.Point(255, 184);
+            this.tbxSubIDAL.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxSubIDAL.Name = "tbxSubIDAL";
-            this.tbxSubIDAL.Size = new System.Drawing.Size(348, 101);
+            this.tbxSubIDAL.Size = new System.Drawing.Size(232, 66);
             this.tbxSubIDAL.TabIndex = 43;
             this.tbxSubIDAL.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbxSubIDAL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxSubIDAL_KeyDown);
@@ -170,10 +172,10 @@ namespace StudentSupportApp
             this.tbxSubNaAL.LineIdleColor = System.Drawing.Color.DimGray;
             this.tbxSubNaAL.LineMouseHoverColor = System.Drawing.SystemColors.Highlight;
             this.tbxSubNaAL.LineThickness = 4;
-            this.tbxSubNaAL.Location = new System.Drawing.Point(382, 184);
-            this.tbxSubNaAL.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.tbxSubNaAL.Location = new System.Drawing.Point(255, 120);
+            this.tbxSubNaAL.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxSubNaAL.Name = "tbxSubNaAL";
-            this.tbxSubNaAL.Size = new System.Drawing.Size(348, 96);
+            this.tbxSubNaAL.Size = new System.Drawing.Size(232, 62);
             this.tbxSubNaAL.TabIndex = 42;
             this.tbxSubNaAL.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbxSubNaAL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxSubNaAL_KeyDown);
@@ -190,10 +192,10 @@ namespace StudentSupportApp
             this.tbxSemNaAL.LineIdleColor = System.Drawing.Color.DimGray;
             this.tbxSemNaAL.LineMouseHoverColor = System.Drawing.SystemColors.Highlight;
             this.tbxSemNaAL.LineThickness = 4;
-            this.tbxSemNaAL.Location = new System.Drawing.Point(382, 0);
-            this.tbxSemNaAL.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.tbxSemNaAL.Location = new System.Drawing.Point(255, 0);
+            this.tbxSemNaAL.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxSemNaAL.Name = "tbxSemNaAL";
-            this.tbxSemNaAL.Size = new System.Drawing.Size(348, 100);
+            this.tbxSemNaAL.Size = new System.Drawing.Size(232, 65);
             this.tbxSemNaAL.TabIndex = 41;
             this.tbxSemNaAL.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbxSemNaAL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxSemNaAL_KeyDown);
@@ -215,9 +217,10 @@ namespace StudentSupportApp
             "8",
             "9",
             "10"});
-            this.cbxTimeOrderBegin.Location = new System.Drawing.Point(386, 418);
+            this.cbxTimeOrderBegin.Location = new System.Drawing.Point(257, 272);
+            this.cbxTimeOrderBegin.Margin = new System.Windows.Forms.Padding(2);
             this.cbxTimeOrderBegin.Name = "cbxTimeOrderBegin";
-            this.cbxTimeOrderBegin.Size = new System.Drawing.Size(96, 35);
+            this.cbxTimeOrderBegin.Size = new System.Drawing.Size(65, 27);
             this.cbxTimeOrderBegin.TabIndex = 40;
             this.cbxTimeOrderBegin.SelectedIndexChanged += new System.EventHandler(this.cbxTimeOrderBegin_SelectedIndexChanged);
             this.cbxTimeOrderBegin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxTimeOrderBegin_KeyDown);
@@ -236,9 +239,10 @@ namespace StudentSupportApp
             "Thứ sáu",
             "Thứ bảy",
             "Chủ nhật"});
-            this.cbxDIWAL.Location = new System.Drawing.Point(386, 138);
+            this.cbxDIWAL.Location = new System.Drawing.Point(257, 90);
+            this.cbxDIWAL.Margin = new System.Windows.Forms.Padding(2);
             this.cbxDIWAL.Name = "cbxDIWAL";
-            this.cbxDIWAL.Size = new System.Drawing.Size(344, 35);
+            this.cbxDIWAL.Size = new System.Drawing.Size(231, 27);
             this.cbxDIWAL.TabIndex = 39;
             this.cbxDIWAL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxDIWAL_KeyDown);
             // 
@@ -248,9 +252,10 @@ namespace StudentSupportApp
             this.lbTimeOrAL.BackColor = System.Drawing.Color.Transparent;
             this.lbTimeOrAL.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTimeOrAL.ForeColor = System.Drawing.Color.Black;
-            this.lbTimeOrAL.Location = new System.Drawing.Point(194, 423);
+            this.lbTimeOrAL.Location = new System.Drawing.Point(129, 275);
+            this.lbTimeOrAL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTimeOrAL.Name = "lbTimeOrAL";
-            this.lbTimeOrAL.Size = new System.Drawing.Size(98, 29);
+            this.lbTimeOrAL.Size = new System.Drawing.Size(68, 20);
             this.lbTimeOrAL.TabIndex = 38;
             this.lbTimeOrAL.Text = "Tiết học";
             // 
@@ -260,9 +265,10 @@ namespace StudentSupportApp
             this.lbSubIDAL.BackColor = System.Drawing.Color.Transparent;
             this.lbSubIDAL.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSubIDAL.ForeColor = System.Drawing.Color.Black;
-            this.lbSubIDAL.Location = new System.Drawing.Point(198, 335);
+            this.lbSubIDAL.Location = new System.Drawing.Point(132, 218);
+            this.lbSubIDAL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSubIDAL.Name = "lbSubIDAL";
-            this.lbSubIDAL.Size = new System.Drawing.Size(138, 29);
+            this.lbSubIDAL.Size = new System.Drawing.Size(96, 20);
             this.lbSubIDAL.TabIndex = 37;
             this.lbSubIDAL.Text = "ID môn học";
             // 
@@ -272,9 +278,10 @@ namespace StudentSupportApp
             this.lbSubNameAL.BackColor = System.Drawing.Color.Transparent;
             this.lbSubNameAL.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSubNameAL.ForeColor = System.Drawing.Color.Black;
-            this.lbSubNameAL.Location = new System.Drawing.Point(194, 245);
+            this.lbSubNameAL.Location = new System.Drawing.Point(129, 159);
+            this.lbSubNameAL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSubNameAL.Name = "lbSubNameAL";
-            this.lbSubNameAL.Size = new System.Drawing.Size(152, 29);
+            this.lbSubNameAL.Size = new System.Drawing.Size(106, 20);
             this.lbSubNameAL.TabIndex = 36;
             this.lbSubNameAL.Text = "Tên môn học";
             // 
@@ -284,9 +291,10 @@ namespace StudentSupportApp
             this.lbDIWAL.BackColor = System.Drawing.Color.Transparent;
             this.lbDIWAL.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDIWAL.ForeColor = System.Drawing.Color.Black;
-            this.lbDIWAL.Location = new System.Drawing.Point(194, 140);
+            this.lbDIWAL.Location = new System.Drawing.Point(129, 91);
+            this.lbDIWAL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbDIWAL.Name = "lbDIWAL";
-            this.lbDIWAL.Size = new System.Drawing.Size(182, 29);
+            this.lbDIWAL.Size = new System.Drawing.Size(125, 20);
             this.lbDIWAL.TabIndex = 35;
             this.lbDIWAL.Text = "Ngày trong tuần";
             // 
@@ -296,9 +304,10 @@ namespace StudentSupportApp
             this.lbSemAL.BackColor = System.Drawing.Color.Transparent;
             this.lbSemAL.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSemAL.ForeColor = System.Drawing.Color.Black;
-            this.lbSemAL.Location = new System.Drawing.Point(194, 58);
+            this.lbSemAL.Location = new System.Drawing.Point(129, 38);
+            this.lbSemAL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSemAL.Name = "lbSemAL";
-            this.lbSemAL.Size = new System.Drawing.Size(126, 29);
+            this.lbSemAL.Size = new System.Drawing.Size(88, 20);
             this.lbSemAL.TabIndex = 34;
             this.lbSemAL.Text = "Tên học kì";
             // 
@@ -319,9 +328,10 @@ namespace StudentSupportApp
             "8",
             "9",
             "10"});
-            this.cbxTimeOrderEnd.Location = new System.Drawing.Point(604, 417);
+            this.cbxTimeOrderEnd.Location = new System.Drawing.Point(403, 271);
+            this.cbxTimeOrderEnd.Margin = new System.Windows.Forms.Padding(2);
             this.cbxTimeOrderEnd.Name = "cbxTimeOrderEnd";
-            this.cbxTimeOrderEnd.Size = new System.Drawing.Size(96, 35);
+            this.cbxTimeOrderEnd.Size = new System.Drawing.Size(65, 27);
             this.cbxTimeOrderEnd.TabIndex = 47;
             this.cbxTimeOrderEnd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxTimeOrderEnd_KeyDown);
             // 
@@ -331,17 +341,18 @@ namespace StudentSupportApp
             this.lbFromTo.BackColor = System.Drawing.Color.Transparent;
             this.lbFromTo.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFromTo.ForeColor = System.Drawing.Color.Black;
-            this.lbFromTo.Location = new System.Drawing.Point(516, 423);
+            this.lbFromTo.Location = new System.Drawing.Point(344, 275);
+            this.lbFromTo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbFromTo.Name = "lbFromTo";
-            this.lbFromTo.Size = new System.Drawing.Size(51, 29);
+            this.lbFromTo.Size = new System.Drawing.Size(35, 20);
             this.lbFromTo.TabIndex = 48;
             this.lbFromTo.Text = "đến";
             // 
             // AddLessonForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 569);
+            this.ClientSize = new System.Drawing.Size(533, 370);
             this.Controls.Add(this.lbFromTo);
             this.Controls.Add(this.cbxTimeOrderEnd);
             this.Controls.Add(this.GradientPanelAddLesson);
@@ -358,8 +369,10 @@ namespace StudentSupportApp
             this.Controls.Add(this.lbDIWAL);
             this.Controls.Add(this.lbSemAL);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddLessonForm";
             this.Text = "AddLessonForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddLessonForm_FormClosed);
             this.GradientPanelAddLesson.ResumeLayout(false);
             this.GradientPanelAddLesson.PerformLayout();
             this.ResumeLayout(false);

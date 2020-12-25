@@ -100,26 +100,6 @@ namespace StudentSupportApp
                 Connection.CloseConnection();
             }
         }
-        public void DeleteReview()
-        {
-            try
-            {
-                Connection.OpenConnection();
-                string Query = "";
-                SqlCommand cmd = Connection.CreateSQLCmd(Query);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
-                ReportError rp = new ReportError(ex);
-                rp.Show();
-            }
-            finally
-            {
-                Connection.CloseConnection();
-            }
-        }
         public void UpdateReviewInfo()
         {
             try
@@ -312,6 +292,27 @@ namespace StudentSupportApp
                 this.Connection.CloseConnection();
             }
             return temp;
+        }
+        public void DeleteReview()
+        {
+            string Query = "DELETE FROM REVIEW WHERE ID=" + ID.ToString();
+            try
+            {
+                this.Connection.OpenConnection();
+                SqlCommand command = this.Connection.CreateSQLCmd(Query);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Xóa bài viết thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi, vui lòng liên hệ đội ngũ phát triển!");
+                ReportError rp = new ReportError(ex);
+                rp.Show();
+            }
+            finally
+            {
+                this.Connection.CloseConnection();
+            }
         }
     }
 }

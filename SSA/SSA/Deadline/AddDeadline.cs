@@ -70,13 +70,15 @@ namespace StudentSupportApp
             {
                 if (comboBoxTime.Text == "PM")
                     h += 12;
+                if (h == 24)
+                    h = 0;
             }
         }
         private void tbAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                string[] sTempString = new string[7];
+                string[] sTempString = new string[8];
                 sTempString[1] = btbSubID.Text;
                 sTempString[2] = btbSubject.Text;
                 sTempString[3] = btbDetails.Text;
@@ -90,7 +92,8 @@ namespace StudentSupportApp
                     DateTime TempDateTime = new DateTime(bDateTime.Value.Year, bDateTime.Value.Month, bDateTime.Value.Day, hour, min, 0);
                     sTempString[4] = TempDateTime.ToString();
                     sTempString[5] = btbStatus.Text;
-                    sTempString[6] = "0";
+                    sTempString[6] = "";
+                    sTempString[7] = "0";
                     addItem(sTempString);
                     this.Hide();
                     this.parent.Show();

@@ -250,6 +250,15 @@
         RU5ErkJggg==
 </value>
   </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>- Sử dụng tiếng Việt, có dấu, tránh viết tắt.
+- Tuyệt đối KHÔNG được sử dụng teen code.
+- KHÔNG sử dụng các từ ngữ tục tĩu, khiếm nhã, thiếu văn hóa.
+- KHÔNG đăng bài viết quảng cáo. 
+- Nếu nội dung không phải của bạn thì hãy ghi nguồn khi chia sẻ để tôn trọng 
+tác giả. Nội dung có chủ đề mở rộng, không có giới hạn miễn là nội dung của 
+bạn mang lại giá trị cho cộng đồng!</value>
+  </data>
   <data name="btnUpload.Iconimage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAb9JREFUeF7t

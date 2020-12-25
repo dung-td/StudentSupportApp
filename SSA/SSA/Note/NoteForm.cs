@@ -34,8 +34,10 @@ namespace StudentSupportApp
             internal static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
         }
 
+
         string UserID;
         string oldName;
+        MainForm parent;
         public NoteForm()
         {
             InitializeComponent();
@@ -44,9 +46,10 @@ namespace StudentSupportApp
             this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
-        public NoteForm(string userID)
+        public NoteForm(MainForm parent, string userID)
         {
             InitializeComponent();
+            this.parent = parent;
             this.UserID = userID;
             this.oldName = "";
             this.FormBorderStyle = FormBorderStyle.Sizable;
@@ -58,9 +61,10 @@ namespace StudentSupportApp
             NativeWinAPI.SetWindowLong(this.Handle, NativeWinAPI.GWL_EXSTYLE, style);
         }
 
-        public NoteForm(string userID, string name, string detail)
+        public NoteForm(MainForm parent, string userID, string name, string detail)
         {
             InitializeComponent();
+            this.parent = parent;
             this.UserID = userID;
             this.oldName = "";
             this.FormBorderStyle = FormBorderStyle.Sizable;
@@ -114,6 +118,11 @@ namespace StudentSupportApp
             this.tbxNoteName.LineFocusedColor = this.tbxNoteName.LineMouseHoverColor =
             this.btnSaveNote.ActiveForecolor = this.btnSaveNote.ActiveLineColor = this.btnSaveNote.IdleLineColor = this.btnSaveNote.ForeColor = this.btnSaveNote.IdleForecolor =
             this.btnExitNote.ActiveForecolor = this.btnExitNote.ActiveLineColor = this.btnExitNote.IdleLineColor = this.btnExitNote.ForeColor = this.btnExitNote.IdleForecolor = x;
+        }
+
+        private void NoteForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.parent.LoadNotes();
         }
     }
 }

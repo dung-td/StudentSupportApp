@@ -229,6 +229,23 @@ namespace StudentSupportApp
             WriterRVForm Writer = new WriterRVForm(this, ID_User);
             Writer.Show();
         }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (Reviews[temp]._ID_User == ID_User)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa bài viết này?", "Cảnh báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                    Reviews[temp].DeleteReview();
+                string Query = "SELECT * FROM REVIEW";
+                ReadData(Query);
+                temp = 0;
+                SetReview();
+            }
+            else
+            {
+                MessageBox.Show("Đây không phải bài viết của bạn, bạn không thể chỉnh sửa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (Reviews[temp]._ID_User == ID_User)
@@ -267,6 +284,7 @@ namespace StudentSupportApp
         {
             header.BackColor =
             tbxKeyWord.LineFocusedColor = tbxKeyWord.LineMouseHoverColor = x;
+            
         }
     }
 }

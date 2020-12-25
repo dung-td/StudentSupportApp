@@ -87,18 +87,7 @@ namespace StudentSupportApp
                     lvShow.Items[index].SubItems.Add(this.lScore[i].Weight.ToString());
             }
         }
-        public void Read(StreamReader rd)
-        {
-            this.sSubject.Read();
-
-            for (int i = 0; i < 4; i++)
-                lScore[i].Read();
-
-            fAverage = ((lScore[0].Value * lScore[0].Weight + lScore[1].Value * lScore[1].Weight + lScore[2].Value * lScore[2].Weight + lScore[3].Value * lScore[3].Weight)
-                / (lScore[0].Weight + lScore[1].Weight + lScore[2].Weight + lScore[3].Weight));
-            fAverage = Math.Round(fAverage, 1);
-        }
-
+   
         public void Modify(string id, ComboBox x)
         {
             try
@@ -153,7 +142,15 @@ namespace StudentSupportApp
             }
         }
 
-
+        public void Delete(string id)
+        {
+            CONNECT.OpenConnection();
+            string sql = @"Delete FROM TableScore WHERE(SUB_ID= '" + this.SUBJECT.ID + "')";
+            sql += @"Delete From Subjects where(SUB_ID= '" + this.SUBJECT.ID + "' and ID ='" + id + "')";
+            SqlCommand command = CONNECT.CreateSQLCmd(sql);
+            command.ExecuteNonQuery();
+            CONNECT.CloseConnection();
+        }
 
         public void Add(string id, ComboBox x)
         {
