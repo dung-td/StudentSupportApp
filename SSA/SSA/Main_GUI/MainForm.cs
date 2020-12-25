@@ -8,7 +8,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
-using System.Windows;
+using System.Reflection;
 
 namespace StudentSupportApp
 {
@@ -63,6 +63,7 @@ namespace StudentSupportApp
 
             temp = this.btnHome;
             data.Read(this.User.ID);
+            this.dataGridViewTimetable.DoubleBuffered(true);
             listWeb.ShowToListView(lvWeb);
 
             this.theme = Properties.Settings.Default.Color;
@@ -233,7 +234,7 @@ namespace StudentSupportApp
                 this.btbDetails.Width += 100;
                 this.btbSubject.Width += 100;
                 this.bdateTime.Width += 100;
-                this.btbStatus.Width += 100;
+                this.btbStatus.Width += 70;
                 this.dataDeadline.Width += 208;
                 this.bunifuCards4.Width += 105;
                 this.bEditSave.Location = new Point(this.bRefresh.Location.X + 620, this.bRefresh.Location.Y);
@@ -253,7 +254,7 @@ namespace StudentSupportApp
                 this.listViewProfile.Width += 70;
                 this.btnFind.Location = new Point(this.btnFind.Location.X + 80, this.btnFind.Location.Y);
 
-                this.labelFinish.Location = new Point(this.btbStatus.Location.X + 210, this.labelFinish.Location.Y);
+                this.labelFinish.Location = new Point(this.btbStatus.Location.X + 220, this.labelFinish.Location.Y);
                 this.sliderProgress.Location = new Point(this.labelFinish.Location.X + 90, this.sliderProgress.Location.Y);
                 this.sliderProgress.Width += 50;
 
@@ -709,6 +710,7 @@ namespace StudentSupportApp
                 this.Connection.CloseConnection();
             }
         }
+        #region EventHandler
         private void bAdd_Click(object sender, EventArgs e)
         {
             AddDeadline add = new AddDeadline(this);
@@ -876,7 +878,7 @@ namespace StudentSupportApp
                 SqlCommand command = Connection.CreateSQLCmd(Query);
                 command.ExecuteNonQuery();
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
-                MessageBox.Show("SAVED!", "Notification", buttons);
+                MessageBox.Show("Đã lưu!", "Thông Báo", buttons);
             }
             catch (Exception ex)
             {
@@ -907,10 +909,10 @@ namespace StudentSupportApp
                     sQuery = "SELECT * FROM DEADLINE WHERE STATU < 100 AND ID_USER='" + User.ID + "'";
                     break;
                 case "Đã quá hạn":
-                    sQuery = "SELECT * FROM DEADLINE WHERE GETDATE() > DATESUBMIT AND ID_USER='" + User.ID + "'"; ;
+                    sQuery = "SELECT * FROM DEADLINE WHERE GETDATE() > DATESUBMIT AND ID_USER='" + User.ID + "'";
                     break;
                 case "Chưa đến hạn":
-                    sQuery = "SELECT * FROM DEADLINE WHERE GETDATE() <= DATESUBMIT AND ID_USER='" + User.ID + "'"; ;
+                    sQuery = "SELECT * FROM DEADLINE WHERE GETDATE() <= DATESUBMIT AND ID_USER='" + User.ID + "'";
                     break;
                 default:
                     sQuery = "SELECT * FROM DEADLINE WHERE ID_USER='" + User.ID + "'";
@@ -935,8 +937,8 @@ namespace StudentSupportApp
                     bDelete_Click(sender, e);
             }
         }
-        #region EventHandler
         #endregion
+
         #endregion
 
         #region Community
@@ -1011,6 +1013,17 @@ namespace StudentSupportApp
 #region Danh
 namespace StudentSupportApp
 {
+    public static class ExtensionMethods
+    {
+        public static void DoubleBuffered(this DataGridView dgv, bool setting)
+        {
+            Type dgvType = dgv.GetType();
+            PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
+                BindingFlags.Instance | BindingFlags.NonPublic);
+            pi.SetValue(dgv, setting, null);
+        }
+    }
+
     public partial class MainForm
     {
         #region Timetable
@@ -1203,7 +1216,8 @@ namespace StudentSupportApp
             try
             {
                 Timetable ti = new Timetable();
-                if (this.dataGridViewTimetable.CurrentCell.Selected == true && this.dataGridViewTimetable.CurrentCell.Value.ToString() != "")
+                if (this.dataGridViewTimetable.CurrentCell.Selected == true && this.dataGridViewTimetable.CurrentCell.Value.ToString() != ""
+                    && this.dataGridViewTimetable.CurrentCell.ColumnIndex != 0)
                 {
                     int iSubID = this.dataGridViewTimetable.CurrentCell.Value.ToString().IndexOf("\n");
                     int iCellValueLength = this.dataGridViewTimetable.CurrentCell.Value.ToString().Length;
@@ -1228,29 +1242,32 @@ namespace StudentSupportApp
         {
             try
             {
-                if (this.dataGridViewTimetable.CurrentCell.Selected == true && this.dataGridViewTimetable.CurrentCell.Value.ToString() != ""
-                    && this.dataGridViewTimetable.CurrentCell.ColumnIndex != 0)
+                const string message = "Bạn chắc chắn muốn xóa tiết học đã chọn?";
+                const string caption = "Xóa tiết học";
+                var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    const string message = "Bạn chắc chắn muốn xóa tiết học đã chọn?";
-                    const string caption = "Xóa tiết học";
-                    var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+                    Timetable Lesson = new Timetable(this.User.ID);
+                    int lessonCounter = 0;
+                    foreach (DataGridViewCell cell in dataGridViewTimetable.SelectedCells)
                     {
-                        Timetable ti = new Timetable();
-                        int iSubID = this.dataGridViewTimetable.CurrentCell.Value.ToString().IndexOf("\n");
-                        int iCellValueLength = this.dataGridViewTimetable.CurrentCell.Value.ToString().Length;
-                        List<string> sLessonData = new List<string> { cbxSem.Text, ti.SwitchDayWithNumberToNumber(this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].HeaderText).ToString(),
-                                                                    this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(0, iSubID),
-                                                                    this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(iSubID, iCellValueLength - iSubID),
-                                                                    (this.dataGridViewTimetable.CurrentCell.RowIndex + 1).ToString(), this.User.ID };
-                        Timetable Lesson = new Timetable(this.User.ID);
-                        if (Lesson.RemoveLesson(sLessonData) == 1)
+                        if (cell.Selected == true && cell.Value.ToString() != "" && cell.ColumnIndex != 0)
                         {
-                            MessageBox.Show("Xóa tiết học thành công!", "Xóa tiết học");
-                            this.dataGridViewTimetable.CurrentCell.Value = "";
+                            int iSubID = cell.Value.ToString().IndexOf("\n");
+                            int iCellValueLength = cell.Value.ToString().Length;
+                            List<string> sLessonData = new List<string> { cbxSem.Text, Lesson.SwitchDayWithNumberToNumber(this.dataGridViewTimetable.Columns[cell.ColumnIndex].HeaderText).ToString(),
+                                                                cell.Value.ToString().Substring(0, iSubID),
+                                                                cell.Value.ToString().Substring(iSubID, iCellValueLength - iSubID),
+                                                                (cell.RowIndex + 1).ToString(), this.User.ID };
+                            if (Lesson.RemoveLesson(sLessonData) == 1)
+                            {
+                                lessonCounter++;
+                                cell.Value = "";
+                            }
                         }
-                        else MessageBox.Show("Xóa tiết học thất bại!", "Xóa tiết học");
                     }
+                   
+                    MessageBox.Show("Đã xóa " + lessonCounter.ToString() + " tiết học!", "Xóa tiết học");
                 }
             }
             catch (Exception ex)
@@ -1302,6 +1319,7 @@ namespace StudentSupportApp
         {
             btnLoadTT.Visible = true;
         }
+
         private void btnSetDefault_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Text = cbxSem.Text;
@@ -1435,9 +1453,10 @@ namespace StudentSupportApp
                 {
                     if (dataGridViewTimetable.CurrentCell.Value.ToString() != "")
                     {
+                        Timetable ti = new Timetable();
                         int iSubID = this.dataGridViewTimetable.CurrentCell.Value.ToString().IndexOf("\n");
                         int iCellValueLength = this.dataGridViewTimetable.CurrentCell.Value.ToString().Length;
-                        List<string> sLessonData = new List<string> { cbxSem.Text, this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].Name,
+                        List<string> sLessonData = new List<string> { cbxSem.Text, ti.SwitchDayWithNumberToNumber(this.dataGridViewTimetable.Columns[this.dataGridViewTimetable.CurrentCell.ColumnIndex].HeaderText).ToString(),
                                                                   this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(0, iSubID),
                                                                   this.dataGridViewTimetable.CurrentCell.Value.ToString().Substring(iSubID, iCellValueLength - iSubID),
                                                                   (this.dataGridViewTimetable.CurrentCell.RowIndex + 1).ToString(), this.User.ID };
@@ -1471,6 +1490,7 @@ namespace StudentSupportApp
                             DeleleNoteFromDatabase(cell.Value.ToString());
                     }
 
+                    MessageBox.Show("Xóa ghi chú thành công!", "Xóa ghi chú");
                     dataGridViewNote.Rows.Clear();
                     LoadNotes();
                 }
@@ -1507,6 +1527,7 @@ namespace StudentSupportApp
         {
             try
             {
+                dataGridViewNote.Rows.Clear();
                 string Query = "SELECT NOTE_NAME FROM NOTE WHERE ID_USER='" + this.User.ID + "'";
                 this.Connection.OpenConnection();
 
@@ -1545,7 +1566,7 @@ namespace StudentSupportApp
 
                 SqlCommand Command = Connection.CreateSQLCmd(sQuery);
                 Command.ExecuteNonQuery();
-                MessageBox.Show("Xóa ghi chú thành công!", "Xóa ghi chú");
+           
             }
             catch (Exception ex)
             {

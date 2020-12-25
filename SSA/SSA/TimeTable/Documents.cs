@@ -101,15 +101,18 @@ namespace StudentSupportApp
                 int index = 0;
                 if (listView1.SelectedItems.Count > 0)
                 {
-                    foreach (string a in files)
+                    foreach (ListViewItem lvi in listView1.SelectedItems)
                     {
-                        if (a.Contains(listView1.SelectedItems[0].Text))
+                        foreach (string a in files)
                         {
-                            index = files.IndexOf(a);
-                            break;
+                            if (a.Contains(lvi.Text))
+                            {
+                                index = files.IndexOf(a);
+                                break;
+                            }
                         }
+                        System.Diagnostics.Process.Start(files[index]);
                     }
-                    System.Diagnostics.Process.Start(files[index]);
                 }
             }
             catch (Exception ex)
@@ -137,8 +140,8 @@ namespace StudentSupportApp
                     connection.OpenConnection();
                     string sql = @"UPDATE LESSON
                                     SET DOCUMENTS=N'" + sDocs +
-                                 "' WHERE ID_USER='" + sUserID + "' AND DAYINWEEK=N'" + sLessonInfo[1] +
-                                       "' AND TIMEORDER=" + sLessonInfo[4] + " AND SUB_ID='" + sLessonInfo[3].Remove(0, 1) +
+                                 "' WHERE ID_USER='" + sUserID + "' AND DAYINWEEK=" + sLessonInfo[1] +
+                                       " AND TIMEORDER=" + sLessonInfo[4] + " AND SUB_ID='" + sLessonInfo[3].Remove(0, 1) +
                                        "' AND SUB_NAME=N'" + sLessonInfo[2] + "' AND SEM_NAME=N'" + sLessonInfo[0] + "'";
                     SqlCommand command = connection.CreateSQLCmd(sql);
                     command.ExecuteNonQuery();
@@ -269,7 +272,16 @@ namespace StudentSupportApp
         {
             if (listView1.Items.Count > 0)
             {
-                this.listView1.Items.RemoveAt(this.listView1.SelectedItems[0].Index);
+                const string message = "Bạn chắc chắn muốn xóa các ghi chú đã chọn?";
+                const string caption = "Xóa ghi chú";
+                var result = MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    foreach (ListViewItem lvi in listView1.SelectedItems)
+                    {
+                        this.listView1.Items.RemoveAt(lvi.Index);
+                    }
+                }
             }
         }
 

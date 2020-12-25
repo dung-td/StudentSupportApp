@@ -36,7 +36,7 @@ namespace StudentSupportApp
             this.parent2 = parent;
             InitializeComponent();
             SetColor(Properties.Settings.Default.Color);
-            this.Size = new Size(900, 470);
+            this.Size = new Size(1015, 550);
         }
         public WriterRVForm(MainForm parent, string ID_User)
         {
@@ -46,7 +46,7 @@ namespace StudentSupportApp
             this.parent1 = parent;
             InitializeComponent();
             SetColor(Properties.Settings.Default.Color);
-            this.Size = new Size(900, 470);
+            this.Size = new Size(1015, 550);
         }
         public WriterRVForm(ReviewForm parent, int ID, string[] args, DateTime Date)
         {
@@ -113,6 +113,11 @@ namespace StudentSupportApp
         {
             this.Hide();
             e.Cancel = true;
+        }
+
+        private void header_MouseDown(object sender, MouseEventArgs e)
+        {
+            OnMouseDown(e);
         }
     }
 }
