@@ -237,8 +237,8 @@ namespace StudentSupportApp
             {
                 UpdateInfo.OpenConnection();
                 string sUpdateData = "UPDATE USERS " +
-                    "                 SET BIRTH='" + newInfo[1] + "' , FULLNAME='" + newInfo[0] +
-                                        "' , GENDER='" + newInfo[2] + "' , CLASSNAME='" + newInfo[3] +
+                    "                 SET BIRTH='" + newInfo[1] + "' , FULLNAME=N'" + newInfo[0] +
+                                        "' , GENDER=N'" + newInfo[2] + "' , CLASSNAME=N'" + newInfo[3] +
                                    "' WHERE ID_USER='" + id + "'";
 
                 SqlCommand UpdateCommand = UpdateInfo.CreateSQLCmd(sUpdateData);
@@ -263,7 +263,7 @@ namespace StudentSupportApp
             try
             {
                 string sCheckLogin = "INSERT INTO USERS VALUES('" + this.ID + "', '" + this.Email + "', '" + this.Birth.ToShortDateString() + "', '" +
-                                                                    this.Password + "', '" + this.Name + "', '" + this.Class + "', '" + this.Gender + "')";
+                                                                    this.Password + "', N'" + this.Name + "', N'" + this.Class + "', N'" + this.Gender + "')";
                 this.Connection.OpenConnection();
                 SqlCommand command = this.Connection.CreateSQLCmd(sCheckLogin);
                 command.ExecuteNonQuery();

@@ -39,7 +39,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -71,6 +70,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             AnimatorNS.Animation animation2 = new AnimatorNS.Animation();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.header = new System.Windows.Forms.Panel();
             this.btnMinimize = new Bunifu.Framework.UI.BunifuImageButton();
@@ -782,7 +782,7 @@
             this.animation1.SetDecoration(this.bunifuCards5, AnimatorNS.DecorationType.None);
             this.bunifuCards5.LeftSahddow = false;
             this.bunifuCards5.Location = new System.Drawing.Point(627, 346);
-            this.bunifuCards5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuCards5.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuCards5.Name = "bunifuCards5";
             this.bunifuCards5.RightSahddow = true;
             this.bunifuCards5.ShadowDepth = 20;
@@ -837,7 +837,7 @@
             this.animation1.SetDecoration(this.bCardTimetable, AnimatorNS.DecorationType.None);
             this.bCardTimetable.LeftSahddow = false;
             this.bCardTimetable.Location = new System.Drawing.Point(117, 11);
-            this.bCardTimetable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bCardTimetable.Margin = new System.Windows.Forms.Padding(2);
             this.bCardTimetable.Name = "bCardTimetable";
             this.bCardTimetable.RightSahddow = true;
             this.bCardTimetable.ShadowDepth = 20;
@@ -883,7 +883,7 @@
             this.dataGridViewTimetable.DefaultCellStyle = dataGridViewCellStyle37;
             this.dataGridViewTimetable.GridColor = System.Drawing.Color.DimGray;
             this.dataGridViewTimetable.Location = new System.Drawing.Point(9, 36);
-            this.dataGridViewTimetable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewTimetable.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewTimetable.Name = "dataGridViewTimetable";
             this.dataGridViewTimetable.ReadOnly = true;
             dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1011,12 +1011,11 @@
             this.panelHome.Controls.Add(this.bunifuCardTodayTT);
             this.panelHome.Controls.Add(this.bunifuCards5);
             this.animation1.SetDecoration(this.panelHome, AnimatorNS.DecorationType.None);
-            this.panelHome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelHome.Location = new System.Drawing.Point(248, 34);
-            this.panelHome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelHome.Location = new System.Drawing.Point(809, 412);
+            this.panelHome.Margin = new System.Windows.Forms.Padding(2);
             this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(676, 478);
+            this.panelHome.Size = new System.Drawing.Size(115, 100);
             this.panelHome.TabIndex = 8;
             // 
             // bunifuCardsNote
@@ -1032,7 +1031,7 @@
             this.animation1.SetDecoration(this.bunifuCardsNote, AnimatorNS.DecorationType.None);
             this.bunifuCardsNote.LeftSahddow = false;
             this.bunifuCardsNote.Location = new System.Drawing.Point(629, 125);
-            this.bunifuCardsNote.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuCardsNote.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuCardsNote.Name = "bunifuCardsNote";
             this.bunifuCardsNote.RightSahddow = true;
             this.bunifuCardsNote.ShadowDepth = 20;
@@ -1059,7 +1058,7 @@
             this.btnAddNote.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnAddNote.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnAddNote.Location = new System.Drawing.Point(27, 153);
-            this.btnAddNote.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAddNote.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddNote.Name = "btnAddNote";
             this.btnAddNote.Size = new System.Drawing.Size(53, 40);
             this.btnAddNote.TabIndex = 48;
@@ -1086,7 +1085,7 @@
             this.btnDelNote.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnDelNote.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnDelNote.Location = new System.Drawing.Point(100, 153);
-            this.btnDelNote.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnDelNote.Margin = new System.Windows.Forms.Padding(5);
             this.btnDelNote.Name = "btnDelNote";
             this.btnDelNote.Size = new System.Drawing.Size(55, 40);
             this.btnDelNote.TabIndex = 46;
@@ -1129,7 +1128,7 @@
             this.dataGridViewNote.HeaderBgColor = System.Drawing.SystemColors.Highlight;
             this.dataGridViewNote.HeaderForeColor = System.Drawing.Color.White;
             this.dataGridViewNote.Location = new System.Drawing.Point(3, 34);
-            this.dataGridViewNote.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewNote.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewNote.Name = "dataGridViewNote";
             this.dataGridViewNote.ReadOnly = true;
             this.dataGridViewNote.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -1215,7 +1214,7 @@
             this.bAddWeb.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bAddWeb.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bAddWeb.Location = new System.Drawing.Point(369, 5);
-            this.bAddWeb.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bAddWeb.Margin = new System.Windows.Forms.Padding(5);
             this.bAddWeb.Name = "bAddWeb";
             this.bAddWeb.Size = new System.Drawing.Size(32, 34);
             this.bAddWeb.TabIndex = 43;
@@ -1286,7 +1285,7 @@
             this.animation1.SetDecoration(this.bunifuCards4, AnimatorNS.DecorationType.None);
             this.bunifuCards4.LeftSahddow = false;
             this.bunifuCards4.Location = new System.Drawing.Point(207, 125);
-            this.bunifuCards4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuCards4.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuCards4.Name = "bunifuCards4";
             this.bunifuCards4.RightSahddow = true;
             this.bunifuCards4.ShadowDepth = 20;
@@ -1342,7 +1341,7 @@
             this.dataHomeDeadline.HeaderBgColor = System.Drawing.SystemColors.Highlight;
             this.dataHomeDeadline.HeaderForeColor = System.Drawing.Color.White;
             this.dataHomeDeadline.Location = new System.Drawing.Point(0, 34);
-            this.dataHomeDeadline.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataHomeDeadline.Margin = new System.Windows.Forms.Padding(2);
             this.dataHomeDeadline.Name = "dataHomeDeadline";
             this.dataHomeDeadline.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1397,7 +1396,7 @@
             this.animation1.SetDecoration(this.bunifuCardTodayTT, AnimatorNS.DecorationType.None);
             this.bunifuCardTodayTT.LeftSahddow = false;
             this.bunifuCardTodayTT.Location = new System.Drawing.Point(8, 64);
-            this.bunifuCardTodayTT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuCardTodayTT.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuCardTodayTT.Name = "bunifuCardTodayTT";
             this.bunifuCardTodayTT.RightSahddow = true;
             this.bunifuCardTodayTT.ShadowDepth = 20;
@@ -1440,7 +1439,7 @@
             this.dataGridViewHomeTimeTB.HeaderBgColor = System.Drawing.SystemColors.Highlight;
             this.dataGridViewHomeTimeTB.HeaderForeColor = System.Drawing.Color.White;
             this.dataGridViewHomeTimeTB.Location = new System.Drawing.Point(8, 25);
-            this.dataGridViewHomeTimeTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewHomeTimeTB.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewHomeTimeTB.Name = "dataGridViewHomeTimeTB";
             this.dataGridViewHomeTimeTB.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1516,7 +1515,7 @@
             this.animation1.SetDecoration(this.cardInfo, AnimatorNS.DecorationType.None);
             this.cardInfo.LeftSahddow = false;
             this.cardInfo.Location = new System.Drawing.Point(304, 16);
-            this.cardInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cardInfo.Margin = new System.Windows.Forms.Padding(2);
             this.cardInfo.Name = "cardInfo";
             this.cardInfo.RightSahddow = true;
             this.cardInfo.ShadowDepth = 20;
@@ -1565,7 +1564,7 @@
             this.btbSubject.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbSubject.LineThickness = 4;
             this.btbSubject.Location = new System.Drawing.Point(103, 27);
-            this.btbSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btbSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btbSubject.Name = "btbSubject";
             this.btbSubject.Size = new System.Drawing.Size(350, 51);
             this.btbSubject.TabIndex = 18;
@@ -1599,7 +1598,7 @@
             this.btbDetails.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbDetails.LineThickness = 4;
             this.btbDetails.Location = new System.Drawing.Point(103, 80);
-            this.btbDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btbDetails.Margin = new System.Windows.Forms.Padding(4);
             this.btbDetails.Name = "btbDetails";
             this.btbDetails.Size = new System.Drawing.Size(350, 51);
             this.btbDetails.TabIndex = 17;
@@ -1620,7 +1619,7 @@
             this.btbStatus.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.btbStatus.LineThickness = 4;
             this.btbStatus.Location = new System.Drawing.Point(103, 165);
-            this.btbStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btbStatus.Margin = new System.Windows.Forms.Padding(4);
             this.btbStatus.Name = "btbStatus";
             this.btbStatus.Size = new System.Drawing.Size(150, 51);
             this.btbStatus.TabIndex = 16;
@@ -1732,7 +1731,7 @@
             this.bEditSave.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bEditSave.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.bEditSave.Location = new System.Drawing.Point(259, 227);
-            this.bEditSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bEditSave.Margin = new System.Windows.Forms.Padding(4);
             this.bEditSave.Name = "bEditSave";
             this.bEditSave.Size = new System.Drawing.Size(80, 45);
             this.bEditSave.TabIndex = 6;
@@ -1756,7 +1755,7 @@
             this.animation1.SetDecoration(this.cardStatus, AnimatorNS.DecorationType.None);
             this.cardStatus.LeftSahddow = false;
             this.cardStatus.Location = new System.Drawing.Point(12, 16);
-            this.cardStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cardStatus.Margin = new System.Windows.Forms.Padding(2);
             this.cardStatus.Name = "cardStatus";
             this.cardStatus.RightSahddow = true;
             this.cardStatus.ShadowDepth = 20;
@@ -1860,7 +1859,7 @@
             this.panelScore.Controls.Add(this.cardSBoard);
             this.animation1.SetDecoration(this.panelScore, AnimatorNS.DecorationType.None);
             this.panelScore.Location = new System.Drawing.Point(452, 70);
-            this.panelScore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelScore.Margin = new System.Windows.Forms.Padding(2);
             this.panelScore.Name = "panelScore";
             this.panelScore.Size = new System.Drawing.Size(338, 126);
             this.panelScore.TabIndex = 6;
@@ -1925,7 +1924,7 @@
             this.bExitScore.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bExitScore.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.bExitScore.Location = new System.Drawing.Point(639, 12);
-            this.bExitScore.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bExitScore.Margin = new System.Windows.Forms.Padding(5);
             this.bExitScore.Name = "bExitScore";
             this.bExitScore.Size = new System.Drawing.Size(68, 40);
             this.bExitScore.TabIndex = 107;
@@ -1958,7 +1957,7 @@
             this.bSem.IconZoom = 90D;
             this.bSem.IsTab = false;
             this.bSem.Location = new System.Drawing.Point(271, 40);
-            this.bSem.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bSem.Margin = new System.Windows.Forms.Padding(5);
             this.bSem.Name = "bSem";
             this.bSem.Normalcolor = System.Drawing.Color.Transparent;
             this.bSem.OnHovercolor = System.Drawing.Color.WhiteSmoke;
@@ -2035,7 +2034,7 @@
             this.bunifuFlatButton1.IconZoom = 90D;
             this.bunifuFlatButton1.IsTab = false;
             this.bunifuFlatButton1.Location = new System.Drawing.Point(403, -283);
-            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuFlatButton1.Name = "bunifuFlatButton1";
             this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent;
             this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.WhiteSmoke;
@@ -2110,7 +2109,7 @@
             this.bDel.IconZoom = 90D;
             this.bDel.IsTab = false;
             this.bDel.Location = new System.Drawing.Point(645, 150);
-            this.bDel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bDel.Margin = new System.Windows.Forms.Padding(5);
             this.bDel.Name = "bDel";
             this.bDel.Normalcolor = System.Drawing.Color.Transparent;
             this.bDel.OnHovercolor = System.Drawing.Color.SteelBlue;
@@ -2162,7 +2161,7 @@
             this.bModify.IconZoom = 90D;
             this.bModify.IsTab = false;
             this.bModify.Location = new System.Drawing.Point(645, 96);
-            this.bModify.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bModify.Margin = new System.Windows.Forms.Padding(5);
             this.bModify.Name = "bModify";
             this.bModify.Normalcolor = System.Drawing.Color.Transparent;
             this.bModify.OnHovercolor = System.Drawing.Color.SteelBlue;
@@ -2189,7 +2188,7 @@
             this.tbSubName.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbSubName.LineThickness = 4;
             this.tbSubName.Location = new System.Drawing.Point(22, 67);
-            this.tbSubName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSubName.Margin = new System.Windows.Forms.Padding(4);
             this.tbSubName.Name = "tbSubName";
             this.tbSubName.Size = new System.Drawing.Size(244, 42);
             this.tbSubName.TabIndex = 91;
@@ -2222,7 +2221,7 @@
             this.bAddScore.IconZoom = 90D;
             this.bAddScore.IsTab = false;
             this.bAddScore.Location = new System.Drawing.Point(645, 44);
-            this.bAddScore.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bAddScore.Margin = new System.Windows.Forms.Padding(5);
             this.bAddScore.Name = "bAddScore";
             this.bAddScore.Normalcolor = System.Drawing.Color.Transparent;
             this.bAddScore.OnHovercolor = System.Drawing.Color.SteelBlue;
@@ -2249,7 +2248,7 @@
             this.tbSubID.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbSubID.LineThickness = 4;
             this.tbSubID.Location = new System.Drawing.Point(22, 114);
-            this.tbSubID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSubID.Margin = new System.Windows.Forms.Padding(4);
             this.tbSubID.Name = "tbSubID";
             this.tbSubID.Size = new System.Drawing.Size(244, 43);
             this.tbSubID.TabIndex = 92;
@@ -2269,7 +2268,7 @@
             this.tbCredit.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbCredit.LineThickness = 4;
             this.tbCredit.Location = new System.Drawing.Point(22, 159);
-            this.tbCredit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCredit.Margin = new System.Windows.Forms.Padding(4);
             this.tbCredit.Name = "tbCredit";
             this.tbCredit.Size = new System.Drawing.Size(244, 42);
             this.tbCredit.TabIndex = 93;
@@ -2291,7 +2290,7 @@
             this.tbFinWei.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbFinWei.LineThickness = 4;
             this.tbFinWei.Location = new System.Drawing.Point(514, 156);
-            this.tbFinWei.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFinWei.Margin = new System.Windows.Forms.Padding(4);
             this.tbFinWei.Name = "tbFinWei";
             this.tbFinWei.Size = new System.Drawing.Size(55, 36);
             this.tbFinWei.TabIndex = 101;
@@ -2313,7 +2312,7 @@
             this.tbProVa.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbProVa.LineThickness = 4;
             this.tbProVa.Location = new System.Drawing.Point(422, 40);
-            this.tbProVa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbProVa.Margin = new System.Windows.Forms.Padding(4);
             this.tbProVa.Name = "tbProVa";
             this.tbProVa.Size = new System.Drawing.Size(55, 41);
             this.tbProVa.TabIndex = 94;
@@ -2335,7 +2334,7 @@
             this.tbFinVa.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbFinVa.LineThickness = 4;
             this.tbFinVa.Location = new System.Drawing.Point(422, 156);
-            this.tbFinVa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFinVa.Margin = new System.Windows.Forms.Padding(4);
             this.tbFinVa.Name = "tbFinVa";
             this.tbFinVa.Size = new System.Drawing.Size(55, 38);
             this.tbFinVa.TabIndex = 100;
@@ -2357,7 +2356,7 @@
             this.tbProWei.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbProWei.LineThickness = 4;
             this.tbProWei.Location = new System.Drawing.Point(514, 43);
-            this.tbProWei.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbProWei.Margin = new System.Windows.Forms.Padding(4);
             this.tbProWei.Name = "tbProWei";
             this.tbProWei.Size = new System.Drawing.Size(55, 40);
             this.tbProWei.TabIndex = 95;
@@ -2379,7 +2378,7 @@
             this.tbPracWei.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbPracWei.LineThickness = 4;
             this.tbPracWei.Location = new System.Drawing.Point(514, 116);
-            this.tbPracWei.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPracWei.Margin = new System.Windows.Forms.Padding(4);
             this.tbPracWei.Name = "tbPracWei";
             this.tbPracWei.Size = new System.Drawing.Size(55, 40);
             this.tbPracWei.TabIndex = 99;
@@ -2401,7 +2400,7 @@
             this.tbMidVa.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbMidVa.LineThickness = 4;
             this.tbMidVa.Location = new System.Drawing.Point(422, 80);
-            this.tbMidVa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMidVa.Margin = new System.Windows.Forms.Padding(4);
             this.tbMidVa.Name = "tbMidVa";
             this.tbMidVa.Size = new System.Drawing.Size(55, 37);
             this.tbMidVa.TabIndex = 96;
@@ -2423,7 +2422,7 @@
             this.tbPracVa.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbPracVa.LineThickness = 4;
             this.tbPracVa.Location = new System.Drawing.Point(422, 116);
-            this.tbPracVa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPracVa.Margin = new System.Windows.Forms.Padding(4);
             this.tbPracVa.Name = "tbPracVa";
             this.tbPracVa.Size = new System.Drawing.Size(55, 40);
             this.tbPracVa.TabIndex = 98;
@@ -2445,7 +2444,7 @@
             this.tbMidWei.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbMidWei.LineThickness = 4;
             this.tbMidWei.Location = new System.Drawing.Point(514, 80);
-            this.tbMidWei.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMidWei.Margin = new System.Windows.Forms.Padding(4);
             this.tbMidWei.Name = "tbMidWei";
             this.tbMidWei.Size = new System.Drawing.Size(55, 37);
             this.tbMidWei.TabIndex = 97;
@@ -2501,7 +2500,7 @@
             this.bstatisticsScore.IconZoom = 90D;
             this.bstatisticsScore.IsTab = false;
             this.bstatisticsScore.Location = new System.Drawing.Point(514, 55);
-            this.bstatisticsScore.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bstatisticsScore.Margin = new System.Windows.Forms.Padding(5);
             this.bstatisticsScore.Name = "bstatisticsScore";
             this.bstatisticsScore.Normalcolor = System.Drawing.Color.Transparent;
             this.bstatisticsScore.OnHovercolor = System.Drawing.Color.SteelBlue;
@@ -2541,7 +2540,7 @@
             this.bExportScore.IconZoom = 90D;
             this.bExportScore.IsTab = false;
             this.bExportScore.Location = new System.Drawing.Point(436, 55);
-            this.bExportScore.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bExportScore.Margin = new System.Windows.Forms.Padding(5);
             this.bExportScore.Name = "bExportScore";
             this.bExportScore.Normalcolor = System.Drawing.Color.Transparent;
             this.bExportScore.OnHovercolor = System.Drawing.Color.SteelBlue;
@@ -2724,7 +2723,7 @@
             this.animation1.SetDecoration(this.cardTheme, AnimatorNS.DecorationType.None);
             this.cardTheme.LeftSahddow = false;
             this.cardTheme.Location = new System.Drawing.Point(539, 26);
-            this.cardTheme.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cardTheme.Margin = new System.Windows.Forms.Padding(2);
             this.cardTheme.Name = "cardTheme";
             this.cardTheme.RightSahddow = true;
             this.cardTheme.ShadowDepth = 20;
@@ -2945,7 +2944,7 @@
             this.animation1.SetDecoration(this.cardMore, AnimatorNS.DecorationType.None);
             this.cardMore.LeftSahddow = false;
             this.cardMore.Location = new System.Drawing.Point(29, 270);
-            this.cardMore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cardMore.Margin = new System.Windows.Forms.Padding(2);
             this.cardMore.Name = "cardMore";
             this.cardMore.RightSahddow = true;
             this.cardMore.ShadowDepth = 20;
@@ -3093,7 +3092,7 @@
             this.animation1.SetDecoration(this.cardAcc, AnimatorNS.DecorationType.None);
             this.cardAcc.LeftSahddow = false;
             this.cardAcc.Location = new System.Drawing.Point(29, 24);
-            this.cardAcc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cardAcc.Margin = new System.Windows.Forms.Padding(2);
             this.cardAcc.Name = "cardAcc";
             this.cardAcc.RightSahddow = true;
             this.cardAcc.ShadowDepth = 20;
@@ -3140,7 +3139,7 @@
             this.bDelAcc.IconZoom = 60D;
             this.bDelAcc.IsTab = false;
             this.bDelAcc.Location = new System.Drawing.Point(119, 143);
-            this.bDelAcc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bDelAcc.Margin = new System.Windows.Forms.Padding(5);
             this.bDelAcc.Name = "bDelAcc";
             this.bDelAcc.Normalcolor = System.Drawing.Color.Transparent;
             this.bDelAcc.OnHovercolor = System.Drawing.Color.LightGray;
@@ -3179,7 +3178,7 @@
             this.bSetData.IconZoom = 60D;
             this.bSetData.IsTab = false;
             this.bSetData.Location = new System.Drawing.Point(119, 73);
-            this.bSetData.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bSetData.Margin = new System.Windows.Forms.Padding(5);
             this.bSetData.Name = "bSetData";
             this.bSetData.Normalcolor = System.Drawing.Color.Transparent;
             this.bSetData.OnHovercolor = System.Drawing.Color.LightGray;
@@ -3214,7 +3213,7 @@
             this.panelNoti.Controls.Add(this.cardStatus);
             this.animation1.SetDecoration(this.panelNoti, AnimatorNS.DecorationType.None);
             this.panelNoti.Location = new System.Drawing.Point(634, 314);
-            this.panelNoti.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelNoti.Margin = new System.Windows.Forms.Padding(2);
             this.panelNoti.Name = "panelNoti";
             this.panelNoti.Size = new System.Drawing.Size(135, 59);
             this.panelNoti.TabIndex = 4;
@@ -3237,7 +3236,7 @@
             this.animation1.SetDecoration(this.cardDeadline, AnimatorNS.DecorationType.None);
             this.cardDeadline.LeftSahddow = false;
             this.cardDeadline.Location = new System.Drawing.Point(12, 253);
-            this.cardDeadline.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cardDeadline.Margin = new System.Windows.Forms.Padding(2);
             this.cardDeadline.Name = "cardDeadline";
             this.cardDeadline.RightSahddow = true;
             this.cardDeadline.ShadowDepth = 20;
@@ -3264,7 +3263,7 @@
             this.btnStatistic.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnStatistic.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnStatistic.Location = new System.Drawing.Point(342, 227);
-            this.btnStatistic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStatistic.Margin = new System.Windows.Forms.Padding(4);
             this.btnStatistic.Name = "btnStatistic";
             this.btnStatistic.Size = new System.Drawing.Size(97, 45);
             this.btnStatistic.TabIndex = 9;
@@ -3425,7 +3424,7 @@
             this.dataDeadline.HeaderBgColor = System.Drawing.SystemColors.Highlight;
             this.dataDeadline.HeaderForeColor = System.Drawing.Color.White;
             this.dataDeadline.Location = new System.Drawing.Point(14, 33);
-            this.dataDeadline.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataDeadline.Margin = new System.Windows.Forms.Padding(2);
             this.dataDeadline.Name = "dataDeadline";
             this.dataDeadline.ReadOnly = true;
             this.dataDeadline.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -3590,7 +3589,7 @@
             this.panelTimetable.Controls.Add(this.bCardTimeline);
             this.animation1.SetDecoration(this.panelTimetable, AnimatorNS.DecorationType.None);
             this.panelTimetable.Location = new System.Drawing.Point(357, 352);
-            this.panelTimetable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTimetable.Margin = new System.Windows.Forms.Padding(2);
             this.panelTimetable.Name = "panelTimetable";
             this.panelTimetable.Size = new System.Drawing.Size(231, 160);
             this.panelTimetable.TabIndex = 5;
@@ -3610,7 +3609,7 @@
             this.animation1.SetDecoration(this.bCardFunc, AnimatorNS.DecorationType.None);
             this.bCardFunc.LeftSahddow = false;
             this.bCardFunc.Location = new System.Drawing.Point(11, 195);
-            this.bCardFunc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bCardFunc.Margin = new System.Windows.Forms.Padding(2);
             this.bCardFunc.Name = "bCardFunc";
             this.bCardFunc.RightSahddow = true;
             this.bCardFunc.ShadowDepth = 20;
@@ -3781,7 +3780,7 @@
             this.animation1.SetDecoration(this.bCardTimeline, AnimatorNS.DecorationType.None);
             this.bCardTimeline.LeftSahddow = false;
             this.bCardTimeline.Location = new System.Drawing.Point(9, 11);
-            this.bCardTimeline.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bCardTimeline.Margin = new System.Windows.Forms.Padding(2);
             this.bCardTimeline.Name = "bCardTimeline";
             this.bCardTimeline.RightSahddow = true;
             this.bCardTimeline.ShadowDepth = 20;
@@ -3875,7 +3874,7 @@
             this.cbxSem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSem.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSem.Location = new System.Drawing.Point(10, 49);
-            this.cbxSem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxSem.Margin = new System.Windows.Forms.Padding(2);
             this.cbxSem.Name = "cbxSem";
             this.cbxSem.Size = new System.Drawing.Size(81, 23);
             this.cbxSem.TabIndex = 1;
@@ -3887,7 +3886,7 @@
             this.panelInfo.Controls.Add(this.bunifuCardUserInfo);
             this.animation1.SetDecoration(this.panelInfo, AnimatorNS.DecorationType.None);
             this.panelInfo.Location = new System.Drawing.Point(253, 45);
-            this.panelInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelInfo.Margin = new System.Windows.Forms.Padding(2);
             this.panelInfo.Name = "panelInfo";
             this.panelInfo.Size = new System.Drawing.Size(79, 90);
             this.panelInfo.TabIndex = 9;
@@ -3908,7 +3907,7 @@
             this.animation1.SetDecoration(this.bunifuCardAcc, AnimatorNS.DecorationType.None);
             this.bunifuCardAcc.LeftSahddow = false;
             this.bunifuCardAcc.Location = new System.Drawing.Point(19, 332);
-            this.bunifuCardAcc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuCardAcc.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuCardAcc.Name = "bunifuCardAcc";
             this.bunifuCardAcc.RightSahddow = true;
             this.bunifuCardAcc.ShadowDepth = 20;
@@ -3935,7 +3934,7 @@
             this.bChangePassword.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bChangePassword.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.bChangePassword.Location = new System.Drawing.Point(629, 103);
-            this.bChangePassword.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bChangePassword.Margin = new System.Windows.Forms.Padding(5);
             this.bChangePassword.Name = "bChangePassword";
             this.bChangePassword.Size = new System.Drawing.Size(112, 59);
             this.bChangePassword.TabIndex = 70;
@@ -3962,7 +3961,7 @@
             this.btnChangeEmail.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnChangeEmail.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnChangeEmail.Location = new System.Drawing.Point(628, 40);
-            this.btnChangeEmail.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnChangeEmail.Margin = new System.Windows.Forms.Padding(5);
             this.btnChangeEmail.Name = "btnChangeEmail";
             this.btnChangeEmail.Size = new System.Drawing.Size(112, 59);
             this.btnChangeEmail.TabIndex = 69;
@@ -4112,7 +4111,7 @@
             this.animation1.SetDecoration(this.bunifuCardUserInfo, AnimatorNS.DecorationType.None);
             this.bunifuCardUserInfo.LeftSahddow = false;
             this.bunifuCardUserInfo.Location = new System.Drawing.Point(19, 25);
-            this.bunifuCardUserInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuCardUserInfo.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuCardUserInfo.Name = "bunifuCardUserInfo";
             this.bunifuCardUserInfo.RightSahddow = true;
             this.bunifuCardUserInfo.ShadowDepth = 20;
@@ -4152,7 +4151,7 @@
             this.btnCancelInfo.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnCancelInfo.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnCancelInfo.Location = new System.Drawing.Point(647, 190);
-            this.btnCancelInfo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCancelInfo.Margin = new System.Windows.Forms.Padding(5);
             this.btnCancelInfo.Name = "btnCancelInfo";
             this.btnCancelInfo.Size = new System.Drawing.Size(93, 53);
             this.btnCancelInfo.TabIndex = 67;
@@ -4180,7 +4179,7 @@
             this.btnSaveInfo.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnSaveInfo.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnSaveInfo.Location = new System.Drawing.Point(647, 119);
-            this.btnSaveInfo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSaveInfo.Margin = new System.Windows.Forms.Padding(5);
             this.btnSaveInfo.Name = "btnSaveInfo";
             this.btnSaveInfo.Size = new System.Drawing.Size(93, 53);
             this.btnSaveInfo.TabIndex = 66;
@@ -4208,7 +4207,7 @@
             this.btnChangeInfo.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnChangeInfo.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnChangeInfo.Location = new System.Drawing.Point(647, 45);
-            this.btnChangeInfo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnChangeInfo.Margin = new System.Windows.Forms.Padding(5);
             this.btnChangeInfo.Name = "btnChangeInfo";
             this.btnChangeInfo.Size = new System.Drawing.Size(93, 53);
             this.btnChangeInfo.TabIndex = 65;
@@ -4464,9 +4463,10 @@
             this.panelSocial.Controls.Add(this.cardProfile);
             this.panelSocial.Controls.Add(this.cardCommunity);
             this.animation1.SetDecoration(this.panelSocial, AnimatorNS.DecorationType.None);
-            this.panelSocial.Location = new System.Drawing.Point(357, 259);
+            this.panelSocial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSocial.Location = new System.Drawing.Point(248, 34);
             this.panelSocial.Name = "panelSocial";
-            this.panelSocial.Size = new System.Drawing.Size(155, 75);
+            this.panelSocial.Size = new System.Drawing.Size(676, 478);
             this.panelSocial.TabIndex = 11;
             // 
             // cardSubRV
@@ -4661,7 +4661,7 @@
             this.tbxEmail.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbxEmail.LineThickness = 4;
             this.tbxEmail.Location = new System.Drawing.Point(93, 187);
-            this.tbxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(300, 40);
             this.tbxEmail.TabIndex = 8;
@@ -4681,7 +4681,7 @@
             this.tbxName.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbxName.LineThickness = 4;
             this.tbxName.Location = new System.Drawing.Point(93, 126);
-            this.tbxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(4);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(300, 40);
             this.tbxName.TabIndex = 7;
@@ -4701,7 +4701,7 @@
             this.tbxID.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbxID.LineThickness = 4;
             this.tbxID.Location = new System.Drawing.Point(93, 71);
-            this.tbxID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxID.Margin = new System.Windows.Forms.Padding(4);
             this.tbxID.Name = "tbxID";
             this.tbxID.Size = new System.Drawing.Size(300, 40);
             this.tbxID.TabIndex = 6;
@@ -4799,7 +4799,7 @@
             this.tbxFind.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbxFind.LineThickness = 3;
             this.tbxFind.Location = new System.Drawing.Point(18, 46);
-            this.tbxFind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxFind.Margin = new System.Windows.Forms.Padding(4);
             this.tbxFind.Name = "tbxFind";
             this.tbxFind.Size = new System.Drawing.Size(321, 49);
             this.tbxFind.TabIndex = 2;
@@ -4822,8 +4822,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 512);
-            this.Controls.Add(this.panelHome);
             this.Controls.Add(this.panelSocial);
+            this.Controls.Add(this.panelHome);
             this.Controls.Add(this.panelNoti);
             this.Controls.Add(this.panelScore);
             this.Controls.Add(this.panelTimetable);
@@ -4834,7 +4834,7 @@
             this.animation1.SetDecoration(this, AnimatorNS.DecorationType.None);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(1067, 585);
             this.MinimumSize = new System.Drawing.Size(909, 472);
             this.Name = "MainForm";
