@@ -39,6 +39,9 @@ namespace StudentSupportApp
             this.Email = email;
             this.ID = id;
             SetColor(Properties.Settings.Default.Color);
+
+            tbFeed.Text = "Nhập nội dung";
+            tbTitle.Text = "Nhập tiêu đề phản hồi";
         }
 
         void SetColor(Color x)
@@ -85,6 +88,30 @@ namespace StudentSupportApp
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void tbTitle_Leave(object sender, EventArgs e)
+        {
+            if (tbTitle.Text == "")
+                tbTitle.Text = "Nhập tiêu đề phản hồi";
+        }
+
+        private void tbTitle_Enter(object sender, EventArgs e)
+        {
+            if (tbTitle.Text == "Nhập tiêu đề phản hồi") 
+                tbTitle.Text = "";
+        }
+
+        private void tbFeed_Enter(object sender, EventArgs e)
+        {
+            if (tbFeed.Text == "Nhập nội dung")
+                tbFeed.Text = "";
+        }
+
+        private void tbFeed_Leave(object sender, EventArgs e)
+        {
+            if (tbFeed.Text == "")
+                tbFeed.Text = "Nhập nội dung";
         }
 
         private void bSend_Click(object sender, EventArgs e)
