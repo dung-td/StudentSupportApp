@@ -2746,9 +2746,9 @@
             this.panelSetting.Controls.Add(this.cardMore);
             this.panelSetting.Controls.Add(this.cardAcc);
             this.animation1.SetDecoration(this.panelSetting, AnimatorNS.DecorationType.None);
-            this.panelSetting.Location = new System.Drawing.Point(982, 96);
+            this.panelSetting.Location = new System.Drawing.Point(349, 278);
             this.panelSetting.Name = "panelSetting";
-            this.panelSetting.Size = new System.Drawing.Size(43, 32);
+            this.panelSetting.Size = new System.Drawing.Size(143, 134);
             this.panelSetting.TabIndex = 7;
             // 
             // cardTheme
@@ -3083,6 +3083,7 @@
             this.bShareApp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bShareApp.Textcolor = System.Drawing.SystemColors.Highlight;
             this.bShareApp.TextFont = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bShareApp.Click += new System.EventHandler(this.bShareApp_Click);
             // 
             // bFeedSup
             // 
@@ -4880,11 +4881,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 585);
             this.Controls.Add(this.panelHome);
+            this.Controls.Add(this.panelSetting);
             this.Controls.Add(this.panelSocial);
             this.Controls.Add(this.panelNoti);
             this.Controls.Add(this.panelScore);
             this.Controls.Add(this.panelTimetable);
-            this.Controls.Add(this.panelSetting);
             this.Controls.Add(this.panelInfo);
             this.Controls.Add(this.slidemenu);
             this.Controls.Add(this.header);

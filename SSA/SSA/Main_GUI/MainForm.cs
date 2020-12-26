@@ -525,6 +525,12 @@ namespace StudentSupportApp
         {
 
         }
+
+        private void bShareApp_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo sInfo = new ProcessStartInfo("https://cutt.ly/jh8aCEO");
+            Process.Start(sInfo);
+        }
     }
 }
 
