@@ -51,9 +51,8 @@ namespace StudentSupportApp
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.panel1.Controls.Add(this.lbLogin);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(162, 331);
+            this.panel1.Size = new System.Drawing.Size(116, 215);
             this.panel1.TabIndex = 70;
             // 
             // lbLogin
@@ -62,11 +61,12 @@ namespace StudentSupportApp
             this.lbLogin.BackColor = System.Drawing.Color.Transparent;
             this.lbLogin.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLogin.ForeColor = System.Drawing.Color.White;
-            this.lbLogin.Location = new System.Drawing.Point(14, 98);
+            this.lbLogin.Location = new System.Drawing.Point(-4, 62);
+            this.lbLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbLogin.Name = "lbLogin";
-            this.lbLogin.Size = new System.Drawing.Size(127, 138);
+            this.lbLogin.Size = new System.Drawing.Size(120, 62);
             this.lbLogin.TabIndex = 21;
-            this.lbLogin.Text = "Thêm\r\nhọc kì \r\nmới\r\n";
+            this.lbLogin.Text = "Thông tin\r\nhọc kỳ\r\n";
             this.lbLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbAddNew
@@ -81,10 +81,10 @@ namespace StudentSupportApp
             this.tbAddNew.LineIdleColor = System.Drawing.Color.Gray;
             this.tbAddNew.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.tbAddNew.LineThickness = 4;
-            this.tbAddNew.Location = new System.Drawing.Point(184, 118);
-            this.tbAddNew.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbAddNew.Location = new System.Drawing.Point(123, 77);
+            this.tbAddNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbAddNew.Name = "tbAddNew";
-            this.tbAddNew.Size = new System.Drawing.Size(459, 72);
+            this.tbAddNew.Size = new System.Drawing.Size(306, 47);
             this.tbAddNew.TabIndex = 69;
             this.tbAddNew.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -113,14 +113,14 @@ namespace StudentSupportApp
             this.bExit.IconVisible = true;
             this.bExit.IconZoom = 90D;
             this.bExit.IsTab = false;
-            this.bExit.Location = new System.Drawing.Point(456, 215);
-            this.bExit.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bExit.Location = new System.Drawing.Point(304, 140);
+            this.bExit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bExit.Name = "bExit";
             this.bExit.Normalcolor = System.Drawing.Color.Transparent;
             this.bExit.OnHovercolor = System.Drawing.Color.WhiteSmoke;
             this.bExit.OnHoverTextColor = System.Drawing.Color.Black;
             this.bExit.selected = false;
-            this.bExit.Size = new System.Drawing.Size(68, 60);
+            this.bExit.Size = new System.Drawing.Size(45, 39);
             this.bExit.TabIndex = 68;
             this.bExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bExit.Textcolor = System.Drawing.Color.Gray;
@@ -152,14 +152,14 @@ namespace StudentSupportApp
             this.bOK.IconVisible = true;
             this.bOK.IconZoom = 90D;
             this.bOK.IsTab = false;
-            this.bOK.Location = new System.Drawing.Point(328, 215);
-            this.bOK.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bOK.Location = new System.Drawing.Point(219, 140);
+            this.bOK.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bOK.Name = "bOK";
             this.bOK.Normalcolor = System.Drawing.Color.Transparent;
             this.bOK.OnHovercolor = System.Drawing.Color.WhiteSmoke;
             this.bOK.OnHoverTextColor = System.Drawing.Color.Black;
             this.bOK.selected = false;
-            this.bOK.Size = new System.Drawing.Size(63, 60);
+            this.bOK.Size = new System.Drawing.Size(42, 39);
             this.bOK.TabIndex = 67;
             this.bOK.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bOK.Textcolor = System.Drawing.Color.Gray;
@@ -172,24 +172,24 @@ namespace StudentSupportApp
             this.lDiaSem.BackColor = System.Drawing.Color.Transparent;
             this.lDiaSem.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lDiaSem.ForeColor = System.Drawing.Color.Black;
-            this.lDiaSem.Location = new System.Drawing.Point(261, 63);
-            this.lDiaSem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lDiaSem.Location = new System.Drawing.Point(174, 41);
             this.lDiaSem.Name = "lDiaSem";
-            this.lDiaSem.Size = new System.Drawing.Size(284, 36);
+            this.lDiaSem.Size = new System.Drawing.Size(200, 25);
             this.lDiaSem.TabIndex = 66;
             this.lDiaSem.Text = "Thêm tên học kì mới:";
             // 
             // DiaSem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 332);
+            this.ClientSize = new System.Drawing.Size(452, 216);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tbAddNew);
             this.Controls.Add(this.bExit);
             this.Controls.Add(this.bOK);
             this.Controls.Add(this.lDiaSem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DiaSem";
             this.Text = "DiaSem";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DiaSem_FormClosed);

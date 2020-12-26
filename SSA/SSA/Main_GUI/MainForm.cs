@@ -989,6 +989,8 @@ namespace StudentSupportApp
         }
         private void listViewProfile_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listViewProfile.SelectedItems.Count == 0)
+                return;
             tbxID.Text = listViewProfile.SelectedItems[0].SubItems[0].Text;
             tbxName.Text = listViewProfile.SelectedItems[0].SubItems[1].Text;
             tbxEmail.Text = listViewProfile.SelectedItems[0].SubItems[2].Text;

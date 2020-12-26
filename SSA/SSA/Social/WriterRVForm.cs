@@ -61,7 +61,7 @@ namespace StudentSupportApp
             this.tbxSubID.Text = review._SubjectID;
             this.tbxSubName.Text = review._Subject;
             this.tbxDetails.Text = review._Details;
-            this.Size = new Size(900, 470);
+            this.Size = new Size(1015, 550);
             this.parent2 = parent;
         }
         private void btnMinimize_Click(object sender, EventArgs e)
