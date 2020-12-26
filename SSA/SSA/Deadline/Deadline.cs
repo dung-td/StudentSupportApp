@@ -137,9 +137,9 @@ namespace StudentSupportApp
         {
             try
             {
-                
-                ID = "1";
-                this.GetDeadlineID(ID);
+                string temp = "1";
+                this.GetDeadlineID(ref temp);
+                ID = temp;
                 iProgress = 0;
                 this.Connection.OpenConnection();
                 string Query = "INSERT INTO DEADLINE VALUES('" + ID + "', N'" + Subject + "', '" + SubjectCode + "', N'" +
@@ -158,7 +158,7 @@ namespace StudentSupportApp
                 this.Connection.CloseConnection();
             }
         }
-        public void GetDeadlineID(string i)
+        public void GetDeadlineID(ref string i)
         {
             string Query = "SELECT TOP (1) * FROM DEADLINE ORDER BY ID DESC";
             try
