@@ -1126,6 +1126,8 @@ namespace StudentSupportApp
                 btnSetDefault.Visible = true;
                 btnModifyLess.Visible = true;
                 btnExportTT.Visible = true;
+                btnRemoveLess.Visible = true;
+                btnDeleteTT.Visible = true;
                 this.Semester = cbxSem.Text;
             }
             catch (Exception ex)
@@ -1304,7 +1306,11 @@ namespace StudentSupportApp
                         AddRowsToTimetableDataGridViews();
                         ReadSchedulesSemesterComboboxItems();
                         MessageBox.Show("Xóa TKB thành công", "Xóa TKB");
-
+                        btnSetDefault.Visible = false;
+                        btnModifyLess.Visible = false;
+                        btnExportTT.Visible = false;
+                        btnRemoveLess.Visible = false;
+                        btnDeleteTT.Visible = false;
                     }
                     else MessageBox.Show("Xóa TKB thất bại", "Xóa TKB");
                 }

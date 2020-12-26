@@ -1014,11 +1014,12 @@
             this.panelHome.Controls.Add(this.bunifuCardTodayTT);
             this.panelHome.Controls.Add(this.bunifuCards5);
             this.animation1.SetDecoration(this.panelHome, AnimatorNS.DecorationType.None);
+            this.panelHome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelHome.Location = new System.Drawing.Point(809, 412);
+            this.panelHome.Location = new System.Drawing.Point(248, 34);
             this.panelHome.Margin = new System.Windows.Forms.Padding(2);
             this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(115, 100);
+            this.panelHome.Size = new System.Drawing.Size(819, 551);
             this.panelHome.TabIndex = 8;
             // 
             // bunifuCardsNote
@@ -1900,7 +1901,7 @@
             this.panelScore.Controls.Add(this.cardAddScore);
             this.panelScore.Controls.Add(this.cardSBoard);
             this.animation1.SetDecoration(this.panelScore, AnimatorNS.DecorationType.None);
-            this.panelScore.Location = new System.Drawing.Point(452, 70);
+            this.panelScore.Location = new System.Drawing.Point(611, 45);
             this.panelScore.Margin = new System.Windows.Forms.Padding(2);
             this.panelScore.Name = "panelScore";
             this.panelScore.Size = new System.Drawing.Size(338, 126);
@@ -2745,7 +2746,7 @@
             this.panelSetting.Controls.Add(this.cardMore);
             this.panelSetting.Controls.Add(this.cardAcc);
             this.animation1.SetDecoration(this.panelSetting, AnimatorNS.DecorationType.None);
-            this.panelSetting.Location = new System.Drawing.Point(848, 84);
+            this.panelSetting.Location = new System.Drawing.Point(982, 96);
             this.panelSetting.Name = "panelSetting";
             this.panelSetting.Size = new System.Drawing.Size(43, 32);
             this.panelSetting.TabIndex = 7;
@@ -2939,7 +2940,7 @@
             // bTheme1
             // 
             this.bTheme1.Activecolor = System.Drawing.Color.Gainsboro;
-            this.bTheme1.BackColor = System.Drawing.Color.MistyRose;
+            this.bTheme1.BackColor = System.Drawing.Color.HotPink;
             this.bTheme1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bTheme1.BorderRadius = 0;
             this.bTheme1.ButtonText = "";
@@ -2962,8 +2963,8 @@
             this.bTheme1.Location = new System.Drawing.Point(41, 105);
             this.bTheme1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bTheme1.Name = "bTheme1";
-            this.bTheme1.Normalcolor = System.Drawing.Color.MistyRose;
-            this.bTheme1.OnHovercolor = System.Drawing.Color.MistyRose;
+            this.bTheme1.Normalcolor = System.Drawing.Color.HotPink;
+            this.bTheme1.OnHovercolor = System.Drawing.Color.HotPink;
             this.bTheme1.OnHoverTextColor = System.Drawing.Color.White;
             this.bTheme1.selected = false;
             this.bTheme1.Size = new System.Drawing.Size(137, 58);
@@ -3643,10 +3644,10 @@
             this.panelTimetable.Controls.Add(this.bCardTimetable);
             this.panelTimetable.Controls.Add(this.bCardTimeline);
             this.animation1.SetDecoration(this.panelTimetable, AnimatorNS.DecorationType.None);
-            this.panelTimetable.Location = new System.Drawing.Point(330, 268);
+            this.panelTimetable.Location = new System.Drawing.Point(271, 45);
             this.panelTimetable.Margin = new System.Windows.Forms.Padding(2);
             this.panelTimetable.Name = "panelTimetable";
-            this.panelTimetable.Size = new System.Drawing.Size(231, 160);
+            this.panelTimetable.Size = new System.Drawing.Size(161, 133);
             this.panelTimetable.TabIndex = 5;
             // 
             // bCardFunc
@@ -3696,6 +3697,7 @@
             this.btnDeleteTT.Size = new System.Drawing.Size(94, 55);
             this.btnDeleteTT.TabIndex = 39;
             this.btnDeleteTT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDeleteTT.Visible = false;
             this.btnDeleteTT.Click += new System.EventHandler(this.btnDeleteTT_Click);
             // 
             // btnRemoveLess
@@ -3723,6 +3725,7 @@
             this.btnRemoveLess.Size = new System.Drawing.Size(95, 61);
             this.btnRemoveLess.TabIndex = 38;
             this.btnRemoveLess.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRemoveLess.Visible = false;
             this.btnRemoveLess.Click += new System.EventHandler(this.btnRemoveLess_Click);
             // 
             // btnExportTT
@@ -3940,7 +3943,7 @@
             this.panelInfo.Controls.Add(this.bunifuCardAcc);
             this.panelInfo.Controls.Add(this.bunifuCardUserInfo);
             this.animation1.SetDecoration(this.panelInfo, AnimatorNS.DecorationType.None);
-            this.panelInfo.Location = new System.Drawing.Point(253, 45);
+            this.panelInfo.Location = new System.Drawing.Point(785, 215);
             this.panelInfo.Margin = new System.Windows.Forms.Padding(2);
             this.panelInfo.Name = "panelInfo";
             this.panelInfo.Size = new System.Drawing.Size(79, 90);
@@ -4518,10 +4521,9 @@
             this.panelSocial.Controls.Add(this.cardProfile);
             this.panelSocial.Controls.Add(this.cardCommunity);
             this.animation1.SetDecoration(this.panelSocial, AnimatorNS.DecorationType.None);
-            this.panelSocial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSocial.Location = new System.Drawing.Point(248, 34);
+            this.panelSocial.Location = new System.Drawing.Point(622, 229);
             this.panelSocial.Name = "panelSocial";
-            this.panelSocial.Size = new System.Drawing.Size(819, 551);
+            this.panelSocial.Size = new System.Drawing.Size(103, 171);
             this.panelSocial.TabIndex = 11;
             // 
             // cardSubRV
@@ -4877,9 +4879,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 585);
+            this.Controls.Add(this.panelHome);
             this.Controls.Add(this.panelSocial);
             this.Controls.Add(this.panelNoti);
-            this.Controls.Add(this.panelHome);
             this.Controls.Add(this.panelScore);
             this.Controls.Add(this.panelTimetable);
             this.Controls.Add(this.panelSetting);

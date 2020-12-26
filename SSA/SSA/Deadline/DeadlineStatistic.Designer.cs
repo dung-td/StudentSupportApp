@@ -30,11 +30,11 @@ namespace StudentSupportApp
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeadlineStatistic));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bExit = new Bunifu.Framework.UI.BunifuThinButton2();
             this.lbStatis = new System.Windows.Forms.Label();
@@ -70,7 +70,7 @@ namespace StudentSupportApp
             this.bExit.ActiveFillColor = System.Drawing.SystemColors.Highlight;
             this.bExit.ActiveForecolor = System.Drawing.Color.White;
             this.bExit.ActiveLineColor = System.Drawing.Color.Transparent;
-            this.bExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.bExit.BackColor = System.Drawing.Color.Transparent;
             this.bExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bExit.BackgroundImage")));
             this.bExit.ButtonText = "Thoát";
             this.bExit.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -105,32 +105,32 @@ namespace StudentSupportApp
             // 
             // chartStatistic
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartStatistic.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.chartStatistic.ChartAreas.Add(chartArea1);
             this.chartStatistic.Dock = System.Windows.Forms.DockStyle.Right;
-            legend3.Name = "Legend1";
-            this.chartStatistic.Legends.Add(legend3);
+            legend1.Name = "Legend1";
+            this.chartStatistic.Legends.Add(legend1);
             this.chartStatistic.Location = new System.Drawing.Point(152, 0);
             this.chartStatistic.Name = "chartStatistic";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series7.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series7.Legend = "Legend1";
-            series7.Name = "Số lượng deadline";
-            series7.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series8.Legend = "Legend1";
-            series8.Name = "Số deadline đã hoàn thành";
-            series8.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series9.Legend = "Legend1";
-            series9.Name = "Số deadline chưa hoàn thành";
-            series9.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            this.chartStatistic.Series.Add(series7);
-            this.chartStatistic.Series.Add(series8);
-            this.chartStatistic.Series.Add(series9);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Legend = "Legend1";
+            series1.Name = "Số lượng deadline";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series2.Legend = "Legend1";
+            series2.Name = "Số deadline đã hoàn thành";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series3.Legend = "Legend1";
+            series3.Name = "Số deadline chưa hoàn thành";
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            this.chartStatistic.Series.Add(series1);
+            this.chartStatistic.Series.Add(series2);
+            this.chartStatistic.Series.Add(series3);
             this.chartStatistic.Size = new System.Drawing.Size(748, 600);
             this.chartStatistic.TabIndex = 76;
             this.chartStatistic.Text = "chart1";
@@ -164,6 +164,7 @@ namespace StudentSupportApp
             // 
             // cbbTime
             // 
+            this.cbbTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTime.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTime.FormattingEnabled = true;
             this.cbbTime.Items.AddRange(new object[] {
