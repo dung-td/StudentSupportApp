@@ -160,7 +160,7 @@ namespace StudentSupportApp
         }
         public void GetDeadlineID(ref string i)
         {
-            string Query = "SELECT TOP (1) * FROM DEADLINE ORDER BY ID DESC";
+            string Query = "SELECT TOP (1) * FROM DEADLINE ORDER BY cast(DEADLINE.ID as INT) DESC";
             try
             {
                 this.Connection.OpenConnection();

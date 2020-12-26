@@ -100,7 +100,7 @@ namespace StudentSupportApp
                 this.btbStatus.Width -= 100;
                 this.dataDeadline.Width -= 208;
                 this.bunifuCards4.Width -= 105;
-                this.bEditSave.Location = new Point(this.bRefresh.Location.X + 400, this.bRefresh.Location.Y);
+                //this.bEditSave.Location = new Point(this.bRefresh.Location.X + 400, this.bRefresh.Location.Y);
                 this.bunifuCards4.Location = new Point(this.bunifuCards4.Location.X - 80, this.bunifuCards4.Location.Y);
                 this.dataHomeDeadline.Width -= 100;
 
@@ -237,7 +237,7 @@ namespace StudentSupportApp
                 this.btbStatus.Width += 70;
                 this.dataDeadline.Width += 208;
                 this.bunifuCards4.Width += 105;
-                this.bEditSave.Location = new Point(this.bRefresh.Location.X + 620, this.bRefresh.Location.Y);
+                //this.bEditSave.Location = new Point(this.bRefresh.Location.X + 620, this.bRefresh.Location.Y);
                 this.bunifuCards4.Location = new Point(this.bunifuCards4.Location.X + 80, this.bunifuCards4.Location.Y);
                 this.dataHomeDeadline.Width += 100;
 
@@ -748,7 +748,6 @@ namespace StudentSupportApp
         }
         private void bEdit_Click(object sender, EventArgs e)
         {
-            this.bEditSave.Visible = true;
             this.btbDetails.Enabled = true;
             this.btbStatus.Enabled = true;
             this.btbSubject.Enabled = true;
@@ -873,7 +872,6 @@ namespace StudentSupportApp
             this.btbStatus.Enabled = false;
             this.btbSubject.Enabled = false;
             this.btbSubID.Enabled = false;
-            this.bEditSave.Hide();
             if (btbSubID.Text == "")
                 return;
             try

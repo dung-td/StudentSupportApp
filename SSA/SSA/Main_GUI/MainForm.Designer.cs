@@ -1779,7 +1779,6 @@
             this.bEditSave.Size = new System.Drawing.Size(80, 45);
             this.bEditSave.TabIndex = 6;
             this.bEditSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bEditSave.Visible = false;
             this.bEditSave.Click += new System.EventHandler(this.bEditSave_Click);
             // 
             // cardStatus
@@ -3256,10 +3255,10 @@
             this.panelNoti.Controls.Add(this.cardInfo);
             this.panelNoti.Controls.Add(this.cardStatus);
             this.animation1.SetDecoration(this.panelNoti, AnimatorNS.DecorationType.None);
-            this.panelNoti.Location = new System.Drawing.Point(941, 158);
+            this.panelNoti.Location = new System.Drawing.Point(964, 450);
             this.panelNoti.Margin = new System.Windows.Forms.Padding(2);
             this.panelNoti.Name = "panelNoti";
-            this.panelNoti.Size = new System.Drawing.Size(68, 152);
+            this.panelNoti.Size = new System.Drawing.Size(103, 135);
             this.panelNoti.TabIndex = 4;
             // 
             // cardDeadline
@@ -3293,7 +3292,7 @@
             this.label2.AutoSize = true;
             this.animation1.SetDecoration(this.label2, AnimatorNS.DecorationType.None);
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(539, 228);
+            this.label2.Location = new System.Drawing.Point(684, 225);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 19);
@@ -3337,7 +3336,7 @@
             "Đã quá hạn",
             "Chưa đến hạn",
             "Tất cả "});
-            this.cbView.Location = new System.Drawing.Point(543, 250);
+            this.cbView.Location = new System.Drawing.Point(592, 249);
             this.cbView.Name = "cbView";
             this.cbView.Size = new System.Drawing.Size(192, 21);
             this.cbView.TabIndex = 8;
@@ -4881,9 +4880,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 585);
             this.Controls.Add(this.panelHome);
+            this.Controls.Add(this.panelNoti);
             this.Controls.Add(this.panelSetting);
             this.Controls.Add(this.panelSocial);
-            this.Controls.Add(this.panelNoti);
             this.Controls.Add(this.panelScore);
             this.Controls.Add(this.panelTimetable);
             this.Controls.Add(this.panelInfo);
