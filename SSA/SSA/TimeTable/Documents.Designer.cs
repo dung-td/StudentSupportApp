@@ -78,7 +78,7 @@ namespace StudentSupportApp
             this.GradientPanelDocuments.GradientTopLeft = System.Drawing.SystemColors.Highlight;
             this.GradientPanelDocuments.GradientTopRight = System.Drawing.SystemColors.Highlight;
             this.GradientPanelDocuments.Location = new System.Drawing.Point(0, 0);
-            this.GradientPanelDocuments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GradientPanelDocuments.Margin = new System.Windows.Forms.Padding(2);
             this.GradientPanelDocuments.Name = "GradientPanelDocuments";
             this.GradientPanelDocuments.Quality = 10;
             this.GradientPanelDocuments.Size = new System.Drawing.Size(110, 307);
@@ -95,7 +95,7 @@ namespace StudentSupportApp
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(127, 24);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(462, 215);
             this.listView1.TabIndex = 48;
@@ -139,7 +139,7 @@ namespace StudentSupportApp
             this.btnAddDoc.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnAddDoc.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnAddDoc.Location = new System.Drawing.Point(127, 256);
-            this.btnAddDoc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAddDoc.Margin = new System.Windows.Forms.Padding(5);
             this.btnAddDoc.Name = "btnAddDoc";
             this.btnAddDoc.Size = new System.Drawing.Size(84, 40);
             this.btnAddDoc.TabIndex = 49;
@@ -165,7 +165,7 @@ namespace StudentSupportApp
             this.btnOpenDoc.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnOpenDoc.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnOpenDoc.Location = new System.Drawing.Point(221, 256);
-            this.btnOpenDoc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnOpenDoc.Margin = new System.Windows.Forms.Padding(5);
             this.btnOpenDoc.Name = "btnOpenDoc";
             this.btnOpenDoc.Size = new System.Drawing.Size(81, 40);
             this.btnOpenDoc.TabIndex = 50;
@@ -191,7 +191,7 @@ namespace StudentSupportApp
             this.btnDelDoc.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnDelDoc.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnDelDoc.Location = new System.Drawing.Point(313, 256);
-            this.btnDelDoc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnDelDoc.Margin = new System.Windows.Forms.Padding(5);
             this.btnDelDoc.Name = "btnDelDoc";
             this.btnDelDoc.Size = new System.Drawing.Size(84, 40);
             this.btnDelDoc.TabIndex = 51;
@@ -217,7 +217,7 @@ namespace StudentSupportApp
             this.btnSaveDoc.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnSaveDoc.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnSaveDoc.Location = new System.Drawing.Point(409, 256);
-            this.btnSaveDoc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSaveDoc.Margin = new System.Windows.Forms.Padding(5);
             this.btnSaveDoc.Name = "btnSaveDoc";
             this.btnSaveDoc.Size = new System.Drawing.Size(84, 40);
             this.btnSaveDoc.TabIndex = 52;
@@ -243,7 +243,7 @@ namespace StudentSupportApp
             this.btnExitDoc.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnExitDoc.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnExitDoc.Location = new System.Drawing.Point(503, 256);
-            this.btnExitDoc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnExitDoc.Margin = new System.Windows.Forms.Padding(5);
             this.btnExitDoc.Name = "btnExitDoc";
             this.btnExitDoc.Size = new System.Drawing.Size(84, 40);
             this.btnExitDoc.TabIndex = 53;
@@ -263,7 +263,8 @@ namespace StudentSupportApp
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.GradientPanelDocuments);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Documents";
             this.Text = "Documents";
             this.Load += new System.EventHandler(this.Documents_Load);

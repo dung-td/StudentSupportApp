@@ -126,7 +126,7 @@ namespace StudentSupportApp
             this.bExit.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.bExit.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.bExit.Location = new System.Drawing.Point(350, 480);
-            this.bExit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bExit.Margin = new System.Windows.Forms.Padding(5);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(105, 40);
             this.bExit.TabIndex = 72;
@@ -180,7 +180,7 @@ namespace StudentSupportApp
             this.tbxSetting.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxSetting.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxSetting.Location = new System.Drawing.Point(10, 379);
-            this.tbxSetting.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxSetting.Margin = new System.Windows.Forms.Padding(2);
             this.tbxSetting.Multiline = true;
             this.tbxSetting.Name = "tbxSetting";
             this.tbxSetting.ReadOnly = true;
@@ -206,7 +206,7 @@ namespace StudentSupportApp
             this.tbxSocial.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxSocial.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxSocial.Location = new System.Drawing.Point(10, 325);
-            this.tbxSocial.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxSocial.Margin = new System.Windows.Forms.Padding(2);
             this.tbxSocial.Multiline = true;
             this.tbxSocial.Name = "tbxSocial";
             this.tbxSocial.ReadOnly = true;
@@ -232,7 +232,7 @@ namespace StudentSupportApp
             this.tbxInfomation.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxInfomation.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxInfomation.Location = new System.Drawing.Point(10, 289);
-            this.tbxInfomation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxInfomation.Margin = new System.Windows.Forms.Padding(2);
             this.tbxInfomation.Multiline = true;
             this.tbxInfomation.Name = "tbxInfomation";
             this.tbxInfomation.ReadOnly = true;
@@ -257,7 +257,7 @@ namespace StudentSupportApp
             this.tbxTimetable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxTimetable.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxTimetable.Location = new System.Drawing.Point(10, 237);
-            this.tbxTimetable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxTimetable.Margin = new System.Windows.Forms.Padding(2);
             this.tbxTimetable.Multiline = true;
             this.tbxTimetable.Name = "tbxTimetable";
             this.tbxTimetable.ReadOnly = true;
@@ -283,7 +283,7 @@ namespace StudentSupportApp
             this.tbxNotification.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxNotification.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxNotification.Location = new System.Drawing.Point(10, 184);
-            this.tbxNotification.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxNotification.Margin = new System.Windows.Forms.Padding(2);
             this.tbxNotification.Multiline = true;
             this.tbxNotification.Name = "tbxNotification";
             this.tbxNotification.ReadOnly = true;
@@ -308,7 +308,7 @@ namespace StudentSupportApp
             this.tbxScore.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxScore.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxScore.Location = new System.Drawing.Point(10, 131);
-            this.tbxScore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxScore.Margin = new System.Windows.Forms.Padding(2);
             this.tbxScore.Multiline = true;
             this.tbxScore.Name = "tbxScore";
             this.tbxScore.ReadOnly = true;
@@ -334,7 +334,7 @@ namespace StudentSupportApp
             this.tbxHome.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxHome.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxHome.Location = new System.Drawing.Point(10, 61);
-            this.tbxHome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxHome.Margin = new System.Windows.Forms.Padding(2);
             this.tbxHome.Multiline = true;
             this.tbxHome.Name = "tbxHome";
             this.tbxHome.ReadOnly = true;
@@ -395,7 +395,7 @@ namespace StudentSupportApp
             this.tbxLastWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxLastWord.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxLastWord.Location = new System.Drawing.Point(9, 184);
-            this.tbxLastWord.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxLastWord.Margin = new System.Windows.Forms.Padding(2);
             this.tbxLastWord.Multiline = true;
             this.tbxLastWord.Name = "tbxLastWord";
             this.tbxLastWord.ReadOnly = true;
@@ -422,7 +422,7 @@ namespace StudentSupportApp
             this.tbxGoal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxGoal.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxGoal.Location = new System.Drawing.Point(9, 98);
-            this.tbxGoal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxGoal.Margin = new System.Windows.Forms.Padding(2);
             this.tbxGoal.Multiline = true;
             this.tbxGoal.Name = "tbxGoal";
             this.tbxGoal.ReadOnly = true;
@@ -447,7 +447,7 @@ namespace StudentSupportApp
             this.tbxUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxUser.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxUser.Location = new System.Drawing.Point(9, 61);
-            this.tbxUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxUser.Margin = new System.Windows.Forms.Padding(2);
             this.tbxUser.Multiline = true;
             this.tbxUser.Name = "tbxUser";
             this.tbxUser.ReadOnly = true;
@@ -521,6 +521,7 @@ namespace StudentSupportApp
             this.Controls.Add(this.bExit);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AboutUs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AboutUs";

@@ -189,6 +189,7 @@ namespace StudentSupportApp
             this.Controls.Add(this.bOK);
             this.Controls.Add(this.lDiaSem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DiaSem";
             this.Text = "DiaSem";

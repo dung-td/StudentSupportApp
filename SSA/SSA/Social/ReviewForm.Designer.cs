@@ -31,6 +31,7 @@ namespace StudentSupportApp
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReviewForm));
             this.grbPost = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnEdit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnWrite = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tbxKeyWord = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -60,7 +61,6 @@ namespace StudentSupportApp
             this.btnExit = new Bunifu.Framework.UI.BunifuImageButton();
             this.label2 = new System.Windows.Forms.Label();
             this.pLogo = new System.Windows.Forms.PictureBox();
-            this.btnDelete = new Bunifu.Framework.UI.BunifuFlatButton();
             this.grbPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrev)).BeginInit();
@@ -105,6 +105,43 @@ namespace StudentSupportApp
             this.grbPost.TabIndex = 5;
             this.grbPost.TabStop = false;
             this.grbPost.Text = "Bài viết";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Activecolor = System.Drawing.Color.Transparent;
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDelete.BorderRadius = 0;
+            this.btnDelete.ButtonText = "Xóa bài viết";
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.DisabledColor = System.Drawing.Color.FloralWhite;
+            this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnDelete.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnDelete.Iconimage")));
+            this.btnDelete.Iconimage_right = null;
+            this.btnDelete.Iconimage_right_Selected = null;
+            this.btnDelete.Iconimage_Selected = null;
+            this.btnDelete.IconMarginLeft = 0;
+            this.btnDelete.IconMarginRight = 0;
+            this.btnDelete.IconRightVisible = true;
+            this.btnDelete.IconRightZoom = 0D;
+            this.btnDelete.IconVisible = true;
+            this.btnDelete.IconZoom = 80D;
+            this.btnDelete.IsTab = false;
+            this.btnDelete.Location = new System.Drawing.Point(841, 109);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnDelete.OnHovercolor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnDelete.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnDelete.selected = false;
+            this.btnDelete.Size = new System.Drawing.Size(188, 33);
+            this.btnDelete.TabIndex = 23;
+            this.btnDelete.Text = "Xóa bài viết";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDelete.Textcolor = System.Drawing.Color.Black;
+            this.btnDelete.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -541,43 +578,6 @@ namespace StudentSupportApp
             this.pLogo.TabIndex = 2;
             this.pLogo.TabStop = false;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Activecolor = System.Drawing.Color.Transparent;
-            this.btnDelete.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDelete.BorderRadius = 0;
-            this.btnDelete.ButtonText = "Xóa bài viết";
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.DisabledColor = System.Drawing.Color.FloralWhite;
-            this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnDelete.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnDelete.Iconimage")));
-            this.btnDelete.Iconimage_right = null;
-            this.btnDelete.Iconimage_right_Selected = null;
-            this.btnDelete.Iconimage_Selected = null;
-            this.btnDelete.IconMarginLeft = 0;
-            this.btnDelete.IconMarginRight = 0;
-            this.btnDelete.IconRightVisible = true;
-            this.btnDelete.IconRightZoom = 0D;
-            this.btnDelete.IconVisible = true;
-            this.btnDelete.IconZoom = 80D;
-            this.btnDelete.IsTab = false;
-            this.btnDelete.Location = new System.Drawing.Point(841, 109);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Normalcolor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnDelete.OnHovercolor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnDelete.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnDelete.selected = false;
-            this.btnDelete.Size = new System.Drawing.Size(188, 33);
-            this.btnDelete.TabIndex = 23;
-            this.btnDelete.Text = "Xóa bài viết";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnDelete.Textcolor = System.Drawing.Color.Black;
-            this.btnDelete.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // ReviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -586,6 +586,7 @@ namespace StudentSupportApp
             this.Controls.Add(this.header);
             this.Controls.Add(this.grbPost);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1067, 585);
             this.MinimumSize = new System.Drawing.Size(1067, 585);
             this.Name = "ReviewForm";

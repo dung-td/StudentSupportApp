@@ -66,7 +66,7 @@ namespace StudentSupportApp
             this.bExit.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bExit.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bExit.Location = new System.Drawing.Point(467, 290);
-            this.bExit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bExit.Margin = new System.Windows.Forms.Padding(5);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(99, 50);
             this.bExit.TabIndex = 43;
@@ -126,7 +126,7 @@ namespace StudentSupportApp
             this.bSend.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bSend.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.bSend.Location = new System.Drawing.Point(303, 290);
-            this.bSend.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bSend.Margin = new System.Windows.Forms.Padding(5);
             this.bSend.Name = "bSend";
             this.bSend.Size = new System.Drawing.Size(99, 50);
             this.bSend.TabIndex = 76;
@@ -145,7 +145,7 @@ namespace StudentSupportApp
             this.tbTitle.ForeColor = System.Drawing.Color.Black;
             this.tbTitle.isPassword = false;
             this.tbTitle.Location = new System.Drawing.Point(165, 51);
-            this.tbTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTitle.Margin = new System.Windows.Forms.Padding(4);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(412, 37);
             this.tbTitle.TabIndex = 77;
@@ -177,6 +177,7 @@ namespace StudentSupportApp
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Feedback";
             this.Text = "Feedback";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Feedback_FormClosed);

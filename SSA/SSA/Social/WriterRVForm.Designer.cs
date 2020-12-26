@@ -364,6 +364,7 @@ namespace StudentSupportApp
             this.Controls.Add(this.cardRVInfo);
             this.Controls.Add(this.cardRVDetail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WriterRVForm";
             this.Text = "WriterRVForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WriterRVForm_FormClosing);
