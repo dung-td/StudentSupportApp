@@ -95,6 +95,7 @@ namespace StudentSupportApp
             this.btbMinute.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btbMinute.OnValueChanged += new System.EventHandler(this.btbMinute_OnValueChanged);
             this.btbMinute.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btbMinute_KeyDown);
+            this.btbMinute.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btbMinute_KeyPress);
             // 
             // btbHour
             // 
@@ -116,6 +117,7 @@ namespace StudentSupportApp
             this.btbHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btbHour.OnValueChanged += new System.EventHandler(this.btbHour_OnValueChanged);
             this.btbHour.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btbHour_KeyDown);
+            this.btbHour.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btbHour_KeyPress);
             // 
             // btbSubID
             // 

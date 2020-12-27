@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace StudentSupportApp
 {
@@ -41,6 +42,7 @@ namespace StudentSupportApp
         }
         private void btbHour_OnValueChanged(object sender, EventArgs e)
         {
+
             if (!btbHour.Text.All(char.IsDigit))
                 btbHour.LineFocusedColor = Color.Red;
             else
@@ -147,6 +149,7 @@ namespace StudentSupportApp
         }
         private void btbHour_KeyDown(object sender, KeyEventArgs e)
         {
+            
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
                 btbMinute.Focus();
@@ -172,6 +175,16 @@ namespace StudentSupportApp
             {
                 btbStatus.Focus();
             }
+        }
+        private void btbHour_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Char.IsDigit(e.KeyChar) == false && e.KeyChar != (char)Keys.Back))
+                e.Handled = true;
+        }
+        private void btbMinute_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Char.IsDigit(e.KeyChar) == false && e.KeyChar != (char)Keys.Back))
+                e.Handled = true;
         }
         #endregion
     }
