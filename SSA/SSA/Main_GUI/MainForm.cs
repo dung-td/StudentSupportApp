@@ -1176,12 +1176,13 @@ namespace StudentSupportApp
                         {
                             PdfPTable pdfTable = new PdfPTable(dataGridViewTimetable.Columns.Count);
                             pdfTable.DefaultCell.Padding = 3;
-                            pdfTable.WidthPercentage = 100;
-                            pdfTable.HorizontalAlignment = Element.ALIGN_MIDDLE;
+                            pdfTable.WidthPercentage = 120;
+                            pdfTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
 
                             foreach (DataGridViewColumn column in dataGridViewTimetable.Columns)
                             {
                                 PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, fontNormal));
+                                cell.HorizontalAlignment = Element.ALIGN_CENTER;
                                 pdfTable.AddCell(cell);
                             }
 
@@ -1195,9 +1196,10 @@ namespace StudentSupportApp
 
                             using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
                             {
-                                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                Document pdfDoc = new Document(PageSize.A4, 52f, 52f, 20f, 10f);
                                 PdfWriter.GetInstance(pdfDoc, stream);
                                 pdfDoc.Open();
+                                pdfDoc.Add(new Paragraph("Thời khóa biểu: " + cbxSem.Text.ToString() + "\n\n\n", fontNormal));
                                 pdfDoc.Add(pdfTable);
                                 pdfDoc.Close();
                                 stream.Close();
@@ -1410,7 +1412,7 @@ namespace StudentSupportApp
                     }
                     else MessageBox.Show("Chỉnh sửa thất bại. Vui lòng kiểm tra và thử lại!", "Chỉnh sửa thông tin");
                 }
-
+                LoadInformationTab();
                 btnChangeInfo_Click(sender, e);
             }
             catch (Exception ex)
