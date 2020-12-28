@@ -1779,6 +1779,7 @@
             this.bEditSave.Size = new System.Drawing.Size(80, 45);
             this.bEditSave.TabIndex = 6;
             this.bEditSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bEditSave.Visible = false;
             this.bEditSave.Click += new System.EventHandler(this.bEditSave_Click);
             // 
             // cardStatus

@@ -752,6 +752,7 @@ namespace StudentSupportApp
             this.btbStatus.Enabled = true;
             this.btbSubject.Enabled = true;
             this.sliderProgress.Enabled = true;
+            this.bEditSave.Visible = true;
         }
         private void bRefresh_Click(object sender, EventArgs e)
         {
@@ -872,6 +873,7 @@ namespace StudentSupportApp
             this.btbStatus.Enabled = false;
             this.btbSubject.Enabled = false;
             this.btbSubID.Enabled = false;
+            this.bEditSave.Visible = false;
             if (btbSubID.Text == "")
                 return;
             try
@@ -1029,7 +1031,6 @@ namespace StudentSupportApp
             pi.SetValue(dgv, setting, null);
         }
     }
-
     public partial class MainForm
     {
         #region Timetable

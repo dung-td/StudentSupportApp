@@ -457,7 +457,7 @@ namespace StudentSupportApp
             // lSubID
             // 
             this.lSubID.AutoSize = true;
-            this.lSubID.Location = new System.Drawing.Point(167, 55);
+            this.lSubID.Location = new System.Drawing.Point(213, 54);
             this.lSubID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lSubID.Name = "lSubID";
             this.lSubID.Size = new System.Drawing.Size(49, 19);
@@ -467,7 +467,7 @@ namespace StudentSupportApp
             // lWriter
             // 
             this.lWriter.AutoSize = true;
-            this.lWriter.Location = new System.Drawing.Point(167, 20);
+            this.lWriter.Location = new System.Drawing.Point(213, 20);
             this.lWriter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lWriter.Name = "lWriter";
             this.lWriter.Size = new System.Drawing.Size(73, 19);
@@ -480,9 +480,9 @@ namespace StudentSupportApp
             this.lbSubName.Location = new System.Drawing.Point(387, 55);
             this.lbSubName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSubName.Name = "lbSubName";
-            this.lbSubName.Size = new System.Drawing.Size(99, 19);
+            this.lbSubName.Size = new System.Drawing.Size(157, 19);
             this.lbSubName.TabIndex = 3;
-            this.lbSubName.Text = "Tên môn học:";
+            this.lbSubName.Text = "Tên môn học/ Tiêu đề:";
             // 
             // lbDate
             // 
@@ -500,9 +500,9 @@ namespace StudentSupportApp
             this.lbIDSub.Location = new System.Drawing.Point(51, 55);
             this.lbIDSub.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbIDSub.Name = "lbIDSub";
-            this.lbIDSub.Size = new System.Drawing.Size(91, 19);
+            this.lbIDSub.Size = new System.Drawing.Size(146, 19);
             this.lbIDSub.TabIndex = 1;
-            this.lbIDSub.Text = "ID môn học:";
+            this.lbIDSub.Text = "ID môn học/ Chủ đề:";
             // 
             // lbWriter
             // 

@@ -73,6 +73,7 @@ namespace StudentSupportApp
             this.btnSaveML.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnSaveML.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnSaveML.Location = new System.Drawing.Point(185, 255);
+            this.btnSaveML.Margin = new System.Windows.Forms.Padding(5);
             this.btnSaveML.Name = "btnSaveML";
             this.btnSaveML.Size = new System.Drawing.Size(105, 40);
             this.btnSaveML.TabIndex = 59;
@@ -98,6 +99,7 @@ namespace StudentSupportApp
             this.btnExitML.IdleForecolor = System.Drawing.SystemColors.Highlight;
             this.btnExitML.IdleLineColor = System.Drawing.SystemColors.Highlight;
             this.btnExitML.Location = new System.Drawing.Point(349, 255);
+            this.btnExitML.Margin = new System.Windows.Forms.Padding(5);
             this.btnExitML.Name = "btnExitML";
             this.btnExitML.Size = new System.Drawing.Size(105, 40);
             this.btnExitML.TabIndex = 58;
@@ -117,6 +119,7 @@ namespace StudentSupportApp
             this.tbxSubIDML.LineMouseHoverColor = System.Drawing.SystemColors.Highlight;
             this.tbxSubIDML.LineThickness = 4;
             this.tbxSubIDML.Location = new System.Drawing.Point(250, 149);
+            this.tbxSubIDML.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tbxSubIDML.Name = "tbxSubIDML";
             this.tbxSubIDML.Size = new System.Drawing.Size(232, 45);
             this.tbxSubIDML.TabIndex = 57;
@@ -137,6 +140,7 @@ namespace StudentSupportApp
             this.tbxSubNaML.LineMouseHoverColor = System.Drawing.SystemColors.Highlight;
             this.tbxSubNaML.LineThickness = 4;
             this.tbxSubNaML.Location = new System.Drawing.Point(250, 96);
+            this.tbxSubNaML.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tbxSubNaML.Name = "tbxSubNaML";
             this.tbxSubNaML.Size = new System.Drawing.Size(232, 46);
             this.tbxSubNaML.TabIndex = 56;
@@ -158,6 +162,7 @@ namespace StudentSupportApp
             this.tbxSemNaML.LineMouseHoverColor = System.Drawing.SystemColors.Highlight;
             this.tbxSemNaML.LineThickness = 4;
             this.tbxSemNaML.Location = new System.Drawing.Point(250, 0);
+            this.tbxSemNaML.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tbxSemNaML.Name = "tbxSemNaML";
             this.tbxSemNaML.Size = new System.Drawing.Size(232, 54);
             this.tbxSemNaML.TabIndex = 55;
@@ -182,7 +187,7 @@ namespace StudentSupportApp
             "9",
             "10"});
             this.cbxTimeOrderM.Location = new System.Drawing.Point(250, 223);
-            this.cbxTimeOrderM.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cbxTimeOrderM.Margin = new System.Windows.Forms.Padding(1);
             this.cbxTimeOrderM.Name = "cbxTimeOrderM";
             this.cbxTimeOrderM.Size = new System.Drawing.Size(231, 27);
             this.cbxTimeOrderM.TabIndex = 54;
@@ -204,7 +209,7 @@ namespace StudentSupportApp
             "Thứ bảy",
             "Chủ nhật"});
             this.cbxDIWML.Location = new System.Drawing.Point(253, 72);
-            this.cbxDIWML.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cbxDIWML.Margin = new System.Windows.Forms.Padding(1);
             this.cbxDIWML.Name = "cbxDIWML";
             this.cbxDIWML.Size = new System.Drawing.Size(231, 27);
             this.cbxDIWML.TabIndex = 53;
@@ -288,7 +293,7 @@ namespace StudentSupportApp
             this.GradientPanelAddLesson.GradientTopLeft = System.Drawing.SystemColors.Highlight;
             this.GradientPanelAddLesson.GradientTopRight = System.Drawing.SystemColors.Highlight;
             this.GradientPanelAddLesson.Location = new System.Drawing.Point(0, 0);
-            this.GradientPanelAddLesson.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.GradientPanelAddLesson.Margin = new System.Windows.Forms.Padding(1);
             this.GradientPanelAddLesson.Name = "GradientPanelAddLesson";
             this.GradientPanelAddLesson.Quality = 10;
             this.GradientPanelAddLesson.Size = new System.Drawing.Size(110, 305);
@@ -303,9 +308,9 @@ namespace StudentSupportApp
             this.lbModLesson.Location = new System.Drawing.Point(11, 96);
             this.lbModLesson.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbModLesson.Name = "lbModLesson";
-            this.lbModLesson.Size = new System.Drawing.Size(96, 129);
+            this.lbModLesson.Size = new System.Drawing.Size(78, 129);
             this.lbModLesson.TabIndex = 18;
-            this.lbModLesson.Text = "Sửa\r\nmôn \r\nhọc\r\n";
+            this.lbModLesson.Text = "Sửa\r\ntiết\r\nhọc\r\n";
             this.lbModLesson.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ModLessonForm
@@ -328,7 +333,7 @@ namespace StudentSupportApp
             this.Controls.Add(this.GradientPanelAddLesson);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "ModLessonForm";
             this.Text = "ModLessonForm";
             this.GradientPanelAddLesson.ResumeLayout(false);
